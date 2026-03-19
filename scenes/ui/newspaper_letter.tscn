@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c8wytlhkw0oa4"]
+
+[ext_resource type="Script" uid="uid://dv7tgvtbopi0i" path="res://scripts/ui/newspaper_letter.gd" id="1_qr2r6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5so1n"]
+font_size = 40
+
+[node name="Newspaper" type="Control" unique_id=2133484499]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("1_qr2r6")
+
+[node name="Panel" type="Panel" parent="." unique_id=1436126475]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = -290.0
+offset_right = 227.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Panel" unique_id=1043389092]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -27.5
+offset_right = 61.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST 1"
+label_settings = SubResource("LabelSettings_5so1n")

@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://b5v8bj3uciobn"]
 
+[ext_resource type="Texture2D" uid="uid://cv5qscxpfsn3d" path="res://resources/sprites/office_placeholder.png" id="1_3e7dm"]
+[ext_resource type="PackedScene" uid="uid://b18ney4nylxda" path="res://scenes/mail_box.tscn" id="2_n0wcf"]
+
 [node name="Office" type="Node2D" unique_id=213468181]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1208828955]
+position = Vector2(960, 540)
+texture = ExtResource("1_3e7dm")
+
+[node name="MailBox" parent="." unique_id=603560281 instance=ExtResource("2_n0wcf")]
+offset_left = 523.0
+offset_top = 523.0
+offset_right = 651.0
+offset_bottom = 651.0

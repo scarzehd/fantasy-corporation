@@ -1,0 +1,2 @@
+extends Letter
+class_name NewspaperLetter
