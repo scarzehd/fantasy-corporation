@@ -41,6 +41,7 @@ func _set_current_index(new_value:int):
 	
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(letter_container, "position:x", -1920 * new_value, 0.25)
 
 func _on_previous_letter_button_pressed() -> void:

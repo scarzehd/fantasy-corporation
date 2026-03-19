@@ -4,6 +4,13 @@
 [ext_resource type="Script" uid="uid://dpu5bwcfq8t3j" path="res://scripts/mail_box.gd" id="2_rx4kg"]
 [ext_resource type="PackedScene" uid="uid://c8wytlhkw0oa4" path="res://scenes/ui/newspaper_letter.tscn" id="3_xs0bi"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_xs0bi"]
+font_size = 30
+font_color = Color(0.9843137, 1, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="MailBox" type="TextureButton" unique_id=603560281]
 anchors_preset = 8
 anchor_left = 0.5
@@ -105,6 +112,23 @@ mouse_filter = 2
 
 [node name="Control" parent="LettersMenu/LetterContainer" unique_id=2133484499 instance=ExtResource("3_xs0bi")]
 layout_mode = 2
+
+[node name="Control2" parent="LettersMenu/LetterContainer" unique_id=877670600 instance=ExtResource("3_xs0bi")]
+layout_mode = 2
+
+[node name="Control3" parent="LettersMenu/LetterContainer" unique_id=1742604380 instance=ExtResource("3_xs0bi")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=280829115]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -43.0
+offset_bottom = -1.0
+grow_horizontal = 2
+text = "Mail Box"
+label_settings = SubResource("LabelSettings_xs0bi")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="pressed" from="LettersMenu/PreviousLetterButton" to="." method="_on_previous_letter_button_pressed"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://bu61ah7chtris"]
+
+[ext_resource type="Script" uid="uid://iqoryqclt1u8" path="res://scripts/resources/character_data.gd" id="1_4b7yr"]
+[ext_resource type="Texture2D" uid="uid://djhxjdfepydac" path="res://resources/sprites/jane_doe.png" id="1_aerqa"]
+
+[resource]
+script = ExtResource("1_4b7yr")
+first_name = "Jane"
+last_name = "Doe"
+power = 200
+defense = 10
+portrait = ExtResource("1_aerqa")
+metadata/_custom_type_script = "uid://iqoryqclt1u8"

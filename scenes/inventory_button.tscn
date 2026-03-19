@@ -1,0 +1,396 @@
+[gd_scene format=3 uid="uid://b6l6lmnoqeao4"]
+
+[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="1_cvjyr"]
+[ext_resource type="Script" uid="uid://cxk126br6b14e" path="res://scripts/ui/inventory_menu.gd" id="2_j6i4b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cvjyr"]
+font_size = 30
+font_color = Color(0, 0.9666667, 1, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6i4b"]
+bg_color = Color(0, 0, 0, 0)
+border_width_top = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j6i4b"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_x8ex6"]
+font_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpwv6"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pfx8"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 1, 0.23529412, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8ex6"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 1, 0.23529412, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lwc4"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 1, 0.23529412, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpwv6"]
+font_size = 20
+
+[node name="InventoryButton" type="TextureButton" unique_id=1539192965]
+offset_right = 256.0
+offset_bottom = 256.0
+texture_normal = ExtResource("1_cvjyr")
+stretch_mode = 0
+script = ExtResource("2_j6i4b")
+
+[node name="Label" type="Label" parent="." unique_id=1550663951]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -47.0
+offset_bottom = -24.0
+grow_horizontal = 2
+text = "Inventory"
+label_settings = SubResource("LabelSettings_cvjyr")
+horizontal_alignment = 1
+
+[node name="InventoryMenu" type="Panel" parent="." unique_id=1947896191]
+unique_name_in_owner = true
+visible = false
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExitButton" type="Button" parent="InventoryMenu" unique_id=384403970]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.0
+offset_top = 81.0
+offset_right = 101.0
+offset_bottom = 149.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+
+[node name="Panel" type="Panel" parent="InventoryMenu" unique_id=1014347694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 476.0
+offset_top = 205.0
+offset_right = -476.0
+offset_bottom = -205.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="InventoryMenu/Panel" unique_id=60800734]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+
+[node name="Items" type="GridContainer" parent="InventoryMenu/Panel/TabContainer" unique_id=975464853]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Adventurers" type="Control" parent="InventoryMenu/Panel/TabContainer" unique_id=789046320]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers" unique_id=1668952509]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer" unique_id=924398717]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer" unique_id=1774260625]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="CharacterSelectContainer" type="HBoxContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer" unique_id=805450781]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CharacterSelectTemplate" type="MarginContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer" unique_id=1586697291]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer/CharacterSelectTemplate" unique_id=1176791227]
+layout_mode = 2
+toggle_mode = true
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer/CharacterSelectTemplate/Button" unique_id=17098836]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 307.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer/CharacterSelectTemplate/Button/MarginContainer" unique_id=184670508]
+layout_mode = 2
+
+[node name="CharacterName" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer/CharacterSelectTemplate/Button/MarginContainer/VBoxContainer" unique_id=132635977]
+layout_mode = 2
+text = "John Smith"
+horizontal_alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer/CharacterSelectTemplate/Button/MarginContainer/VBoxContainer" unique_id=725785965]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_cvjyr")
+expand_mode = 1
+
+[node name="Stats" type="Panel" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer" unique_id=406178434]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j6i4b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats" unique_id=286969507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer" unique_id=724328493]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="StatsNameLabel" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer" unique_id=1700138962]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Name:"
+label_settings = SubResource("LabelSettings_j6i4b")
+
+[node name="Control" type="Control" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer" unique_id=168785060]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="StatsName" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer" unique_id=1448154998]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.7
+text = "John Smith"
+label_settings = SubResource("LabelSettings_j6i4b")
+
+[node name="Control2" type="Control" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer" unique_id=66689263]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="StatsClass" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer" unique_id=249914866]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Class: Fighter"
+label_settings = SubResource("LabelSettings_x8ex6")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer" unique_id=1138768179]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2" unique_id=1394123301]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="Control" type="Control" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control" unique_id=480000386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control" unique_id=367676406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 39
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer" unique_id=109228004]
+layout_mode = 2
+
+[node name="HPLabel" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer/HBoxContainer" unique_id=1818780111]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "HP"
+
+[node name="StatsHP" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer/HBoxContainer" unique_id=735378957]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+text = "100"
+
+[node name="HPBar" type="ProgressBar" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer/HBoxContainer" unique_id=1025378883]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_vpwv6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2pfx8")
+value = 50.0
+show_percentage = false
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer" unique_id=136669772]
+layout_mode = 2
+
+[node name="PowerLabel" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer/HBoxContainer3" unique_id=179151733]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "Power"
+
+[node name="StatsPower" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer/HBoxContainer3" unique_id=408016927]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+text = "100"
+
+[node name="PowerBar" type="ProgressBar" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer/HBoxContainer3" unique_id=2039757018]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_vpwv6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_x8ex6")
+value = 50.0
+show_percentage = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer" unique_id=1481052008]
+layout_mode = 2
+
+[node name="Defense" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer/HBoxContainer2" unique_id=1956827566]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "Defense"
+
+[node name="StatsDefense" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer/HBoxContainer2" unique_id=648903298]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+text = "50"
+
+[node name="DefenseBar" type="ProgressBar" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/Control/Control/VBoxContainer/HBoxContainer2" unique_id=823774056]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_vpwv6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0lwc4")
+value = 50.0
+show_percentage = false
+
+[node name="TraitsContainer" type="VBoxContainer" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2" unique_id=515346001]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_constants/separation = 10
+
+[node name="TraitsLabel" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/TraitsContainer" unique_id=2738968]
+layout_mode = 2
+text = "Traits"
+label_settings = SubResource("LabelSettings_vpwv6")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/TraitsContainer" unique_id=1809902127]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/TraitsContainer" unique_id=1457136426]
+layout_mode = 2
+text = "Trait 1"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/TraitsContainer" unique_id=1540227220]
+layout_mode = 2
+text = "Trait 2"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/Stats/VBoxContainer/HBoxContainer2/TraitsContainer" unique_id=298293258]
+layout_mode = 2
+text = "Trait 3"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="InventoryMenu/ExitButton" to="." method="_on_exit_button_pressed"]
