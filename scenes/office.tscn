@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cv5qscxpfsn3d" path="res://resources/sprites/office_placeholder.png" id="1_3e7dm"]
 [ext_resource type="PackedScene" uid="uid://b18ney4nylxda" path="res://scenes/mail_box.tscn" id="2_n0wcf"]
 [ext_resource type="PackedScene" uid="uid://b6l6lmnoqeao4" path="res://scenes/inventory_button.tscn" id="3_jwaux"]
+[ext_resource type="PackedScene" uid="uid://b5g6o30nuwyk" path="res://scenes/ui/door_button.tscn" id="4_7jj4f"]
 
 [node name="Office" type="Node2D" unique_id=213468181]
 
@@ -10,14 +11,20 @@
 position = Vector2(960, 540)
 texture = ExtResource("1_3e7dm")
 
-[node name="MailBox" parent="." unique_id=603560281 instance=ExtResource("2_n0wcf")]
-offset_left = 518.0
-offset_top = 518.0
-offset_right = 646.0
-offset_bottom = 646.0
+[node name="DoorButton" parent="." unique_id=2091833698 instance=ExtResource("4_7jj4f")]
+offset_left = 411.0
+offset_top = 105.0
+offset_right = 811.0
+offset_bottom = 705.0
 
 [node name="InventoryButton" parent="." unique_id=1539192965 instance=ExtResource("3_jwaux")]
 offset_left = 1205.0
 offset_top = 188.0
 offset_right = 1461.0
 offset_bottom = 444.0
+
+[node name="MailBox" parent="." unique_id=603560281 instance=ExtResource("2_n0wcf")]
+offset_left = 518.0
+offset_top = 518.0
+offset_right = 646.0
+offset_bottom = 646.0

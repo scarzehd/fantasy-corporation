@@ -1,7 +1,7 @@
 extends TextureButton
 class_name InventoryMenu
 
-@onready var inventory_menu:Panel = %InventoryMenu
+@onready var inventory_menu:CanvasLayer = %InventoryMenu
 
 @onready var character_select_container:HBoxContainer = %CharacterSelectContainer
 @onready var character_select_template:MarginContainer = %CharacterSelectTemplate
@@ -24,6 +24,7 @@ func _on_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	inventory_menu.hide()
+	clear_ui()
 
 func clear_ui():
 	for child in character_select_container.get_children():
@@ -46,7 +47,8 @@ func populate_ui():
 		
 		name_label.text = character_data.full_name
 		portrait.texture = character_data.portrait
-		button.pressed.connect(select_character.bind(character_data, button))
+		button.pressed.connect(select_character.bind(character_data))
+		button.button_group = character_select_template.find_child("Button").button_group
 		
 		character_select_buttons.append(button)
 		character_select_container.add_child(template)
@@ -54,16 +56,10 @@ func populate_ui():
 		
 		if not selected:
 			button.button_pressed = true
-			select_character(character_data, button)
+			select_character(character_data)
 			selected = true
 
-func select_character(character_data:CharacterData, button:Button):
-	for other_button in character_select_buttons:
-		other_button.button_pressed = false
-		other_button.button_mask = MOUSE_BUTTON_MASK_LEFT
-	
-	button.button_mask = 0
-	
+func select_character(character_data:CharacterData):
 	stats_name.text = character_data.full_name
 	# TODO replace this with something less stupid
 	stats_class.text = "Class: " + character_data.get_class_name()

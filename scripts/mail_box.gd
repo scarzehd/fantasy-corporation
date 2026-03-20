@@ -3,7 +3,7 @@ class_name MailBox
 
 var resume_letter_scene:PackedScene = preload("uid://cfp71tj5xdeqh")
 
-@onready var letters_menu:Panel = %LettersMenu
+@onready var letters_menu:CanvasLayer = %LettersMenu
 @onready var previous_letter_button:Button = %PreviousLetterButton
 @onready var next_letter_button:Button = %NextLetterButton
 @onready var letter_container:HBoxContainer = %LetterContainer
@@ -14,14 +14,11 @@ var current_index:int = 0 : set = _set_current_index
 var tween:Tween
 
 func _ready() -> void:
-	for i in range(3):
-		var resume_letter:ResumeLetter = resume_letter_scene.instantiate()
-		resume_letter.character_data = Globals.character_generator.generate()
-		letter_container.add_child(resume_letter)
-	
 	for child in letter_container.get_children():
 		if child is Letter:
 			letters.append(child)
+	
+	TimeManager.day_started.connect(_on_day_started)
 	
 	_set_current_index(current_index)
 
@@ -50,6 +47,14 @@ func _set_current_index(new_value:int):
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(letter_container, "position:x", -1920 * new_value, 0.25)
+
+func _on_day_started():
+	_on_confirm_button_pressed()
+	
+	var resume_letter:ResumeLetter = resume_letter_scene.instantiate()
+	resume_letter.character_data = Globals.character_generator.generate()
+	letter_container.add_child(resume_letter)
+	letters.append(resume_letter)
 
 func _on_previous_letter_button_pressed() -> void:
 	current_index -= 1
