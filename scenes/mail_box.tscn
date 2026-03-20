@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="1_xs0bi"]
 [ext_resource type="Script" uid="uid://dpu5bwcfq8t3j" path="res://scripts/mail_box.gd" id="2_rx4kg"]
-[ext_resource type="PackedScene" uid="uid://c8wytlhkw0oa4" path="res://scenes/ui/newspaper_letter.tscn" id="3_xs0bi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xs0bi"]
 font_size = 30
@@ -80,7 +79,7 @@ offset_right = 163.0
 offset_bottom = 169.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
-text = "Put Down"
+text = "Exit"
 
 [node name="ConfirmButton" type="Button" parent="LettersMenu" unique_id=2068006479]
 layout_mode = 1
@@ -109,15 +108,6 @@ offset_right = 1920.0
 offset_bottom = 540.0
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="Control" parent="LettersMenu/LetterContainer" unique_id=2133484499 instance=ExtResource("3_xs0bi")]
-layout_mode = 2
-
-[node name="Control2" parent="LettersMenu/LetterContainer" unique_id=877670600 instance=ExtResource("3_xs0bi")]
-layout_mode = 2
-
-[node name="Control3" parent="LettersMenu/LetterContainer" unique_id=1742604380 instance=ExtResource("3_xs0bi")]
-layout_mode = 2
 
 [node name="Label" type="Label" parent="." unique_id=280829115]
 layout_mode = 1

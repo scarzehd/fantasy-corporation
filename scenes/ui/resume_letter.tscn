@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://cfp71tj5xdeqh"]
+
+[ext_resource type="Script" uid="uid://dtpns7tj0p0kc" path="res://scripts/ui/resume_letter.gd" id="1_sj4sk"]
+[ext_resource type="Texture2D" uid="uid://djhxjdfepydac" path="res://resources/sprites/jane_doe.png" id="2_35nig"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_35nig"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_xblef"]
+font_size = 25
+font_color = Color(0.6313726, 0.6313726, 0.6313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35nig"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.32156864, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_35nig"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xblef"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.6784314, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_54jet"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsqcj"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_cu4h5"]
+font_size = 20
+
+[node name="ResumeLetter" type="Control" unique_id=646968792]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_sj4sk")
+
+[node name="Panel" type="Panel" parent="." unique_id=1435767542]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.0
+offset_top = -307.0
+offset_right = 354.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=816843848]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 17.0
+offset_right = -12.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1878414514]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1622074844]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("2_35nig")
+expand_mode = 1
+
+[node name="NameLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1268166775]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Jane Doe"
+label_settings = SubResource("LabelSettings_35nig")
+horizontal_alignment = 1
+
+[node name="ClassLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=859467595]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fighter"
+label_settings = SubResource("LabelSettings_xblef")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer" unique_id=897328587]
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 1
+
+[node name="RejectButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1124568217]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/pressed = SubResource("StyleBoxFlat_35nig")
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_35nig")
+text = "Reject"
+
+[node name="Control" type="Control" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1037940507]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="AcceptButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=329065059]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xblef")
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_35nig")
+text = "Accept"
+
+[node name="Control" type="Control" parent="Panel/HBoxContainer/VBoxContainer" unique_id=754075830]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Panel/HBoxContainer" unique_id=920860846]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=338545084]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=366627854]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1773573403]
+layout_mode = 2
+text = "About Me"
+label_settings = SubResource("LabelSettings_54jet")
+
+[node name="Control" type="Control" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1208680838]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="TraitLabelContainer" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1065291481]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TraitLabelTemplate" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer/TraitLabelContainer" unique_id=1707863168]
+unique_name_in_owner = true
+layout_mode = 2
+text = "- Trait"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=563025037]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2" unique_id=108961615]
+layout_mode = 2
+text = "Skills & Abilities"
+label_settings = SubResource("LabelSettings_bsqcj")
+
+[node name="Control" type="Control" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2" unique_id=1436504478]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2" unique_id=191044889]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer" unique_id=303753353]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HP"
+
+[node name="HPLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer" unique_id=425008159]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "100"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2" unique_id=1900204304]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer2" unique_id=84814152]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power"
+
+[node name="PowerLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer2" unique_id=368144320]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "100"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2" unique_id=1084481447]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer3" unique_id=326809988]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Defense"
+
+[node name="DefenseLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer3" unique_id=356222446]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "100"
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=599109066]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.3
+text = "Desired Payment: $100"
+label_settings = SubResource("LabelSettings_cu4h5")

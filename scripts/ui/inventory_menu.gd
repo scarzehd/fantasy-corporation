@@ -44,7 +44,7 @@ func populate_ui():
 		var portrait = template.find_child("Portrait", true, false)
 		var button = template.find_child("Button", true, false)
 		
-		name_label.text = character_data.first_name + " " + character_data.last_name
+		name_label.text = character_data.full_name
 		portrait.texture = character_data.portrait
 		button.pressed.connect(select_character.bind(character_data, button))
 		
@@ -64,9 +64,9 @@ func select_character(character_data:CharacterData, button:Button):
 	
 	button.button_mask = 0
 	
-	stats_name.text = character_data.first_name + " " + character_data.last_name
+	stats_name.text = character_data.full_name
 	# TODO replace this with something less stupid
-	stats_class.text = "Class: Fighter" if character_data.character_class == CharacterData.CharacterClass.Fighter else "Class: Mage"
+	stats_class.text = "Class: " + character_data.get_class_name()
 	stats_hp.text = str(character_data.hp)
 	stats_power.text = str(character_data.power)
 	stats_defense.text = str(character_data.defense)

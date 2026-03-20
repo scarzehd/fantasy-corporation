@@ -11,8 +11,21 @@ enum CharacterClass {
 @export var first_name:String = "John"
 @export var last_name:String = "Smith"
 
+var full_name:String :
+	get():
+		return first_name + " " + last_name
+
 @export var power:int = 100
 @export var defense:int = 50
 @export var hp:int = 100
 @export var portrait:Texture2D
 @export var character_class:CharacterClass
+
+func get_class_name() -> String:
+	match character_class:
+		CharacterClass.Fighter:
+			return "Fighter"
+		CharacterClass.Mage:
+			return "Mage"
+	
+	return ""

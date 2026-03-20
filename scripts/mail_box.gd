@@ -1,6 +1,8 @@
 extends TextureButton
 class_name MailBox
 
+var resume_letter_scene:PackedScene = preload("uid://cfp71tj5xdeqh")
+
 @onready var letters_menu:Panel = %LettersMenu
 @onready var previous_letter_button:Button = %PreviousLetterButton
 @onready var next_letter_button:Button = %NextLetterButton
@@ -12,6 +14,11 @@ var current_index:int = 0 : set = _set_current_index
 var tween:Tween
 
 func _ready() -> void:
+	for i in range(3):
+		var resume_letter:ResumeLetter = resume_letter_scene.instantiate()
+		resume_letter.character_data = Globals.character_generator.generate()
+		letter_container.add_child(resume_letter)
+	
 	for child in letter_container.get_children():
 		if child is Letter:
 			letters.append(child)
