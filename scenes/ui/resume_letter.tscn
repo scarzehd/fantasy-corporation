@@ -10,6 +10,10 @@ font_size = 25
 font_size = 25
 font_color = Color(0.6313726, 0.6313726, 0.6313726, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_2ul7h"]
+font_size = 20
+font_color = Color(1, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35nig"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -107,12 +111,22 @@ text = "Fighter"
 label_settings = SubResource("LabelSettings_xblef")
 horizontal_alignment = 1
 
+[node name="InsufficientFundsLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=179684855]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 10
+text = "Insufficient Funds"
+label_settings = SubResource("LabelSettings_2ul7h")
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer" unique_id=897328587]
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
 
 [node name="RejectButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1124568217]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 theme_override_styles/pressed = SubResource("StyleBoxFlat_35nig")
@@ -226,9 +240,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "100"
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=599109066]
+[node name="PaymentLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=599109066]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 2
 size_flags_stretch_ratio = 0.3
 text = "Desired Payment: $100"
 label_settings = SubResource("LabelSettings_cu4h5")
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=1594102855]
+layout_mode = 2

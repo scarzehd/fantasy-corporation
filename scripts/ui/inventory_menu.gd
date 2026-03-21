@@ -18,6 +18,9 @@ class_name InventoryMenu
 
 var character_select_buttons:Array[Button]
 
+func _ready() -> void:
+	clear_ui()
+
 func _on_pressed() -> void:
 	inventory_menu.show()
 	populate_ui()
@@ -36,6 +39,9 @@ func clear_ui():
 	stats_hp.text = ""
 	stats_power.text = ""
 	stats_defense.text = ""
+	
+	stats_name.text = "None Selected"
+	stats_class.text = "Class: None"
 
 func populate_ui():
 	var selected:bool = false
