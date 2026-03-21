@@ -15,6 +15,7 @@ var full_name:String :
 	get():
 		return first_name + " " + last_name
 
+@export var attack:int = 10
 @export var power:int = 100
 @export var defense:int = 50
 @export var hp:int = 100

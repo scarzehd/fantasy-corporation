@@ -6,6 +6,8 @@ var character_generator:CharacterGenerator = preload("res://resources/character_
 
 var hired_characters:Array[CharacterData]
 
+var owned_items:Array[ItemData]
+
 var money:int = 100 :
 	set(new_money):
 		money_changed.emit(money, new_money)

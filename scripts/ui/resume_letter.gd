@@ -10,6 +10,7 @@ class_name ResumeLetter
 @onready var accept_button:Button = %AcceptButton
 @onready var reject_button:Button = %RejectButton
 @onready var hp_label:Label = %HPLabel
+@onready var attack_label:Label = %AttackLabel
 @onready var power_label:Label = %PowerLabel
 @onready var defense_label:Label = %DefenseLabel
 @onready var payment_label:Label = %PaymentLabel
@@ -32,6 +33,7 @@ func _set_character_data(new_character_data:CharacterData):
 	name_label.text = character_data.full_name
 	class_label.text = character_data.get_class_name()
 	hp_label.text = str(character_data.hp)
+	attack_label.text = str(character_data.attack)
 	power_label.text = str(character_data.power)
 	defense_label.text = str(character_data.defense)
 

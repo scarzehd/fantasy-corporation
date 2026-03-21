@@ -3,6 +3,8 @@ class_name CharacterGenerator
 
 @export var power_range:Vector2i
 @export var power_deviation:float = 0.5
+@export var attack_range:Vector2i
+@export var attack_deviation:float = 0.5
 @export var defense_range:Vector2i
 @export var defense_deviation:float = 0.5
 @export var hp_range:Vector2i
@@ -87,6 +89,7 @@ func generate() -> CharacterData:
 	data.hp = generate_in_range(hp_range.x, hp_range.y, hp_deviation)
 	data.power = generate_in_range(power_range.x, power_range.y, power_deviation)
 	data.defense = generate_in_range(defense_range.x, defense_range.y, defense_deviation)
+	data.attack = generate_in_range(attack_range.x, attack_range.y, attack_deviation)
 	
 	data.first_name = first_names.pick_random()
 	data.last_name = last_names.pick_random()

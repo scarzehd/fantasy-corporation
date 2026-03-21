@@ -212,6 +212,20 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "100"
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2" unique_id=1878973105]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer4" unique_id=723013945]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attack"
+
+[node name="AttackLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer4" unique_id=967183567]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "100"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2" unique_id=1900204304]
 layout_mode = 2
 
