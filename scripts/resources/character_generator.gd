@@ -75,21 +75,16 @@ class_name CharacterGenerator
 
 @export var portraits:Array[Texture2D]
 
-func generate_in_range(lower:int, upper:int, deviation_scale:float) -> int:
-	var mean = (upper + lower) / 2.0
-	var deviation = (upper - mean) * deviation_scale
-	return clamp(roundi(randfn(mean, deviation)), lower, upper)
-
 func generate() -> CharacterData:
 	var data = CharacterData.new()
 	
 	# TODO do this in a less stupid way.
 	data.character_class = CharacterData.CharacterClass.Fighter if randf() > 0.5 else CharacterData.CharacterClass.Mage
 	
-	data.hp = generate_in_range(hp_range.x, hp_range.y, hp_deviation)
-	data.power = generate_in_range(power_range.x, power_range.y, power_deviation)
-	data.defense = generate_in_range(defense_range.x, defense_range.y, defense_deviation)
-	data.attack = generate_in_range(attack_range.x, attack_range.y, attack_deviation)
+	data.hp = RandomUtils.generate_in_range(hp_range.x, hp_range.y, hp_deviation)
+	data.power = RandomUtils.generate_in_range(power_range.x, power_range.y, power_deviation)
+	data.defense = RandomUtils.generate_in_range(defense_range.x, defense_range.y, defense_deviation)
+	data.attack = RandomUtils.generate_in_range(attack_range.x, attack_range.y, attack_deviation)
 	
 	data.first_name = first_names.pick_random()
 	data.last_name = last_names.pick_random()

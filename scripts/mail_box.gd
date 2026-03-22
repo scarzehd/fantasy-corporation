@@ -4,8 +4,8 @@ class_name MailBox
 var resume_letter_scene:PackedScene = preload("uid://cfp71tj5xdeqh")
 
 @onready var letters_menu:CanvasLayer = %LettersMenu
-@onready var previous_letter_button:Button = %PreviousLetterButton
-@onready var next_letter_button:Button = %NextLetterButton
+@onready var previous_letter_button:TextureButton = %PreviousLetterButton
+@onready var next_letter_button:TextureButton = %NextLetterButton
 @onready var letter_container:HBoxContainer = %LetterContainer
 
 var letters:Array[Letter]
@@ -30,14 +30,14 @@ func _on_pressed() -> void:
 func _set_current_index(new_value:int):
 	current_index = clamp(new_value, 0, max(letters.size() - 1, 0))
 	
-	previous_letter_button.disabled = false
-	next_letter_button.disabled = false
+	previous_letter_button.show()
+	next_letter_button.show()
 	
 	if current_index <= 0:
-		previous_letter_button.disabled = true
+		previous_letter_button.hide()
 	
 	if current_index >= letters.size() - 1:
-		next_letter_button.disabled = true
+		next_letter_button.hide()
 	
 	#letter_container.position.x = -1920 * new_value
 	if tween:
@@ -51,10 +51,11 @@ func _set_current_index(new_value:int):
 func _on_day_started():
 	_on_confirm_button_pressed()
 	
-	var resume_letter:ResumeLetter = resume_letter_scene.instantiate()
-	resume_letter.character_data = Globals.character_generator.generate()
-	letter_container.add_child(resume_letter)
-	letters.append(resume_letter)
+	for i in range(3):
+		var resume_letter:ResumeLetter = resume_letter_scene.instantiate()
+		resume_letter.character_data = Globals.character_generator.generate()
+		letter_container.add_child(resume_letter)
+		letters.append(resume_letter)
 
 func _on_previous_letter_button_pressed() -> void:
 	current_index -= 1

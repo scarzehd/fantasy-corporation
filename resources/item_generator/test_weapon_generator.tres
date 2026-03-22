@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BasicItemGenerator" format=3 uid="uid://bidghh6bm6ssw"]
+
+[ext_resource type="Script" uid="uid://b4ivx5m3ti8ca" path="res://scripts/resources/basic_item_generator.gd" id="1_flsav"]
+[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="2_f85qd"]
+
+[resource]
+script = ExtResource("1_flsav")
+power_range = Vector2i(-15, 45)
+attack_range = Vector2i(-15, 45)
+defense_range = Vector2i(-15, 45)
+hp_range = Vector2i(-15, 45)
+weapon_portraits = Array[Texture2D]([ExtResource("2_f85qd")])
+metadata/_custom_type_script = "uid://b4ivx5m3ti8ca"

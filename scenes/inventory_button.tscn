@@ -12,6 +12,18 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_0lwc4"]
 font_size = 20
 
+[sub_resource type="LabelSettings" id="LabelSettings_2pfx8"]
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nu470"]
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4gce7"]
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5dhko"]
+font_color = Color(0, 1, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nu470"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -204,21 +216,25 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 text = "+0 HP"
+label_settings = SubResource("LabelSettings_2pfx8")
 
 [node name="AttackLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/HBoxContainer/VBoxContainer" unique_id=1546100635]
 visible = false
 layout_mode = 2
 text = "+0 Attack"
+label_settings = SubResource("LabelSettings_nu470")
 
 [node name="PowerLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/HBoxContainer/VBoxContainer" unique_id=1079537599]
 visible = false
 layout_mode = 2
 text = "+0 Power"
+label_settings = SubResource("LabelSettings_4gce7")
 
 [node name="DefenseLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/HBoxContainer/VBoxContainer" unique_id=1528824638]
 visible = false
 layout_mode = 2
 text = "+0 Defense"
+label_settings = SubResource("LabelSettings_5dhko")
 
 [node name="Adventurers" type="Control" parent="InventoryMenu/InventoryMenu/Panel/TabContainer" unique_id=789046320]
 visible = false

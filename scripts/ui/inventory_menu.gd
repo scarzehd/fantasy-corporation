@@ -90,21 +90,37 @@ func populate_ui():
 		
 		portrait.texture = item.item_portrait
 		
-		if item.hp > 0:
+		if item.hp != 0:
 			hp_label.show()
 			hp_label.text = "+" + str(item.hp) + " HP"
+			hp_label.label_settings = hp_label.label_settings.duplicate()
+		if item.hp < 0:
+			hp_label.text = str(item.hp) + " HP"
+			hp_label.label_settings.font_color = Color.RED
 		
-		if item.attack > 0:
+		if item.attack != 0:
 			attack_label.show()
 			attack_label.text = "+" + str(item.attack) + " Attack"
+			attack_label.label_settings = attack_label.label_settings.duplicate()
+		if item.attack < 0:
+			attack_label.text = str(item.attack) + " Attack"
+			attack_label.label_settings.font_color = Color.RED
 		
-		if item.power > 0:
+		if item.power != 0:
 			power_label.show()
 			power_label.text = "+" + str(item.power) + " Power"
+			power_label.label_settings = power_label.label_settings.duplicate()
+		if item.power < 0:
+			power_label.text = str(item.power) + " Power"
+			power_label.label_settings.font_color = Color.RED
 		
-		if item.defense > 0:
+		if item.defense != 0:
 			defense_label.show()
 			defense_label.text = "+" + str(item.defense) + " Defense"
+			defense_label.label_settings = defense_label.label_settings.duplicate()
+		if item.defense < 0:
+			defense_label.text = str(item.defense) + " Defense"
+			defense_label.label_settings.font_color = Color.RED
 
 func select_character(character_data:CharacterData):
 	stats_name.text = character_data.full_name
