@@ -19,7 +19,7 @@ class_name InventoryMenu
 @onready var traits_container:VBoxContainer = %TraitsContainer
 
 @onready var item_container:GridContainer = %ItemContainer
-@onready var item_template:VBoxContainer = %ItemTemplate
+@onready var item_template:PanelContainer = %ItemTemplate
 
 var character_select_buttons:Array[Button]
 

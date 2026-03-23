@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cv5qscxpfsn3d" path="res://resources/sprites/office_placeholder.png" id="1_celh3"]
 [ext_resource type="Script" uid="uid://dqrcgnee5kglp" path="res://scripts/ui/door_button.gd" id="2_rxk0l"]
+[ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="3_q8bib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jwaux"]
 atlas = ExtResource("1_celh3")
@@ -52,6 +53,7 @@ offset_right = 289.0
 offset_bottom = 132.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_q8bib")
 
 [node name="Label" type="Label" parent="ConfirmationPopup/Control/ConfirmationPopup" unique_id=44244518]
 layout_mode = 1

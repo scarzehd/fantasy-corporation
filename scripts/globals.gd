@@ -10,11 +10,6 @@ var owned_items:Array[ItemData]
 
 var money:int = 100 :
 	set(new_money):
-		money_changed.emit(money, new_money)
+		var old_money = money
 		money = new_money
-
-func _ready() -> void:
-	var weapon_generator:BasicItemGenerator = load("res://resources/item_generator/test_weapon_generator.tres")
-	
-	for i in range(10):
-		owned_items.append(weapon_generator.generate_weapon())
+		money_changed.emit(old_money, new_money)

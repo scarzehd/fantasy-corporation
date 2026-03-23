@@ -61,3 +61,16 @@ offset_bottom = 78.0
 grow_horizontal = 2
 text = "Money:"
 label_settings = SubResource("LabelSettings_7jj4f")
+
+[node name="Label" type="Label" parent="Control" unique_id=32132912]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 636.0
+offset_top = 19.0
+offset_right = 887.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "Day 1"
+horizontal_alignment = 2

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="1_cvjyr"]
 [ext_resource type="Script" uid="uid://cxk126br6b14e" path="res://scripts/ui/inventory_menu.gd" id="2_j6i4b"]
+[ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="3_vpwv6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cvjyr"]
 font_size = 30
@@ -23,6 +24,9 @@ font_color = Color(0, 1, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5dhko"]
 font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gce7"]
+bg_color = Color(0.28, 0.28, 0.28, 0.25490198)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nu470"]
 content_margin_left = 4.0
@@ -136,9 +140,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -101.0
-offset_top = 81.0
+offset_top = 59.0
 offset_right = 101.0
-offset_bottom = 149.0
+offset_bottom = 174.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "Exit"
@@ -148,9 +152,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 476.0
+offset_left = 425.0
 offset_top = 205.0
-offset_right = -476.0
+offset_right = -425.0
 offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -162,9 +166,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 1
 
 [node name="Items" type="ScrollContainer" parent="InventoryMenu/InventoryMenu/Panel/TabContainer" unique_id=1394458444]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -182,14 +187,18 @@ unique_name_in_owner = true
 layout_mode = 2
 columns = 3
 
-[node name="ItemTemplate" type="VBoxContainer" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer" unique_id=1697261406]
+[node name="ItemTemplate" type="PanelContainer" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer" unique_id=362496840]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_vpwv6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate" unique_id=1697261406]
 clip_contents = true
 custom_minimum_size = Vector2(300, 275)
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate" unique_id=2063582699]
+[node name="NameLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=2063582699]
 layout_mode = 2
 text = "Item Name"
 label_settings = SubResource("LabelSettings_0lwc4")
@@ -197,47 +206,46 @@ horizontal_alignment = 1
 clip_text = true
 text_overrun_behavior = 4
 
-[node name="Portrait" type="TextureRect" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate" unique_id=14678009]
+[node name="Portrait" type="TextureRect" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=14678009]
 layout_mode = 2
 texture = ExtResource("1_cvjyr")
 stretch_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate" unique_id=1338490395]
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1338490395]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/HBoxContainer" unique_id=2021395933]
+[node name="Control" type="Control" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer" unique_id=2021395933]
 custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/HBoxContainer" unique_id=199035711]
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer" unique_id=199035711]
 layout_mode = 2
 
-[node name="HPLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/HBoxContainer/VBoxContainer" unique_id=1184182526]
+[node name="HPLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1184182526]
 visible = false
 layout_mode = 2
 text = "+0 HP"
 label_settings = SubResource("LabelSettings_2pfx8")
 
-[node name="AttackLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/HBoxContainer/VBoxContainer" unique_id=1546100635]
+[node name="AttackLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1546100635]
 visible = false
 layout_mode = 2
 text = "+0 Attack"
 label_settings = SubResource("LabelSettings_nu470")
 
-[node name="PowerLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/HBoxContainer/VBoxContainer" unique_id=1079537599]
+[node name="PowerLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1079537599]
 visible = false
 layout_mode = 2
 text = "+0 Power"
 label_settings = SubResource("LabelSettings_4gce7")
 
-[node name="DefenseLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/HBoxContainer/VBoxContainer" unique_id=1528824638]
+[node name="DefenseLabel" type="Label" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1528824638]
 visible = false
 layout_mode = 2
 text = "+0 Defense"
 label_settings = SubResource("LabelSettings_5dhko")
 
 [node name="Adventurers" type="Control" parent="InventoryMenu/InventoryMenu/Panel/TabContainer" unique_id=789046320]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -270,13 +278,15 @@ size_flags_vertical = 3
 
 [node name="CharacterSelectTemplate" type="MarginContainer" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer" unique_id=1586697291]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
 [node name="Button" type="Button" parent="InventoryMenu/InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer/CharacterSelectTemplate" unique_id=1176791227]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gce7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nu470")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nu470")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_nu470")
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_j6i4b")

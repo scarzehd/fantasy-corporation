@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://dtl43rskm8bex"]
+
+[ext_resource type="Script" uid="uid://cs3g66i4w6asg" path="res://scripts/ui/basic_shop_catalogue.gd" id="1_p7ddb"]
+[ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="2_di2yg"]
+[ext_resource type="Script" uid="uid://4317vvwer57w" path="res://scenes/ui/catalogue_item_view.gd" id="3_ducbn"]
+[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="3_rbluq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m3ob7"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_di2yg"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_7frca"]
+font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rbluq"]
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ducbn"]
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ijemo"]
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3gg2v"]
+font_color = Color(0, 1, 0, 1)
+
+[node name="BasicShopCatalogue" type="Control" unique_id=1808546722]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p7ddb")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=347023785]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -528.0
+offset_top = -335.0
+offset_right = 528.0
+offset_bottom = 335.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=177027501]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer" unique_id=1949721128]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer" unique_id=1736156069]
+layout_mode = 2
+text = "Sean's Weapon Shop"
+label_settings = SubResource("LabelSettings_m3ob7")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer" unique_id=622087018]
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer/ScrollContainer" unique_id=1522544659]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ItemContainer" type="GridContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer" unique_id=1502367867]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="ItemTemplate" type="PanelContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer" unique_id=1266427595]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(325, 475)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_di2yg")
+script = ExtResource("3_ducbn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate" unique_id=53025409]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=185102767]
+layout_mode = 2
+text = "Item Name"
+label_settings = SubResource("LabelSettings_di2yg")
+horizontal_alignment = 1
+
+[node name="ItemPortrait" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=797280252]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("3_rbluq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemTypeLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1168382575]
+layout_mode = 2
+text = "Weapon"
+label_settings = SubResource("LabelSettings_7frca")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=585336912]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer" unique_id=412031911]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer" unique_id=1612635619]
+layout_mode = 2
+
+[node name="HPLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1236825925]
+layout_mode = 2
+text = "+0 HP"
+label_settings = SubResource("LabelSettings_rbluq")
+
+[node name="AttackLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2120492579]
+layout_mode = 2
+text = "+0 Attack"
+label_settings = SubResource("LabelSettings_ducbn")
+
+[node name="PowerLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1221493329]
+layout_mode = 2
+text = "+0 Power"
+label_settings = SubResource("LabelSettings_ijemo")
+
+[node name="DefenseLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1622853606]
+layout_mode = 2
+text = "+0 Defense"
+label_settings = SubResource("LabelSettings_3gg2v")
+
+[node name="PurchaseButton" type="Button" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1816369334]
+layout_mode = 2
+size_flags_vertical = 10
+text = "100 Gold"
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1579045664]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2

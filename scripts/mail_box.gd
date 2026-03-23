@@ -56,6 +56,19 @@ func _on_day_started():
 		resume_letter.character_data = Globals.character_generator.generate()
 		letter_container.add_child(resume_letter)
 		letters.append(resume_letter)
+	
+	var weapon_generator:BasicItemGenerator = load("res://resources/item_generator/test_weapon_generator.tres")
+	
+	var items:Array[ItemData]
+	var prices:Array[int]
+	for i in range(6):
+		items.append(weapon_generator.generate_weapon())
+		prices.append(randi_range(50, 150))
+	
+	var catalogue = load("res://scenes/ui/letters/basic_shop_catalogue.tscn").instantiate()
+	letter_container.add_child(catalogue)
+	letters.append(catalogue)
+	catalogue.populate(items, prices)
 
 func _on_previous_letter_button_pressed() -> void:
 	current_index -= 1
