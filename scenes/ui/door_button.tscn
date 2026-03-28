@@ -1,18 +1,17 @@
 [gd_scene format=3 uid="uid://b5g6o30nuwyk"]
 
-[ext_resource type="Texture2D" uid="uid://cv5qscxpfsn3d" path="res://resources/sprites/office_placeholder.png" id="1_celh3"]
+[ext_resource type="Texture2D" uid="uid://clukf4tyeybfh" path="res://resources/sprites/office_placeholder_2.png" id="1_q8bib"]
 [ext_resource type="Script" uid="uid://dqrcgnee5kglp" path="res://scripts/ui/door_button.gd" id="2_rxk0l"]
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="3_q8bib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jwaux"]
-atlas = ExtResource("1_celh3")
-region = Rect2(400, 100, 400, 600)
+atlas = ExtResource("1_q8bib")
+region = Rect2(145.74341, 6.733322, 501.59985, 728.8203)
 
 [sub_resource type="LabelSettings" id="LabelSettings_celh3"]
 font_size = 30
 
 [node name="DoorButton" type="TextureButton" unique_id=2091833698]
-self_modulate = Color(0, 0.4666667, 1, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bqeebyy6ca406"]
+
+[ext_resource type="Script" uid="uid://c76kr58bobf5v" path="res://scripts/bounce_text.gd" id="1_i1nlb"]
+
+[sub_resource type="Animation" id="Animation_nii58"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i1nlb"]
+resource_name = "bounce"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(0.32987702, 2.1435473, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -46), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nii58"]
+_data = {
+&"RESET": SubResource("Animation_nii58"),
+&"bounce": SubResource("Animation_i1nlb")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_i1nlb"]
+resource_local_to_scene = true
+font_size = 40
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="BounceText" type="Node2D" unique_id=402685274 node_paths=PackedStringArray("label")]
+modulate = Color(1, 1, 1, 0)
+script = ExtResource("1_i1nlb")
+label = NodePath("Control/Label")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=834693284]
+libraries/ = SubResource("AnimationLibrary_nii58")
+autoplay = &"bounce"
+
+[node name="Control" type="Control" parent="." unique_id=1213131440]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=1758535592]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -11.5
+offset_right = 19.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "MISS"
+label_settings = SubResource("LabelSettings_i1nlb")
+horizontal_alignment = 1
+vertical_alignment = 1

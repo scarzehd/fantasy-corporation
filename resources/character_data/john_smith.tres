@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("2_pjph1")
-power = 150
-defense = 20
-hp = 50
+attack = 60
+power = 20
+defense = 125
 portrait = ExtResource("1_lxbja")
 character_class = 1
 metadata/_custom_type_script = "uid://iqoryqclt1u8"

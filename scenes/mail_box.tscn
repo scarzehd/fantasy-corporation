@@ -42,6 +42,7 @@ horizontal_alignment = 1
 
 [node name="LettersMenu" type="CanvasLayer" parent="." unique_id=1291763935]
 unique_name_in_owner = true
+visible = false
 
 [node name="LettersMenu" type="Panel" parent="LettersMenu" unique_id=1669161610]
 top_level = true
