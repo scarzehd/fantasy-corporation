@@ -2,7 +2,6 @@ extends Combatant
 class_name PlayerCombatant
 
 @export var name_label:Label
-@export var action_bar:HBoxContainer
 
 @export var character_data:CharacterData : set = _set_character_data
 @export var weapon:ItemData
@@ -12,14 +11,6 @@ func _ready() -> void:
 	super()
 	
 	name_label.text = character_data.full_name
-
-func start_turn():
-	super()
-	action_bar.show()
-
-func end_turn():
-	action_bar.hide()
-	super()
 
 func _get_hp() -> int:
 	var hp = base_hp

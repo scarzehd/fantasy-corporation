@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://c4d34l4i7cn5h" path="res://resources/item_data/sonic_hammer.tres" id="4_a12nh"]
 [ext_resource type="Resource" uid="uid://bu61ah7chtris" path="res://resources/character_data/jane_doe.tres" id="5_lpir7"]
 [ext_resource type="PackedScene" uid="uid://c6sty6uh7eymw" path="res://scenes/combatants/enemy/basic_enemy.tscn" id="6_6vh42"]
+[ext_resource type="PackedScene" uid="uid://3e8drigu5xm1" path="res://scenes/ui/battle_hud.tscn" id="7_4k1nj"]
 
 [node name="Battle" type="Node2D" unique_id=1135496140 node_paths=PackedStringArray("combatants")]
 script = ExtResource("1_dn72j")
@@ -29,3 +30,5 @@ position = Vector2(1416, 548)
 
 [node name="BasicEnemy3" parent="." unique_id=1097249763 instance=ExtResource("6_6vh42")]
 position = Vector2(1409, 838)
+
+[node name="BattleHUD" parent="." unique_id=690412004 instance=ExtResource("7_4k1nj")]

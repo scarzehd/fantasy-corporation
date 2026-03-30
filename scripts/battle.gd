@@ -5,6 +5,9 @@ static var instance:Battle
 
 #signal battle_finished(won:bool)
 
+signal turn_started(combatant:Combatant)
+signal turn_ended(combatant:Combatant)
+
 @warning_ignore("unused_signal")
 signal combatant_clicked(combatant:Combatant)
 
@@ -58,8 +61,11 @@ func handle_current_turn():
 	var current_combatant:Combatant = combatants[current_turn_index]
 	current_combatant.turn_finished.connect(current_turn_finished, CONNECT_ONE_SHOT)
 	current_combatant.start_turn()
+	turn_started.emit(current_combatant)
 
 func current_turn_finished():
+	turn_ended.emit(combatants[current_turn_index])
+	
 	current_turn_index += 1
 	if current_turn_index >= combatants.size():
 		current_turn_index = 0
