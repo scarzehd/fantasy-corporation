@@ -61,6 +61,7 @@ font_size = 25
 [node name="BasicEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_v5wtx")
 status_effect = SubResource("Resource_2emdk")
+combatant_name = "Bringle Cringus"
 health_bar = NodePath("Control/VBoxContainer/HealthBar")
 base_hp = 100
 base_attack = 50

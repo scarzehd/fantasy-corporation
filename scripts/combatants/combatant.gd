@@ -4,6 +4,9 @@ class_name Combatant
 signal turn_finished
 signal combatant_defeated
 
+@export var combatant_name:String : set = _set_combatant_name, get = _get_combatant_name
+@export var portrait:Texture : set = _set_portrait, get = _get_portrait
+
 var current_hp:int = 1 : set = _set_current_hp
 
 var max_hp:int : get = _get_hp
@@ -110,3 +113,15 @@ func _on_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 			Battle.instance.combatant_clicked.emit(self)
+
+func _set_combatant_name(new_value:String):
+	combatant_name = new_value
+
+func _get_combatant_name() -> String:
+	return combatant_name
+
+func _set_portrait(new_value:Texture):
+	portrait = new_value
+
+func _get_portrait() -> Texture:
+	return portrait

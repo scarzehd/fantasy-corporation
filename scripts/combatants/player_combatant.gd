@@ -7,10 +7,15 @@ class_name PlayerCombatant
 @export var weapon:ItemData
 @export var armor:Array[ItemData]
 
+@export var abilities:Array[Ability]
+
 func _ready() -> void:
 	super()
 	
 	name_label.text = character_data.full_name
+	
+	for ability in abilities:
+		ability.combatant = self
 
 func _get_hp() -> int:
 	var hp = base_hp
@@ -64,6 +69,18 @@ func _get_defense() -> int:
 		total_defense += item.defense
 	
 	return max(1, total_defense)
+
+func _get_combatant_name() -> String:
+	return character_data.full_name
+
+func _set_combatant_name(_new_value:String):
+	pass
+
+func _get_portrait() -> Texture:
+	return character_data.portrait
+
+func _set_portrait(_new_value:Texture):
+	pass
 
 func _set_character_data(new_value:CharacterData):
 	character_data = new_value

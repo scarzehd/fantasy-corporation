@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dhqkfgfuqgdye" path="res://scripts/combatants/player_combatant.gd" id="1_8x2sg"]
 [ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/character_base.png" id="2_cibvi"]
+[ext_resource type="Script" uid="uid://b1ihqjth617s6" path="res://scripts/combatants/abilities/attack.gd" id="3_35ab1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhwg"]
 size = Vector2(230, 250)
@@ -9,9 +10,11 @@ size = Vector2(230, 250)
 [sub_resource type="LabelSettings" id="LabelSettings_nvrs4"]
 font_size = 25
 
-[node name="CombatantBase" type="Area2D" unique_id=209960256 node_paths=PackedStringArray("name_label", "health_bar")]
+[node name="CombatantBase" type="Area2D" unique_id=209960256 node_paths=PackedStringArray("name_label", "abilities", "health_bar")]
 script = ExtResource("1_8x2sg")
 name_label = NodePath("Control/VBoxContainer/NameLabel")
+abilities = [NodePath("AttackAbility")]
+combatant_name = "Bringle Cringus"
 health_bar = NodePath("Control/VBoxContainer/HealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=238847892]
@@ -59,3 +62,9 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 2
 show_percentage = false
+
+[node name="AttackAbility" type="Node" parent="." unique_id=667375242]
+script = ExtResource("3_35ab1")
+ability_name = "Attack"
+toggle = true
+metadata/_custom_type_script = "uid://b1ihqjth617s6"

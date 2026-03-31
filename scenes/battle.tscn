@@ -18,7 +18,7 @@ character_data = ExtResource("3_a12nh")
 weapon = ExtResource("4_a12nh")
 
 [node name="CombatantBase2" parent="." unique_id=1704928774 instance=ExtResource("3_p1qf1")]
-position = Vector2(372, 336)
+position = Vector2(376, 299)
 character_data = ExtResource("5_lpir7")
 weapon = ExtResource("4_a12nh")
 
@@ -32,3 +32,5 @@ position = Vector2(1381, 294)
 position = Vector2(1531, 415)
 
 [node name="BattleHUD" parent="." unique_id=690412004 instance=ExtResource("7_4k1nj")]
+
+[connection signal="turn_started" from="." to="BattleHUD" method="_on_turn_started"]
