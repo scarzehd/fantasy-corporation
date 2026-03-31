@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxer6od4tbb5u"]
 
 [ext_resource type="Script" uid="uid://dhqkfgfuqgdye" path="res://scripts/combatants/player_combatant.gd" id="1_8x2sg"]
-[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="2_dplme"]
+[ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/character_base.png" id="2_cibvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhwg"]
 size = Vector2(230, 250)
@@ -18,7 +18,8 @@ health_bar = NodePath("Control/VBoxContainer/HealthBar")
 shape = SubResource("RectangleShape2D_rkhwg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=904817639]
-texture = ExtResource("2_dplme")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_cibvi")
 
 [node name="Control" type="Control" parent="." unique_id=1851136507]
 layout_mode = 3
@@ -28,7 +29,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -137.0
-offset_top = -132.0
+offset_top = -183.0
 offset_right = 137.0
 offset_bottom = 122.0
 grow_horizontal = 2
@@ -40,8 +41,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -25.0
-offset_bottom = -201.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -51,8 +50,12 @@ text = "Bringle Cringus"
 label_settings = SubResource("LabelSettings_nvrs4")
 horizontal_alignment = 1
 
+[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=795095389]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
 [node name="HealthBar" type="ProgressBar" parent="Control/VBoxContainer" unique_id=1665111007]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 2
 show_percentage = false

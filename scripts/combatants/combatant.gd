@@ -39,26 +39,26 @@ func create_bounce_text(text:String, color:Color = Color.WHITE, size:int = 16) -
 	return bounce_text
 
 func add_status_effect(status_effect:StatusEffect):
-	for status_name in status_effect.exclusive_with:
-		if has_status_name(status_name):
+	for status_id in status_effect.exclusive_with:
+		if has_status_id(status_id):
 			return
 	
 	status_effects.append(status_effect)
 	status_effect.combatant = self
 	status_effect.ended.connect(status_effects.erase.bind(status_effect))
 
-func has_status_name(status_name:StringName) -> bool:
+func has_status_id(status_id:StringName) -> bool:
 	for effect in status_effects:
-		if effect.name == status_name:
+		if effect.id == status_id:
 			return true
 	
 	return false
 
-func find_status_name(status_name:StringName) -> Array[StatusEffect]:
+func find_status_id(status_id:StringName) -> Array[StatusEffect]:
 	var effects:Array[StatusEffect]
 	
 	for effect in status_effects:
-		if effect.name == status_name:
+		if effect.id == status_id:
 			effects.append(effect)
 	
 	return effects

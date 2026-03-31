@@ -3,12 +3,24 @@
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="1_dy3po"]
 [ext_resource type="Script" uid="uid://e1hw5a5vk680" path="res://scripts/ui/battle_hud.gd" id="1_p6blr"]
 [ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="2_ytn0o"]
+[ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="4_6uyy6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ytn0o"]
 font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_p6blr"]
 font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_6uyy6"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_nj5vo"]
+font_size = 20
+font_color = Color(0.6509804, 0.6509804, 0.6509804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5jm4p"]
+font_size = 20
+font_color = Color(0, 1, 0, 1)
 
 [node name="BattleHUD" type="Control" unique_id=690412004]
 custom_minimum_size = Vector2(1920, 1080)
@@ -90,7 +102,40 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 25
 text = "Attack"
 
-[node name="GridContainer2" type="GridContainer" parent="PanelContainer/HBoxContainer" unique_id=810236299]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer" unique_id=1002211445]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/HBoxContainer/ScrollContainer" unique_id=2088845622]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="StatusEffectTemplate" type="PanelContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/GridContainer" unique_id=595563332]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("4_6uyy6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/GridContainer/StatusEffectTemplate" unique_id=972843194]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/GridContainer/StatusEffectTemplate/VBoxContainer" unique_id=373750879]
+layout_mode = 2
+text = "Status Effect"
+label_settings = SubResource("LabelSettings_6uyy6")
+horizontal_alignment = 1
+
+[node name="DurationLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/GridContainer/StatusEffectTemplate/VBoxContainer" unique_id=847649607]
+layout_mode = 2
+text = "3 turns"
+label_settings = SubResource("LabelSettings_nj5vo")
+horizontal_alignment = 1
+
+[node name="StatLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/GridContainer/StatusEffectTemplate/VBoxContainer" unique_id=1594727320]
+layout_mode = 2
+text = "10 Damage"
+label_settings = SubResource("LabelSettings_5jm4p")
+horizontal_alignment = 1
