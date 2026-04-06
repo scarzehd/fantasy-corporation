@@ -29,7 +29,6 @@ func start_turn():
 			await get_tree().create_timer(0.15).timeout
 			var bounce_text = target.create_bounce_text("Poisoned", Color.DARK_GREEN, 40)
 			bounce_text.position.y -= 50
-			
 	else:
 		target.create_bounce_text("MISS", Color.WHITE, 40)
 	

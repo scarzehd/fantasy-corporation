@@ -1,9 +1,11 @@
 extends Node2D
 class_name Battle
 
+const PLAYER_COMBATANT_SCENE:PackedScene = preload("uid://bxer6od4tbb5u")
+
 static var instance:Battle
 
-#signal battle_finished(won:bool)
+signal battle_finished(won:bool)
 
 signal turn_started(combatant:Combatant)
 signal turn_ended(combatant:Combatant)
@@ -12,12 +14,29 @@ signal turn_ended(combatant:Combatant)
 signal combatant_clicked(combatant:Combatant)
 
 @export var combatants:Array[Combatant]
+
+@export var player_slots:Array[Node2D]
+
 var current_turn_index:int = 0
+
+var casualties:Array[PlayerCombatant]
 
 func _enter_tree() -> void:
 	instance = self
 
 func _ready() -> void:
+	var existing_combatants = combatants.duplicate()
+	combatants = []
+	for i in range(min(Globals.hired_characters.size(), 4)):
+		var character = Globals.hired_characters[i]
+		var slot = player_slots[i]
+		var combatant:PlayerCombatant = PLAYER_COMBATANT_SCENE.instantiate()
+		combatant.character_data = character
+		slot.add_child(combatant)
+		combatants.append(combatant)
+	
+	combatants.append_array(existing_combatants)
+	
 	start_battle()
 
 func start_battle():
@@ -31,6 +50,9 @@ func start_battle():
 					var index = combatants.find(combatant)
 					if current_turn_index >= index:
 						current_turn_index -= 1
+					
+					if combatant is PlayerCombatant:
+						casualties.append(combatant)
 					
 					combatants.erase(combatant)
 		)
@@ -73,7 +95,7 @@ func current_turn_finished():
 	handle_current_turn()
 
 func lose_battle():
-	get_tree().quit()
+	battle_finished.emit(false)
 
 func win_battle():
-	print("A winner is you")
+	battle_finished.emit(true)

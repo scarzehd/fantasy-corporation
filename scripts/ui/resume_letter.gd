@@ -8,7 +8,6 @@ class_name ResumeLetter
 @onready var name_label:Label = %NameLabel
 @onready var class_label:Label = %ClassLabel
 @onready var accept_button:Button = %AcceptButton
-@onready var reject_button:Button = %RejectButton
 @onready var hp_label:Label = %HPLabel
 @onready var attack_label:Label = %AttackLabel
 @onready var power_label:Label = %PowerLabel
@@ -20,8 +19,12 @@ var character_data:CharacterData : set = _set_character_data
 
 var cost:int = 100 : set = _set_cost
 
+var hired:bool = false
+
 func _ready() -> void:
 	_set_cost(cost)
+	Globals.money_changed.connect(update_hireable.unbind(2))
+	Globals.character_hired.connect(update_hireable.unbind(1))
 
 func _set_character_data(new_character_data:CharacterData):
 	character_data = new_character_data
@@ -31,7 +34,7 @@ func _set_character_data(new_character_data:CharacterData):
 	
 	portrait.texture = character_data.portrait
 	name_label.text = character_data.full_name
-	class_label.text = character_data.get_class_name()
+	class_label.text = character_data.get_character_class_name()
 	hp_label.text = str(character_data.hp)
 	attack_label.text = str(character_data.attack)
 	power_label.text = str(character_data.power)
@@ -45,15 +48,35 @@ func _set_cost(new_value:int):
 	
 	payment_label.text = "Desired Payment: " + str(cost)
 	
-	insufficient_funds_label.hide()
-	accept_button.disabled = false
-	if cost > Globals.money:
-		insufficient_funds_label.show()
-		reject_button.button_pressed = true
-		accept_button.disabled = true
+	update_hireable()
 
 func _complete():
 	super()
 	if accept_button.button_pressed:
 		Globals.hired_characters.append(character_data)
 		Globals.money -= cost
+
+
+func _on_accept_button_pressed() -> void:
+	Globals.money -= cost
+	Globals.hired_characters.append(character_data)
+	hired = true
+	update_hireable()
+
+func update_hireable():
+	insufficient_funds_label.hide()
+	accept_button.disabled = false
+	
+	if hired:
+		accept_button.text = "Hired"
+		accept_button.disabled = true
+		return
+	
+	if Globals.hired_characters.size() >= 4:
+		accept_button.text = "Party Full"
+		accept_button.disabled = true
+		return
+	
+	if cost > Globals.money:
+		insufficient_funds_label.show()
+		accept_button.disabled = true

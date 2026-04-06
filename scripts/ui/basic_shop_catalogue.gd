@@ -6,11 +6,10 @@ class_name BasicShopCatalogue
 
 var buttons:Array[Button]
 
-func populate(items:Array[ItemData], prices:Array[int]):
-	assert(items.size() == prices.size())
-	for i in range(items.size()):
+func populate(items:Array[ItemData]):
+	for item in items:
 		var template = item_template.duplicate()
 		template.show()
 		item_container.add_child(template)
-		template.item = items[i]
-		template.cost = prices[i]
+		template.item = item
+		template.cost = item.purchase_price

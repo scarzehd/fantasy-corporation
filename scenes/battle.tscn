@@ -1,26 +1,25 @@
 [gd_scene format=3 uid="uid://bax6tvgq726xt"]
 
 [ext_resource type="Script" uid="uid://1llg1ecgeeec" path="res://scripts/battle.gd" id="1_dn72j"]
-[ext_resource type="Resource" uid="uid://b6e2ft786j88p" path="res://resources/character_data/john_smith.tres" id="3_a12nh"]
-[ext_resource type="PackedScene" uid="uid://bxer6od4tbb5u" path="res://scenes/combatants/player/combatant_base.tscn" id="3_p1qf1"]
-[ext_resource type="Resource" uid="uid://c4d34l4i7cn5h" path="res://resources/item_data/sonic_hammer.tres" id="4_a12nh"]
-[ext_resource type="Resource" uid="uid://bu61ah7chtris" path="res://resources/character_data/jane_doe.tres" id="5_lpir7"]
 [ext_resource type="PackedScene" uid="uid://c6sty6uh7eymw" path="res://scenes/combatants/enemy/basic_enemy.tscn" id="6_6vh42"]
 [ext_resource type="PackedScene" uid="uid://3e8drigu5xm1" path="res://scenes/ui/battle_hud.tscn" id="7_4k1nj"]
 
-[node name="Battle" type="Node2D" unique_id=1135496140 node_paths=PackedStringArray("combatants")]
+[node name="Battle" type="Node2D" unique_id=1135496140 node_paths=PackedStringArray("combatants", "player_slots")]
 script = ExtResource("1_dn72j")
-combatants = [NodePath("CombatantBase"), NodePath("CombatantBase2"), NodePath("BasicEnemy"), NodePath("BasicEnemy2"), NodePath("BasicEnemy3")]
+combatants = [NodePath("BasicEnemy"), NodePath("BasicEnemy2"), NodePath("BasicEnemy3")]
+player_slots = [NodePath("PlayerSlot1"), NodePath("PlayerSlot2"), NodePath("PlayerSlot3"), NodePath("PlayerSlot4")]
 
-[node name="CombatantBase" parent="." unique_id=209960256 instance=ExtResource("3_p1qf1")]
-position = Vector2(546, 218)
-character_data = ExtResource("3_a12nh")
-weapon = ExtResource("4_a12nh")
+[node name="PlayerSlot1" type="Marker2D" parent="." unique_id=900666764]
+position = Vector2(700, 360)
 
-[node name="CombatantBase2" parent="." unique_id=1704928774 instance=ExtResource("3_p1qf1")]
-position = Vector2(376, 299)
-character_data = ExtResource("5_lpir7")
-weapon = ExtResource("4_a12nh")
+[node name="PlayerSlot2" type="Marker2D" parent="." unique_id=1518760855]
+position = Vector2(575, 390)
+
+[node name="PlayerSlot3" type="Marker2D" parent="." unique_id=1358067820]
+position = Vector2(450, 420)
+
+[node name="PlayerSlot4" type="Marker2D" parent="." unique_id=386123315]
+position = Vector2(325, 450)
 
 [node name="BasicEnemy" parent="." unique_id=1681232158 instance=ExtResource("6_6vh42")]
 position = Vector2(1244, 221)
@@ -33,4 +32,5 @@ position = Vector2(1531, 415)
 
 [node name="BattleHUD" parent="." unique_id=690412004 instance=ExtResource("7_4k1nj")]
 
+[connection signal="battle_finished" from="." to="BattleHUD" method="_on_battle_ended"]
 [connection signal="turn_started" from="." to="BattleHUD" method="_on_turn_started"]

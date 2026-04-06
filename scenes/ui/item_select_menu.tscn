@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bn3mujlqi2lwu"]
+
+[ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="1_p687i"]
+[ext_resource type="Script" uid="uid://dyhv3khyk3frn" path="res://scripts/ui/item_select_menu.gd" id="1_wesv6"]
+[ext_resource type="PackedScene" uid="uid://bm4w1n4lkd6f3" path="res://scenes/ui/item_button.tscn" id="2_556px"]
+
+[node name="ItemSelectMenu" type="Panel" unique_id=1769555851]
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wesv6")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1386824435]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = -336.0
+offset_right = 554.0
+offset_bottom = 336.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_p687i")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer" unique_id=1750035681]
+layout_mode = 2
+
+[node name="ItemButtonContainer" type="GridContainer" parent="PanelContainer/ScrollContainer" unique_id=267986839]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="ItemButton" parent="PanelContainer/ScrollContainer/ItemButtonContainer" unique_id=1113074261 instance=ExtResource("2_556px")]
+visible = false
+layout_mode = 2
+
+[node name="UnequipButton" type="Button" parent="." unique_id=1264300293]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = 358.0
+offset_right = 118.0
+offset_bottom = 462.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Unequip"
+
+[connection signal="pressed" from="UnequipButton" to="." method="_on_unequip_button_pressed"]

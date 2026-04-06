@@ -10,6 +10,13 @@ class_name BattleHUD
 @onready var status_effect_container: GridContainer = %StatusEffectContainer
 @onready var status_effect_template: PanelContainer = %StatusEffectTemplate
 
+@onready var mission_end_panel:Control = %MissionEndPanel
+@onready var header_label:Label = %HeaderLabel
+@onready var deaths_label:Label = %DeathsLabel
+@onready var money_label:Label = %MoneyLabel
+@onready var total_label:Label = %TotalLabel
+@onready var lost_item_template:PanelContainer = %LostItemTemplate
+@onready var items_lost_container:PanelContainer = %ItemsLostContainer
 
 func _on_turn_started(combatant:Combatant):
 	reset_ui()
@@ -18,7 +25,6 @@ func _on_turn_started(combatant:Combatant):
 	
 	if combatant is PlayerCombatant:
 		setup_player_combatant(combatant)
-	
 
 func reset_ui():
 	name_label.text = ""
@@ -44,9 +50,10 @@ func setup_player_combatant(combatant:PlayerCombatant):
 
 func setup_combatant(combatant:Combatant):
 	name_label.text = combatant.combatant_name
+	portrait.texture = combatant.portrait
 	health_bar.max_value = combatant.max_hp
 	health_bar.value = combatant.current_hp
-	portrait.texture = combatant.portrait
+	health_bar_label.text = str(combatant.current_hp) + " / " + str(combatant.max_hp)
 	
 	for status_effect in combatant.status_effects:
 		var template = status_effect_template.duplicate()
@@ -115,3 +122,49 @@ func setup_combatant(combatant:Combatant):
 			if status_effect.defense < 0:
 				label.text = str(status_effect.defense) + " Defense"
 				label.label_settings.font_color = Color.RED
+
+func _on_battle_ended(won:bool):
+	mission_end_panel.show()
+	header_label.text = "Great Success!" if won else "Colossal Failure!"
+	var lost_items:Array[ItemData]
+	for combatant in Battle.instance.casualties:
+		for slot in combatant.character_data.items:
+			lost_items.append(combatant.character_data.items[slot])
+	
+	var death_penalties = Battle.instance.casualties.size() * Globals.LIFE_INSURANCE_PRICE
+	Globals.money -= death_penalties
+	deaths_label.text = "Life insurance payouts: " + str(death_penalties)
+	var reward = randi_range(1000, 2000) if won else 0
+	Globals.money += reward
+	money_label.text = "Money plundered: " + str(reward)
+	var total = reward - death_penalties
+	total_label.text = "Total profit: " + str(total)
+	if total < 0:
+		total_label.label_settings.font_color = Color.RED
+	elif total > 0:
+		total_label.label_settings.font_color = Color.GREEN
+
+	
+	if lost_items.size() > 0:
+		items_lost_container.show()
+		
+		for item in lost_items:
+			var template = lost_item_template.duplicate()
+			template.show()
+			lost_item_template.add_sibling(template)
+			
+			var item_name_label:Label = template.find_child("NameLabel", true, false)
+			item_name_label.text = item.item_name
+			var item_portrait:TextureRect = template.find_child("Portrait", true, false)
+			item_portrait.texture = item.item_portrait
+			
+			Globals.owned_items.erase(item)
+	
+	for combatant in Globals.hired_characters:
+		Globals.hired_characters.erase(combatant.character_data)
+		for item in combatant.character_data.items.values():
+			combatant.character_data.unequip_item(item)
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("uid://b5v8bj3uciobn")

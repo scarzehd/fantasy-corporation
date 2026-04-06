@@ -46,6 +46,11 @@ func add_status_effect(status_effect:StatusEffect):
 		if has_status_id(status_id):
 			return
 	
+	if status_effect.refresh_duration:
+		for status in find_status_id(status_effect.id):
+			if status.duration <= status_effect.duration:
+				status.end_status_effect()
+	
 	status_effects.append(status_effect)
 	status_effect.combatant = self
 	status_effect.ended.connect(status_effects.erase.bind(status_effect))
