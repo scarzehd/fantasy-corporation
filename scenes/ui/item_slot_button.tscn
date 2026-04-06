@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b7vehtq15ech6"]
+
+[ext_resource type="Script" uid="uid://cqk0dwjr2u6mb" path="res://scripts/ui/item_slot_button.gd" id="1_5m5xl"]
+[ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="1_f18ek"]
+[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="2_5m5xl"]
+
+[node name="ItemSlotButton" type="VBoxContainer" unique_id=2143041434]
+size_flags_horizontal = 6
+script = ExtResource("1_5m5xl")
+
+[node name="SlotNameLabel" type="Label" parent="." unique_id=1852958030]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Weapon"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1698769715]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_f18ek")
+
+[node name="ItemIcon" type="TextureRect" parent="Button" unique_id=424976589]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 19.0
+offset_right = -19.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_5m5xl")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -4,6 +4,9 @@ class_name Combatant
 signal turn_finished
 signal combatant_defeated
 
+@export var combatant_name:String : set = _set_combatant_name, get = _get_combatant_name
+@export var portrait:Texture : set = _set_portrait, get = _get_portrait
+
 var current_hp:int = 1 : set = _set_current_hp
 
 var max_hp:int : get = _get_hp
@@ -39,26 +42,31 @@ func create_bounce_text(text:String, color:Color = Color.WHITE, size:int = 16) -
 	return bounce_text
 
 func add_status_effect(status_effect:StatusEffect):
-	for status_name in status_effect.exclusive_with:
-		if has_status_name(status_name):
+	for status_id in status_effect.exclusive_with:
+		if has_status_id(status_id):
 			return
+	
+	if status_effect.refresh_duration:
+		for status in find_status_id(status_effect.id):
+			if status.duration <= status_effect.duration:
+				status.end_status_effect()
 	
 	status_effects.append(status_effect)
 	status_effect.combatant = self
 	status_effect.ended.connect(status_effects.erase.bind(status_effect))
 
-func has_status_name(status_name:StringName) -> bool:
+func has_status_id(status_id:StringName) -> bool:
 	for effect in status_effects:
-		if effect.name == status_name:
+		if effect.id == status_id:
 			return true
 	
 	return false
 
-func find_status_name(status_name:StringName) -> Array[StatusEffect]:
+func find_status_id(status_id:StringName) -> Array[StatusEffect]:
 	var effects:Array[StatusEffect]
 	
 	for effect in status_effects:
-		if effect.name == status_name:
+		if effect.id == status_id:
 			effects.append(effect)
 	
 	return effects
@@ -110,3 +118,15 @@ func _on_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 			Battle.instance.combatant_clicked.emit(self)
+
+func _set_combatant_name(new_value:String):
+	combatant_name = new_value
+
+func _get_combatant_name() -> String:
+	return combatant_name
+
+func _set_portrait(new_value:Texture):
+	portrait = new_value
+
+func _get_portrait() -> Texture:
+	return portrait

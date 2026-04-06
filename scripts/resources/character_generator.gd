@@ -78,8 +78,18 @@ class_name CharacterGenerator
 func generate() -> CharacterData:
 	var data = CharacterData.new()
 	
-	# TODO do this in a less stupid way.
-	data.character_class = CharacterData.CharacterClass.Fighter if randf() > 0.5 else CharacterData.CharacterClass.Mage
+	randomize()
+	
+	var value = randf()
+	
+	if value > 0.6:
+		data.character_class = CharacterData.CharacterClass.Fighter
+	elif value > 0.3:
+		data.character_class = CharacterData.CharacterClass.Mage
+	else:
+		data.character_class = CharacterData.CharacterClass.Bard
+	
+	#data.character_class = CharacterData.CharacterClass.Fighter if randf() > 0.5 else CharacterData.CharacterClass.Mage
 	
 	data.hp = RandomUtils.generate_in_range(hp_range.x, hp_range.y, hp_deviation)
 	data.power = RandomUtils.generate_in_range(power_range.x, power_range.y, power_deviation)

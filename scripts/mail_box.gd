@@ -1,7 +1,8 @@
 extends TextureButton
 class_name MailBox
 
-var resume_letter_scene:PackedScene = preload("uid://cfp71tj5xdeqh")
+const RESUME_LETTER_SCENE:PackedScene = preload("uid://cfp71tj5xdeqh")
+const NEWSPAPER_LETTER_SCENE:PackedScene = preload("uid://c8wytlhkw0oa4")
 
 @onready var letters_menu:CanvasLayer = %LettersMenu
 @onready var previous_letter_button:TextureButton = %PreviousLetterButton
@@ -51,24 +52,30 @@ func _set_current_index(new_value:int):
 func _on_day_started():
 	_on_confirm_button_pressed()
 	
-	for i in range(3):
-		var resume_letter:ResumeLetter = resume_letter_scene.instantiate()
-		resume_letter.character_data = Globals.character_generator.generate()
-		letter_container.add_child(resume_letter)
-		letters.append(resume_letter)
+	var newspaper_letter:NewspaperLetter = NEWSPAPER_LETTER_SCENE.instantiate()
+	letter_container.add_child(newspaper_letter)
+	letters.append(newspaper_letter)
+	
+	var resume_letter:ResumeLetter = RESUME_LETTER_SCENE.instantiate()
+	resume_letter.character_data = Globals.character_generator.generate()
+	letter_container.add_child(resume_letter)
+	letters.append(resume_letter)
 	
 	var weapon_generator:BasicItemGenerator = load("res://resources/item_generator/test_weapon_generator.tres")
 	
 	var items:Array[ItemData]
-	var prices:Array[int]
-	for i in range(6):
+	for i in range(3):
 		items.append(weapon_generator.generate_weapon())
-		prices.append(randi_range(50, 150))
+	
+	var armor_generator:BasicItemGenerator = load("res://resources/item_generator/test_armor_generator.tres")
+	
+	for i in range(3):
+		items.append(armor_generator.generate_armor())
 	
 	var catalogue = load("res://scenes/ui/letters/basic_shop_catalogue.tscn").instantiate()
 	letter_container.add_child(catalogue)
 	letters.append(catalogue)
-	catalogue.populate(items, prices)
+	catalogue.populate(items)
 
 func _on_previous_letter_button_pressed() -> void:
 	current_index -= 1
@@ -81,7 +88,7 @@ func _on_close_button_pressed() -> void:
 
 func _on_confirm_button_pressed() -> void:
 	for letter in letters:
-		letter._complete()
+		letter.queue_free()
 	
 	letters.clear()
 	

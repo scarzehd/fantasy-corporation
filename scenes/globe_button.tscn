@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://0kk87cqye7jw"]
+
+[ext_resource type="Texture2D" uid="uid://dg78mqoggc785" path="res://resources/sprites/office_globe.png" id="1_k5x1w"]
+[ext_resource type="Script" uid="uid://dmt01txebllcb" path="res://scripts/globe_button.gd" id="2_van61"]
+[ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="3_45qx8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y1a5j"]
+font_size = 30
+font_color = Color(0.100000024, 1, 0, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Globe" type="Sprite2D" unique_id=131243466]
+texture = ExtResource("1_k5x1w")
+
+[node name="GlobeButton" type="TextureButton" parent="." unique_id=2077237782]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -946.0
+offset_top = -792.0
+offset_right = -522.0
+offset_bottom = -344.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_van61")
+
+[node name="Label" type="Label" parent="GlobeButton" unique_id=862836420]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -52.0
+offset_bottom = -10.0
+grow_horizontal = 2
+text = "Globe"
+label_settings = SubResource("LabelSettings_y1a5j")
+horizontal_alignment = 1
+
+[node name="AdventureMenu" type="CanvasLayer" parent="GlobeButton" unique_id=873652049]
+unique_name_in_owner = true
+visible = false
+
+[node name="Panel" type="Panel" parent="GlobeButton/AdventureMenu" unique_id=2125627988]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="GlobeButton/AdventureMenu/Panel" unique_id=1760948356]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -447.0
+offset_top = -363.0
+offset_right = 447.0
+offset_bottom = 363.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_45qx8")
+
+[node name="MarginContainer" type="MarginContainer" parent="GlobeButton/AdventureMenu/Panel/PanelContainer" unique_id=133234408]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="AdventurerListingContainer" type="VBoxContainer" parent="GlobeButton/AdventureMenu/Panel/PanelContainer/MarginContainer" unique_id=797898856]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Control" type="Control" parent="GlobeButton/AdventureMenu/Panel/PanelContainer/MarginContainer/AdventurerListingContainer" unique_id=477287239]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="GlobeButton/AdventureMenu/Panel/PanelContainer/MarginContainer/AdventurerListingContainer" unique_id=1895152508]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 25
+text = "Begin Adventure"
+
+[connection signal="pressed" from="GlobeButton" to="GlobeButton" method="_on_pressed"]
+[connection signal="pressed" from="GlobeButton/AdventureMenu/Panel/PanelContainer/MarginContainer/AdventurerListingContainer/StartButton" to="GlobeButton" method="_on_start_button_pressed"]

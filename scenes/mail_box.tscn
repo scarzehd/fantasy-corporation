@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://b18ney4nylxda"]
 
-[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="1_xs0bi"]
+[ext_resource type="Texture2D" uid="uid://c7m4kg3l1mta5" path="res://resources/sprites/office_mailbox.png" id="1_3lyli"]
 [ext_resource type="Script" uid="uid://dpu5bwcfq8t3j" path="res://scripts/mail_box.gd" id="2_rx4kg"]
 [ext_resource type="Texture2D" uid="uid://bg4ny4ksaylfj" path="res://resources/sprites/ui/arrow_left.png" id="3_xs0bi"]
 [ext_resource type="Texture2D" uid="uid://dw8oore8mp05q" path="res://resources/sprites/ui/arrow_left_hover.png" id="4_hgk44"]
 [ext_resource type="Texture2D" uid="uid://6vc4npbd8dvc" path="res://resources/sprites/ui/arrow_right.png" id="4_rx4kg"]
 [ext_resource type="Texture2D" uid="uid://cg05ot46y6ci6" path="res://resources/sprites/ui/arrow_right_hover.png" id="5_r3rme"]
+[ext_resource type="Texture2D" uid="uid://c47o7aixnb673" path="res://resources/sprites/office_mailbox_letters.png" id="7_3lyli"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xs0bi"]
 font_size = 30
@@ -14,22 +15,25 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="MailBox" type="TextureButton" unique_id=603560281]
+[node name="Mailbox" type="Sprite2D" unique_id=1064577933]
+texture = ExtResource("1_3lyli")
+
+[node name="MailBox" type="TextureButton" parent="." unique_id=603560281]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -1745.0
+offset_top = -816.0
+offset_right = -1419.0
+offset_bottom = -356.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("1_xs0bi")
 script = ExtResource("2_rx4kg")
 
-[node name="Label" type="Label" parent="." unique_id=280829115]
+[node name="Label" type="Label" parent="MailBox" unique_id=280829115]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -40,11 +44,11 @@ text = "Mail Box"
 label_settings = SubResource("LabelSettings_xs0bi")
 horizontal_alignment = 1
 
-[node name="LettersMenu" type="CanvasLayer" parent="." unique_id=1291763935]
+[node name="LettersMenu" type="CanvasLayer" parent="MailBox" unique_id=1291763935]
 unique_name_in_owner = true
 visible = false
 
-[node name="LettersMenu" type="Panel" parent="LettersMenu" unique_id=1669161610]
+[node name="LettersMenu" type="Panel" parent="MailBox/LettersMenu" unique_id=1669161610]
 top_level = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="LetterContainer" type="HBoxContainer" parent="LettersMenu/LettersMenu" unique_id=1051528005]
+[node name="LetterContainer" type="HBoxContainer" parent="MailBox/LettersMenu/LettersMenu" unique_id=1051528005]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 4
@@ -65,7 +69,7 @@ offset_bottom = 540.0
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PreviousLetterButton" type="TextureButton" parent="LettersMenu/LettersMenu" unique_id=2098642742]
+[node name="PreviousLetterButton" type="TextureButton" parent="MailBox/LettersMenu/LettersMenu" unique_id=2098642742]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 4
@@ -81,7 +85,7 @@ texture_hover = ExtResource("3_xs0bi")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="NextLetterButton" type="TextureButton" parent="LettersMenu/LettersMenu" unique_id=305845547]
+[node name="NextLetterButton" type="TextureButton" parent="MailBox/LettersMenu/LettersMenu" unique_id=305845547]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
@@ -100,7 +104,7 @@ texture_hover = ExtResource("4_rx4kg")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="CloseButton" type="Button" parent="LettersMenu/LettersMenu" unique_id=1307192578]
+[node name="CloseButton" type="Button" parent="MailBox/LettersMenu/LettersMenu" unique_id=1307192578]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -113,7 +117,8 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "Exit"
 
-[node name="ConfirmButton" type="Button" parent="LettersMenu/LettersMenu" unique_id=2068006479]
+[node name="ConfirmButton" type="Button" parent="MailBox/LettersMenu/LettersMenu" unique_id=2068006479]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -129,8 +134,11 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Complete All Letters"
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
-[connection signal="pressed" from="LettersMenu/LettersMenu/PreviousLetterButton" to="." method="_on_previous_letter_button_pressed"]
-[connection signal="pressed" from="LettersMenu/LettersMenu/NextLetterButton" to="." method="_on_next_letter_button_pressed"]
-[connection signal="pressed" from="LettersMenu/LettersMenu/CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="LettersMenu/LettersMenu/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=173302916]
+texture = ExtResource("7_3lyli")
+
+[connection signal="pressed" from="MailBox" to="MailBox" method="_on_pressed"]
+[connection signal="pressed" from="MailBox/LettersMenu/LettersMenu/PreviousLetterButton" to="MailBox" method="_on_previous_letter_button_pressed"]
+[connection signal="pressed" from="MailBox/LettersMenu/LettersMenu/NextLetterButton" to="MailBox" method="_on_next_letter_button_pressed"]
+[connection signal="pressed" from="MailBox/LettersMenu/LettersMenu/CloseButton" to="MailBox" method="_on_close_button_pressed"]
+[connection signal="pressed" from="MailBox/LettersMenu/LettersMenu/ConfirmButton" to="MailBox" method="_on_confirm_button_pressed"]

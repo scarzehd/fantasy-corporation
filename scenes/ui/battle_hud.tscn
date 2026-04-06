@@ -3,6 +3,8 @@
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="1_dy3po"]
 [ext_resource type="Script" uid="uid://e1hw5a5vk680" path="res://scripts/ui/battle_hud.gd" id="1_p6blr"]
 [ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="2_ytn0o"]
+[ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="4_6uyy6"]
+[ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon.png" id="5_nj5vo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ytn0o"]
 font_size = 30
@@ -10,12 +12,74 @@ font_size = 30
 [sub_resource type="LabelSettings" id="LabelSettings_p6blr"]
 font_size = 25
 
+[sub_resource type="LabelSettings" id="LabelSettings_6uyy6"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_nj5vo"]
+font_size = 20
+font_color = Color(0.6509804, 0.6509804, 0.6509804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5jm4p"]
+font_size = 20
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uyy6"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_t6qmb"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_w8gj3"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_k1xb2"]
+font_size = 35
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nj5vo"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_o02nu"]
+font_size = 35
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6qmb"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_1dj1o"]
+
 [node name="BattleHUD" type="Control" unique_id=690412004]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 script = ExtResource("1_p6blr")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1981733378]
@@ -39,12 +103,14 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 
 [node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1681646245]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Bringle Cringus"
 label_settings = SubResource("LabelSettings_ytn0o")
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1676875379]
+[node name="Portrait" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1676875379]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_ytn0o")
@@ -55,14 +121,16 @@ stretch_mode = 5
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1190685959]
+[node name="HealthBar" type="ProgressBar" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1190685959]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 show_percentage = false
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/ProgressBar" unique_id=673290184]
+[node name="HealthBarLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HealthBar" unique_id=673290184]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,19 +146,210 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/HBoxContainer" unique_id=122864659]
+[node name="AttackContainer" type="GridContainer" parent="PanelContainer/HBoxContainer" unique_id=122864659]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 columns = 2
 
-[node name="Button" type="Button" parent="PanelContainer/HBoxContainer/GridContainer" unique_id=1613888678]
+[node name="AttackButtonTemplate" type="Button" parent="PanelContainer/HBoxContainer/AttackContainer" unique_id=1613888678]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 25
 text = "Attack"
 
-[node name="GridContainer2" type="GridContainer" parent="PanelContainer/HBoxContainer" unique_id=810236299]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer" unique_id=1002211445]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
+
+[node name="StatusEffectContainer" type="GridContainer" parent="PanelContainer/HBoxContainer/ScrollContainer" unique_id=2088845622]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="StatusEffectTemplate" type="PanelContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/StatusEffectContainer" unique_id=595563332]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("4_6uyy6")
+
+[node name="StatContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/StatusEffectContainer/StatusEffectTemplate" unique_id=972843194]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/StatusEffectContainer/StatusEffectTemplate/StatContainer" unique_id=373750879]
+layout_mode = 2
+text = "Status Effect"
+label_settings = SubResource("LabelSettings_6uyy6")
+horizontal_alignment = 1
+
+[node name="DurationLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/StatusEffectContainer/StatusEffectTemplate/StatContainer" unique_id=847649607]
+layout_mode = 2
+text = "3 turns"
+label_settings = SubResource("LabelSettings_nj5vo")
+horizontal_alignment = 1
+
+[node name="StatLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/StatusEffectContainer/StatusEffectTemplate/StatContainer" unique_id=1594727320]
+visible = false
+layout_mode = 2
+text = "10 Damage"
+label_settings = SubResource("LabelSettings_5jm4p")
+horizontal_alignment = 1
+
+[node name="MissionEndPanel" type="Control" parent="." unique_id=29777318]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MissionEndPanel" unique_id=1508703103]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.0
+offset_top = -197.0
+offset_right = 281.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6uyy6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MissionEndPanel/PanelContainer" unique_id=1906056860]
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="MissionEndPanel/PanelContainer/VBoxContainer" unique_id=447841447]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Great Success!"
+label_settings = SubResource("LabelSettings_t6qmb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MissionEndPanel/PanelContainer/VBoxContainer" unique_id=1060180659]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MissionEndPanel/PanelContainer/VBoxContainer" unique_id=1704295572]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer" unique_id=1597630673]
+layout_mode = 2
+
+[node name="DeathsLabel" type="Label" parent="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=771888324]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Life insurance payouts: 0"
+label_settings = SubResource("LabelSettings_w8gj3")
+
+[node name="MoneyLabel" type="Label" parent="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=947712924]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Money plundered: 100"
+label_settings = SubResource("LabelSettings_w8gj3")
+
+[node name="Control" type="Control" parent="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1520394304]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="TotalLabel" type="Label" parent="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1005210406]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Total profit: 100"
+label_settings = SubResource("LabelSettings_k1xb2")
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=2097770832]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=523953937]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[node name="ItemsLostContainer" type="PanelContainer" parent="MissionEndPanel" unique_id=640746546]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 315.0
+offset_top = -269.0
+offset_right = 731.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nj5vo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MissionEndPanel/ItemsLostContainer" unique_id=1529897905]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer" unique_id=1849460612]
+layout_mode = 2
+text = "Items Lost"
+label_settings = SubResource("LabelSettings_o02nu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer" unique_id=1830047764]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer" unique_id=1791848289]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer/ScrollContainer" unique_id=565577464]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="LostItemTemplate" type="PanelContainer" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1752229244]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_t6qmb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer/ScrollContainer/GridContainer/LostItemTemplate" unique_id=658419447]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer/ScrollContainer/GridContainer/LostItemTemplate/VBoxContainer" unique_id=1938734730]
+layout_mode = 2
+text = "The Boots of Stupidity"
+label_settings = SubResource("LabelSettings_1dj1o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer/ScrollContainer/GridContainer/LostItemTemplate/VBoxContainer" unique_id=50303824]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("5_nj5vo")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

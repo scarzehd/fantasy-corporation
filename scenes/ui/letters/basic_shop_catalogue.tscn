@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cs3g66i4w6asg" path="res://scripts/ui/basic_shop_catalogue.gd" id="1_p7ddb"]
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="2_di2yg"]
-[ext_resource type="Script" uid="uid://4317vvwer57w" path="res://scenes/ui/catalogue_item_view.gd" id="3_ducbn"]
+[ext_resource type="Script" uid="uid://4317vvwer57w" path="res://scripts/ui/catalogue_item_view.gd" id="3_ducbn"]
 [ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="3_rbluq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m3ob7"]
@@ -82,7 +82,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/h_separation = 20
+theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 20
 columns = 3
 
@@ -127,21 +127,25 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="HPLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1236825925]
+visible = false
 layout_mode = 2
 text = "+0 HP"
 label_settings = SubResource("LabelSettings_rbluq")
 
 [node name="AttackLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2120492579]
+visible = false
 layout_mode = 2
 text = "+0 Attack"
 label_settings = SubResource("LabelSettings_ducbn")
 
 [node name="PowerLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1221493329]
+visible = false
 layout_mode = 2
 text = "+0 Power"
 label_settings = SubResource("LabelSettings_ijemo")
 
 [node name="DefenseLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1622853606]
+visible = false
 layout_mode = 2
 text = "+0 Defense"
 label_settings = SubResource("LabelSettings_3gg2v")

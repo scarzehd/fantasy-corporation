@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://c6sty6uh7eymw"]
 
 [ext_resource type="Script" uid="uid://b4xj0e3ne1qdq" path="res://scripts/combatants/enemy/basic_enemy.gd" id="1_v5wtx"]
-[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="2_7je4q"]
 [ext_resource type="Script" uid="uid://d3i1h310ayq5c" path="res://scripts/resources/status_effect.gd" id="2_u8vcb"]
+[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="3_2emdk"]
+[ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/character_base.png" id="3_u8vcb"]
 
 [sub_resource type="Resource" id="Resource_2emdk"]
 script = ExtResource("2_u8vcb")
-name = &"poison"
+id = &"poison"
+name = "Poison"
 exclusive_with = Array[StringName]([&"poison"])
 has_duration = true
 duration = 2
@@ -17,9 +19,6 @@ metadata/_custom_type_script = "uid://d3i1h310ayq5c"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
 size = Vector2(174, 186)
-
-[sub_resource type="LabelSettings" id="LabelSettings_tc7to"]
-font_size = 25
 
 [sub_resource type="Animation" id="Animation_7je4q"]
 length = 0.001
@@ -57,9 +56,14 @@ _data = {
 &"attack": SubResource("Animation_u8vcb")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_u8vcb"]
+font_size = 25
+
 [node name="BasicEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_v5wtx")
 status_effect = SubResource("Resource_2emdk")
+combatant_name = "Bringle Cringus"
+portrait = ExtResource("3_2emdk")
 health_bar = NodePath("Control/VBoxContainer/HealthBar")
 base_hp = 100
 base_attack = 50
@@ -67,12 +71,18 @@ base_power = 20
 base_defense = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=957414317]
-texture = ExtResource("2_7je4q")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_u8vcb")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1545115223]
 shape = SubResource("RectangleShape2D_7je4q")
 
-[node name="Control" type="Control" parent="." unique_id=1565358585]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1643846691]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2emdk")
+
+[node name="Control" type="Control" parent="." unique_id=1417547478]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,35 +90,33 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -137.0
-offset_top = -132.0
+offset_top = -217.0
 offset_right = 137.0
 offset_bottom = 122.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=80434758]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=2045111538]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -37.0
-offset_bottom = -211.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NameLabel" type="Label" parent="Control/VBoxContainer" unique_id=443486020]
+[node name="NameLabel" type="Label" parent="Control/VBoxContainer" unique_id=746950841]
 layout_mode = 2
 text = "Bringle Cringus"
-label_settings = SubResource("LabelSettings_tc7to")
+label_settings = SubResource("LabelSettings_u8vcb")
 horizontal_alignment = 1
 
-[node name="HealthBar" type="ProgressBar" parent="Control/VBoxContainer" unique_id=496655399]
+[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=384684704]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control/VBoxContainer" unique_id=1664461497]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 2
 show_percentage = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1643846691]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_2emdk")

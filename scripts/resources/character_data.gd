@@ -3,17 +3,14 @@ class_name CharacterData
 
 enum CharacterClass {
 	Fighter,
-	Mage
+	Mage,
+	Bard
 }
 
 # I separated these out because I thought we might be short on space in the combat section.
 # In that case, we could show only the first name.
 @export var first_name:String = "John"
 @export var last_name:String = "Smith"
-
-var full_name:String :
-	get():
-		return first_name + " " + last_name
 
 @export var attack:int = 10
 @export var power:int = 100
@@ -22,11 +19,65 @@ var full_name:String :
 @export var portrait:Texture2D
 @export var character_class:CharacterClass
 
-func get_class_name() -> String:
-	match character_class:
+@export var items:Dictionary[ItemData.ItemSlot, ItemData]
+
+var full_name:String :
+	get():
+		return first_name + " " + last_name
+
+static func get_class_name(char_class:CharacterClass) -> String:
+	match char_class:
 		CharacterClass.Fighter:
 			return "Fighter"
 		CharacterClass.Mage:
 			return "Mage"
+		CharacterClass.Bard:
+			return "Bard"
 	
 	return ""
+
+func get_character_class_name() -> String:
+	return get_class_name(character_class)
+
+func get_modified_hp() -> int:
+	var total = hp
+	
+	for item in items.values():
+		total += item.hp
+	
+	return total
+
+func get_modified_power() -> int:
+	var total = power
+	
+	for item in items.values():
+		total += item.power
+	
+	return total
+
+func get_modified_attack() -> int:
+	var total = attack
+	
+	for item in items.values():
+		total += item.attack
+	
+	return total
+
+func get_modified_defense() -> int:
+	var total = defense
+	
+	for item in items.values():
+		total += item.defense
+	
+	return total
+
+func unequip_item(item_data:ItemData):
+	var slot_to_remove:ItemData.ItemSlot
+	for slot in items:
+		if items[slot] == item_data:
+			slot_to_remove = slot
+			break
+	
+	if slot_to_remove:
+		items.erase(slot_to_remove)
+		item_data.equipped_by = null

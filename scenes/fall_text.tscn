@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dpqcenv1ts053"]
+
+[ext_resource type="Script" uid="uid://cy75ecxf3jl5b" path="res://scripts/fall_text.gd" id="1_07g0h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hs88h"]
+font_size = 50
+
+[node name="FallText" type="Node2D" unique_id=1947051152 node_paths=PackedStringArray("label")]
+script = ExtResource("1_07g0h")
+label = NodePath("Control/Label")
+
+[node name="Control" type="Control" parent="." unique_id=719624251]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=505414793]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -413.0
+offset_top = -34.5
+offset_right = 413.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Text"
+label_settings = SubResource("LabelSettings_hs88h")
+horizontal_alignment = 1

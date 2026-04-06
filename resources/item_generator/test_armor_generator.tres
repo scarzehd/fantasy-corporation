@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BasicItemGenerator" format=3 uid="uid://mt8kgv48jnej"]
+
+[ext_resource type="Texture2D" uid="uid://db6ksfqrjm5s5" path="res://resources/sprites/shield_icon.png" id="1_65272"]
+[ext_resource type="Script" uid="uid://b4ivx5m3ti8ca" path="res://scripts/resources/basic_item_generator.gd" id="1_rlrke"]
+
+[resource]
+script = ExtResource("1_rlrke")
+power_range = Vector2i(-5, 10)
+attack_range = Vector2i(-5, 10)
+defense_range = Vector2i(-15, 60)
+defense_deviation = 0.75
+hp_range = Vector2i(-10, 60)
+hp_deviation = 0.75
+price_range = Vector2i(25, 100)
+price_deviation = 0.75
+armor_portraits = Array[Texture2D]([ExtResource("1_65272")])
+metadata/_custom_type_script = "uid://b4ivx5m3ti8ca"

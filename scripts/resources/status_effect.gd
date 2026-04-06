@@ -3,7 +3,9 @@ class_name StatusEffect
 
 signal ended
 
-@export var name:StringName
+@export var id:StringName
+
+@export var name:String
 
 @export var exclusive_with:Array[StringName]
 
