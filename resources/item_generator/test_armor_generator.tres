@@ -6,7 +6,9 @@
 [resource]
 script = ExtResource("1_rlrke")
 power_range = Vector2i(-5, 10)
-attack_range = Vector2i(-5, 10)
+power_deviation = 0.75
+attack_range = Vector2i(-10, 25)
+attack_deviation = 0.75
 defense_range = Vector2i(-15, 60)
 defense_deviation = 0.75
 hp_range = Vector2i(-10, 60)

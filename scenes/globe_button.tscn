@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://0kk87cqye7jw"]
 
-[ext_resource type="Texture2D" uid="uid://dg78mqoggc785" path="res://resources/sprites/office_globe.png" id="1_k5x1w"]
+[ext_resource type="Texture2D" uid="uid://dg78mqoggc785" path="res://resources/sprites/office/office_globe.png" id="1_k5x1w"]
 [ext_resource type="Script" uid="uid://dmt01txebllcb" path="res://scripts/globe_button.gd" id="2_van61"]
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="3_45qx8"]
 
@@ -81,6 +81,7 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="StartButton" type="Button" parent="GlobeButton/AdventureMenu/Panel/PanelContainer/MarginContainer/AdventurerListingContainer" unique_id=1895152508]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10

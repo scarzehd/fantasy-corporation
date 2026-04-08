@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diuaiapn0j276"
-path="res://.godot/imported/office_bell.png-33280b5bb992f199e5e0105f8e741790.ctex"
+uid="uid://bbpwqkaupsfsr"
+path="res://.godot/imported/fighter_attack_1.png-2b75bb6e682fd32a473a0cbf04bbffec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/office_bell.png"
-dest_files=["res://.godot/imported/office_bell.png-33280b5bb992f199e5e0105f8e741790.ctex"]
+source_file="res://resources/sprites/characters/fighter/fighter_attack_1.png"
+dest_files=["res://.godot/imported/fighter_attack_1.png-2b75bb6e682fd32a473a0cbf04bbffec.ctex"]
 
 [params]
 

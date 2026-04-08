@@ -8,13 +8,13 @@
 
 [resource]
 script = ExtResource("4_ptbll")
-power_range = Vector2i(5, 45)
+power_range = Vector2i(5, 40)
 power_deviation = 0.75
 attack_range = Vector2i(10, 100)
 attack_deviation = 0.75
-defense_range = Vector2i(50, 200)
+defense_range = Vector2i(50, 150)
 defense_deviation = 0.75
-hp_range = Vector2i(70, 250)
+hp_range = Vector2i(50, 150)
 hp_deviation = 0.75
 portraits = Array[Texture2D]([ExtResource("1_dlm1u"), ExtResource("2_cd1jl"), ExtResource("3_dnnkt"), ExtResource("4_cd1jl")])
 metadata/_custom_type_script = "uid://00fr0sfq2067"

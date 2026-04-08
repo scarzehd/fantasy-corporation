@@ -5,12 +5,12 @@
 
 [resource]
 script = ExtResource("1_flsav")
-power_range = Vector2i(-5, 30)
+power_range = Vector2i(-5, 15)
 power_deviation = 0.75
-attack_range = Vector2i(-15, 30)
+attack_range = Vector2i(-5, 30)
 attack_deviation = 0.75
-defense_range = Vector2i(-5, 10)
-hp_range = Vector2i(-5, 10)
+defense_range = Vector2i(-10, 25)
+hp_range = Vector2i(-10, 25)
 price_range = Vector2i(50, 150)
 price_deviation = 0.75
 weapon_portraits = Array[Texture2D]([ExtResource("3_vqsjm")])

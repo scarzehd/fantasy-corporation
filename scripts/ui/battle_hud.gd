@@ -18,9 +18,10 @@ class_name BattleHUD
 @onready var lost_item_template:PanelContainer = %LostItemTemplate
 @onready var items_lost_container:PanelContainer = %ItemsLostContainer
 
-func _on_turn_started(combatant:Combatant):
+func _on_turn_ended(_combatant:Combatant):
 	reset_ui()
-	
+
+func _on_turn_started(combatant:Combatant):
 	setup_combatant(combatant)
 	
 	if combatant is PlayerCombatant:
@@ -40,6 +41,8 @@ func reset_ui():
 			continue
 		
 		child.queue_free()
+	
+	portrait.texture = null
 
 func setup_player_combatant(combatant:PlayerCombatant):
 	for ability in combatant.abilities:
@@ -47,6 +50,8 @@ func setup_player_combatant(combatant:PlayerCombatant):
 		button.show()
 		attack_container.add_child(button)
 		ability.setup_button(button)
+		if button.toggle_mode:
+			button.button_group = attack_button_template.button_group
 
 func setup_combatant(combatant:Combatant):
 	name_label.text = combatant.combatant_name
@@ -134,7 +139,7 @@ func _on_battle_ended(won:bool):
 	var death_penalties = Battle.instance.casualties.size() * Globals.LIFE_INSURANCE_PRICE
 	Globals.money -= death_penalties
 	deaths_label.text = "Life insurance payouts: " + str(death_penalties)
-	var reward = randi_range(1000, 2000) if won else 0
+	var reward = RandomUtils.generate_in_range(500, 1500, 0.6) if won else 0
 	Globals.money += reward
 	money_label.text = "Money plundered: " + str(reward)
 	var total = reward - death_penalties
@@ -160,11 +165,13 @@ func _on_battle_ended(won:bool):
 			
 			Globals.owned_items.erase(item)
 	
-	for combatant in Globals.hired_characters:
-		Globals.hired_characters.erase(combatant.character_data)
-		for item in combatant.character_data.items.values():
-			combatant.character_data.unequip_item(item)
-
+	for character_data in Globals.hired_characters:
+		for item in character_data.items.values():
+			character_data.unequip_item(item)
+	
+	Globals.hired_characters.clear()
 
 func _on_button_pressed() -> void:
+	TimeManager.advance_day()
+	await TimeManager.day_ended
 	get_tree().change_scene_to_file("uid://b5v8bj3uciobn")

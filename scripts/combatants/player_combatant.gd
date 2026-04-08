@@ -7,11 +7,23 @@ class_name PlayerCombatant
 
 @export var abilities:Array[Ability]
 
+@export var idle_animation:StringName = "idle"
+
+@export var attack_animation:StringName
+
+@onready var animation_player:AnimationPlayer = %AnimationPlayer
+
 func _ready() -> void:
 	super()
 	
 	for ability in abilities:
 		ability.combatant = self
+	
+	animation_player.seek(randf_range(0, 0.25))
+
+func end_turn():
+	super()
+	animation_player.queue(idle_animation)
 
 func damage(amount:int):
 	# Any time a character would be killed with 1 more than 1 HP remaining, instead leave them at 1 HP.

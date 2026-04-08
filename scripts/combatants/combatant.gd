@@ -35,6 +35,14 @@ func damage(amount:int):
 	create_bounce_text(str(amount), Color.DARK_RED, 40)
 	current_hp -= amount
 
+func heal(amount:int):
+	current_hp += amount
+	var text = str(amount)
+	if current_hp >= max_hp:
+		text = "MAX"
+	
+	create_bounce_text(text, Color.GREEN, 40)
+
 func create_bounce_text(text:String, color:Color = Color.WHITE, size:int = 16) -> BounceText:
 	var bounce_text = BounceText.create_bounce_text(text, color, size)
 	bounce_text.global_position = global_position

@@ -86,6 +86,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7ix0x")
 layout_mode = 2
 
 [node name="HeadlineLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1043389092]
+unique_name_in_owner = true
 layout_mode = 2
 text = "The Timely Times"
 label_settings = SubResource("LabelSettings_5so1n")

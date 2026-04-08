@@ -6,6 +6,7 @@ const BATTLE_SCENE:PackedScene = preload("uid://bax6tvgq726xt")
 
 @onready var adventure_menu:CanvasLayer = %AdventureMenu
 @onready var adventurer_listing_container:VBoxContainer = %AdventurerListingContainer
+@onready var start_button:Button = %StartButton
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -25,6 +26,11 @@ func clear_ui():
 		child.queue_free()
 
 func populate_ui():
+	start_button.disabled = true
+	
+	if Globals.hired_characters.size() > 0:
+		start_button.disabled = false
+	
 	for character in Globals.hired_characters:
 		var listing = ADVENTURER_LISTING_TEMPLATE.instantiate()
 		listing.show()

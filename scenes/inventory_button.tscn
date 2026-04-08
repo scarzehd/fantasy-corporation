@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6l6lmnoqeao4"]
 
 [ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="1_cvjyr"]
-[ext_resource type="Texture2D" uid="uid://b05qmjb4fbasi" path="res://resources/sprites/office_safe.png" id="1_x8ex6"]
+[ext_resource type="Texture2D" uid="uid://b05qmjb4fbasi" path="res://resources/sprites/office/office_safe.png" id="1_x8ex6"]
 [ext_resource type="Script" uid="uid://cxk126br6b14e" path="res://scripts/ui/inventory_menu.gd" id="2_j6i4b"]
 [ext_resource type="PackedScene" uid="uid://bgqh2sjvii77l" path="res://scenes/ui/item_view.tscn" id="3_vpwv6"]
 

@@ -2,7 +2,6 @@
 
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="1_dy3po"]
 [ext_resource type="Script" uid="uid://e1hw5a5vk680" path="res://scripts/ui/battle_hud.gd" id="1_p6blr"]
-[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="2_ytn0o"]
 [ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="4_6uyy6"]
 [ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon.png" id="5_nj5vo"]
 
@@ -11,6 +10,9 @@ font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_p6blr"]
 font_size = 25
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_nj5vo"]
+allow_unpress = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_6uyy6"]
 font_size = 20
@@ -113,7 +115,6 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_ytn0o")
 expand_mode = 1
 stretch_mode = 5
 
@@ -159,6 +160,8 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 25
+toggle_mode = true
+button_group = SubResource("ButtonGroup_nj5vo")
 text = "Attack"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer" unique_id=1002211445]
@@ -298,7 +301,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 315.0
 offset_top = -269.0
-offset_right = 731.0
+offset_right = 796.0
 offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2

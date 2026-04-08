@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://d517xgtrplrt"]
+
+[ext_resource type="PackedScene" uid="uid://bxer6od4tbb5u" path="res://scenes/combatants/player/combatant_base.tscn" id="1_f1t0f"]
+[ext_resource type="Script" uid="uid://dbk6q71egjpcy" path="res://scripts/combatants/abilities/cleanse_ability.gd" id="2_aodbh"]
+[ext_resource type="Texture2D" uid="uid://ubomikjr1mdc" path="res://resources/sprites/characters/bard/bard_idle_1.png" id="2_cmwjb"]
+[ext_resource type="Texture2D" uid="uid://cvpcnm6654w02" path="res://resources/sprites/characters/bard/bard_attack_1.png" id="3_uocti"]
+[ext_resource type="Script" uid="uid://6hs3kcvwbwo3" path="res://scripts/combatants/abilities/healing_song.gd" id="4_cmwjb"]
+[ext_resource type="Texture2D" uid="uid://h2bpf1qsol31" path="res://resources/sprites/characters/bard/bard_attack_2.png" id="4_thqen"]
+[ext_resource type="Script" uid="uid://dvyc8dfvxjqk5" path="res://scripts/combatants/abilities/demoralize_ability.gd" id="4_wqw3v"]
+
+[sub_resource type="Animation" id="Animation_cmwjb"]
+resource_name = "attack"
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"impact",
+"time": 0.43
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.27, 0.43, 0.63),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_cmwjb"), ExtResource("3_uocti"), ExtResource("4_thqen"), ExtResource("2_cmwjb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.27, 0.4, 0.43, 0.47, 0.56),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -9.999991), Vector2(0, -8.5), Vector2(11, 11.999995), Vector2(0, 10.5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.27, 0.4, 0.43, 0.47, 0.56),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.5), Vector2(0.47600004, 0.52), Vector2(0.484, 0.517), Vector2(0.538, 0.47600004), Vector2(0.514, 0.479), Vector2(0.5, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.27, 0.43, 0.56),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.04363323, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Head:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.265, 0.27, 0.4, 0.429, 0.43, 0.47, 0.56, 0.629, 0.63),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(15, -125), Vector2(15, -125), Vector2(15, -140), Vector2(6, -143), Vector2(6, -143), Vector2(24, -111), Vector2(44, -94), Vector2(33, -94), Vector2(28, -110), Vector2(28, -110), Vector2(15, -125)]
+}
+
+[sub_resource type="Animation" id="Animation_wqw3v"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.2, 0.3, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.5113169), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.2, 0.3, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5.5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.2, 0.3, 1),
+"update": 0,
+"values": [Vector2(15, -125), Vector2(15, -133), Vector2(15, -125)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1t0f"]
+_data = {
+&"attack": SubResource("Animation_cmwjb"),
+&"idle": SubResource("Animation_wqw3v")
+}
+
+[node name="BardCombatant" unique_id=209960256 node_paths=PackedStringArray("abilities") instance=ExtResource("1_f1t0f")]
+abilities = [NodePath("DemoralizeAbility"), NodePath("DefendAbility"), NodePath("CleanseAbility"), NodePath("HealingSong")]
+idle_animation = &"bard/idle"
+attack_animation = &"bard/attack"
+
+[node name="Sprite2D" parent="." index="1" unique_id=904817639]
+skew = -0.04363323
+texture = ExtResource("2_cmwjb")
+
+[node name="AnimationPlayer" parent="." index="4" unique_id=1377899510]
+libraries/bard = SubResource("AnimationLibrary_f1t0f")
+autoplay = &"bard/idle"
+
+[node name="CleanseAbility" type="Node" parent="." index="5" unique_id=854532944]
+script = ExtResource("2_aodbh")
+ability_name = "Cleansing Song"
+toggle = true
+metadata/_custom_type_script = "uid://dbk6q71egjpcy"
+
+[node name="DemoralizeAbility" type="Node" parent="." index="6" unique_id=1826448421]
+script = ExtResource("4_wqw3v")
+ability_name = "Demoralize"
+toggle = true
+metadata/_custom_type_script = "uid://dvyc8dfvxjqk5"
+
+[node name="HealingSong" type="Node" parent="." index="7" unique_id=1549955965]
+script = ExtResource("4_cmwjb")
+ability_name = "Healing Song"
+metadata/_custom_type_script = "uid://6hs3kcvwbwo3"

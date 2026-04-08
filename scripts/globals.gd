@@ -1,6 +1,6 @@
 extends Node
 
-const LIFE_INSURANCE_PRICE:int = 100
+const LIFE_INSURANCE_PRICE:int = 200
 
 signal money_changed(old_money:int, new_money:int)
 @warning_ignore("unused_signal")
@@ -12,7 +12,7 @@ var hired_characters:Array[CharacterData]
 
 var owned_items:Array[ItemData]
 
-var money:int = 1000 :
+var money:int = 750 :
 	set(new_money):
 		var old_money = money
 		money = new_money

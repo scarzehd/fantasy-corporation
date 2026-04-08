@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b05qmjb4fbasi"
-path="res://.godot/imported/office_safe.png-5027bd486c5118eaa3277200a2704100.ctex"
+uid="uid://btmlb33g0v4is"
+path="res://.godot/imported/head_base.png-dc50be7e09c399ad3152f67b82122b6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/office_safe.png"
-dest_files=["res://.godot/imported/office_safe.png-5027bd486c5118eaa3277200a2704100.ctex"]
+source_file="res://resources/sprites/characters/heads/head_base.png"
+dest_files=["res://.godot/imported/head_base.png-dc50be7e09c399ad3152f67b82122b6a.ctex"]
 
 [params]
 

@@ -40,7 +40,7 @@ class_name CharacterGenerator
 	"Balthazar","Barnaby","Barry","Bartholomew","Basil","Beau","Benjamin","Blake","Boris","Bradley","Brandon","Brenard","Brian","Brock","Bruce","Bruno",
 	"Caesar","Caleb","Calvin","Cameron","Carson","Caspian","Chad","Charles","Chase","Chester","Christian","Christopher","Clayton","Clifford","Clinton","Clyde","Collin","Cooper","Cyrus",
 	"Damian","Daniel","Darrell","David","Dennis","Derek","Dexter","Diego","Dominic","Donald","Duncan","Dwight","Dylan",
-	"Ean","Earl","Eden","Edmond","Edward","Eli","Elijah","Elliot","Emmanuel","Emory","Enoch","Eric","Ethan","Eugene","Ezekiel",
+	"Ean","Earl","Eden","Edmond","Edward","Eli","Elijah","Elliot","Emmanuel","Emory","Enoch","Eric","Ethan","Eugene","`ekiel",
 	"Fabian","Felix","Ferdinand","Finn","Fletcher","Franklin","Fredrich",
 	"Gabriel","Gary","Geoffery","George","Gerald","Geronimo","Gilbert","Grant","Gregory","Griffin","Griffith","Grover","Gordon","Gustav",
 	"Hannibal","Hans","Harold","Harvey","Hector","Henry","Herbert","Herman","Hernest","Homer","Horatio","Howard","Hudson","Hugh",
@@ -61,7 +61,7 @@ class_name CharacterGenerator
 	"Walker","Walter","Werner","William","Willis","Wolfgang","Woodrow",
 	"Xander","Xanthus","Xavier","Xerxes",
 	"Yannis","Young","Yuri",
-	"Zachary","Zane","Zebadiah"
+	"Zachary","Zane","Zebadiah","Uncle","Ballas","Galdur"
 ]
 
 @export var last_names:Array[String] = [
@@ -69,8 +69,14 @@ class_name CharacterGenerator
 	"Stevens",
 	"Richguy",
 	"Middleman",
-	"Knolastname",
-	"Franklinson"
+	"Franklinson",
+	"Preston",
+	"Slide",
+	"Goodman",
+	"Whitethorne",
+	"Bateman",
+	"Freeman",
+	"Holiday"
 ]
 
 @export var portraits:Array[Texture2D]
@@ -82,12 +88,14 @@ func generate() -> CharacterData:
 	
 	var value = randf()
 	
-	if value > 0.6:
+	if value > 0.66:
 		data.character_class = CharacterData.CharacterClass.Fighter
-	elif value > 0.3:
+	elif value > 0.33:
 		data.character_class = CharacterData.CharacterClass.Mage
 	else:
 		data.character_class = CharacterData.CharacterClass.Bard
+	
+	#data.character_class = CharacterData.CharacterClass.Bard
 	
 	#data.character_class = CharacterData.CharacterClass.Fighter if randf() > 0.5 else CharacterData.CharacterClass.Mage
 	

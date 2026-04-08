@@ -3,6 +3,12 @@ class_name Battle
 
 const PLAYER_COMBATANT_SCENE:PackedScene = preload("uid://bxer6od4tbb5u")
 
+const PLAYER_COMBATANT_SCENES:Dictionary[CharacterData.CharacterClass, PackedScene] = {
+	CharacterData.CharacterClass.Fighter: preload("uid://cp4qgoq7tn0qs"),
+	CharacterData.CharacterClass.Mage: preload("uid://cfd1xilmm2jxe"),
+	CharacterData.CharacterClass.Bard: preload("uid://d517xgtrplrt")
+}
+
 static var instance:Battle
 
 signal battle_finished(won:bool)
@@ -17,6 +23,10 @@ signal combatant_clicked(combatant:Combatant)
 
 @export var player_slots:Array[Node2D]
 
+@export var enemy_slots:Array[Node2D]
+
+@export var enemy_pool:Array[PackedScene]
+
 var current_turn_index:int = 0
 
 var casualties:Array[PlayerCombatant]
@@ -30,12 +40,24 @@ func _ready() -> void:
 	for i in range(min(Globals.hired_characters.size(), 4)):
 		var character = Globals.hired_characters[i]
 		var slot = player_slots[i]
-		var combatant:PlayerCombatant = PLAYER_COMBATANT_SCENE.instantiate()
+		var combatant:PlayerCombatant = PLAYER_COMBATANT_SCENES[character.character_class].instantiate()
 		combatant.character_data = character
 		slot.add_child(combatant)
 		combatants.append(combatant)
 	
-	combatants.append_array(existing_combatants)
+	var num_enemies = randi_range(max(existing_combatants.size(), 2), enemy_slots.size())
+	
+	for i in range(num_enemies):
+		var slot = enemy_slots[i]
+		if i < existing_combatants.size():
+			var combatant:Combatant = existing_combatants[i]
+			combatant.reparent(slot)
+			combatant.position = Vector2.ZERO
+			combatants.append(combatant)
+		else:
+			var combatant:Combatant = enemy_pool.pick_random().instantiate()
+			slot.add_child(combatant)
+			combatants.append(combatant)
 	
 	start_battle()
 
@@ -91,6 +113,8 @@ func current_turn_finished():
 	current_turn_index += 1
 	if current_turn_index >= combatants.size():
 		current_turn_index = 0
+	
+	await get_tree().create_timer(1.0).timeout
 	
 	handle_current_turn()
 

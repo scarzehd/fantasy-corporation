@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7m4kg3l1mta5"
-path="res://.godot/imported/office_mailbox.png-911bb4032eb101ee98b3bff6488c077d.ctex"
+uid="uid://cmdeyo5h24b7q"
+path="res://.godot/imported/mage_idle_1.png-6d77bd7f2ee1f975baf06fae43858669.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/office_mailbox.png"
-dest_files=["res://.godot/imported/office_mailbox.png-911bb4032eb101ee98b3bff6488c077d.ctex"]
+source_file="res://resources/sprites/characters/mage/mage_idle_1.png"
+dest_files=["res://.godot/imported/mage_idle_1.png-6d77bd7f2ee1f975baf06fae43858669.ctex"]
 
 [params]
 

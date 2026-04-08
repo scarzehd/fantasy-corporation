@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://cp4qgoq7tn0qs"]
+
+[ext_resource type="PackedScene" uid="uid://bxer6od4tbb5u" path="res://scenes/combatants/player/combatant_base.tscn" id="1_op01y"]
+[ext_resource type="Script" uid="uid://b1ihqjth617s6" path="res://scripts/combatants/abilities/attack.gd" id="2_luh37"]
+[ext_resource type="Texture2D" uid="uid://d0gbjvwmvxety" path="res://resources/sprites/characters/fighter/fighter_idle_1.png" id="2_wek84"]
+[ext_resource type="Texture2D" uid="uid://bbpwqkaupsfsr" path="res://resources/sprites/characters/fighter/fighter_attack_1.png" id="3_hac5d"]
+[ext_resource type="Script" uid="uid://cdiwmibj03281" path="res://scripts/combatants/abilities/lacerate_ability.gd" id="3_hqiq2"]
+[ext_resource type="Texture2D" uid="uid://djmlv248edby1" path="res://resources/sprites/characters/fighter/fighter_attack_2.png" id="4_4ohxl"]
+[ext_resource type="Script" uid="uid://vqfv6ove1g6o" path="res://scripts/combatants/abilities/whirlwind_ability.gd" id="4_awywe"]
+
+[sub_resource type="Animation" id="Animation_wek84"]
+resource_name = "attack"
+length = 0.8
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"impact",
+"time": 0.44
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.27666667, 0.43333334, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_wek84"), ExtResource("3_hac5d"), ExtResource("4_4ohxl"), ExtResource("2_wek84")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13338247, 0.3, 0.39966664, 0.53333336, 0.7),
+"transitions": PackedFloat32Array(1, 2.219139, 0.59460354, 0.5358868, 2.7320826, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.5), Vector2(0.48, 0.522), Vector2(0.5, 0.5), Vector2(0.57, 0.485), Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.3, 0.39966664, 0.5266667, 0.6891957),
+"transitions": PackedFloat32Array(1, 2.219139, 0.59460354, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -7), Vector2(0, 0), Vector2(0, 6.0000005), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.27, 0.28333333, 0.39, 0.429, 0.44, 0.63, 0.64),
+"transitions": PackedFloat32Array(1, 2.21, 2.21, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(15, -125), Vector2(15, -125), Vector2(16, -137), Vector2(4, -141), Vector2(2, -129), Vector2(2, -129), Vector2(60, -113), Vector2(60, -113), Vector2(15, -125)]
+}
+
+[sub_resource type="Animation" id="Animation_awywe"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.2, 0.3, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.5113169), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.2, 0.3, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5.5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.2, 0.3, 1),
+"update": 0,
+"values": [Vector2(15, -125), Vector2(15, -133), Vector2(15, -125)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_wek84")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wek84"]
+_data = {
+&"attack": SubResource("Animation_wek84"),
+&"idle": SubResource("Animation_awywe")
+}
+
+[node name="fighter_combatant" unique_id=209960256 node_paths=PackedStringArray("abilities") instance=ExtResource("1_op01y")]
+abilities = [NodePath("AttackAbility"), NodePath("DefendAbility"), NodePath("LacerateAbility"), NodePath("WhirlwindAbility")]
+idle_animation = &"fighter/idle"
+attack_animation = &"fighter/attack"
+
+[node name="Sprite2D" parent="." index="1" unique_id=904817639]
+skew = -0.04363323
+
+[node name="AnimationPlayer" parent="." index="4" unique_id=1377899510]
+libraries/fighter = SubResource("AnimationLibrary_wek84")
+autoplay = &"fighter/idle"
+
+[node name="AttackAbility" type="Node" parent="." index="5" unique_id=1257583784]
+script = ExtResource("2_luh37")
+ability_name = "Attack"
+toggle = true
+metadata/_custom_type_script = "uid://b1ihqjth617s6"
+
+[node name="LacerateAbility" type="Node" parent="." index="6" unique_id=5844044]
+script = ExtResource("3_hqiq2")
+ability_name = "Lacerate"
+toggle = true
+metadata/_custom_type_script = "uid://cdiwmibj03281"
+
+[node name="WhirlwindAbility" type="Node" parent="." index="7" unique_id=264403156]
+script = ExtResource("4_awywe")
+ability_name = "Whirlwind"
+metadata/_custom_type_script = "uid://vqfv6ove1g6o"

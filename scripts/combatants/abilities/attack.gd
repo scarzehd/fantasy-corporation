@@ -20,11 +20,19 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 	if clicked_combatant is PlayerCombatant:
 		return
 	
+	
 	button.button_pressed = false
+	
+	combatant.animation_player.play(combatant.attack_animation)
+	combatant.end_turn()
+	
+	var anim = combatant.animation_player.get_animation(combatant.attack_animation)
+	
+	if anim.has_marker("impact"):
+		await get_tree().create_timer(anim.get_marker_time("impact")).timeout
 	
 	if RandomUtils.roll_attack(clicked_combatant.defense, combatant.attack):
 		clicked_combatant.damage(roundi(combatant.power * randf_range(0.9, 1.1)))
 	else:
 		clicked_combatant.create_bounce_text("MISS", Color.WHITE, 40)
 	
-	combatant.end_turn()

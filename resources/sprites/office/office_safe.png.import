@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c47o7aixnb673"
-path="res://.godot/imported/office_mailbox_letters.png-26005cc5e08a9e7fc634f6229ed22607.ctex"
+uid="uid://b05qmjb4fbasi"
+path="res://.godot/imported/office_safe.png-f204cbcb508ec483f74c6e19e1c686a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/office_mailbox_letters.png"
-dest_files=["res://.godot/imported/office_mailbox_letters.png-26005cc5e08a9e7fc634f6229ed22607.ctex"]
+source_file="res://resources/sprites/office/office_safe.png"
+dest_files=["res://.godot/imported/office_safe.png-f204cbcb508ec483f74c6e19e1c686a4.ctex"]
 
 [params]
 

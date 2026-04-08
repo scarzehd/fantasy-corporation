@@ -27,6 +27,8 @@ func start_turn():
 func end_turn():
 	if damage > 0:
 		combatant.damage(damage)
+	elif damage < 0:
+		combatant.heal(-damage)
 	
 	if has_duration:
 		duration -= 1

@@ -3,12 +3,45 @@ class_name NewspaperLetter
 
 const SCENE:PackedScene = preload("uid://c8wytlhkw0oa4")
 
+const NAME_PART_1:Array[String] = [
+	"Timely",
+	"Fantasy",
+	"Timepiece",
+	"Preston",
+	"Elden York",
+	"Richguy",
+	"Steve",
+	"Daily",
+	"Weekly",
+	"Constellation",
+	"Eon",
+	"Warlock",
+	"Magician's"
+]
+
+const NAME_PART_2:Array[String] = [
+	"Times",
+	"Journal",
+	"Press",
+	"Report",
+	"News",
+	"Globe",
+	"Files",
+	"Enthusiast",
+	"Bugle",
+	"Magician"
+]
+
+@onready var headline_label:Label = %HeadlineLabel
+
 @export var item_price_label:Label
 @export var item_resale_price_label:Label
 @export var character_price_label:Label
 @export var daily_expense_label:Label
 
 func _ready() -> void:
+	headline_label.text = "The " + NAME_PART_1.pick_random() + " " + NAME_PART_2.pick_random()
+	
 	var item_price_change = Globals.item_price_modifier - Globals.old_item_price_modifier
 	var item_price_string = "%.0f%%" % (item_price_change * 100)
 	if item_price_change > 0:
