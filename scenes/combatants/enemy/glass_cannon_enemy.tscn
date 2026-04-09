@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpyx5cbwc4lub"]
 
 [ext_resource type="Script" uid="uid://b1iax2wgpt36h" path="res://scripts/combatants/enemy/glass_cannon_enemy.gd" id="1_0ac1x"]
-[ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon.png" id="2_covoa"]
+[ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon_test.png" id="2_covoa"]
 [ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/characters/character_base.png" id="2_snpoo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_covoa"]
@@ -48,10 +48,10 @@ font_size = 25
 
 [node name="GlassCannonEnemy" type="Area2D" unique_id=1995081188 node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_0ac1x")
-combatant_name = "Brung Crunglus"
+combatant_name = "Brung Crungulus"
 portrait = ExtResource("2_covoa")
 health_bar = NodePath("Control/VBoxContainer/HealthBar")
-base_hp = 60
+base_hp = 45
 base_attack = 90
 base_power = 50
 base_defense = 50

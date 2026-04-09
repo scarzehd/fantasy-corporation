@@ -5,10 +5,17 @@ class_name BattleHUD
 @onready var portrait: TextureRect = %Portrait
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var health_bar_label: Label = %HealthBarLabel
-@onready var attack_container: GridContainer = %AttackContainer
-@onready var attack_button_template: Button = %AttackButtonTemplate
-@onready var status_effect_container: GridContainer = %StatusEffectContainer
+@onready var attack_label:Label = %AttackLabel
+@onready var defense_label:Label = %DefenseLabel
+@onready var power_label:Label = %PowerLabel
+
+@onready var attack_container: HBoxContainer = %AttackContainer
+@onready var attack_button_template: TextureButton = %AttackButtonTemplate
+@onready var status_effect_container: VBoxContainer = %StatusEffectContainer
 @onready var status_effect_template: PanelContainer = %StatusEffectTemplate
+
+@onready var attack_name_label:Label = %AttackNameLabel
+@onready var attack_description_label:Label = %AttackDescriptionLabel
 
 @onready var mission_end_panel:Control = %MissionEndPanel
 @onready var header_label:Label = %HeaderLabel
@@ -28,7 +35,16 @@ func _on_turn_started(combatant:Combatant):
 		setup_player_combatant(combatant)
 
 func reset_ui():
+	health_bar_label.text = ""
+	health_bar.value = 0
+	health_bar.max_value = 1.0
 	name_label.text = ""
+	attack_label.text = ""
+	defense_label.text = ""
+	power_label.text = ""
+	
+	attack_name_label.text = ""
+	attack_description_label.text = ""
 	
 	for child in attack_container.get_children():
 		if child == attack_button_template:
@@ -52,6 +68,12 @@ func setup_player_combatant(combatant:PlayerCombatant):
 		ability.setup_button(button)
 		if button.toggle_mode:
 			button.button_group = attack_button_template.button_group
+		
+		button.mouse_entered.connect(button_hovered.bind(ability))
+
+func button_hovered(ability:Ability):
+	attack_name_label.text = ability.ability_name
+	attack_description_label.text = ability.description
 
 func setup_combatant(combatant:Combatant):
 	name_label.text = combatant.combatant_name
@@ -59,6 +81,9 @@ func setup_combatant(combatant:Combatant):
 	health_bar.max_value = combatant.max_hp
 	health_bar.value = combatant.current_hp
 	health_bar_label.text = str(combatant.current_hp) + " / " + str(combatant.max_hp)
+	attack_label.text = str(combatant.attack)
+	defense_label.text = str(combatant.defense)
+	power_label.text = str(combatant.power)
 	
 	for status_effect in combatant.status_effects:
 		var template = status_effect_template.duplicate()

@@ -1,18 +1,32 @@
 [gd_scene format=3 uid="uid://3e8drigu5xm1"]
 
-[ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="1_dy3po"]
 [ext_resource type="Script" uid="uid://e1hw5a5vk680" path="res://scripts/ui/battle_hud.gd" id="1_p6blr"]
+[ext_resource type="StyleBox" uid="uid://b88x7giwvcpya" path="res://resources/styleboxes/panel_5.tres" id="2_5jm4p"]
+[ext_resource type="Texture2D" uid="uid://dptj6ucbovbja" path="res://resources/sprites/john_smith.png" id="3_o02nu"]
 [ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="4_6uyy6"]
-[ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon.png" id="5_nj5vo"]
+[ext_resource type="Texture2D" uid="uid://clom2u7i5nb8h" path="res://resources/sprites/portrait_frame_small.png" id="4_o02nu"]
+[ext_resource type="Texture2D" uid="uid://b02saj38hbj48" path="res://resources/sprites/attack_icon.png" id="4_w8gj3"]
+[ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon_test.png" id="5_nj5vo"]
+[ext_resource type="Texture2D" uid="uid://bcjqe58m1os5y" path="res://resources/sprites/defense_icon.png" id="5_o02nu"]
+[ext_resource type="Texture2D" uid="uid://cohxeaegqmh06" path="res://resources/sprites/power_icon.png" id="6_w8gj3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ytn0o"]
-font_size = 30
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_3qocc"]
+font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_p6blr"]
 font_size = 25
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_nj5vo"]
 allow_unpress = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_618ne"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_248it"]
+font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_6uyy6"]
 font_size = 20
@@ -93,9 +107,13 @@ anchor_bottom = 1.0
 offset_top = -375.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = ExtResource("1_dy3po")
+theme_override_styles/panel = ExtResource("2_5jm4p")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1181626872]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer" unique_id=1310574861]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=914346902]
@@ -104,19 +122,98 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 
-[node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1681646245]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1062344788]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1681646245]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 2
 text = "Bringle Cringus"
 label_settings = SubResource("LabelSettings_ytn0o")
 horizontal_alignment = 1
 
-[node name="Portrait" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1676875379]
-unique_name_in_owner = true
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1327757203]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=277327687]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Portrait" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1676875379]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_o02nu")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/Portrait" unique_id=43654619]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_o02nu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=488167520]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1130271979]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=2126713525]
+layout_mode = 2
+texture = ExtResource("4_w8gj3")
+expand_mode = 3
+
+[node name="AttackLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=1972415662]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "100"
+label_settings = SubResource("LabelSettings_3qocc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=1304544233]
+layout_mode = 2
+texture = ExtResource("5_o02nu")
+expand_mode = 3
+
+[node name="DefenseLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=1971370016]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "100"
+label_settings = SubResource("LabelSettings_3qocc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=951017763]
+layout_mode = 2
+texture = ExtResource("6_w8gj3")
+expand_mode = 3
+
+[node name="PowerLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=126135739]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "100"
+label_settings = SubResource("LabelSettings_3qocc")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=637368372]
 custom_minimum_size = Vector2(0, 10)
@@ -124,9 +221,8 @@ layout_mode = 2
 
 [node name="HealthBar" type="ProgressBar" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1190685959]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(350, 40)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 show_percentage = false
 
@@ -143,38 +239,76 @@ label_settings = SubResource("LabelSettings_p6blr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=467512294]
-custom_minimum_size = Vector2(0, 10)
+[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer" unique_id=161452349]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="AttackContainer" type="GridContainer" parent="PanelContainer/HBoxContainer" unique_id=122864659]
-unique_name_in_owner = true
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1326775688]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
-columns = 2
 
-[node name="AttackButtonTemplate" type="Button" parent="PanelContainer/HBoxContainer/AttackContainer" unique_id=1613888678]
+[node name="AttackContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2" unique_id=30291061]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/separation = 45
+
+[node name="AttackButtonTemplate" type="TextureButton" parent="PanelContainer/HBoxContainer/VBoxContainer2/AttackContainer" unique_id=119660417]
 unique_name_in_owner = true
 visible = false
+custom_minimum_size = Vector2(175, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 25
 toggle_mode = true
 button_group = SubResource("ButtonGroup_nj5vo")
+texture_normal = ExtResource("5_nj5vo")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer2" unique_id=472840560]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2" unique_id=1605172585]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_6uyy6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/PanelContainer" unique_id=1355218744]
+layout_mode = 2
+
+[node name="AttackNameLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer" unique_id=933895886]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Attack"
+label_settings = SubResource("LabelSettings_618ne")
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer" unique_id=566522201]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="AttackDescriptionLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer" unique_id=1286883506]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hit an enemy for damage equal to your power."
+label_settings = SubResource("LabelSettings_248it")
+
+[node name="Control3" type="Control" parent="PanelContainer/HBoxContainer" unique_id=2045990450]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer" unique_id=1002211445]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 
-[node name="StatusEffectContainer" type="GridContainer" parent="PanelContainer/HBoxContainer/ScrollContainer" unique_id=2088845622]
+[node name="StatusEffectContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer" unique_id=437744051]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-columns = 2
 
 [node name="StatusEffectTemplate" type="PanelContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/StatusEffectContainer" unique_id=595563332]
 unique_name_in_owner = true

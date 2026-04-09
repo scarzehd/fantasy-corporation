@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="BasicItemGenerator" format=3 uid="uid://bidghh6bm6ssw"]
 
 [ext_resource type="Script" uid="uid://b4ivx5m3ti8ca" path="res://scripts/resources/basic_item_generator.gd" id="1_flsav"]
-[ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon.png" id="3_vqsjm"]
+[ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon_test.png" id="3_vqsjm"]
 
 [resource]
 script = ExtResource("1_flsav")
-power_range = Vector2i(-5, 15)
+power_range = Vector2i(-5, 20)
 power_deviation = 0.75
 attack_range = Vector2i(-5, 30)
 attack_deviation = 0.75

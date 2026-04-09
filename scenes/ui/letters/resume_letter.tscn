@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtpns7tj0p0kc" path="res://scripts/ui/resume_letter.gd" id="1_sj4sk"]
 [ext_resource type="Texture2D" uid="uid://djhxjdfepydac" path="res://resources/sprites/jane_doe.png" id="2_35nig"]
+[ext_resource type="Texture2D" uid="uid://dltlbi06befah" path="res://resources/sprites/portrait_frame.png" id="3_gb6wp"]
 [ext_resource type="Texture2D" uid="uid://ddqmevp5gqxwp" path="res://resources/sprites/ui/button_2_green.png" id="5_bsqcj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_35nig"]
@@ -78,6 +79,18 @@ custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 texture = ExtResource("2_35nig")
 expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer/Portrait" unique_id=1285619976]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_gb6wp")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="NameLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1268166775]
 unique_name_in_owner = true
