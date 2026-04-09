@@ -1,10 +1,18 @@
 [gd_resource type="Resource" script_class="CharacterGenerator" format=3 uid="uid://qbn7iru5xo40"]
 
-[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="1_dlm1u"]
-[ext_resource type="Texture2D" uid="uid://dptj6ucbovbja" path="res://resources/sprites/john_smith.png" id="2_cd1jl"]
-[ext_resource type="Texture2D" uid="uid://djhxjdfepydac" path="res://resources/sprites/jane_doe.png" id="3_dnnkt"]
-[ext_resource type="Texture2D" uid="uid://bj6pnf8008476" path="res://resources/sprites/knight_suit.png" id="4_cd1jl"]
+[ext_resource type="Texture2D" uid="uid://buv0tcq5vaydl" path="res://resources/sprites/characters/heads/head_1.png" id="1_h71wq"]
+[ext_resource type="Texture2D" uid="uid://chjn6nck1fyem" path="res://resources/sprites/characters/heads/head_2.png" id="2_ptbll"]
+[ext_resource type="Texture2D" uid="uid://v6whwejaoeex" path="res://resources/sprites/characters/heads/head_3.png" id="3_qcurf"]
+[ext_resource type="Texture2D" uid="uid://doqxlex8lhgg0" path="res://resources/sprites/characters/heads/head_4.png" id="4_ifl4a"]
 [ext_resource type="Script" uid="uid://00fr0sfq2067" path="res://scripts/resources/character_generator.gd" id="4_ptbll"]
+[ext_resource type="Texture2D" uid="uid://c4wpayjewfcr0" path="res://resources/sprites/characters/heads/head_5.png" id="5_2861m"]
+[ext_resource type="Texture2D" uid="uid://c8611ryn7k1t4" path="res://resources/sprites/characters/heads/head_6.png" id="6_wdftw"]
+[ext_resource type="Texture2D" uid="uid://ig3y88hlhmyj" path="res://resources/sprites/characters/heads/head_7.png" id="7_fefj5"]
+[ext_resource type="Texture2D" uid="uid://chi4j4hol1lkf" path="res://resources/sprites/characters/heads/head_8.png" id="8_o4t7i"]
+[ext_resource type="Texture2D" uid="uid://dtq61hxuljd2a" path="res://resources/sprites/characters/heads/head_9.png" id="9_cb8hg"]
+[ext_resource type="Texture2D" uid="uid://cbmsbvyuaiqom" path="res://resources/sprites/characters/heads/head_10.png" id="10_31ra6"]
+[ext_resource type="Texture2D" uid="uid://d1n0v22hp3cex" path="res://resources/sprites/characters/heads/head_11.png" id="11_80asf"]
+[ext_resource type="Texture2D" uid="uid://cdkuq7bcio5ei" path="res://resources/sprites/characters/heads/head_12.png" id="12_u2qbj"]
 
 [resource]
 script = ExtResource("4_ptbll")
@@ -16,5 +24,5 @@ defense_range = Vector2i(50, 150)
 defense_deviation = 0.75
 hp_range = Vector2i(50, 150)
 hp_deviation = 0.75
-portraits = Array[Texture2D]([ExtResource("1_dlm1u"), ExtResource("2_cd1jl"), ExtResource("3_dnnkt"), ExtResource("4_cd1jl")])
+heads = Array[Texture2D]([ExtResource("1_h71wq"), ExtResource("2_ptbll"), ExtResource("3_qcurf"), ExtResource("4_ifl4a"), ExtResource("5_2861m"), ExtResource("6_wdftw"), ExtResource("7_fefj5"), ExtResource("8_o4t7i"), ExtResource("9_cb8hg"), ExtResource("10_31ra6"), ExtResource("11_80asf"), ExtResource("12_u2qbj")])
 metadata/_custom_type_script = "uid://00fr0sfq2067"

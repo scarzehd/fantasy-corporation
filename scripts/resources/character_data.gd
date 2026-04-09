@@ -21,6 +21,8 @@ enum CharacterClass {
 
 @export var items:Dictionary[ItemData.ItemSlot, ItemData]
 
+@export var head:Texture2D
+
 var full_name:String :
 	get():
 		return first_name + " " + last_name

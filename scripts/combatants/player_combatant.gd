@@ -13,6 +13,8 @@ class_name PlayerCombatant
 
 @onready var animation_player:AnimationPlayer = %AnimationPlayer
 
+@onready var head:Sprite2D = %Head
+
 func _ready() -> void:
 	super()
 	
@@ -83,3 +85,5 @@ func _set_character_data(new_value:CharacterData):
 		await ready
 	
 	name_label.text = character_data.full_name
+	
+	head.texture = new_value.head

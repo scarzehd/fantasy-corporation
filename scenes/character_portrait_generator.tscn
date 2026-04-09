@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dbqtiaebwcsnd"]
+
+[ext_resource type="Script" uid="uid://dosqcjsc2labk" path="res://scripts/character_portrait_generator.gd" id="1_7wjhy"]
+[ext_resource type="Texture2D" uid="uid://d0gbjvwmvxety" path="res://resources/sprites/characters/fighter/fighter_idle_1.png" id="1_c2bl8"]
+[ext_resource type="Texture2D" uid="uid://btmlb33g0v4is" path="res://resources/sprites/characters/heads/head_base.png" id="2_00vfw"]
+
+[node name="CharacterPortraitGenerator" type="SubViewport" unique_id=299115601]
+disable_3d = true
+size_2d_override_stretch = true
+render_target_update_mode = 1
+script = ExtResource("1_7wjhy")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2140941565]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6, 0.72156864, 0.7607843, 1)
+
+[node name="Body" type="Sprite2D" parent="." unique_id=865101361]
+unique_name_in_owner = true
+position = Vector2(250, 500)
+texture = ExtResource("1_c2bl8")
+
+[node name="Head" type="Sprite2D" parent="." unique_id=1924358767]
+unique_name_in_owner = true
+position = Vector2(275, 250)
+texture = ExtResource("2_00vfw")

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://6vc4npbd8dvc" path="res://resources/sprites/ui/arrow_right.png" id="4_rx4kg"]
 [ext_resource type="Texture2D" uid="uid://cg05ot46y6ci6" path="res://resources/sprites/ui/arrow_right_hover.png" id="5_r3rme"]
 [ext_resource type="Texture2D" uid="uid://c47o7aixnb673" path="res://resources/sprites/office/office_mailbox_letters.png" id="7_3lyli"]
+[ext_resource type="PackedScene" uid="uid://dbqtiaebwcsnd" path="res://scenes/character_portrait_generator.tscn" id="8_tlw2h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xs0bi"]
 font_size = 30
@@ -136,6 +137,9 @@ text = "Complete All Letters"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=173302916]
 texture = ExtResource("7_3lyli")
+
+[node name="CharacterPortraitGenerator" parent="." unique_id=299115601 instance=ExtResource("8_tlw2h")]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="MailBox" to="MailBox" method="_on_pressed"]
 [connection signal="pressed" from="MailBox/LettersMenu/LettersMenu/PreviousLetterButton" to="MailBox" method="_on_previous_letter_button_pressed"]

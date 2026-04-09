@@ -79,7 +79,7 @@ class_name CharacterGenerator
 	"Holiday"
 ]
 
-@export var portraits:Array[Texture2D]
+@export var heads:Array[Texture2D]
 
 func generate() -> CharacterData:
 	var data = CharacterData.new()
@@ -107,6 +107,8 @@ func generate() -> CharacterData:
 	data.first_name = first_names.pick_random()
 	data.last_name = last_names.pick_random()
 	
-	data.portrait = portraits.pick_random()
+	#data.portrait = portraits.pick_random()
+	
+	data.head = heads.pick_random()
 	
 	return data
