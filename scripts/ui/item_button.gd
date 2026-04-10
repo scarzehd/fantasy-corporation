@@ -15,6 +15,6 @@ func _set_item_data(new_value:ItemData):
 	
 	item_view.item_data = new_value
 	equipped_panel.hide()
-	if new_value.equipped_by:
-		equipped_panel.show()
-		equipped_label.text = "Equipped by " + new_value.equipped_by.first_name
+	#if new_value.equipped_by:
+		#equipped_panel.show()
+		#equipped_label.text = "Equipped by " + new_value.equipped_by.first_name

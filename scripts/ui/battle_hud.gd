@@ -166,9 +166,9 @@ func _on_battle_ended(won:bool):
 		for slot in combatant.character_data.items:
 			lost_items.append(combatant.character_data.items[slot])
 	
-	var death_penalties = Battle.instance.casualties.size() * Globals.LIFE_INSURANCE_PRICE
-	Globals.money -= death_penalties
-	deaths_label.text = "Life insurance payouts: " + str(death_penalties)
+	#var death_penalties = Battle.instance.casualties.size() * Globals.LIFE_INSURANCE_PRICE
+	#Globals.money -= death_penalties
+	#deaths_label.text = "Life insurance payouts: " + str(death_penalties)
 	var reward = 0
 	if won:
 		reward = RandomUtils.generate_in_range(750, 1000, 0.75)
@@ -177,12 +177,12 @@ func _on_battle_ended(won:bool):
 	
 	Globals.money += reward
 	money_label.text = "Money plundered: " + str(reward)
-	var total = reward - death_penalties
-	total_label.text = "Total profit: " + str(total)
-	if total < 0:
-		total_label.label_settings.font_color = Color.RED
-	elif total > 0:
-		total_label.label_settings.font_color = Color.GREEN
+	#var total = reward - death_penalties
+	#total_label.text = "Total profit: " + str(total)
+	if reward <= 0:
+		money_label.label_settings.font_color = Color.RED
+	elif reward > 0:
+		money_label.label_settings.font_color = Color.GREEN
 
 	
 	if lost_items.size() > 0:

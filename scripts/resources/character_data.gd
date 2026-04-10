@@ -79,3 +79,5 @@ func unequip_item(item_data:ItemData):
 			items.erase(key)
 	
 	item_data.equipped_by = null
+	
+	changed.emit()

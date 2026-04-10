@@ -24,6 +24,8 @@ func _ready() -> void:
 			button.pressed.connect(_on_item_button_clicked.bind(item))
 
 func _on_item_button_clicked(item_data:ItemData):
+	if item_data.equipped_by:
+		item_data.equipped_by.unequip_item(item_data)
 	item_selected.emit(item_data)
 	queue_free()
 

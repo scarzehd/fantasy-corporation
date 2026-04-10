@@ -10,8 +10,7 @@ const BATTLE_SCENE:PackedScene = preload("uid://bax6tvgq726xt")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		adventure_menu.hide()
-		get_viewport().set_input_as_handled()
+		_on_exit_button_pressed()
 
 func _on_pressed() -> void:
 	adventure_menu.show()
@@ -42,3 +41,8 @@ func populate_ui():
 func _on_start_button_pressed() -> void:
 	await Fade.fade_out(0.5).finished
 	get_tree().change_scene_to_packed(BATTLE_SCENE)
+
+
+func _on_exit_button_pressed() -> void:
+	adventure_menu.hide()
+	get_viewport().set_input_as_handled()

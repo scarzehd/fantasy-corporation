@@ -1,8 +1,8 @@
 extends Letter
 class_name ResumeLetter
 
-@onready var trait_label_container:VBoxContainer = %TraitLabelContainer
-@onready var trait_label_template:Label = %TraitLabelTemplate
+#@onready var trait_label_container:VBoxContainer = %TraitLabelContainer
+#@onready var trait_label_template:Label = %TraitLabelTemplate
 
 @onready var portrait:TextureRect = %Portrait
 @onready var name_label:Label = %NameLabel
@@ -12,7 +12,7 @@ class_name ResumeLetter
 @onready var attack_label:Label = %AttackLabel
 @onready var power_label:Label = %PowerLabel
 @onready var defense_label:Label = %DefenseLabel
-@onready var payment_label:Label = %PaymentLabel
+#@onready var payment_label:Label = %PaymentLabel
 @onready var insufficient_funds_label:Label = %InsufficientFundsLabel
 
 var character_data:CharacterData : set = _set_character_data
@@ -46,8 +46,6 @@ func _set_cost(new_value:int):
 	if not is_node_ready():
 		await ready
 	
-	payment_label.text = "Desired Payment: " + str(cost)
-	
 	update_hireable()
 
 func _complete():
@@ -78,5 +76,9 @@ func update_hireable():
 		return
 	
 	if cost > Globals.money:
-		insufficient_funds_label.show()
+		#insufficient_funds_label.show()
+		accept_button.text = "Insufficient Funds"
 		accept_button.disabled = true
+		return
+	
+	accept_button.text = "Hire for " + str(cost)

@@ -24,21 +24,32 @@ func _ready() -> void:
 	
 	_set_current_index(current_index)
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_on_close_button_pressed()
+	
+	if letters_menu.visible:
+		if event.is_action_pressed("ui_left") and not previous_letter_button.disabled:
+			_on_previous_letter_button_pressed()
+		if event.is_action_pressed("ui_right") and not next_letter_button.disabled:
+			_on_next_letter_button_pressed()
+
 func _on_pressed() -> void:
 	if letters.size() > 0:
 		letters_menu.show()
-		current_index = 0
+		_set_current_index(current_index)
 
 func _set_current_index(new_value:int):
-	current_index = clamp(new_value, 0, max(letters.size() - 1, 0))
+	new_value = clamp(new_value, 0, max(letters.size() - 1, 0))
+	current_index = new_value
 	
 	previous_letter_button.show()
 	next_letter_button.show()
 	
-	if current_index <= 0:
+	if new_value <= 0:
 		previous_letter_button.hide()
 	
-	if current_index >= letters.size() - 1:
+	if new_value >= letters.size() - 1:
 		next_letter_button.hide()
 	
 	#letter_container.position.x = -1920 * new_value

@@ -88,5 +88,23 @@ size_flags_vertical = 10
 theme_override_font_sizes/font_size = 25
 text = "Begin Adventure"
 
+[node name="ExitButton" type="Button" parent="GlobeButton/AdventureMenu/Panel" unique_id=754619858]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -499.0
+offset_right = 157.0
+offset_bottom = -388.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Exit"
+
 [connection signal="pressed" from="GlobeButton" to="GlobeButton" method="_on_pressed"]
 [connection signal="pressed" from="GlobeButton/AdventureMenu/Panel/PanelContainer/MarginContainer/AdventurerListingContainer/StartButton" to="GlobeButton" method="_on_start_button_pressed"]
+[connection signal="pressed" from="GlobeButton/AdventureMenu/Panel/ExitButton" to="GlobeButton" method="_on_exit_button_pressed"]
