@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cd1bjyq3d6hh3" path="res://scripts/combatants/abilities/defend.gd" id="4_sjeno"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhwg"]
-size = Vector2(230, 373)
+size = Vector2(262, 373)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nvrs4"]
 font_size = 25
@@ -131,10 +131,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -137.0
-offset_top = -257.0
-offset_right = 137.0
-offset_bottom = 151.0
+offset_left = -150.0
+offset_top = -279.0
+offset_right = 150.0
+offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

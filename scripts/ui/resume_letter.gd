@@ -22,7 +22,7 @@ var cost:int = 100 : set = _set_cost
 var hired:bool = false
 
 func _ready() -> void:
-	cost = ceili(randi_range(60, 175) * Globals.adventurer_price_modifier)
+	cost = ceili(randi_range(150, 250) * Globals.adventurer_price_modifier)
 	Globals.money_changed.connect(update_hireable.unbind(2))
 	Globals.character_hired.connect(update_hireable.unbind(1))
 

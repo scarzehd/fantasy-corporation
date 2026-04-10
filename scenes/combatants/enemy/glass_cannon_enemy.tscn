@@ -51,10 +51,10 @@ script = ExtResource("1_0ac1x")
 combatant_name = "Brung Crungulus"
 portrait = ExtResource("2_covoa")
 health_bar = NodePath("Control/VBoxContainer/HealthBar")
-base_hp = 45
-base_attack = 90
-base_power = 50
-base_defense = 50
+base_hp = 50
+base_attack = 120
+base_power = 60
+base_defense = 60
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=956690356]
 modulate = Color(1, 0, 0, 1)
@@ -95,7 +95,7 @@ grow_vertical = 2
 
 [node name="NameLabel" type="Label" parent="Control/VBoxContainer" unique_id=686950380]
 layout_mode = 2
-text = "Brung Crunglus"
+text = "Brung Crungulus"
 label_settings = SubResource("LabelSettings_0ac1x")
 horizontal_alignment = 1
 

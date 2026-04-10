@@ -33,6 +33,7 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 		
 		var status_effect = StatusEffect.new()
 		status_effect.id = "demoralize"
+		status_effect.name = "Low Morale"
 		status_effect.attack = -combatant.power
 		status_effect.power = -ceili(combatant.power * 0.25)
 		status_effect.has_duration = true

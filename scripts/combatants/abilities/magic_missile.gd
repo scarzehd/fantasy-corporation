@@ -10,13 +10,23 @@ func _button_pressed():
 	if anim.has_marker("impact"):
 		await get_tree().create_timer(anim.get_marker_time("impact")).timeout
 	
+	var enemies:Array[Combatant]
+	
+	for other_combatant in Battle.instance.combatants:
+		if other_combatant is PlayerCombatant:
+			continue
+		
+		enemies.append(other_combatant)
+	
 	for i in range(3):
-		while true:
-			var target = Battle.instance.combatants.pick_random()
-			if target is PlayerCombatant:
-				continue
-
-			target.damage(ceili(combatant.power * randf_range(0.2, 0.3)))
+		if enemies.size() <= 0:
 			break
+		
+		var target = enemies.pick_random()
+
+		target.damage(ceili(combatant.power * randf_range(0.2, 0.3)))
+		
+		if target.current_hp <= 0:
+			enemies.erase(target)
 		
 		await get_tree().create_timer(0.25).timeout

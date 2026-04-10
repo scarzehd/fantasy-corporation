@@ -26,9 +26,14 @@ class_name BattleHUD
 @onready var items_lost_container:PanelContainer = %ItemsLostContainer
 
 func _on_turn_ended(_combatant:Combatant):
-	reset_ui()
+	for button in attack_container.get_children():
+		if button == attack_button_template:
+			continue
+		
+		button.disabled = true
 
 func _on_turn_started(combatant:Combatant):
+	reset_ui()
 	setup_combatant(combatant)
 	
 	if combatant is PlayerCombatant:
@@ -164,7 +169,12 @@ func _on_battle_ended(won:bool):
 	var death_penalties = Battle.instance.casualties.size() * Globals.LIFE_INSURANCE_PRICE
 	Globals.money -= death_penalties
 	deaths_label.text = "Life insurance payouts: " + str(death_penalties)
-	var reward = RandomUtils.generate_in_range(500, 1500, 0.6) if won else 0
+	var reward = 0
+	if won:
+		reward = RandomUtils.generate_in_range(500, 750, 0.75)
+		if Battle.instance.waves > 1:
+			reward += RandomUtils.generate_in_range(250, 500, 0.75) * Battle.instance.waves
+	
 	Globals.money += reward
 	money_label.text = "Money plundered: " + str(reward)
 	var total = reward - death_penalties
@@ -197,6 +207,7 @@ func _on_battle_ended(won:bool):
 	Globals.hired_characters.clear()
 
 func _on_button_pressed() -> void:
+	TimeManager.successful_adventure()
 	TimeManager.advance_day()
 	await TimeManager.day_ended
 	get_tree().change_scene_to_file("uid://b5v8bj3uciobn")

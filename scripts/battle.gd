@@ -29,14 +29,18 @@ signal combatant_clicked(combatant:Combatant)
 
 var current_turn_index:int = 0
 
+var waves:int = waves_left
+var waves_left:int = 1
+
 var casualties:Array[PlayerCombatant]
 
 func _enter_tree() -> void:
 	instance = self
 
 func _ready() -> void:
-	var existing_combatants = combatants.duplicate()
-	combatants = []
+	waves_left = max(1, ceili(TimeManager.successful_adventures / 3.0))
+	waves = waves_left
+	
 	for i in range(min(Globals.hired_characters.size(), 4)):
 		var character = Globals.hired_characters[i]
 		var slot = player_slots[i]
@@ -45,21 +49,7 @@ func _ready() -> void:
 		slot.add_child(combatant)
 		combatants.append(combatant)
 	
-	var num_enemies = randi_range(max(existing_combatants.size(), 2), enemy_slots.size())
-	
-	for i in range(num_enemies):
-		var slot = enemy_slots[i]
-		if i < existing_combatants.size():
-			var combatant:Combatant = existing_combatants[i]
-			combatant.reparent(slot)
-			combatant.position = Vector2.ZERO
-			combatants.append(combatant)
-		else:
-			var combatant:Combatant = enemy_pool.pick_random().instantiate()
-			slot.add_child(combatant)
-			combatants.append(combatant)
-	
-	start_battle()
+	advance_wave()
 
 func start_battle():
 	if combatants.size() == 0:
@@ -122,4 +112,34 @@ func lose_battle():
 	battle_finished.emit(false)
 
 func win_battle():
-	battle_finished.emit(true)
+	waves_left -= 1
+	
+	if waves_left <= 0:
+		battle_finished.emit(true)
+	else:
+		await Fade.fade_out(0.5).finished
+		advance_wave()
+
+func advance_wave():
+	#var num_enemies = randi_range(max(existing_combatants.size(), 2), enemy_slots.size())
+	var num_enemies = 1
+	
+	if TimeManager.successful_adventures >= 1:
+		num_enemies = 2
+		#num_enemies = randi_range(max(combatants.size(), 2), enemy_slots.size())
+		if TimeManager.successful_adventures >= 3:
+			if randf() < 0.5:
+				num_enemies += 1
+				if randf() < 0.5:
+					num_enemies += 1
+	
+	
+	for i in range(num_enemies):
+		var slot = enemy_slots[i]
+		var combatant:Combatant = enemy_pool.pick_random().instantiate()
+		slot.add_child(combatant)
+		combatants.append(combatant)
+	
+	await Fade.fade_in(0.5).finished
+	
+	start_battle()

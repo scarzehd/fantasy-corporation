@@ -97,9 +97,9 @@ func generate_weapon() -> ItemData:
 	data.attack = RandomUtils.generate_in_range(attack_range.x, attack_range.y, attack_deviation)
 	data.power = RandomUtils.generate_in_range(power_range.x, power_range.y, power_deviation)
 	
-	if randf() < 0.35:
+	if randf() < 0.2:
 		data.defense = RandomUtils.generate_in_range(defense_range.x, defense_range.y, defense_deviation)
-	if randf() < 0.35:
+	if randf() < 0.2:
 		data.hp = RandomUtils.generate_in_range(hp_range.x, hp_range.y, hp_deviation)
 	
 	data.item_portrait = weapon_portraits.pick_random()

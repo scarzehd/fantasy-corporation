@@ -63,6 +63,22 @@ label_settings = SubResource("LabelSettings_2knxt")
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="SuccessfulAdventuresLabel" type="Label" parent="Node2D/Control" unique_id=171757301]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -670.0
+offset_top = 127.0
+offset_right = -74.0
+offset_bottom = 196.0
+grow_horizontal = 0
+text = "Successful Adventures: 0"
+label_settings = SubResource("LabelSettings_2knxt")
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Control" unique_id=1414323691]
 layout_mode = 1
 offset_left = 98.0

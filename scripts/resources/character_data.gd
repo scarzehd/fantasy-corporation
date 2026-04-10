@@ -74,12 +74,8 @@ func get_modified_defense() -> int:
 	return total
 
 func unequip_item(item_data:ItemData):
-	var slot_to_remove:ItemData.ItemSlot
-	for slot in items:
-		if items[slot] == item_data:
-			slot_to_remove = slot
-			break
+	for key in items.keys():
+		if items[key] == item_data:
+			items.erase(key)
 	
-	if slot_to_remove:
-		items.erase(slot_to_remove)
-		item_data.equipped_by = null
+	item_data.equipped_by = null

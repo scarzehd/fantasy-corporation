@@ -5,13 +5,15 @@
 
 [resource]
 script = ExtResource("1_flsav")
-power_range = Vector2i(-5, 20)
-power_deviation = 0.75
+power_range = Vector2i(-5, 10)
+power_deviation = 1.0
 attack_range = Vector2i(-5, 30)
-attack_deviation = 0.75
+attack_deviation = 1.0
 defense_range = Vector2i(-10, 25)
+defense_deviation = 1.0
 hp_range = Vector2i(-10, 25)
-price_range = Vector2i(50, 150)
-price_deviation = 0.75
+hp_deviation = 1.0
+price_range = Vector2i(50, 100)
+price_deviation = 1.0
 weapon_portraits = Array[Texture2D]([ExtResource("3_vqsjm")])
 metadata/_custom_type_script = "uid://b4ivx5m3ti8ca"

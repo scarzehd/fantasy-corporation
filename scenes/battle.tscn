@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bax6tvgq726xt"]
 
 [ext_resource type="Script" uid="uid://1llg1ecgeeec" path="res://scripts/battle.gd" id="1_dn72j"]
-[ext_resource type="PackedScene" uid="uid://c6sty6uh7eymw" path="res://scenes/combatants/enemy/basic_enemy.tscn" id="2_a12nh"]
+[ext_resource type="PackedScene" uid="uid://c6sty6uh7eymw" path="res://scenes/combatants/enemy/poison_enemy.tscn" id="2_a12nh"]
 [ext_resource type="PackedScene" uid="uid://cpyx5cbwc4lub" path="res://scenes/combatants/enemy/glass_cannon_enemy.tscn" id="2_p1qf1"]
 [ext_resource type="PackedScene" uid="uid://3e8drigu5xm1" path="res://scenes/ui/battle_hud.tscn" id="7_4k1nj"]
 

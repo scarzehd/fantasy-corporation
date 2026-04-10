@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://c6sty6uh7eymw"]
 
-[ext_resource type="Script" uid="uid://b4xj0e3ne1qdq" path="res://scripts/combatants/enemy/basic_enemy.gd" id="1_v5wtx"]
-[ext_resource type="Script" uid="uid://d3i1h310ayq5c" path="res://scripts/resources/status_effect.gd" id="2_u8vcb"]
-[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="3_2emdk"]
-[ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/characters/character_base.png" id="3_u8vcb"]
+[ext_resource type="Script" uid="uid://b4xj0e3ne1qdq" path="res://scripts/combatants/enemy/basic_enemy.gd" id="1_ys2nx"]
+[ext_resource type="Script" uid="uid://d3i1h310ayq5c" path="res://scripts/resources/status_effect.gd" id="2_pwhef"]
+[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="3_8vly5"]
+[ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/characters/character_base.png" id="4_gbjxq"]
 
 [sub_resource type="Resource" id="Resource_2emdk"]
-script = ExtResource("2_u8vcb")
+script = ExtResource("2_pwhef")
 id = &"poison"
 name = "Poison"
 exclusive_with = Array[StringName]([&"poison"])
 has_duration = true
-duration = 2
-defense = -20
-attack = -10
-damage = 25
+duration = 1
+refresh_duration = true
+defense = -30
+attack = -30
+damage = 20
 metadata/_custom_type_script = "uid://d3i1h310ayq5c"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
@@ -59,21 +60,21 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_u8vcb"]
 font_size = 25
 
-[node name="BasicEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar")]
-script = ExtResource("1_v5wtx")
+[node name="PoisonEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar")]
+script = ExtResource("1_ys2nx")
 status_effect = SubResource("Resource_2emdk")
 combatant_name = "Bringle Cringus"
-portrait = ExtResource("3_2emdk")
+portrait = ExtResource("3_8vly5")
 health_bar = NodePath("Control/VBoxContainer/HealthBar")
-base_hp = 100
+base_hp = 80
 base_attack = 80
-base_power = 35
-base_defense = 100
+base_power = 30
+base_defense = 90
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=957414317]
 modulate = Color(0, 1, 0.4509804, 1)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_u8vcb")
+texture = ExtResource("4_gbjxq")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1545115223]

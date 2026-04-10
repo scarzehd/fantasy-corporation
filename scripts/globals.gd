@@ -12,7 +12,7 @@ var hired_characters:Array[CharacterData]
 
 var owned_items:Array[ItemData]
 
-var money:int = 750 :
+var money:int = 1000 :
 	set(new_money):
 		var old_money = money
 		money = new_money
@@ -31,3 +31,5 @@ var adventurer_price_modifier:float = 1.0
 var old_adventurer_price_modifier:float = 1.0
 
 var volatility:float = 0.25
+var variability:int = 10
+var inflation:float = 1.0

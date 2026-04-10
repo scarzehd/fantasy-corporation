@@ -40,4 +40,5 @@ func populate_ui():
 
 
 func _on_start_button_pressed() -> void:
+	await Fade.fade_out(0.5).finished
 	get_tree().change_scene_to_packed(BATTLE_SCENE)
