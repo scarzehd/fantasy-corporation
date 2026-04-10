@@ -5,10 +5,17 @@ class_name BattleHUD
 @onready var portrait: TextureRect = %Portrait
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var health_bar_label: Label = %HealthBarLabel
-@onready var attack_container: GridContainer = %AttackContainer
-@onready var attack_button_template: Button = %AttackButtonTemplate
-@onready var status_effect_container: GridContainer = %StatusEffectContainer
+@onready var attack_label:Label = %AttackLabel
+@onready var defense_label:Label = %DefenseLabel
+@onready var power_label:Label = %PowerLabel
+
+@onready var attack_container: HBoxContainer = %AttackContainer
+@onready var attack_button_template: TextureButton = %AttackButtonTemplate
+@onready var status_effect_container: VBoxContainer = %StatusEffectContainer
 @onready var status_effect_template: PanelContainer = %StatusEffectTemplate
+
+@onready var attack_name_label:Label = %AttackNameLabel
+@onready var attack_description_label:Label = %AttackDescriptionLabel
 
 @onready var mission_end_panel:Control = %MissionEndPanel
 @onready var header_label:Label = %HeaderLabel
@@ -18,16 +25,31 @@ class_name BattleHUD
 @onready var lost_item_template:PanelContainer = %LostItemTemplate
 @onready var items_lost_container:PanelContainer = %ItemsLostContainer
 
+func _on_turn_ended(_combatant:Combatant):
+	for button in attack_container.get_children():
+		if button == attack_button_template:
+			continue
+		
+		button.disabled = true
+
 func _on_turn_started(combatant:Combatant):
 	reset_ui()
-	
 	setup_combatant(combatant)
 	
 	if combatant is PlayerCombatant:
 		setup_player_combatant(combatant)
 
 func reset_ui():
+	health_bar_label.text = ""
+	health_bar.value = 0
+	health_bar.max_value = 1.0
 	name_label.text = ""
+	attack_label.text = ""
+	defense_label.text = ""
+	power_label.text = ""
+	
+	attack_name_label.text = ""
+	attack_description_label.text = ""
 	
 	for child in attack_container.get_children():
 		if child == attack_button_template:
@@ -40,6 +62,8 @@ func reset_ui():
 			continue
 		
 		child.queue_free()
+	
+	portrait.texture = null
 
 func setup_player_combatant(combatant:PlayerCombatant):
 	for ability in combatant.abilities:
@@ -47,6 +71,14 @@ func setup_player_combatant(combatant:PlayerCombatant):
 		button.show()
 		attack_container.add_child(button)
 		ability.setup_button(button)
+		if button.toggle_mode:
+			button.button_group = attack_button_template.button_group
+		
+		button.mouse_entered.connect(button_hovered.bind(ability))
+
+func button_hovered(ability:Ability):
+	attack_name_label.text = ability.ability_name
+	attack_description_label.text = ability.description
 
 func setup_combatant(combatant:Combatant):
 	name_label.text = combatant.combatant_name
@@ -54,6 +86,9 @@ func setup_combatant(combatant:Combatant):
 	health_bar.max_value = combatant.max_hp
 	health_bar.value = combatant.current_hp
 	health_bar_label.text = str(combatant.current_hp) + " / " + str(combatant.max_hp)
+	attack_label.text = str(combatant.attack)
+	defense_label.text = str(combatant.defense)
+	power_label.text = str(combatant.power)
 	
 	for status_effect in combatant.status_effects:
 		var template = status_effect_template.duplicate()
@@ -134,7 +169,12 @@ func _on_battle_ended(won:bool):
 	var death_penalties = Battle.instance.casualties.size() * Globals.LIFE_INSURANCE_PRICE
 	Globals.money -= death_penalties
 	deaths_label.text = "Life insurance payouts: " + str(death_penalties)
-	var reward = randi_range(1000, 2000) if won else 0
+	var reward = 0
+	if won:
+		reward = RandomUtils.generate_in_range(750, 1000, 0.75)
+		if Battle.instance.waves > 1:
+			reward += RandomUtils.generate_in_range(250, 500, 0.75) * Battle.instance.waves - 1
+	
 	Globals.money += reward
 	money_label.text = "Money plundered: " + str(reward)
 	var total = reward - death_penalties
@@ -160,11 +200,14 @@ func _on_battle_ended(won:bool):
 			
 			Globals.owned_items.erase(item)
 	
-	for combatant in Globals.hired_characters:
-		Globals.hired_characters.erase(combatant.character_data)
-		for item in combatant.character_data.items.values():
-			combatant.character_data.unequip_item(item)
-
+	for character_data in Globals.hired_characters:
+		for item in character_data.items.values():
+			character_data.unequip_item(item)
+	
+	Globals.hired_characters.clear()
 
 func _on_button_pressed() -> void:
+	TimeManager.successful_adventure()
+	TimeManager.advance_day()
+	await TimeManager.day_ended
 	get_tree().change_scene_to_file("uid://b5v8bj3uciobn")

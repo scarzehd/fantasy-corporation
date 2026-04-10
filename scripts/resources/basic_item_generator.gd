@@ -125,9 +125,9 @@ func generate_armor() -> ItemData:
 	data.defense = RandomUtils.generate_in_range(defense_range.x, defense_range.y, defense_deviation)
 	data.hp = RandomUtils.generate_in_range(hp_range.x, hp_range.y, hp_deviation)
 	
-	if randf() < 0.2:
+	if randf() < 0.35:
 		data.attack = RandomUtils.generate_in_range(attack_range.x, attack_range.y, attack_deviation)
-	if randf() < 0.2:
+	if randf() < 0.35:
 		data.power = RandomUtils.generate_in_range(power_range.x, power_range.y, power_deviation)
 	
 	data.item_portrait = armor_portraits.pick_random()

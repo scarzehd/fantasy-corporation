@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b5v8bj3uciobn"]
 
 [ext_resource type="Script" uid="uid://dndg5ftfj007x" path="res://scripts/office.gd" id="1_qphb6"]
-[ext_resource type="Texture2D" uid="uid://divpcta85qmsv" path="res://resources/sprites/office_background.png" id="2_hub07"]
+[ext_resource type="Texture2D" uid="uid://divpcta85qmsv" path="res://resources/sprites/office/office_background.png" id="2_hub07"]
 [ext_resource type="PackedScene" uid="uid://b18ney4nylxda" path="res://scenes/mail_box.tscn" id="2_n0wcf"]
 [ext_resource type="PackedScene" uid="uid://b6l6lmnoqeao4" path="res://scenes/inventory_button.tscn" id="3_jwaux"]
 [ext_resource type="PackedScene" uid="uid://b5g6o30nuwyk" path="res://scenes/ui/door_button.tscn" id="4_7jj4f"]
@@ -59,6 +59,22 @@ offset_right = 887.0
 offset_bottom = 106.0
 grow_horizontal = 2
 text = "Day 1"
+label_settings = SubResource("LabelSettings_2knxt")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SuccessfulAdventuresLabel" type="Label" parent="Node2D/Control" unique_id=171757301]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -670.0
+offset_top = 127.0
+offset_right = -74.0
+offset_bottom = 196.0
+grow_horizontal = 0
+text = "Successful Adventures: 0"
 label_settings = SubResource("LabelSettings_2knxt")
 horizontal_alignment = 2
 vertical_alignment = 1

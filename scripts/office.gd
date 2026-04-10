@@ -3,10 +3,12 @@ class_name Office
 
 @onready var money_label:Label = %MoneyLabel
 @onready var day_label:Label = %DayLabel
+@onready var successful_adventures_label:Label = %SuccessfulAdventuresLabel
 
 func _ready() -> void:
 	Globals.money_changed.connect(_on_money_changed)
 	_on_money_changed(Globals.money, Globals.money)
+	_on_day_ended()
 	TimeManager.day_ended.connect(_on_day_ended)
 
 func _on_money_changed(old_money:int, new_money:int):
@@ -30,3 +32,4 @@ func _on_money_changed(old_money:int, new_money:int):
 
 func _on_day_ended():
 	day_label.text = "Day " + str(TimeManager.day_number)
+	successful_adventures_label.text = "Successful Adventures: " + str(TimeManager.successful_adventures)

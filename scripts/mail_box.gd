@@ -8,6 +8,7 @@ const NEWSPAPER_LETTER_SCENE:PackedScene = preload("uid://c8wytlhkw0oa4")
 @onready var previous_letter_button:TextureButton = %PreviousLetterButton
 @onready var next_letter_button:TextureButton = %NextLetterButton
 @onready var letter_container:HBoxContainer = %LetterContainer
+@onready var character_portrait_generator:CharacterPortraitGenerator = %CharacterPortraitGenerator
 
 var letters:Array[Letter]
 var current_index:int = 0 : set = _set_current_index
@@ -56,8 +57,12 @@ func _on_day_started():
 	letter_container.add_child(newspaper_letter)
 	letters.append(newspaper_letter)
 	
+	var character_data = Globals.character_generator.generate()
+	character_portrait_generator.set_portrait(character_data)
+	await character_portrait_generator.finished_generating
+	
 	var resume_letter:ResumeLetter = RESUME_LETTER_SCENE.instantiate()
-	resume_letter.character_data = Globals.character_generator.generate()
+	resume_letter.character_data = character_data
 	letter_container.add_child(resume_letter)
 	letters.append(resume_letter)
 	

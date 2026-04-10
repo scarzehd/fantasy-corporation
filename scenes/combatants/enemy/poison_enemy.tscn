@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://c6sty6uh7eymw"]
+
+[ext_resource type="Script" uid="uid://b4xj0e3ne1qdq" path="res://scripts/combatants/enemy/basic_enemy.gd" id="1_ys2nx"]
+[ext_resource type="Script" uid="uid://d3i1h310ayq5c" path="res://scripts/resources/status_effect.gd" id="2_pwhef"]
+[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="3_8vly5"]
+[ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/characters/character_base.png" id="4_gbjxq"]
+
+[sub_resource type="Resource" id="Resource_2emdk"]
+script = ExtResource("2_pwhef")
+id = &"poison"
+name = "Poison"
+exclusive_with = Array[StringName]([&"poison"])
+has_duration = true
+duration = 1
+refresh_duration = true
+defense = -30
+attack = -30
+damage = 20
+metadata/_custom_type_script = "uid://d3i1h310ayq5c"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
+size = Vector2(174, 186)
+
+[sub_resource type="Animation" id="Animation_7je4q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u8vcb"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-64, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2emdk"]
+_data = {
+&"RESET": SubResource("Animation_7je4q"),
+&"attack": SubResource("Animation_u8vcb")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_u8vcb"]
+font_size = 25
+
+[node name="PoisonEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar")]
+script = ExtResource("1_ys2nx")
+status_effect = SubResource("Resource_2emdk")
+combatant_name = "Bringle Cringus"
+portrait = ExtResource("3_8vly5")
+health_bar = NodePath("Control/VBoxContainer/HealthBar")
+base_hp = 80
+base_attack = 80
+base_power = 30
+base_defense = 90
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=957414317]
+modulate = Color(0, 1, 0.4509804, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_gbjxq")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1545115223]
+shape = SubResource("RectangleShape2D_7je4q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1643846691]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2emdk")
+
+[node name="Control" type="Control" parent="." unique_id=1417547478]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -217.0
+offset_right = 137.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=2045111538]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="Control/VBoxContainer" unique_id=746950841]
+layout_mode = 2
+text = "Bringle Cringus"
+label_settings = SubResource("LabelSettings_u8vcb")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=384684704]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control/VBoxContainer" unique_id=1664461497]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 2
+show_percentage = false

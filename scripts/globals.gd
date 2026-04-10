@@ -1,6 +1,6 @@
 extends Node
 
-const LIFE_INSURANCE_PRICE:int = 100
+const LIFE_INSURANCE_PRICE:int = 200
 
 signal money_changed(old_money:int, new_money:int)
 @warning_ignore("unused_signal")
@@ -31,3 +31,5 @@ var adventurer_price_modifier:float = 1.0
 var old_adventurer_price_modifier:float = 1.0
 
 var volatility:float = 0.25
+var variability:int = 10
+var inflation:float = 1.0

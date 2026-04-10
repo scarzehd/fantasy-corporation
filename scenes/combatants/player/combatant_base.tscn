@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bxer6od4tbb5u"]
 
 [ext_resource type="Script" uid="uid://dhqkfgfuqgdye" path="res://scripts/combatants/player_combatant.gd" id="1_8x2sg"]
-[ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/character_base.png" id="2_cibvi"]
-[ext_resource type="Script" uid="uid://b1ihqjth617s6" path="res://scripts/combatants/abilities/attack.gd" id="3_35ab1"]
+[ext_resource type="Texture2D" uid="uid://d0gbjvwmvxety" path="res://resources/sprites/characters/fighter/fighter_idle_1.png" id="2_35ab1"]
+[ext_resource type="Texture2D" uid="uid://btmlb33g0v4is" path="res://resources/sprites/characters/heads/head_base.png" id="4_jqwdw"]
+[ext_resource type="Texture2D" uid="uid://db6ksfqrjm5s5" path="res://resources/sprites/shield_icon_test.png" id="4_qmxaq"]
 [ext_resource type="Script" uid="uid://cd1bjyq3d6hh3" path="res://scripts/combatants/abilities/defend.gd" id="4_sjeno"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhwg"]
-size = Vector2(230, 373)
+size = Vector2(262, 373)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nvrs4"]
 font_size = 25
@@ -37,6 +38,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, -125)]
+}
 
 [sub_resource type="Animation" id="Animation_sjeno"]
 resource_name = "idle"
@@ -49,7 +74,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(2.0705297, 1, 1),
+"transitions": PackedFloat32Array(2.2, 0.3, 1),
 "update": 0,
 "values": [Vector2(0.5, 0.5), Vector2(0.5, 0.5113169), Vector2(0.5, 0.5)]
 }
@@ -61,9 +86,21 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(2.0705297, 1, 1),
+"transitions": PackedFloat32Array(2.2, 0.3, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -5.5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.2, 0.3, 1),
+"update": 0,
+"values": [Vector2(15, -125), Vector2(15, -133), Vector2(15, -125)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jqwdw"]
@@ -75,7 +112,7 @@ _data = {
 [node name="CombatantBase" type="Area2D" unique_id=209960256 node_paths=PackedStringArray("name_label", "abilities", "health_bar")]
 script = ExtResource("1_8x2sg")
 name_label = NodePath("Control/VBoxContainer/NameLabel")
-abilities = [NodePath("AttackAbility"), NodePath("DefendAbility")]
+abilities = [NodePath("DefendAbility")]
 combatant_name = "Bringle Cringus"
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
 
@@ -85,7 +122,7 @@ shape = SubResource("RectangleShape2D_rkhwg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=904817639]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_cibvi")
+texture = ExtResource("2_35ab1")
 
 [node name="Control" type="Control" parent="." unique_id=1851136507]
 layout_mode = 3
@@ -94,10 +131,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -137.0
-offset_top = -257.0
-offset_right = 137.0
-offset_bottom = 151.0
+offset_left = -150.0
+offset_top = -279.0
+offset_right = 150.0
+offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -129,16 +166,20 @@ layout_mode = 2
 size_flags_vertical = 2
 show_percentage = false
 
-[node name="AttackAbility" type="Node" parent="." unique_id=667375242]
-script = ExtResource("3_35ab1")
-ability_name = "Attack"
-toggle = true
-metadata/_custom_type_script = "uid://b1ihqjth617s6"
-
 [node name="DefendAbility" type="Node" parent="." unique_id=1175001999]
 script = ExtResource("4_sjeno")
 ability_name = "Defend"
+icon = ExtResource("4_qmxaq")
+description = "Increases Defense by 50% for two turns."
 metadata/_custom_type_script = "uid://cd1bjyq3d6hh3"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1377899510]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_jqwdw")
+autoplay = &"idle"
+
+[node name="Head" type="Sprite2D" parent="." unique_id=417519414]
+unique_name_in_owner = true
+position = Vector2(15, -125)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_jqwdw")

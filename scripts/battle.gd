@@ -3,6 +3,12 @@ class_name Battle
 
 const PLAYER_COMBATANT_SCENE:PackedScene = preload("uid://bxer6od4tbb5u")
 
+const PLAYER_COMBATANT_SCENES:Dictionary[CharacterData.CharacterClass, PackedScene] = {
+	CharacterData.CharacterClass.Fighter: preload("uid://cp4qgoq7tn0qs"),
+	CharacterData.CharacterClass.Mage: preload("uid://cfd1xilmm2jxe"),
+	CharacterData.CharacterClass.Bard: preload("uid://d517xgtrplrt")
+}
+
 static var instance:Battle
 
 signal battle_finished(won:bool)
@@ -17,7 +23,14 @@ signal combatant_clicked(combatant:Combatant)
 
 @export var player_slots:Array[Node2D]
 
+@export var enemy_slots:Array[Node2D]
+
+@export var enemy_pool:Array[PackedScene]
+
 var current_turn_index:int = 0
+
+var waves:int = waves_left
+var waves_left:int = 1
 
 var casualties:Array[PlayerCombatant]
 
@@ -25,19 +38,18 @@ func _enter_tree() -> void:
 	instance = self
 
 func _ready() -> void:
-	var existing_combatants = combatants.duplicate()
-	combatants = []
+	waves_left = max(1, ceili(TimeManager.successful_adventures / 3.0))
+	waves = waves_left
+	
 	for i in range(min(Globals.hired_characters.size(), 4)):
 		var character = Globals.hired_characters[i]
 		var slot = player_slots[i]
-		var combatant:PlayerCombatant = PLAYER_COMBATANT_SCENE.instantiate()
+		var combatant:PlayerCombatant = PLAYER_COMBATANT_SCENES[character.character_class].instantiate()
 		combatant.character_data = character
 		slot.add_child(combatant)
 		combatants.append(combatant)
 	
-	combatants.append_array(existing_combatants)
-	
-	start_battle()
+	advance_wave()
 
 func start_battle():
 	if combatants.size() == 0:
@@ -92,10 +104,42 @@ func current_turn_finished():
 	if current_turn_index >= combatants.size():
 		current_turn_index = 0
 	
+	await get_tree().create_timer(1.0).timeout
+	
 	handle_current_turn()
 
 func lose_battle():
 	battle_finished.emit(false)
 
 func win_battle():
-	battle_finished.emit(true)
+	waves_left -= 1
+	
+	if waves_left <= 0:
+		battle_finished.emit(true)
+	else:
+		await Fade.fade_out(0.5).finished
+		advance_wave()
+
+func advance_wave():
+	#var num_enemies = randi_range(max(existing_combatants.size(), 2), enemy_slots.size())
+	var num_enemies = 1
+	
+	if TimeManager.successful_adventures >= 1:
+		num_enemies = 2
+		#num_enemies = randi_range(max(combatants.size(), 2), enemy_slots.size())
+		if TimeManager.successful_adventures >= 3:
+			if randf() < 0.5:
+				num_enemies += 1
+				if randf() < 0.5:
+					num_enemies += 1
+	
+	
+	for i in range(num_enemies):
+		var slot = enemy_slots[i]
+		var combatant:Combatant = enemy_pool.pick_random().instantiate()
+		slot.add_child(combatant)
+		combatants.append(combatant)
+	
+	await Fade.fade_in(0.5).finished
+	
+	start_battle()

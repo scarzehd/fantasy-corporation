@@ -5,6 +5,8 @@ signal day_ended
 
 var day_number:int = 1
 
+var successful_adventures:int = 0
+
 var daily_expenses:float = 50
 
 func _ready() -> void:
@@ -16,7 +18,7 @@ func advance_day():
 	day_number += 1
 	day_ended.emit()
 	
-	if (day_number) % 3 == 0:
+	if (day_number) % 5 == 0:
 		var percent_change = daily_expenses * 1.2
 		var rounded = roundi(percent_change / 10.0) * 10
 		if rounded < daily_expenses + 10:
@@ -39,7 +41,7 @@ func update_world_state():
 		var index = indices.pop_back()
 		
 		var current_value = get_state_value(index)
-		var change = randi_range(-5, 5) * 0.05
+		var change = RandomUtils.generate_in_range(-Globals.variability, Globals.variability) * 0.05
 		if change == 0:
 			change = 0.05
 		
@@ -48,18 +50,30 @@ func update_world_state():
 	for index in indices:
 		set_state_value(get_state_value(index), index)
 
+func successful_adventure():
+	successful_adventures += 1
+	Globals.inflation *= 1.2
+	Globals.variability += 1
+	Globals.volatility = min(Globals.volatility + 0.1, 0.75)
+
 # This is a stupid solution that I hate.
 func set_state_value(value:float, index:int):
 	match index:
 		0:
 			Globals.old_item_price_modifier = Globals.item_price_modifier
-			Globals.item_price_modifier = clampf(value, 0.25, 3.0)
+			# Modify min and max values by inflation, rounding to the nearest 0.05
+			var min_value = roundf((0.25 / 0.05) * Globals.inflation) * 0.05
+			var max_value = roundf((3.0 / 0.05) * Globals.inflation) * 0.05
+			Globals.item_price_modifier = clampf(value, min_value, max_value)
 		1:
 			Globals.old_resale_modifier = Globals.resale_modifier
 			Globals.resale_modifier = clampf(value, 0.25, 2.0)
 		2:
 			Globals.old_adventurer_price_modifier = Globals.adventurer_price_modifier
-			Globals.adventurer_price_modifier = clampf(value, 0.5, 2)
+			# Modify min and max values by inflation, rounding to the nearest 0.05
+			var min_value = roundf((0.5 / 0.05) * Globals.inflation) * 0.05
+			var max_value = roundf((2.0 / 0.05) * Globals.inflation) * 0.05
+			Globals.adventurer_price_modifier = clampf(value, min_value, max_value)
 
 func get_state_value(index:int) -> float:
 	match index:

@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b6l6lmnoqeao4"]
 
 [ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="1_cvjyr"]
-[ext_resource type="Texture2D" uid="uid://b05qmjb4fbasi" path="res://resources/sprites/office_safe.png" id="1_x8ex6"]
+[ext_resource type="Texture2D" uid="uid://b05qmjb4fbasi" path="res://resources/sprites/office/office_safe.png" id="1_x8ex6"]
 [ext_resource type="Script" uid="uid://cxk126br6b14e" path="res://scripts/ui/inventory_menu.gd" id="2_j6i4b"]
 [ext_resource type="PackedScene" uid="uid://bgqh2sjvii77l" path="res://scenes/ui/item_view.tscn" id="3_vpwv6"]
+[ext_resource type="Texture2D" uid="uid://dltlbi06befah" path="res://resources/sprites/portrait_frame.png" id="5_0lwc4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cvjyr"]
 font_size = 30
@@ -157,9 +158,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 1
 
 [node name="Items" type="ScrollContainer" parent="InventoryButton/InventoryMenu/InventoryMenu/Panel/TabContainer" unique_id=1394458444]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -189,7 +191,6 @@ theme_override_font_sizes/font_size = 20
 text = "Sell for 100"
 
 [node name="Adventurers" type="Control" parent="InventoryButton/InventoryMenu/InventoryMenu/Panel/TabContainer" unique_id=789046320]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -258,6 +259,18 @@ layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_cvjyr")
 expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="InventoryButton/InventoryMenu/InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer/CharacterSelectTemplate/Button/MarginContainer/VBoxContainer/Portrait" unique_id=740422577]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_0lwc4")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Stats" type="Panel" parent="InventoryButton/InventoryMenu/InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer" unique_id=406178434]
 layout_mode = 2
