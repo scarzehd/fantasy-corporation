@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dtpns7tj0p0kc" path="res://scripts/ui/resume_letter.gd" id="1_sj4sk"]
 [ext_resource type="Texture2D" uid="uid://djhxjdfepydac" path="res://resources/sprites/jane_doe.png" id="2_35nig"]
 [ext_resource type="Texture2D" uid="uid://dltlbi06befah" path="res://resources/sprites/portrait_frame.png" id="3_gb6wp"]
-[ext_resource type="Texture2D" uid="uid://ddqmevp5gqxwp" path="res://resources/sprites/ui/button_2_green.png" id="5_bsqcj"]
+[ext_resource type="Texture2D" uid="uid://ddqmevp5gqxwp" path="res://resources/sprites/ui/button_1_green.png" id="5_bsqcj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_35nig"]
 font_size = 25
@@ -11,6 +11,9 @@ font_size = 25
 [sub_resource type="LabelSettings" id="LabelSettings_xblef"]
 font_size = 25
 font_color = Color(0.6313726, 0.6313726, 0.6313726, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsqcj"]
+font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ul7h"]
 font_size = 20
@@ -22,15 +25,6 @@ texture_margin_left = 30.0
 texture_margin_top = 30.0
 texture_margin_right = 30.0
 texture_margin_bottom = 30.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_54jet"]
-font_size = 30
-
-[sub_resource type="LabelSettings" id="LabelSettings_bsqcj"]
-font_size = 25
-
-[sub_resource type="LabelSettings" id="LabelSettings_cu4h5"]
-font_size = 20
 
 [node name="ResumeLetter" type="Control" unique_id=646968792]
 custom_minimum_size = Vector2(1920, 1080)
@@ -50,10 +44,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -354.0
-offset_top = -307.0
-offset_right = 354.0
-offset_bottom = 307.0
+offset_left = -348.0
+offset_top = -232.0
+offset_right = 348.0
+offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -106,26 +100,6 @@ text = "Fighter"
 label_settings = SubResource("LabelSettings_xblef")
 horizontal_alignment = 1
 
-[node name="InsufficientFundsLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=179684855]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_vertical = 10
-text = "Insufficient Funds"
-label_settings = SubResource("LabelSettings_2ul7h")
-horizontal_alignment = 1
-
-[node name="AcceptButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer" unique_id=329065059]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 10
-theme_override_font_sizes/font_size = 22
-theme_override_styles/pressed = SubResource("StyleBoxTexture_2ul7h")
-theme_override_styles/hover = SubResource("StyleBoxTexture_2ul7h")
-toggle_mode = true
-action_mode = 0
-text = "Hire"
-
 [node name="Control" type="Control" parent="Panel/HBoxContainer/VBoxContainer" unique_id=754075830]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
@@ -137,28 +111,6 @@ layout_mode = 2
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=338545084]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=366627854]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1773573403]
-layout_mode = 2
-text = "About Me"
-label_settings = SubResource("LabelSettings_54jet")
-
-[node name="Control" type="Control" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1208680838]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="TraitLabelContainer" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1065291481]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="TraitLabelTemplate" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer/TraitLabelContainer" unique_id=1707863168]
-unique_name_in_owner = true
-layout_mode = 2
-text = "- Trait"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=563025037]
 layout_mode = 2
@@ -230,15 +182,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "100"
 
-[node name="PaymentLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=599109066]
+[node name="InsufficientFundsLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=179684855]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 10
+text = "Insufficient Funds"
+label_settings = SubResource("LabelSettings_2ul7h")
+horizontal_alignment = 1
+
+[node name="AcceptButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=329065059]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 2
-size_flags_stretch_ratio = 0.3
-text = "Desired Payment: $100"
-label_settings = SubResource("LabelSettings_cu4h5")
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 22
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2ul7h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2ul7h")
+toggle_mode = true
+action_mode = 0
+text = "Hire for 100"
 
 [node name="Spacer" type="Control" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=1594102855]
 layout_mode = 2
 
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/AcceptButton" to="." method="_on_accept_button_pressed"]

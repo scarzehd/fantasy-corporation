@@ -7,6 +7,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_0lwc4"]
 font_size = 20
 
+[sub_resource type="LabelSettings" id="LabelSettings_op8na"]
+font_size = 17
+
 [sub_resource type="LabelSettings" id="LabelSettings_2pfx8"]
 font_color = Color(0, 1, 0, 1)
 
@@ -45,6 +48,14 @@ layout_mode = 2
 texture = ExtResource("2_op8na")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="EquippedLabel" type="Label" parent="VBoxContainer" unique_id=349857]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Equipped by Bringle"
+label_settings = SubResource("LabelSettings_op8na")
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1229132382]
 layout_mode = 2

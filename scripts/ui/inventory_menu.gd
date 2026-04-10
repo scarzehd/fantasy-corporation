@@ -26,6 +26,10 @@ var character_select_buttons:Array[Button]
 func _ready() -> void:
 	clear_ui()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_on_exit_button_pressed()
+
 func _on_pressed() -> void:
 	inventory_menu.show()
 	populate_ui()

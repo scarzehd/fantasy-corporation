@@ -34,13 +34,18 @@ func _set_selected_item(new_value:ItemData):
 			item_icon.show()
 
 func _set_character_data(new_value:CharacterData):
+	if character_data:
+		character_data.changed.disconnect(_set_character_data.bind(character_data))
 	character_data = new_value
+	new_value.changed.connect(_set_character_data.bind(character_data))
 	
 	if not is_node_ready():
 		await ready
 	
 	if new_value.items.has(item_slot):
 		selected_item = new_value.items[item_slot]
+	else:
+		selected_item = null
 
 func _on_button_pressed() -> void:
 	var item_select_menu:ItemSelectMenu = ITEM_SELECT_MENU_SCENE.instantiate()

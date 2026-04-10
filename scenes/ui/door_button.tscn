@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://diuaiapn0j276" path="res://resources/sprites/office/office_bell.png" id="1_q8bib"]
 [ext_resource type="Script" uid="uid://dqrcgnee5kglp" path="res://scripts/ui/door_button.gd" id="2_rxk0l"]
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="3_q8bib"]
+[ext_resource type="StyleBox" uid="uid://dhcql5manjx6m" path="res://resources/styleboxes/buttton_1_green_normal.tres" id="4_jfj05"]
+[ext_resource type="StyleBox" uid="uid://cnatep7wec8ng" path="res://resources/styleboxes/buttton_1_red_normal.tres" id="5_1x1q5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxk0l"]
 
@@ -94,6 +96,7 @@ offset_top = -114.0
 offset_right = 248.0
 offset_bottom = -64.0
 grow_vertical = 0
+theme_override_styles/normal = ExtResource("4_jfj05")
 text = "See Your Family (Lame)"
 
 [node name="CancelButton" type="Button" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup" unique_id=1347699015]
@@ -109,6 +112,7 @@ offset_right = -79.0
 offset_bottom = -66.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/normal = ExtResource("5_1x1q5")
 text = "Unpaid Overtime"
 
 [connection signal="pressed" from="DoorButton" to="DoorButton" method="_on_pressed"]

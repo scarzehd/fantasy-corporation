@@ -1,33 +1,12 @@
 [gd_resource type="Theme" format=3 uid="uid://slt60yulnkum"]
 
-[ext_resource type="Texture2D" uid="uid://dxjuolbkr4aat" path="res://resources/sprites/ui/button_2_disabled.png" id="1_555wp"]
-[ext_resource type="Texture2D" uid="uid://dw1yj0kcktalm" path="res://resources/sprites/ui/button_2_hover.png" id="2_555wp"]
-[ext_resource type="Texture2D" uid="uid://c3c8wrehn41j5" path="res://resources/sprites/ui/button_2.png" id="3_3jxlk"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlrje"]
-texture = ExtResource("1_555wp")
-texture_margin_left = 30.0
-texture_margin_top = 30.0
-texture_margin_right = 30.0
-texture_margin_bottom = 30.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_301rc"]
-texture = ExtResource("2_555wp")
-texture_margin_left = 30.0
-texture_margin_top = 30.0
-texture_margin_right = 30.0
-texture_margin_bottom = 30.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_be67o"]
-texture = ExtResource("3_3jxlk")
-texture_margin_left = 30.0
-texture_margin_top = 30.0
-texture_margin_right = 30.0
-texture_margin_bottom = 30.0
+[ext_resource type="StyleBox" uid="uid://dli6sogvbu1cc" path="res://resources/styleboxes/button_1_disabled.tres" id="1_3jxlk"]
+[ext_resource type="StyleBox" uid="uid://bcvnchrg6v4c" path="res://resources/styleboxes/button_1_pressed.tres" id="2_3jxlk"]
+[ext_resource type="StyleBox" uid="uid://jiib6no1es73" path="res://resources/styleboxes/buttton_1_normal.tres" id="3_nlrje"]
 
 [resource]
-Button/styles/disabled = SubResource("StyleBoxTexture_nlrje")
-Button/styles/hover = SubResource("StyleBoxTexture_301rc")
-Button/styles/hover_pressed = SubResource("StyleBoxTexture_301rc")
-Button/styles/normal = SubResource("StyleBoxTexture_be67o")
-Button/styles/pressed = SubResource("StyleBoxTexture_301rc")
+Button/styles/disabled = ExtResource("1_3jxlk")
+Button/styles/hover = ExtResource("2_3jxlk")
+Button/styles/hover_pressed = ExtResource("2_3jxlk")
+Button/styles/normal = ExtResource("3_nlrje")
+Button/styles/pressed = ExtResource("2_3jxlk")
