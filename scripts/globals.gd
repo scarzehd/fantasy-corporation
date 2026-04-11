@@ -33,3 +33,19 @@ var old_adventurer_price_modifier:float = 1.0
 var volatility:float = 0.25
 var variability:int = 10
 var inflation:float = 1.0
+
+func reset():
+	volatility = 0.25
+	variability = 10
+	inflation = 1
+	money = 0
+	TimeManager.successful_adventures = 0
+	TimeManager.day_number = 0
+	TimeManager.daily_expenses = 0
+	
+	for character in hired_characters:
+		for item in character.items:
+			character.unequip_item(character.items[item])
+	
+	hired_characters.clear()
+	owned_items.clear()

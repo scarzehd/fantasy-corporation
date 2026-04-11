@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5g6o30nuwyk" path="res://scenes/ui/door_button.tscn" id="4_7jj4f"]
 [ext_resource type="PackedScene" uid="uid://0kk87cqye7jw" path="res://scenes/globe_button.tscn" id="6_hub07"]
 [ext_resource type="StyleBox" uid="uid://danxc1wkclacd" path="res://resources/styleboxes/panel_3.tres" id="7_2knxt"]
+[ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="8_fmddn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7jj4f"]
 font_size = 50
@@ -16,6 +17,46 @@ font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_2knxt"]
 font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_fmddn"]
+font_size = 30
+
+[sub_resource type="Animation" id="Animation_gdafm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fmddn"]
+resource_name = "flash"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0.96862745, 1, 0, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gdafm"]
+_data = {
+&"RESET": SubResource("Animation_gdafm"),
+&"flash": SubResource("Animation_fmddn")
+}
 
 [node name="Office" type="Node2D" unique_id=213468181]
 script = ExtResource("1_qphb6")
@@ -74,7 +115,7 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Node2D/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=526202190]
 layout_mode = 2
-text = "Money:    "
+text = "Money:"
 label_settings = SubResource("LabelSettings_7jj4f")
 
 [node name="MoneyLabel" type="Label" parent="Node2D/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=684423270]
@@ -84,6 +125,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "100"
 label_settings = SubResource("LabelSettings_hub07")
+horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 3
@@ -105,3 +147,48 @@ text = "Day 1"
 label_settings = SubResource("LabelSettings_2knxt")
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="BankruptcyPanel" type="Panel" parent="Node2D/Control/Panel" unique_id=526995004]
+unique_name_in_owner = true
+show_behind_parent = true
+clip_contents = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 9.0
+offset_right = -1354.0
+offset_bottom = 9.0
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("8_fmddn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/Control/Panel/BankruptcyPanel" unique_id=1481654228]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 21.0
+offset_right = -21.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Node2D/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=309480188]
+layout_mode = 2
+text = "WARNING"
+label_settings = SubResource("LabelSettings_fmddn")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Node2D/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=772160454]
+layout_mode = 2
+text = "Bankruptcy Imminent!"
+label_settings = SubResource("LabelSettings_fmddn")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Control/Panel/BankruptcyPanel" unique_id=1924930435]
+root_node = NodePath("../../../../..")
+libraries/ = SubResource("AnimationLibrary_gdafm")
+autoplay = &"flash"

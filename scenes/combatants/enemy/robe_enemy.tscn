@@ -1,0 +1,259 @@
+[gd_scene format=3 uid="uid://cf5acaerc6hgu"]
+
+[ext_resource type="Script" uid="uid://8st8h3d1v6qf" path="res://scripts/combatants/enemy/robe.gd" id="1_lcruw"]
+[ext_resource type="Script" uid="uid://d3i1h310ayq5c" path="res://scripts/resources/status_effect.gd" id="2_pwbli"]
+[ext_resource type="Texture2D" uid="uid://dk0h38tq448jk" path="res://resources/sprites/enemies/robe/robe_1.png" id="3_36fji"]
+[ext_resource type="Texture2D" uid="uid://clym8bdfpewuj" path="res://resources/sprites/enemies/robe/robe_2.png" id="4_7y3ja"]
+[ext_resource type="Texture2D" uid="uid://cvtfot4swih0q" path="res://resources/sprites/enemies/robe/robe_3.png" id="5_iedft"]
+
+[sub_resource type="Resource" id="Resource_4y868"]
+script = ExtResource("2_pwbli")
+id = &"doom"
+name = "Doomed"
+has_duration = true
+duration = 3
+refresh_duration = true
+defense = -30
+attack = -30
+metadata/_custom_type_script = "uid://d3i1h310ayq5c"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
+size = Vector2(276, 429)
+
+[sub_resource type="Animation" id="Animation_st3ln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_36fji")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18, -175.99998)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.55, 0.55)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_eec6s"]
+resource_name = "attack"
+length = 1.25
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"impact",
+"time": 0.75
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.6, 0.85, 1.1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(18, -175.99998), Vector2(18, -175.99998), Vector2(23, -179), Vector2(23, -179), Vector2(-14.999998, -154), Vector2(-14.999998, -154), Vector2(18, -175.99998)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.6, 0.85, 1.1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.1308997, 0.1308997, -0.1308997, -0.1308997, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_36fji"), ExtResource("4_7y3ja"), ExtResource("5_iedft"), ExtResource("3_36fji")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.6, 0.85, 1.1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.55, 0.55), Vector2(0.55, 0.55), Vector2(0.5173465, 0.5925313), Vector2(0.5173465, 0.5925313), Vector2(0.5726454, 0.5260089), Vector2(0.5726454, 0.5260089), Vector2(0.55, 0.55)]
+}
+
+[sub_resource type="Animation" id="Animation_5p33x"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_36fji"), ExtResource("3_36fji")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1.5, 1.5, 1),
+"update": 0,
+"values": [Vector2(18, -175.99998), Vector2(74, -172), Vector2(18, -175.99998)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.55, 0.55), Vector2(0.55, 0.55)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1.5, 1, 1.5, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.17453292, 0.17453292, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_st3ln"]
+_data = {
+&"RESET": SubResource("Animation_st3ln"),
+&"attack": SubResource("Animation_eec6s"),
+&"idle": SubResource("Animation_5p33x")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_cj51i"]
+font_size = 25
+
+[node name="RobeEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar")]
+script = ExtResource("1_lcruw")
+status_effect = SubResource("Resource_4y868")
+combatant_name = "Doomrobe"
+portrait = ExtResource("3_36fji")
+health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
+base_hp = 80
+base_attack = 40
+base_power = 40
+base_defense = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=957414317]
+position = Vector2(18, -175.99998)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("3_36fji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1545115223]
+position = Vector2(11, -183.5)
+shape = SubResource("RectangleShape2D_7je4q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1643846691]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_st3ln")
+autoplay = &"idle"
+next/attack = &"idle"
+
+[node name="Control" type="Control" parent="." unique_id=1184891124]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -500.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=390730227]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="Control/VBoxContainer" unique_id=351789580]
+layout_mode = 2
+text = "Doomrobe"
+label_settings = SubResource("LabelSettings_cj51i")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=1818475869]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer" unique_id=1540748024]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control/VBoxContainer/CenterContainer" unique_id=1151867644]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_vertical = 2
+show_percentage = false

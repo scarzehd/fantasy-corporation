@@ -7,7 +7,14 @@
 [ext_resource type="Script" uid="uid://cdiwmibj03281" path="res://scripts/combatants/abilities/lacerate_ability.gd" id="3_hqiq2"]
 [ext_resource type="Texture2D" uid="uid://djmlv248edby1" path="res://resources/sprites/characters/fighter/fighter_attack_2.png" id="4_4ohxl"]
 [ext_resource type="Script" uid="uid://vqfv6ove1g6o" path="res://scripts/combatants/abilities/whirlwind_ability.gd" id="4_awywe"]
-[ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon_test.png" id="7_5mtu8"]
+[ext_resource type="Texture2D" uid="uid://cc0ae7pitbtdi" path="res://resources/sprites/abilities/attack.png" id="6_wgpxe"]
+[ext_resource type="Texture2D" uid="uid://bhwci47r0q8v7" path="res://resources/sprites/abilities/attack_select.png" id="7_ttghg"]
+[ext_resource type="Texture2D" uid="uid://pkpm5glweoo7" path="res://resources/sprites/abilities/attack_hover.png" id="8_mie8s"]
+[ext_resource type="Texture2D" uid="uid://cw78sxyokyqx5" path="res://resources/sprites/abilities/lacerate.png" id="8_wgpxe"]
+[ext_resource type="Texture2D" uid="uid://dmao206fxb8sn" path="res://resources/sprites/abilities/whirlwind.png" id="10_62n4o"]
+[ext_resource type="Texture2D" uid="uid://c2jw4yrlep3co" path="res://resources/sprites/abilities/lacerate_select.png" id="10_iy6ko"]
+[ext_resource type="Texture2D" uid="uid://bpr0pdeeg0uw3" path="res://resources/sprites/abilities/lacerate_hover.png" id="12_4olqn"]
+[ext_resource type="Texture2D" uid="uid://bqfmvd3mrly0m" path="res://resources/sprites/abilities/whirlwind_hover.png" id="15_fnonl"]
 
 [sub_resource type="Animation" id="Animation_wek84"]
 resource_name = "attack"
@@ -142,8 +149,11 @@ autoplay = &"fighter/idle"
 
 [node name="AttackAbility" type="Node" parent="." index="5" unique_id=1257583784]
 script = ExtResource("2_luh37")
-ability_name = "Attack"
+ability_name = "Strike"
 toggle = true
+icon = ExtResource("6_wgpxe")
+select_icon = ExtResource("7_ttghg")
+hover_icon = ExtResource("8_mie8s")
 description = "Deals damage equal to Power."
 metadata/_custom_type_script = "uid://b1ihqjth617s6"
 
@@ -151,12 +161,16 @@ metadata/_custom_type_script = "uid://b1ihqjth617s6"
 script = ExtResource("3_hqiq2")
 ability_name = "Lacerate"
 toggle = true
-icon = ExtResource("7_5mtu8")
+icon = ExtResource("8_wgpxe")
+select_icon = ExtResource("10_iy6ko")
+hover_icon = ExtResource("12_4olqn")
 description = "Target has reduced defense and takes damage over time for 3 turns."
 metadata/_custom_type_script = "uid://cdiwmibj03281"
 
 [node name="WhirlwindAbility" type="Node" parent="." index="7" unique_id=264403156]
 script = ExtResource("4_awywe")
 ability_name = "Whirlwind"
+icon = ExtResource("10_62n4o")
+hover_icon = ExtResource("15_fnonl")
 description = "Damage equal to Power is split between all enemies."
 metadata/_custom_type_script = "uid://vqfv6ove1g6o"

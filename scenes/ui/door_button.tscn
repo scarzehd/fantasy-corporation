@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://diuaiapn0j276" path="res://resources/sprites/office/office_bell.png" id="1_q8bib"]
 [ext_resource type="Script" uid="uid://dqrcgnee5kglp" path="res://scripts/ui/door_button.gd" id="2_rxk0l"]
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="3_q8bib"]
-[ext_resource type="StyleBox" uid="uid://dhcql5manjx6m" path="res://resources/styleboxes/buttton_1_green_normal.tres" id="4_jfj05"]
-[ext_resource type="StyleBox" uid="uid://cnatep7wec8ng" path="res://resources/styleboxes/buttton_1_red_normal.tres" id="5_1x1q5"]
+[ext_resource type="StyleBox" uid="uid://dhcql5manjx6m" path="res://resources/styleboxes/button_1_green_normal.tres" id="4_jfj05"]
+[ext_resource type="StyleBox" uid="uid://cnatep7wec8ng" path="res://resources/styleboxes/button_1_red_normal.tres" id="5_1x1q5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxk0l"]
 
@@ -20,6 +20,12 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_celh3"]
 font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_1x1q5"]
+font_size = 25
+font_color = Color(1, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Bell" type="Sprite2D" unique_id=408366643]
 texture = ExtResource("1_q8bib")
@@ -84,6 +90,22 @@ offset_bottom = 63.0
 grow_horizontal = 2
 text = "Are you sure you want to clock out?"
 label_settings = SubResource("LabelSettings_celh3")
+horizontal_alignment = 1
+
+[node name="BankruptcyLabel" type="Label" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup" unique_id=1308778964]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -257.5
+offset_top = 66.0
+offset_right = 257.5
+offset_bottom = 108.0
+grow_horizontal = 2
+text = "You will go bankrupt and lose."
+label_settings = SubResource("LabelSettings_1x1q5")
 horizontal_alignment = 1
 
 [node name="AcceptButton" type="Button" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup" unique_id=1172466346]

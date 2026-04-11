@@ -4,6 +4,7 @@ class_name Office
 @onready var money_label:Label = %MoneyLabel
 @onready var day_label:Label = %DayLabel
 @onready var successful_adventures_label:Label = %SuccessfulAdventuresLabel
+@onready var bankruptcy_panel:Panel = %BankruptcyPanel
 
 func _ready() -> void:
 	Globals.money_changed.connect(_on_money_changed)
@@ -29,6 +30,17 @@ func _on_money_changed(old_money:int, new_money:int):
 	fall_text.global_position = money_label.get_global_rect().get_center()
 	fall_text.global_position.x -= 11
 	fall_text.start()
+	
+	if new_money < 0 and old_money >= 0:
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_EXPO)
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(bankruptcy_panel, "size:y", 210, 0.75)
+	elif new_money >= 0 and old_money < 0:
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_EXPO)
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(bankruptcy_panel, "size:y", 0, 0.5)
 
 func _on_day_ended():
 	day_label.text = "Day " + str(TimeManager.day_number)

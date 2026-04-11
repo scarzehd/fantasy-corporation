@@ -184,9 +184,9 @@ text = "100"
 
 [node name="InsufficientFundsLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=179684855]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 10
+size_flags_stretch_ratio = 0.75
 text = "Insufficient Funds"
 label_settings = SubResource("LabelSettings_2ul7h")
 horizontal_alignment = 1
@@ -194,7 +194,7 @@ horizontal_alignment = 1
 [node name="AcceptButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=329065059]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 2
 theme_override_font_sizes/font_size = 22
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2ul7h")
 theme_override_styles/hover = SubResource("StyleBoxTexture_2ul7h")

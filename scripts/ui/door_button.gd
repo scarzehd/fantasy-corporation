@@ -1,10 +1,16 @@
 extends Button
 class_name DoorButton
 
+const LOSE_SCENE:PackedScene = preload("uid://dakppwtg6h8ey")
+
 @onready var confirmation_popup:CanvasLayer = %ConfirmationPopup
+@onready var bankruptcy_label:Label = %BankruptcyLabel
 
 func _on_pressed() -> void:
 	confirmation_popup.show()
+	bankruptcy_label.hide()
+	if Globals.money < 0:
+		bankruptcy_label.show()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.key_label == Key.KEY_ESCAPE:
@@ -14,5 +20,9 @@ func _on_cancel_button_pressed() -> void:
 	confirmation_popup.hide()
 
 func _on_accept_button_pressed() -> void:
+	if Globals.money < 0:
+		await Fade.fade_out().finished
+		get_tree().change_scene_to_packed(LOSE_SCENE)
+	
 	TimeManager.advance_day()
 	confirmation_popup.hide()

@@ -1,17 +1,16 @@
 [gd_scene format=3 uid="uid://bax6tvgq726xt"]
 
 [ext_resource type="Script" uid="uid://1llg1ecgeeec" path="res://scripts/battle.gd" id="1_dn72j"]
-[ext_resource type="PackedScene" uid="uid://c6sty6uh7eymw" path="res://scenes/combatants/enemy/poison_enemy.tscn" id="2_a12nh"]
-[ext_resource type="PackedScene" uid="uid://buw2plhxnyhd7" path="res://scenes/combatants/enemy/knife_c_crime.tscn" id="2_p1qf1"]
+[ext_resource type="PackedScene" uid="uid://cf5acaerc6hgu" path="res://scenes/combatants/enemy/robe_enemy.tscn" id="2_p1qf1"]
 [ext_resource type="PackedScene" uid="uid://c4b5scabx2lqo" path="res://scenes/combatants/enemy/chomper_enemy.tscn" id="3_a12nh"]
-[ext_resource type="PackedScene" uid="uid://cpyx5cbwc4lub" path="res://scenes/combatants/enemy/glass_cannon_enemy.tscn" id="5_6vh42"]
+[ext_resource type="PackedScene" uid="uid://buw2plhxnyhd7" path="res://scenes/combatants/enemy/knife_c_crime.tscn" id="4_lpir7"]
 [ext_resource type="PackedScene" uid="uid://3e8drigu5xm1" path="res://scenes/ui/battle_hud.tscn" id="7_4k1nj"]
 
 [node name="Battle" type="Node2D" unique_id=1135496140 node_paths=PackedStringArray("player_slots", "enemy_slots")]
 script = ExtResource("1_dn72j")
 player_slots = [NodePath("PlayerSlot1"), NodePath("PlayerSlot2"), NodePath("PlayerSlot3"), NodePath("PlayerSlot4")]
 enemy_slots = [NodePath("EnemySlot1"), NodePath("EnemySlot2"), NodePath("EnemySlot3"), NodePath("EnemySlot4")]
-enemy_pool = Array[PackedScene]([ExtResource("2_p1qf1"), ExtResource("3_a12nh"), ExtResource("2_a12nh"), ExtResource("5_6vh42")])
+enemy_pool = Array[PackedScene]([ExtResource("2_p1qf1"), ExtResource("3_a12nh"), ExtResource("4_lpir7")])
 
 [node name="PlayerSlot1" type="Marker2D" parent="." unique_id=900666764]
 position = Vector2(730, 499)

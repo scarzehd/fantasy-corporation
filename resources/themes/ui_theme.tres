@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://dli6sogvbu1cc" path="res://resources/styleboxes/button_1_disabled.tres" id="1_3jxlk"]
 [ext_resource type="StyleBox" uid="uid://bcvnchrg6v4c" path="res://resources/styleboxes/button_1_pressed.tres" id="2_3jxlk"]
-[ext_resource type="StyleBox" uid="uid://jiib6no1es73" path="res://resources/styleboxes/buttton_1_normal.tres" id="3_nlrje"]
+[ext_resource type="StyleBox" uid="uid://jiib6no1es73" path="res://resources/styleboxes/button_1_normal.tres" id="3_nlrje"]
 
 [resource]
 Button/styles/disabled = ExtResource("1_3jxlk")

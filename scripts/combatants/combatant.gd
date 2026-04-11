@@ -116,7 +116,7 @@ func _get_defense() -> int:
 	return max(1, total_defense)
 
 func _set_current_hp(new_value):
-	current_hp = new_value
+	current_hp = clamp(new_value, 0, max_hp)
 	if health_bar:
 		health_bar.value = current_hp
 	if current_hp <= 0:

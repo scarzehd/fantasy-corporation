@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://dhqkfgfuqgdye" path="res://scripts/combatants/player_combatant.gd" id="1_8x2sg"]
 [ext_resource type="Texture2D" uid="uid://d0gbjvwmvxety" path="res://resources/sprites/characters/fighter/fighter_idle_1.png" id="2_35ab1"]
 [ext_resource type="Texture2D" uid="uid://btmlb33g0v4is" path="res://resources/sprites/characters/heads/head_base.png" id="4_jqwdw"]
-[ext_resource type="Texture2D" uid="uid://db6ksfqrjm5s5" path="res://resources/sprites/shield_icon_test.png" id="4_qmxaq"]
+[ext_resource type="Texture2D" uid="uid://o56n0tm1vqe0" path="res://resources/sprites/abilities/defend.png" id="4_qmxaq"]
 [ext_resource type="Script" uid="uid://cd1bjyq3d6hh3" path="res://scripts/combatants/abilities/defend.gd" id="4_sjeno"]
+[ext_resource type="Texture2D" uid="uid://2e78ua808ri2" path="res://resources/sprites/abilities/defend_hover.png" id="5_qmxaq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhwg"]
 size = Vector2(262, 373)
@@ -171,6 +172,7 @@ show_percentage = false
 script = ExtResource("4_sjeno")
 ability_name = "Defend"
 icon = ExtResource("4_qmxaq")
+hover_icon = ExtResource("5_qmxaq")
 description = "Increases Defense by 50% for two turns."
 metadata/_custom_type_script = "uid://cd1bjyq3d6hh3"
 

@@ -62,7 +62,8 @@ func _on_accept_button_pressed() -> void:
 	update_hireable()
 
 func update_hireable():
-	insufficient_funds_label.hide()
+	#insufficient_funds_label.hide()
+	insufficient_funds_label.visible_ratio = 0
 	accept_button.disabled = false
 	
 	if hired:
@@ -77,7 +78,8 @@ func update_hireable():
 	
 	if cost > Globals.money:
 		#insufficient_funds_label.show()
-		accept_button.text = "Insufficient Funds"
+		insufficient_funds_label.visible_ratio = 1
+		#accept_button.text = "Insufficient Funds"
 		accept_button.disabled = true
 		return
 	

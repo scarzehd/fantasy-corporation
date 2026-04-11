@@ -7,6 +7,14 @@
 [ext_resource type="Script" uid="uid://6hs3kcvwbwo3" path="res://scripts/combatants/abilities/healing_song.gd" id="4_cmwjb"]
 [ext_resource type="Texture2D" uid="uid://h2bpf1qsol31" path="res://resources/sprites/characters/bard/bard_attack_2.png" id="4_thqen"]
 [ext_resource type="Script" uid="uid://dvyc8dfvxjqk5" path="res://scripts/combatants/abilities/demoralize_ability.gd" id="4_wqw3v"]
+[ext_resource type="Texture2D" uid="uid://cjgr0hb1m8pl5" path="res://resources/sprites/abilities/cleanse.png" id="6_ryyco"]
+[ext_resource type="Texture2D" uid="uid://c68pp3s1c2m4x" path="res://resources/sprites/abilities/cleanse_select.png" id="7_rjje7"]
+[ext_resource type="Texture2D" uid="uid://sitcyyfq4byy" path="res://resources/sprites/abilities/demoralize.png" id="8_e3apn"]
+[ext_resource type="Texture2D" uid="uid://cmyw3syrfs3tl" path="res://resources/sprites/abilities/cleanse_hover.png" id="8_eup5y"]
+[ext_resource type="Texture2D" uid="uid://2g7poenj1kw2" path="res://resources/sprites/abilities/demoralize_select.png" id="9_c7pkq"]
+[ext_resource type="Texture2D" uid="uid://dsrtatorpiiey" path="res://resources/sprites/abilities/healing_song.png" id="10_ggd7i"]
+[ext_resource type="Texture2D" uid="uid://bc1588ycv11dt" path="res://resources/sprites/abilities/demoralize_hover.png" id="12_u7gr0"]
+[ext_resource type="Texture2D" uid="uid://ciutkseriqohb" path="res://resources/sprites/abilities/healing_song_hover.png" id="15_2u641"]
 
 [sub_resource type="Animation" id="Animation_cmwjb"]
 resource_name = "attack"
@@ -145,6 +153,9 @@ autoplay = &"bard/idle"
 script = ExtResource("2_aodbh")
 ability_name = "Cleansing Song"
 toggle = true
+icon = ExtResource("6_ryyco")
+select_icon = ExtResource("7_rjje7")
+hover_icon = ExtResource("8_eup5y")
 description = "Remove all status effects from one target."
 metadata/_custom_type_script = "uid://dbk6q71egjpcy"
 
@@ -152,11 +163,16 @@ metadata/_custom_type_script = "uid://dbk6q71egjpcy"
 script = ExtResource("4_wqw3v")
 ability_name = "Demoralize"
 toggle = true
+icon = ExtResource("8_e3apn")
+select_icon = ExtResource("9_c7pkq")
+hover_icon = ExtResource("12_u7gr0")
 description = "Reduce target Attack and Power for 2 turns."
 metadata/_custom_type_script = "uid://dvyc8dfvxjqk5"
 
 [node name="HealingSong" type="Node" parent="." index="7" unique_id=1549955965]
 script = ExtResource("4_cmwjb")
 ability_name = "Healing Song"
+icon = ExtResource("10_ggd7i")
+hover_icon = ExtResource("15_2u641")
 description = "Slowly heal all other party members for 2 turns."
 metadata/_custom_type_script = "uid://6hs3kcvwbwo3"

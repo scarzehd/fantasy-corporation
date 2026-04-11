@@ -13,8 +13,9 @@ func _ready() -> void:
 	await get_tree().process_frame
 	day_started.emit()
 
-func advance_day():
-	await Fade.fade_out().finished
+func advance_day(fade:bool = true):
+	if fade:
+		await Fade.fade_out().finished
 	day_number += 1
 	day_ended.emit()
 	
@@ -27,7 +28,8 @@ func advance_day():
 	
 	update_world_state()
 	
-	await Fade.fade_in().finished
+	if fade:
+		await Fade.fade_in().finished
 	Globals.money -= ceili(daily_expenses)
 	day_started.emit()
 
