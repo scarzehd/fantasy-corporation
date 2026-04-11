@@ -36,7 +36,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, -221)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -60,7 +60,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(15, -125)]
+"values": [Vector2(15, -346)]
 }
 
 [sub_resource type="Animation" id="Animation_sjeno"]
@@ -121,6 +121,7 @@ position = Vector2(0, 24.5)
 shape = SubResource("RectangleShape2D_rkhwg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=904817639]
+position = Vector2(0, -221)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_35ab1")
 
@@ -180,6 +181,6 @@ autoplay = &"idle"
 
 [node name="Head" type="Sprite2D" parent="." unique_id=417519414]
 unique_name_in_owner = true
-position = Vector2(15, -125)
+position = Vector2(15, -346)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_jqwdw")

@@ -6,14 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://b6l6lmnoqeao4" path="res://scenes/inventory_button.tscn" id="3_jwaux"]
 [ext_resource type="PackedScene" uid="uid://b5g6o30nuwyk" path="res://scenes/ui/door_button.tscn" id="4_7jj4f"]
 [ext_resource type="PackedScene" uid="uid://0kk87cqye7jw" path="res://scenes/globe_button.tscn" id="6_hub07"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_2knxt"]
-font_size = 50
+[ext_resource type="StyleBox" uid="uid://danxc1wkclacd" path="res://resources/styleboxes/panel_3.tres" id="7_2knxt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7jj4f"]
 font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_hub07"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_2knxt"]
 font_size = 50
 
 [node name="Office" type="Node2D" unique_id=213468181]
@@ -47,55 +48,60 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="DayLabel" type="Label" parent="Node2D/Control" unique_id=32132912]
-unique_name_in_owner = true
+[node name="Panel" type="Panel" parent="Node2D/Control" unique_id=1677413109]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 636.0
-offset_top = 37.0
-offset_right = 887.0
-offset_bottom = 106.0
-grow_horizontal = 2
-text = "Day 1"
-label_settings = SubResource("LabelSettings_2knxt")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="SuccessfulAdventuresLabel" type="Label" parent="Node2D/Control" unique_id=171757301]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-offset_left = -670.0
-offset_top = 127.0
-offset_right = -74.0
-offset_bottom = 196.0
-grow_horizontal = 0
+offset_top = 23.0
+offset_bottom = 132.0
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("7_2knxt")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/Control/Panel" unique_id=12555917]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 49.0
+offset_right = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Control/Panel/HBoxContainer2" unique_id=1414323691]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Node2D/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=526202190]
+layout_mode = 2
+text = "Money:    "
+label_settings = SubResource("LabelSettings_7jj4f")
+
+[node name="MoneyLabel" type="Label" parent="Node2D/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=684423270]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "100"
+label_settings = SubResource("LabelSettings_hub07")
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="SuccessfulAdventuresLabel" type="Label" parent="Node2D/Control/Panel/HBoxContainer2" unique_id=171757301]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
 text = "Successful Adventures: 0"
 label_settings = SubResource("LabelSettings_2knxt")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Control" unique_id=1414323691]
-layout_mode = 1
-offset_left = 98.0
-offset_top = 30.0
-offset_right = 524.0
-offset_bottom = 126.0
-
-[node name="Label" type="Label" parent="Node2D/Control/HBoxContainer" unique_id=526202190]
-layout_mode = 2
-text = "Money:"
-label_settings = SubResource("LabelSettings_7jj4f")
-
-[node name="MoneyLabel" type="Label" parent="Node2D/Control/HBoxContainer" unique_id=684423270]
+[node name="DayLabel" type="Label" parent="Node2D/Control/Panel/HBoxContainer2" unique_id=32132912]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-label_settings = SubResource("LabelSettings_hub07")
-horizontal_alignment = 1
+size_flags_horizontal = 10
+text = "Day 1"
+label_settings = SubResource("LabelSettings_2knxt")
+horizontal_alignment = 2
 vertical_alignment = 1

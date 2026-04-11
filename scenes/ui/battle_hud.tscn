@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="4_6uyy6"]
 [ext_resource type="Texture2D" uid="uid://clom2u7i5nb8h" path="res://resources/sprites/portrait_frame_small.png" id="4_o02nu"]
 [ext_resource type="Texture2D" uid="uid://b02saj38hbj48" path="res://resources/sprites/attack_icon.png" id="4_w8gj3"]
+[ext_resource type="Texture2D" uid="uid://djq5u72v8e1ot" path="res://resources/sprites/portrait_background.png" id="5_k1xb2"]
 [ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon_test.png" id="5_nj5vo"]
 [ext_resource type="Texture2D" uid="uid://bcjqe58m1os5y" path="res://resources/sprites/defense_icon.png" id="5_o02nu"]
 [ext_resource type="Texture2D" uid="uid://cohxeaegqmh06" path="res://resources/sprites/power_icon.png" id="6_w8gj3"]
@@ -147,6 +148,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_o02nu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/Portrait" unique_id=1649011500]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_k1xb2")
 expand_mode = 1
 stretch_mode = 5
 

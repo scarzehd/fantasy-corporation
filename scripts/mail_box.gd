@@ -21,8 +21,12 @@ func _ready() -> void:
 			letters.append(child)
 	
 	TimeManager.day_started.connect(_on_day_started)
+	TimeManager.day_ended.connect(_on_day_ended)
 	
 	_set_current_index(current_index)
+
+func _on_day_ended():
+	current_index = 0
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

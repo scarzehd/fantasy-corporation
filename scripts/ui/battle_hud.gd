@@ -171,9 +171,9 @@ func _on_battle_ended(won:bool):
 	#deaths_label.text = "Life insurance payouts: " + str(death_penalties)
 	var reward = 0
 	if won:
-		reward = RandomUtils.generate_in_range(750, 1000, 0.75)
+		reward = RandomUtils.generate_in_range(1250, 1500, 0.75)
 		if Battle.instance.waves > 1:
-			reward += RandomUtils.generate_in_range(250, 500, 0.75) * Battle.instance.waves - 1
+			reward += RandomUtils.generate_in_range(500, 750, 0.75) * Battle.instance.waves - 1
 	
 	Globals.money += reward
 	money_label.text = "Money plundered: " + str(reward)

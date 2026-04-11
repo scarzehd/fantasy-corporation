@@ -1,0 +1,246 @@
+[gd_scene format=3 uid="uid://c4b5scabx2lqo"]
+
+[ext_resource type="Script" uid="uid://bnja5om0f6mf0" path="res://scripts/combatants/enemy/chomper_enemy.gd" id="1_oar01"]
+[ext_resource type="Script" uid="uid://d3i1h310ayq5c" path="res://scripts/resources/status_effect.gd" id="2_jdatg"]
+[ext_resource type="Texture2D" uid="uid://brwm74d30by5l" path="res://resources/sprites/enemies/chomper/chomper_2.png" id="3_ahd8l"]
+[ext_resource type="Texture2D" uid="uid://cqaopvrlei3b8" path="res://resources/sprites/enemies/chomper/chomper_3.png" id="4_jdatg"]
+[ext_resource type="Texture2D" uid="uid://c4ldharwhy726" path="res://resources/sprites/enemies/chomper/chomper_1.png" id="4_y6wc8"]
+
+[sub_resource type="Resource" id="Resource_jdatg"]
+script = ExtResource("2_jdatg")
+id = &"bleed"
+name = "Blleed"
+has_duration = true
+duration = 2
+refresh_duration = true
+defense = -40
+damage = 15
+metadata/_custom_type_script = "uid://d3i1h310ayq5c"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
+size = Vector2(174, 186)
+
+[sub_resource type="Animation" id="Animation_7je4q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_y6wc8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -106)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u8vcb"]
+resource_name = "attack"
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"impact",
+"time": 0.51
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_y6wc8"), ExtResource("3_ahd8l"), ExtResource("4_jdatg"), ExtResource("4_y6wc8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25, 0.4, 0.5, 0.57, 0.71, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -106), Vector2(3.6, -112), Vector2(6, -116), Vector2(6, -116), Vector2(-45, -81), Vector2(-45, -81), Vector2(-19, -102.569), Vector2(0, -106)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.4, 0.5, 0.71, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(0.379, 0.43), Vector2(0.379, 0.43), Vector2(0.406, 0.24), Vector2(0.384, 0.39), Vector2(0.4, 0.4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.4, 0.5, 0.71, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.04363323, 0.04363323, -0.08726646259971647, -0.08726646259971647, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jdatg"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -106), Vector2(-11, -94), Vector2(0, -106), Vector2(11, -93.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(0.44, 0.363), Vector2(0.4, 0.4), Vector2(0.44, 0.363)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.08726646259971647, 0.0, 0.08726646]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2emdk"]
+_data = {
+&"RESET": SubResource("Animation_7je4q"),
+&"attack": SubResource("Animation_u8vcb"),
+&"idle": SubResource("Animation_jdatg")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_jdatg"]
+font_size = 25
+
+[node name="ChomperEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar")]
+script = ExtResource("1_oar01")
+status_effect = SubResource("Resource_jdatg")
+combatant_name = "Chomper"
+portrait = ExtResource("4_y6wc8")
+health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
+base_hp = 50
+base_attack = 100
+base_power = 25
+base_defense = 50
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=957414317]
+position = Vector2(0, -106)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_y6wc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1545115223]
+position = Vector2(-9, -65)
+shape = SubResource("RectangleShape2D_7je4q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1643846691]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2emdk")
+autoplay = &"idle"
+next/attack = &"idle"
+
+[node name="Control" type="Control" parent="." unique_id=878374911]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -500.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=914946749]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="Control/VBoxContainer" unique_id=1540922959]
+layout_mode = 2
+text = "Chomper"
+label_settings = SubResource("LabelSettings_jdatg")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=1441995365]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer" unique_id=1980215573]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control/VBoxContainer/CenterContainer" unique_id=844940163]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_vertical = 2
+show_percentage = false

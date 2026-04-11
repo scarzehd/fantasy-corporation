@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dtdtbo4g8nl0h"]
+
+[ext_resource type="Shader" uid="uid://nl6201v42f3s" path="res://scripts/shaders/outline.gdshader" id="1_ucds6"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_ucds6")
+shader_parameter/outline_thickness = 5.0000000596048
+shader_parameter/anti_alias_amount = 5.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/alpha_cutoff = 0.05

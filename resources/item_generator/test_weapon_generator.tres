@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_flsav")
-power_range = Vector2i(-5, 10)
+power_range = Vector2i(-5, 15)
 power_deviation = 1.0
-attack_range = Vector2i(-5, 30)
+attack_range = Vector2i(-5, 35)
 attack_deviation = 1.0
 defense_range = Vector2i(-10, 25)
 defense_deviation = 1.0
