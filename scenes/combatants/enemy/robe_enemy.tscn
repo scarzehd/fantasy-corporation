@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dk0h38tq448jk" path="res://resources/sprites/enemies/robe/robe_1.png" id="3_36fji"]
 [ext_resource type="Texture2D" uid="uid://clym8bdfpewuj" path="res://resources/sprites/enemies/robe/robe_2.png" id="4_7y3ja"]
 [ext_resource type="Texture2D" uid="uid://cvtfot4swih0q" path="res://resources/sprites/enemies/robe/robe_3.png" id="5_iedft"]
+[ext_resource type="AnimationLibrary" uid="uid://4nx1glwbdfkq" path="res://resources/animation_libraries/global_enemy_animations.res" id="6_pwbli"]
 
 [sub_resource type="Resource" id="Resource_4y868"]
 script = ExtResource("2_pwbli")
@@ -214,8 +215,10 @@ shape = SubResource("RectangleShape2D_7je4q")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1643846691]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_st3ln")
+libraries/global_enemy_animations = ExtResource("6_pwbli")
 autoplay = &"idle"
 next/attack = &"idle"
+blend_times = [&"global_enemy_animations/hurt", &"idle", 0.1, &"idle", &"global_enemy_animations/death", 0.2, &"idle", &"global_enemy_animations/hurt", 0.2]
 
 [node name="Control" type="Control" parent="." unique_id=1184891124]
 layout_mode = 3

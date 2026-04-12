@@ -19,6 +19,9 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 		
 	button.button_pressed = false
 	
+	for status_effect in clicked_combatant.status_effects:
+		status_effect.end_status_effect()
+	
 	combatant.animation_player.play(combatant.attack_animation)
 	combatant.end_turn()
 	
@@ -28,8 +31,6 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 		await get_tree().create_timer(anim.get_marker_time("impact")).timeout
 	
 	
-	for status_effect in clicked_combatant.status_effects:
-		status_effect.end_status_effect()
 	
 	clicked_combatant.create_bounce_text("CLEANSED", Color.WHITE, 40)
 	

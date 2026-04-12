@@ -4,11 +4,14 @@ extends Combatant
 
 @export var status_effect:StatusEffect
 
-func _set_current_hp(new_value):
-	super(new_value)
-	if new_value <= 0:
-		hide()
-		collision_layer = 0
+func _on_defeat():
+	animation_player.play("global_enemy_animations/death")
+	await animation_player.animation_finished
+	queue_free()
+
+func _on_damage(_amount:int):
+	animation_player.play("global_enemy_animations/hurt")
+	animation_player.queue("idle")
 
 func start_turn():
 	super()

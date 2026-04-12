@@ -34,6 +34,11 @@ func _ready() -> void:
 func damage(amount:int):
 	create_bounce_text(str(amount), Color.DARK_RED, 40)
 	current_hp -= amount
+	if current_hp > 0:
+		_on_damage(amount)
+
+func _on_damage(_amount:int):
+	pass
 
 func heal(amount:int):
 	current_hp += amount
@@ -121,6 +126,7 @@ func _set_current_hp(new_value):
 		health_bar.value = current_hp
 	if current_hp <= 0:
 		combatant_defeated.emit()
+		_on_defeat()
 
 func _on_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton:
@@ -138,3 +144,6 @@ func _set_portrait(new_value:Texture):
 
 func _get_portrait() -> Texture:
 	return portrait
+
+func _on_defeat():
+	pass

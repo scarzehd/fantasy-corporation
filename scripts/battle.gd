@@ -60,7 +60,7 @@ func start_battle():
 			func():
 				if combatants.has(combatant):
 					var index = combatants.find(combatant)
-					if current_turn_index >= index:
+					if current_turn_index > index:
 						current_turn_index -= 1
 					
 					if combatant is PlayerCombatant:
@@ -122,7 +122,7 @@ func win_battle():
 
 func advance_wave():
 	#var num_enemies = randi_range(max(existing_combatants.size(), 2), enemy_slots.size())
-	var num_enemies = 1
+	var num_enemies = 2
 	
 	if TimeManager.successful_adventures >= 1:
 		num_enemies = 2

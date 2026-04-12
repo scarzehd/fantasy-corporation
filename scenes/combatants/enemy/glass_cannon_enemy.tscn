@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1iax2wgpt36h" path="res://scripts/combatants/enemy/glass_cannon_enemy.gd" id="1_0ac1x"]
 [ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon_test.png" id="2_covoa"]
 [ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/characters/character_base.png" id="2_snpoo"]
+[ext_resource type="AnimationLibrary" uid="uid://4nx1glwbdfkq" path="res://resources/animation_libraries/global_enemy_animations.res" id="4_ca55g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_covoa"]
 size = Vector2(130, 206)
@@ -70,6 +71,7 @@ shape = SubResource("RectangleShape2D_covoa")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1699470233]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_covoa")
+libraries/global_enemy_animations = ExtResource("4_ca55g")
 
 [node name="Control" type="Control" parent="." unique_id=340750240]
 layout_mode = 3

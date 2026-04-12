@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d3i1h310ayq5c" path="res://scripts/resources/status_effect.gd" id="2_pwhef"]
 [ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="3_8vly5"]
 [ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/characters/character_base.png" id="4_gbjxq"]
+[ext_resource type="AnimationLibrary" uid="uid://4nx1glwbdfkq" path="res://resources/animation_libraries/global_enemy_animations.res" id="5_pwhef"]
 
 [sub_resource type="Resource" id="Resource_2emdk"]
 script = ExtResource("2_pwhef")
@@ -85,6 +86,7 @@ shape = SubResource("RectangleShape2D_7je4q")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1643846691]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_2emdk")
+libraries/global_enemy_animations = ExtResource("5_pwhef")
 
 [node name="Control" type="Control" parent="." unique_id=1417547478]
 layout_mode = 3

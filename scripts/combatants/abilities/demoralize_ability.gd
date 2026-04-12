@@ -20,6 +20,8 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 	if clicked_combatant is PlayerCombatant:
 		return
 	
+	button.button_pressed = false
+	
 	combatant.animation_player.play(combatant.attack_animation)
 	combatant.end_turn()
 	
