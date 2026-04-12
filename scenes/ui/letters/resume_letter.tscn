@@ -49,9 +49,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -348.0
-offset_top = -232.0
+offset_top = -207.0
 offset_right = 348.0
-offset_bottom = 232.0
+offset_bottom = 207.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -103,10 +103,6 @@ layout_mode = 2
 text = "Fighter"
 label_settings = SubResource("LabelSettings_xblef")
 horizontal_alignment = 1
-
-[node name="Control" type="Control" parent="Panel/HBoxContainer/VBoxContainer" unique_id=754075830]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
 
 [node name="Control" type="Control" parent="Panel/HBoxContainer" unique_id=920860846]
 custom_minimum_size = Vector2(35, 0)
@@ -233,8 +229,5 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_2ul7h")
 toggle_mode = true
 action_mode = 0
 text = "Hire for 100"
-
-[node name="Spacer" type="Control" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=1594102855]
-layout_mode = 2
 
 [connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/AcceptButton" to="." method="_on_accept_button_pressed"]

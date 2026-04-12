@@ -4,15 +4,6 @@ extends Combatant
 
 @onready var animation_player:AnimationPlayer = %AnimationPlayer
 
-func _on_defeat():
-	animation_player.play("global_enemy_animations/death")
-	await animation_player.animation_finished
-	queue_free()
-
-func _on_damage(_amount:int):
-	animation_player.play("global_enemy_animations/hurt")
-	animation_player.queue("idle")
-
 func start_turn():
 	super()
 	var players:Array[PlayerCombatant]
@@ -24,7 +15,6 @@ func start_turn():
 	var target = players.pick_random()
 	
 	animation_player.play("attack")
-	end_turn()
 	
 	var anim = animation_player.get_animation("attack")
 	
@@ -42,3 +32,5 @@ func start_turn():
 			bounce_text.position.y -= 50
 	else:
 		target.create_bounce_text("MISS", Color.WHITE, 40)
+	
+	end_turn()

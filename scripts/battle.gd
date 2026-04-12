@@ -38,7 +38,7 @@ func _enter_tree() -> void:
 	instance = self
 
 func _ready() -> void:
-	waves_left = max(1, ceili(TimeManager.successful_adventures / 3.0))
+	waves_left = floori((TimeManager.successful_adventures + 1) / 3.0) + 1
 	waves = waves_left
 	
 	for i in range(min(Globals.hired_characters.size(), 4)):
@@ -62,6 +62,8 @@ func start_battle():
 					var index = combatants.find(combatant)
 					if current_turn_index > index:
 						current_turn_index -= 1
+					if current_turn_index >= combatants.size():
+						current_turn_index = 0
 					
 					if combatant is PlayerCombatant:
 						casualties.append(combatant)
@@ -100,11 +102,12 @@ func handle_current_turn():
 func current_turn_finished():
 	turn_ended.emit(combatants[current_turn_index])
 	
+	
+	await get_tree().create_timer(1.0).timeout
+	
 	current_turn_index += 1
 	if current_turn_index >= combatants.size():
 		current_turn_index = 0
-	
-	await get_tree().create_timer(1.0).timeout
 	
 	handle_current_turn()
 
@@ -122,7 +125,7 @@ func win_battle():
 
 func advance_wave():
 	#var num_enemies = randi_range(max(existing_combatants.size(), 2), enemy_slots.size())
-	var num_enemies = 2
+	var num_enemies = 1
 	
 	if TimeManager.successful_adventures >= 1:
 		num_enemies = 2

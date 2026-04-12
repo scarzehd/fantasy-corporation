@@ -78,65 +78,55 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("3_q8bib")
 
-[node name="Label" type="Label" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup" unique_id=44244518]
+[node name="VBoxContainer" type="VBoxContainer" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup" unique_id=804329247]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -230.5
-offset_top = 21.0
-offset_right = 230.5
-offset_bottom = 63.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 22.0
+offset_top = 24.0
+offset_right = -22.0
+offset_bottom = 107.0
 grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup/VBoxContainer" unique_id=44244518]
+layout_mode = 2
 text = "Are you sure you want to clock out?"
 label_settings = SubResource("LabelSettings_celh3")
 horizontal_alignment = 1
 
-[node name="BankruptcyLabel" type="Label" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup" unique_id=1308778964]
+[node name="BankruptcyLabel" type="Label" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup/VBoxContainer" unique_id=1308778964]
 unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -257.5
-offset_top = 66.0
-offset_right = 257.5
-offset_bottom = 108.0
-grow_horizontal = 2
+layout_mode = 2
 text = "You will go bankrupt and lose."
 label_settings = SubResource("LabelSettings_1x1q5")
 horizontal_alignment = 1
 
-[node name="AcceptButton" type="Button" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup" unique_id=1172466346]
+[node name="HBoxContainer" type="HBoxContainer" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup" unique_id=1621629580]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 60.0
-offset_top = -114.0
-offset_right = 248.0
-offset_bottom = -64.0
-grow_vertical = 0
-theme_override_styles/normal = ExtResource("4_jfj05")
-text = "See Your Family (Lame)"
-
-[node name="CancelButton" type="Button" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup" unique_id=1347699015]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -220.0
-offset_top = -114.0
-offset_right = -79.0
-offset_bottom = -66.0
-grow_horizontal = 0
+offset_left = 50.0
+offset_top = -150.0
+offset_right = -50.0
+offset_bottom = -62.0
+grow_horizontal = 2
 grow_vertical = 0
+
+[node name="CancelButton" type="Button" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup/HBoxContainer" unique_id=1347699015]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("5_1x1q5")
 text = "Unpaid Overtime"
 
+[node name="AcceptButton" type="Button" parent="DoorButton/ConfirmationPopup/Control/ConfirmationPopup/HBoxContainer" unique_id=1172466346]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("4_jfj05")
+text = "See Your Family (Lame)"
+
 [connection signal="pressed" from="DoorButton" to="DoorButton" method="_on_pressed"]
-[connection signal="pressed" from="DoorButton/ConfirmationPopup/Control/ConfirmationPopup/AcceptButton" to="DoorButton" method="_on_accept_button_pressed"]
-[connection signal="pressed" from="DoorButton/ConfirmationPopup/Control/ConfirmationPopup/CancelButton" to="DoorButton" method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="DoorButton/ConfirmationPopup/Control/ConfirmationPopup/HBoxContainer/CancelButton" to="DoorButton" method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="DoorButton/ConfirmationPopup/Control/ConfirmationPopup/HBoxContainer/AcceptButton" to="DoorButton" method="_on_accept_button_pressed"]

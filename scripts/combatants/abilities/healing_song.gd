@@ -2,8 +2,12 @@ extends Ability
 class_name HealingSong
 
 func _button_pressed():
+	if combatant.acted:
+		return
+	
+	combatant.acted = true
+	
 	combatant.animation_player.play(combatant.attack_animation)
-	combatant.end_turn()
 	
 	var anim = combatant.animation_player.get_animation(combatant.attack_animation)
 	
@@ -23,3 +27,5 @@ func _button_pressed():
 			status_effect.id = "healing_song"
 			
 			other_combatant.add_status_effect(status_effect)
+	
+	combatant.end_turn()

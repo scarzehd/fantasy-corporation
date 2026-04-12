@@ -18,7 +18,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Node2D/Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -30,7 +30,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Node2D/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -42,7 +42,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Head:scale")
+tracks/2/path = NodePath("Node2D/Head:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -54,7 +54,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Head:position")
+tracks/3/path = NodePath("Node2D/Head:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -70,7 +70,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Node2D/Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -82,7 +82,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Node2D/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -94,7 +94,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Head:position")
+tracks/2/path = NodePath("Node2D/Head:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -110,21 +110,17 @@ _data = {
 &"idle": SubResource("Animation_sjeno")
 }
 
-[node name="CombatantBase" type="Area2D" unique_id=209960256 node_paths=PackedStringArray("name_label", "abilities", "health_bar")]
+[node name="CombatantBase" type="Area2D" unique_id=209960256 node_paths=PackedStringArray("name_label", "abilities", "health_bar", "damage_tween_target")]
 script = ExtResource("1_8x2sg")
 name_label = NodePath("Control/VBoxContainer/NameLabel")
 abilities = [NodePath("DefendAbility")]
 combatant_name = "Bringle Cringus"
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
+damage_tween_target = NodePath("Node2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=238847892]
 position = Vector2(0, 24.5)
 shape = SubResource("RectangleShape2D_rkhwg")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=904817639]
-position = Vector2(0, -221)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_35ab1")
 
 [node name="Control" type="Control" parent="." unique_id=1851136507]
 layout_mode = 3
@@ -181,7 +177,14 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_jqwdw")
 autoplay = &"idle"
 
-[node name="Head" type="Sprite2D" parent="." unique_id=417519414]
+[node name="Node2D" type="Node2D" parent="." unique_id=1120545636]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=904817639]
+position = Vector2(0, -221)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_35ab1")
+
+[node name="Head" type="Sprite2D" parent="Node2D" unique_id=417519414]
 unique_name_in_owner = true
 position = Vector2(15, -346)
 scale = Vector2(0.5, 0.5)

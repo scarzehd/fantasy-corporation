@@ -61,12 +61,13 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_u8vcb"]
 font_size = 25
 
-[node name="PoisonEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar")]
+[node name="PoisonEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target")]
 script = ExtResource("1_ys2nx")
 status_effect = SubResource("Resource_2emdk")
 combatant_name = "Bringle Cringus"
 portrait = ExtResource("3_8vly5")
 health_bar = NodePath("Control/VBoxContainer/HealthBar")
+damage_tween_target = NodePath("Sprite2D")
 base_hp = 80
 base_attack = 80
 base_power = 30

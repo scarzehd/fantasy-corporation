@@ -5,6 +5,7 @@ class_name Office
 @onready var day_label:Label = %DayLabel
 @onready var successful_adventures_label:Label = %SuccessfulAdventuresLabel
 @onready var bankruptcy_panel:Panel = %BankruptcyPanel
+@onready var hud_canvas_layer:CanvasLayer = %HUDCanvasLayer
 
 func _ready() -> void:
 	Globals.money_changed.connect(_on_money_changed)
@@ -26,7 +27,7 @@ func _on_money_changed(old_money:int, new_money:int):
 		color = Color.GREEN
 	
 	var fall_text = FallText.create_fall_text(text, color, 50, -100, 1.5)
-	add_child(fall_text)
+	hud_canvas_layer.add_child(fall_text)
 	fall_text.global_position = money_label.get_global_rect().get_center()
 	fall_text.global_position.x -= 11
 	fall_text.start()

@@ -167,11 +167,12 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_cj51i"]
 font_size = 25
 
-[node name="KnifeCCrime" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar")]
+[node name="KnifeCCrime" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target")]
 script = ExtResource("1_3ofkw")
 combatant_name = "Knife C Crime"
 portrait = ExtResource("3_rns3t")
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
+damage_tween_target = NodePath("Sprite2D")
 base_hp = 50
 base_attack = 70
 base_power = 40

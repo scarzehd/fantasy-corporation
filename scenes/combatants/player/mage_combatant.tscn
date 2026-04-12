@@ -26,7 +26,7 @@ markers = [{
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Node2D/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -38,7 +38,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Node2D/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -50,7 +50,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/path = NodePath("Node2D/Sprite2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -62,7 +62,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:skew")
+tracks/3/path = NodePath("Node2D/Sprite2D:skew")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -74,7 +74,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Head:position")
+tracks/4/path = NodePath("Node2D/Head:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -90,7 +90,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Node2D/Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -102,7 +102,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Node2D/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -114,7 +114,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Head:position")
+tracks/2/path = NodePath("Node2D/Head:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -138,18 +138,18 @@ attack_animation = &"mage/attack"
 [node name="CollisionShape2D" parent="." index="0" unique_id=238847892]
 position = Vector2(0, -196.5)
 
-[node name="Sprite2D" parent="." index="1" unique_id=904817639]
-texture = ExtResource("3_a1hn4")
-
-[node name="Control" parent="." index="2" unique_id=1851136507]
+[node name="Control" parent="." index="1" unique_id=1851136507]
 offset_top = -500.0
 offset_bottom = 0.0
 
-[node name="AnimationPlayer" parent="." index="4" unique_id=1377899510]
+[node name="AnimationPlayer" parent="." index="3" unique_id=1377899510]
 libraries/mage = SubResource("AnimationLibrary_nfo83")
 autoplay = &"mage/idle"
 
-[node name="RestoreAbility" type="Node" parent="." index="6" unique_id=1773393164]
+[node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(1120545636) index="1" unique_id=904817639]
+texture = ExtResource("3_a1hn4")
+
+[node name="RestoreAbility" type="Node" parent="." index="5" unique_id=1773393164]
 script = ExtResource("2_b52xw")
 ability_name = "Restore"
 toggle = true
@@ -159,7 +159,7 @@ hover_icon = ExtResource("8_tptwn")
 description = "Heal a single target."
 metadata/_custom_type_script = "uid://berxejko273v8"
 
-[node name="MagicMissileAbility" type="Node" parent="." index="7" unique_id=1761444833]
+[node name="MagicMissileAbility" type="Node" parent="." index="6" unique_id=1761444833]
 script = ExtResource("6_u5lfp")
 ability_name = "Magic Missile"
 icon = ExtResource("8_nfo83")
@@ -167,7 +167,7 @@ hover_icon = ExtResource("11_cen52")
 description = "Fire three seeking missiles that always hit a random enemy."
 metadata/_custom_type_script = "uid://cy50wh1jnkpg7"
 
-[node name="FireballAbility" type="Node" parent="." index="8" unique_id=924018575]
+[node name="FireballAbility" type="Node" parent="." index="7" unique_id=924018575]
 script = ExtResource("7_a1hn4")
 ability_name = "Fireball"
 toggle = true

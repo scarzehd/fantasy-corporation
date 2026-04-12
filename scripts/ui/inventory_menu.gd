@@ -21,6 +21,8 @@ class_name InventoryMenu
 @onready var item_container:GridContainer = %ItemContainer
 @onready var item_template:PanelContainer = %ItemTemplate
 
+@onready var no_items_label:Label = %NoItemsLabel
+
 var character_select_buttons:Array[Button]
 
 func _ready() -> void:
@@ -56,6 +58,8 @@ func clear_ui():
 	for child in item_container.get_children():
 		if child != item_template:
 			child.queue_free()
+	
+	no_items_label.hide()
 
 func populate_ui():
 	var selected:bool = false
@@ -89,49 +93,9 @@ func populate_ui():
 		
 		sell_button.text = "Sell for " + str(floori(item.purchase_price * Globals.resale_modifier))
 		sell_button.pressed.connect(_on_sell_button_pressed.bind(template))
-		
-		#var name_label = template.find_child("NameLabel", true, false)
-		#var hp_label = template.find_child("HPLabel", true, false)
-		#var portrait = template.find_child("Portrait", true, false)
-		#var attack_label = template.find_child("AttackLabel", true, false)
-		#var power_label = template.find_child("PowerLabel", true, false)
-		#var defense_label = template.find_child("DefenseLabel", true, false)
-		#
-		#name_label.text = item.item_name
-		#
-		#portrait.texture = item.item_portrait
-		#
-		#if item.hp != 0:
-			#hp_label.show()
-			#hp_label.text = "+" + str(item.hp) + " HP"
-			#hp_label.label_settings = hp_label.label_settings.duplicate()
-		#if item.hp < 0:
-			#hp_label.text = str(item.hp) + " HP"
-			#hp_label.label_settings.font_color = Color.RED
-		#
-		#if item.attack != 0:
-			#attack_label.show()
-			#attack_label.text = "+" + str(item.attack) + " Attack"
-			#attack_label.label_settings = attack_label.label_settings.duplicate()
-		#if item.attack < 0:
-			#attack_label.text = str(item.attack) + " Attack"
-			#attack_label.label_settings.font_color = Color.RED
-		#
-		#if item.power != 0:
-			#power_label.show()
-			#power_label.text = "+" + str(item.power) + " Power"
-			#power_label.label_settings = power_label.label_settings.duplicate()
-		#if item.power < 0:
-			#power_label.text = str(item.power) + " Power"
-			#power_label.label_settings.font_color = Color.RED
-		#
-		#if item.defense != 0:
-			#defense_label.show()
-			#defense_label.text = "+" + str(item.defense) + " Defense"
-			#defense_label.label_settings = defense_label.label_settings.duplicate()
-		#if item.defense < 0:
-			#defense_label.text = str(item.defense) + " Defense"
-			#defense_label.label_settings.font_color = Color.RED
+	
+	if Globals.owned_items.size() == 0:
+		no_items_label.show()
 
 func select_character(character_data:CharacterData):
 	stats_name.text = character_data.full_name
@@ -151,3 +115,6 @@ func _on_sell_button_pressed(item_view:ItemView):
 	Globals.owned_items.erase(item)
 	
 	item_view.queue_free()
+	
+	if Globals.owned_items.size() == 0:
+		no_items_label.show()

@@ -26,7 +26,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/CanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
+tracks/0/path = NodePath("Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -42,7 +42,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/CanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
+tracks/0/path = NodePath("Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -75,9 +75,10 @@ texture = ExtResource("2_hub07")
 
 [node name="GlobeButton" parent="Node2D" unique_id=2077237782 instance=ExtResource("6_hub07")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Node2D" unique_id=725098394]
+[node name="HUDCanvasLayer" type="CanvasLayer" parent="Node2D" unique_id=725098394]
+unique_name_in_owner = true
 
-[node name="Control" type="Control" parent="Node2D/CanvasLayer" unique_id=1022514769]
+[node name="Control" type="Control" parent="Node2D/HUDCanvasLayer" unique_id=1022514769]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 15
@@ -87,7 +88,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Panel" type="Panel" parent="Node2D/CanvasLayer/Control" unique_id=1677413109]
+[node name="Panel" type="Panel" parent="Node2D/HUDCanvasLayer/Control" unique_id=1677413109]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -98,7 +99,7 @@ offset_bottom = 132.0
 grow_horizontal = 2
 theme_override_styles/panel = ExtResource("7_2knxt")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/CanvasLayer/Control/Panel" unique_id=12555917]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=12555917]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -109,16 +110,16 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/CanvasLayer/Control/Panel/HBoxContainer2" unique_id=1414323691]
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=1414323691]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Node2D/CanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=526202190]
+[node name="Label" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=526202190]
 layout_mode = 2
 text = "Money:"
 label_settings = SubResource("LabelSettings_7jj4f")
 
-[node name="MoneyLabel" type="Label" parent="Node2D/CanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=684423270]
+[node name="MoneyLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=684423270]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -130,7 +131,7 @@ vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="SuccessfulAdventuresLabel" type="Label" parent="Node2D/CanvasLayer/Control/Panel/HBoxContainer2" unique_id=171757301]
+[node name="SuccessfulAdventuresLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=171757301]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
@@ -139,7 +140,7 @@ label_settings = SubResource("LabelSettings_2knxt")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="DayLabel" type="Label" parent="Node2D/CanvasLayer/Control/Panel/HBoxContainer2" unique_id=32132912]
+[node name="DayLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=32132912]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
@@ -148,7 +149,7 @@ label_settings = SubResource("LabelSettings_2knxt")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="BankruptcyPanel" type="Panel" parent="Node2D/CanvasLayer/Control/Panel" unique_id=526995004]
+[node name="BankruptcyPanel" type="Panel" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=526995004]
 unique_name_in_owner = true
 show_behind_parent = true
 clip_contents = true
@@ -162,7 +163,7 @@ offset_bottom = 9.0
 grow_horizontal = 2
 theme_override_styles/panel = ExtResource("8_fmddn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/CanvasLayer/Control/Panel/BankruptcyPanel" unique_id=1481654228]
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel" unique_id=1481654228]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -176,19 +177,19 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
-[node name="Label" type="Label" parent="Node2D/CanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=309480188]
+[node name="Label" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=309480188]
 layout_mode = 2
 text = "WARNING"
 label_settings = SubResource("LabelSettings_fmddn")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Node2D/CanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=772160454]
+[node name="Label2" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=772160454]
 layout_mode = 2
 text = "Bankruptcy Imminent!"
 label_settings = SubResource("LabelSettings_fmddn")
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/CanvasLayer/Control/Panel/BankruptcyPanel" unique_id=1924930435]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel" unique_id=1924930435]
 root_node = NodePath("../../../../../..")
 libraries/ = SubResource("AnimationLibrary_gdafm")
 autoplay = &"flash"

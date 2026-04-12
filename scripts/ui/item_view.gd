@@ -30,7 +30,7 @@ func _set_item_data(new_value:ItemData):
 		equipped_label.text = "Equipped by " + new_value.equipped_by.first_name
 	
 	if new_value.hp != 0:
-		attack.show()
+		hp.show()
 		hp_label.text = "+" + str(new_value.hp) + " HP"
 		hp_label.label_settings = hp_label.label_settings.duplicate()
 	if new_value.hp < 0:

@@ -10,7 +10,7 @@
 [sub_resource type="Resource" id="Resource_jdatg"]
 script = ExtResource("2_jdatg")
 id = &"bleed"
-name = "Blleed"
+name = "Bleed"
 has_duration = true
 duration = 2
 refresh_duration = true
@@ -191,12 +191,13 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_jdatg"]
 font_size = 25
 
-[node name="ChomperEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar")]
+[node name="ChomperEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target")]
 script = ExtResource("1_oar01")
 status_effect = SubResource("Resource_jdatg")
 combatant_name = "Chomper"
 portrait = ExtResource("4_y6wc8")
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
+damage_tween_target = NodePath("Sprite2D")
 base_hp = 50
 base_attack = 100
 base_power = 25

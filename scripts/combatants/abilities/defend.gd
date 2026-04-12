@@ -2,6 +2,11 @@ extends Ability
 class_name DefendAbility
 
 func _button_pressed():
+	if combatant.acted:
+		return
+	
+	combatant.acted = true
+	
 	var defend_effect:StatusEffect = StatusEffect.new()
 	defend_effect.defense = ceili(combatant.base_defense * 0.5)
 	defend_effect.has_duration = true

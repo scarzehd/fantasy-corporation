@@ -87,3 +87,11 @@ func _set_character_data(new_value:CharacterData):
 	name_label.text = character_data.full_name
 	
 	head.texture = new_value.head
+
+func _on_defeat():
+	if damage_tween:
+		damage_tween.stop()
+	
+	damage_tween = create_tween()
+	damage_tween.tween_property(damage_tween_target, "modulate", Color.RED, 0.15)
+	damage_tween.tween_property(damage_tween_target, "modulate", Color(1.0, 0.0, 0.0, 0.0), 0.3)

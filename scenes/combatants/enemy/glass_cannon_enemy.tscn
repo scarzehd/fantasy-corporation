@@ -47,11 +47,12 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_0ac1x"]
 font_size = 25
 
-[node name="GlassCannonEnemy" type="Area2D" unique_id=1995081188 node_paths=PackedStringArray("health_bar")]
+[node name="GlassCannonEnemy" type="Area2D" unique_id=1995081188 node_paths=PackedStringArray("health_bar", "damage_tween_target")]
 script = ExtResource("1_0ac1x")
 combatant_name = "Brung Crungulus"
 portrait = ExtResource("2_covoa")
 health_bar = NodePath("Control/VBoxContainer/HealthBar")
+damage_tween_target = NodePath("Sprite2D")
 base_hp = 50
 base_attack = 120
 base_power = 60

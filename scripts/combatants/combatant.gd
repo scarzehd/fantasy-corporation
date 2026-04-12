@@ -15,6 +15,7 @@ var power:int : get = _get_power
 var defense:int : get = _get_defense
 
 @export var health_bar:ProgressBar
+@export var damage_tween_target:CanvasItem
 
 @export var base_hp:int
 @export var base_attack:int
@@ -22,6 +23,10 @@ var defense:int : get = _get_defense
 @export var base_defense:int
 
 var status_effects:Array[StatusEffect]
+
+var acted:bool = false
+
+var damage_tween:Tween
 
 func _ready() -> void:
 	input_event.connect(_on_input_event)
@@ -38,7 +43,12 @@ func damage(amount:int):
 		_on_damage(amount)
 
 func _on_damage(_amount:int):
-	pass
+	if damage_tween:
+		damage_tween.stop()
+	
+	damage_tween = create_tween()
+	damage_tween.tween_property(damage_tween_target, "modulate", Color.RED, 0.15)
+	damage_tween.tween_property(damage_tween_target, "modulate", Color.WHITE, 0.5)
 
 func heal(amount:int):
 	current_hp += amount
@@ -85,12 +95,17 @@ func find_status_id(status_id:StringName) -> Array[StatusEffect]:
 	return effects
 
 func start_turn():
+	acted = false
 	for status_effect in status_effects:
 		status_effect.start_turn()
+		if status_effect.damage != 0:
+			await get_tree().create_timer(0.1).timeout
 
 func end_turn():
 	for status_effect in status_effects:
 		status_effect.end_turn()
+		if status_effect.damage != 0:
+			await get_tree().create_timer(0.1).timeout
 	turn_finished.emit()
 
 func _get_hp() -> int:
@@ -125,7 +140,7 @@ func _set_current_hp(new_value):
 	if health_bar:
 		health_bar.value = current_hp
 	if current_hp <= 0:
-		combatant_defeated.emit()
+		combatant_defeated.emit.call_deferred()
 		_on_defeat()
 
 func _on_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
@@ -146,4 +161,12 @@ func _get_portrait() -> Texture:
 	return portrait
 
 func _on_defeat():
-	pass
+	if damage_tween:
+		damage_tween.stop()
+	
+	damage_tween = create_tween()
+	damage_tween.tween_property(damage_tween_target, "modulate", Color.RED, 0.15)
+	damage_tween.tween_property(damage_tween_target, "modulate", Color(1.0, 0.0, 0.0, 0.0), 0.3)
+	
+	await damage_tween.finished
+	queue_free()
