@@ -10,6 +10,9 @@ const NEWSPAPER_LETTER_SCENE:PackedScene = preload("uid://c8wytlhkw0oa4")
 @onready var letter_container:HBoxContainer = %LetterContainer
 @onready var character_portrait_generator:CharacterPortraitGenerator = %CharacterPortraitGenerator
 
+@onready var normal:Sprite2D = %Normal
+@onready var hover:Sprite2D = %Hover
+
 var letters:Array[Letter]
 var current_index:int = 0 : set = _set_current_index
 
@@ -113,3 +116,12 @@ func _on_confirm_button_pressed() -> void:
 	letters.clear()
 	
 	letters_menu.hide()
+
+
+func _on_mouse_entered() -> void:
+	normal.hide()
+	hover.show()
+
+func _on_mouse_exited() -> void:
+	normal.show()
+	hover.hide()

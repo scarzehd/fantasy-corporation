@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cf5acaerc6hgu" path="res://scenes/combatants/enemy/robe_enemy.tscn" id="2_p1qf1"]
 [ext_resource type="PackedScene" uid="uid://c4b5scabx2lqo" path="res://scenes/combatants/enemy/chomper_enemy.tscn" id="3_a12nh"]
 [ext_resource type="PackedScene" uid="uid://buw2plhxnyhd7" path="res://scenes/combatants/enemy/knife_c_crime.tscn" id="4_lpir7"]
+[ext_resource type="Texture2D" uid="uid://dfd7rr2eqjxw1" path="res://resources/sprites/forest_battle_background.png" id="6_4k1nj"]
+[ext_resource type="Texture2D" uid="uid://b5k6wnrlo5vy" path="res://resources/sprites/cave_battle_background.png" id="6_6vh42"]
 [ext_resource type="PackedScene" uid="uid://3e8drigu5xm1" path="res://scenes/ui/battle_hud.tscn" id="7_4k1nj"]
 
 [node name="Battle" type="Node2D" unique_id=1135496140 node_paths=PackedStringArray("player_slots", "enemy_slots")]
@@ -11,6 +13,13 @@ script = ExtResource("1_dn72j")
 player_slots = [NodePath("PlayerSlot1"), NodePath("PlayerSlot2"), NodePath("PlayerSlot3"), NodePath("PlayerSlot4")]
 enemy_slots = [NodePath("EnemySlot1"), NodePath("EnemySlot2"), NodePath("EnemySlot3"), NodePath("EnemySlot4")]
 enemy_pool = Array[PackedScene]([ExtResource("2_p1qf1"), ExtResource("3_a12nh"), ExtResource("4_lpir7")])
+battle_backgrounds = Array[Texture]([ExtResource("6_6vh42"), ExtResource("6_4k1nj")])
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1461741069]
+unique_name_in_owner = true
+position = Vector2(0, -91)
+texture = ExtResource("6_6vh42")
+offset = Vector2(960, 540)
 
 [node name="PlayerSlot1" type="Marker2D" parent="." unique_id=900666764]
 position = Vector2(730, 499)

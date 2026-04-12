@@ -25,6 +25,8 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 	
 	combatant.acted = true
 	
+	clicked_combatant.targeting_indicator.select_target()
+	
 	button.button_pressed = false
 	
 	combatant.animation_player.play(combatant.attack_animation)

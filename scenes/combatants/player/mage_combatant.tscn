@@ -146,7 +146,7 @@ offset_bottom = 0.0
 libraries/mage = SubResource("AnimationLibrary_nfo83")
 autoplay = &"mage/idle"
 
-[node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(1120545636) index="1" unique_id=904817639]
+[node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(1120545636) index="0" unique_id=904817639]
 texture = ExtResource("3_a1hn4")
 
 [node name="RestoreAbility" type="Node" parent="." index="5" unique_id=1773393164]
@@ -157,6 +157,7 @@ icon = ExtResource("6_jjksu")
 select_icon = ExtResource("7_rkht4")
 hover_icon = ExtResource("8_tptwn")
 description = "Heal a single target."
+target_mode = 2
 metadata/_custom_type_script = "uid://berxejko273v8"
 
 [node name="MagicMissileAbility" type="Node" parent="." index="6" unique_id=1761444833]
@@ -175,4 +176,5 @@ icon = ExtResource("10_rqeii")
 select_icon = ExtResource("12_6algy")
 hover_icon = ExtResource("15_p440h")
 description = "Deal heavy damage over time for 2 turns."
+target_mode = 1
 metadata/_custom_type_script = "uid://br04jtfec7bnj"

@@ -25,6 +25,8 @@ class_name BattleHUD
 @onready var lost_item_template:PanelContainer = %LostItemTemplate
 @onready var items_lost_container:PanelContainer = %ItemsLostContainer
 
+var battle_won:bool = false
+
 func _on_turn_ended(_combatant:Combatant):
 	for button in attack_container.get_children():
 		if button == attack_button_template:
@@ -54,6 +56,9 @@ func reset_ui():
 	for child in attack_container.get_children():
 		if child == attack_button_template:
 			continue
+		
+		if child.toggle_mode:
+			child.button_pressed = false
 		
 		child.queue_free()
 	
@@ -159,6 +164,7 @@ func setup_combatant(combatant:Combatant):
 				label.label_settings.font_color = Color.RED
 
 func _on_battle_ended(won:bool):
+	battle_won = won
 	mission_end_panel.show()
 	header_label.text = "Great Success!" if won else "Colossal Failure!"
 	var lost_items:Array[ItemData]
@@ -207,7 +213,8 @@ func _on_battle_ended(won:bool):
 	Globals.hired_characters.clear()
 
 func _on_button_pressed() -> void:
-	TimeManager.successful_adventure()
+	if battle_won:
+		TimeManager.successful_adventure()
 	TimeManager.advance_day()
 	await TimeManager.day_ended
 	get_tree().change_scene_to_file("uid://b5v8bj3uciobn")

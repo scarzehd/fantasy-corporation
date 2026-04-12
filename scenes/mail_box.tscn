@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cg05ot46y6ci6" path="res://resources/sprites/ui/arrow_right_hover.png" id="5_r3rme"]
 [ext_resource type="Texture2D" uid="uid://c47o7aixnb673" path="res://resources/sprites/office/office_mailbox_letters.png" id="7_3lyli"]
 [ext_resource type="PackedScene" uid="uid://dbqtiaebwcsnd" path="res://scenes/character_portrait_generator.tscn" id="8_tlw2h"]
+[ext_resource type="Texture2D" uid="uid://bltehahsln1d3" path="res://resources/sprites/office/office_mailbox_hover.png" id="9_tkk67"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xs0bi"]
 font_size = 30
@@ -16,8 +17,7 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Mailbox" type="Sprite2D" unique_id=1064577933]
-texture = ExtResource("1_3lyli")
+[node name="Mailbox" type="Node2D" unique_id=2073972684]
 
 [node name="MailBox" type="TextureButton" parent="." unique_id=603560281]
 anchors_preset = 8
@@ -25,10 +25,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1745.0
-offset_top = -816.0
-offset_right = -1419.0
-offset_bottom = -356.0
+offset_left = -785.0
+offset_top = -276.0
+offset_right = -459.0
+offset_bottom = 184.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_rx4kg")
@@ -113,13 +113,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -163.0
-offset_top = -193.0
-offset_right = 163.0
-offset_bottom = -75.0
+offset_left = -119.0
+offset_top = -220.0
+offset_right = 119.0
+offset_bottom = -118.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Exit"
 
 [node name="ConfirmButton" type="Button" parent="MailBox/LettersMenu/LettersMenu" unique_id=2068006479]
@@ -139,12 +139,23 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Complete All Letters"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=173302916]
-texture = ExtResource("7_3lyli")
-
 [node name="CharacterPortraitGenerator" parent="." unique_id=299115601 instance=ExtResource("8_tlw2h")]
 unique_name_in_owner = true
 
+[node name="Normal" type="Sprite2D" parent="." unique_id=1064577933]
+unique_name_in_owner = true
+texture = ExtResource("1_3lyli")
+
+[node name="Sprite2D" type="Sprite2D" parent="Normal" unique_id=173302916]
+texture = ExtResource("7_3lyli")
+
+[node name="Hover" type="Sprite2D" parent="." unique_id=1773044490]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("9_tkk67")
+
+[connection signal="mouse_entered" from="MailBox" to="MailBox" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MailBox" to="MailBox" method="_on_mouse_exited"]
 [connection signal="pressed" from="MailBox" to="MailBox" method="_on_pressed"]
 [connection signal="pressed" from="MailBox/LettersMenu/LettersMenu/PreviousLetterButton" to="MailBox" method="_on_previous_letter_button_pressed"]
 [connection signal="pressed" from="MailBox/LettersMenu/LettersMenu/NextLetterButton" to="MailBox" method="_on_next_letter_button_pressed"]

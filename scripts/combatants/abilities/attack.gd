@@ -4,12 +4,6 @@ class_name AttackAbility
 func _ready() -> void:
 	Battle.instance.combatant_clicked.connect(_on_combatant_clicked)
 
-#func _button_toggled(toggled_on:bool):
-	#if toggled_on:
-		#button.text = "Select Target"
-	#else:
-		#button.text = ability_name
-
 func _on_combatant_clicked(clicked_combatant:Combatant):
 	if not button:
 		return
@@ -20,8 +14,12 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 	if clicked_combatant is PlayerCombatant:
 		return
 	
+	clicked_combatant.targeting_indicator.select_target()
+	
+	combatant.acted = true
 	
 	button.button_pressed = false
+	
 	
 	combatant.animation_player.play(combatant.attack_animation)
 	combatant.end_turn()

@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://clym8bdfpewuj" path="res://resources/sprites/enemies/robe/robe_2.png" id="4_7y3ja"]
 [ext_resource type="Texture2D" uid="uid://cvtfot4swih0q" path="res://resources/sprites/enemies/robe/robe_3.png" id="5_iedft"]
 [ext_resource type="AnimationLibrary" uid="uid://4nx1glwbdfkq" path="res://resources/animation_libraries/global_enemy_animations.res" id="6_pwbli"]
+[ext_resource type="StyleBox" uid="uid://74jbejvamqvb" path="res://resources/styleboxes/health_bar_background.tres" id="7_36fji"]
+[ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="8_7y3ja"]
+[ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="9_iedft"]
 
 [sub_resource type="Resource" id="Resource_4y868"]
 script = ExtResource("2_pwbli")
@@ -19,7 +22,7 @@ attack = -30
 metadata/_custom_type_script = "uid://d3i1h310ayq5c"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
-size = Vector2(276, 429)
+size = Vector2(170.6835, 373)
 
 [sub_resource type="Animation" id="Animation_st3ln"]
 length = 0.001
@@ -70,6 +73,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, -155.5)]
 }
 
 [sub_resource type="Animation" id="Animation_eec6s"]
@@ -181,6 +196,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0, 0.0, 0.17453292, 0.17453292, 0.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.5, 1.5),
+"update": 0,
+"values": [Vector2(11, -155.5), Vector2(56, -155.5)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_st3ln"]
 _data = {
@@ -192,13 +219,14 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_cj51i"]
 font_size = 25
 
-[node name="RobeEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target")]
+[node name="RobeEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator")]
 script = ExtResource("1_lcruw")
 status_effect = SubResource("Resource_4y868")
 combatant_name = "Doomrobe"
 portrait = ExtResource("3_36fji")
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
 damage_tween_target = NodePath("Sprite2D")
+targeting_indicator = NodePath("TargetingIndicator")
 base_hp = 80
 base_attack = 40
 base_power = 40
@@ -210,7 +238,7 @@ scale = Vector2(0.55, 0.55)
 texture = ExtResource("3_36fji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1545115223]
-position = Vector2(11, -183.5)
+position = Vector2(11, -155.5)
 shape = SubResource("RectangleShape2D_7je4q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1643846691]
@@ -260,4 +288,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 size_flags_vertical = 2
+theme_override_styles/background = ExtResource("7_36fji")
+theme_override_styles/fill = ExtResource("8_7y3ja")
 show_percentage = false
+
+[node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("9_iedft")]

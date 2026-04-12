@@ -26,10 +26,10 @@ func _on_money_changed(old_money:int, new_money:int):
 		text = "+" + str(change)
 		color = Color.GREEN
 	
-	var fall_text = FallText.create_fall_text(text, color, 50, -100, 1.5)
+	var fall_text = FallText.create_fall_text(text, color, 30, -100, 1.5)
 	hud_canvas_layer.add_child(fall_text)
 	fall_text.global_position = money_label.get_global_rect().get_center()
-	fall_text.global_position.x -= 11
+	fall_text.global_position.x -= 4
 	fall_text.start()
 	
 	if new_money < 0 and old_money >= 0:

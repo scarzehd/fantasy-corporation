@@ -22,6 +22,8 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 	
 	combatant.acted = true
 	
+	clicked_combatant.targeting_indicator.select_target()
+	
 	button.button_pressed = false
 	
 	for status_effect in clicked_combatant.status_effects:

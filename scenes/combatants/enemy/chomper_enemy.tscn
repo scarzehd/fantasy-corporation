@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cqaopvrlei3b8" path="res://resources/sprites/enemies/chomper/chomper_3.png" id="4_jdatg"]
 [ext_resource type="Texture2D" uid="uid://c4ldharwhy726" path="res://resources/sprites/enemies/chomper/chomper_1.png" id="4_y6wc8"]
 [ext_resource type="AnimationLibrary" uid="uid://4nx1glwbdfkq" path="res://resources/animation_libraries/global_enemy_animations.res" id="6_5wuxp"]
+[ext_resource type="StyleBox" uid="uid://74jbejvamqvb" path="res://resources/styleboxes/health_bar_background.tres" id="7_a7giv"]
+[ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="8_vvk82"]
+[ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="9_awdj3"]
 
 [sub_resource type="Resource" id="Resource_jdatg"]
 script = ExtResource("2_jdatg")
@@ -191,13 +194,14 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_jdatg"]
 font_size = 25
 
-[node name="ChomperEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target")]
+[node name="ChomperEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator")]
 script = ExtResource("1_oar01")
 status_effect = SubResource("Resource_jdatg")
 combatant_name = "Chomper"
 portrait = ExtResource("4_y6wc8")
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
 damage_tween_target = NodePath("Sprite2D")
+targeting_indicator = NodePath("TargetingIndicator")
 base_hp = 50
 base_attack = 100
 base_power = 25
@@ -258,4 +262,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 size_flags_vertical = 2
+theme_override_styles/background = ExtResource("7_a7giv")
+theme_override_styles/fill = ExtResource("8_vvk82")
 show_percentage = false
+
+[node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("9_awdj3")]

@@ -16,6 +16,7 @@ var defense:int : get = _get_defense
 
 @export var health_bar:ProgressBar
 @export var damage_tween_target:CanvasItem
+@export var targeting_indicator:TargetingIndicator
 
 @export var base_hp:int
 @export var base_attack:int
@@ -104,8 +105,6 @@ func start_turn():
 func end_turn():
 	for status_effect in status_effects:
 		status_effect.end_turn()
-		if status_effect.damage != 0:
-			await get_tree().create_timer(0.1).timeout
 	turn_finished.emit()
 
 func _get_hp() -> int:
@@ -140,7 +139,7 @@ func _set_current_hp(new_value):
 	if health_bar:
 		health_bar.value = current_hp
 	if current_hp <= 0:
-		combatant_defeated.emit.call_deferred()
+		combatant_defeated.emit()
 		_on_defeat()
 
 func _on_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):

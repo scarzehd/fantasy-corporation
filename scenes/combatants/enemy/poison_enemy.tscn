@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="3_8vly5"]
 [ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/characters/character_base.png" id="4_gbjxq"]
 [ext_resource type="AnimationLibrary" uid="uid://4nx1glwbdfkq" path="res://resources/animation_libraries/global_enemy_animations.res" id="5_pwhef"]
+[ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="6_8vly5"]
 
 [sub_resource type="Resource" id="Resource_2emdk"]
 script = ExtResource("2_pwhef")
@@ -61,13 +62,14 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_u8vcb"]
 font_size = 25
 
-[node name="PoisonEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target")]
+[node name="PoisonEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator")]
 script = ExtResource("1_ys2nx")
 status_effect = SubResource("Resource_2emdk")
 combatant_name = "Bringle Cringus"
 portrait = ExtResource("3_8vly5")
 health_bar = NodePath("Control/VBoxContainer/HealthBar")
 damage_tween_target = NodePath("Sprite2D")
+targeting_indicator = NodePath("TargetingIndicator")
 base_hp = 80
 base_attack = 80
 base_power = 30
@@ -126,3 +128,5 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 2
 show_percentage = false
+
+[node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("6_8vly5")]

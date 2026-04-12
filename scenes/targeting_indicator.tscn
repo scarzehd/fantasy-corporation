@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://bkueotktps0pg"]
+
+[ext_resource type="Script" uid="uid://b2mucjdhtm2vh" path="res://scripts/targeting_indicator.gd" id="1_5g781"]
+[ext_resource type="Texture2D" uid="uid://dju6v3idua1dk" path="res://resources/sprites/ui/target_select.png" id="1_twy5m"]
+
+[sub_resource type="Animation" id="Animation_5g781"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_twy5m"]
+resource_name = "hover"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(2.2, 0.6),
+"update": 0,
+"values": [Vector2(0, -39), Vector2(0, -26)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(2.2, 0.6),
+"update": 0,
+"values": [Vector2(0.413, 0.45), Vector2(0.461, 0.45)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(2.2, 0.6),
+"update": 0,
+"values": [Color(0.6039216, 0.62352943, 0.85882354, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5g781"]
+_data = {
+&"RESET": SubResource("Animation_5g781"),
+&"hover": SubResource("Animation_twy5m")
+}
+
+[node name="TargetingIndicator" type="Node2D" unique_id=1253139910]
+z_index = 100
+z_as_relative = false
+script = ExtResource("1_5g781")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=26290931]
+unique_name_in_owner = true
+position = Vector2(0, -48)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_twy5m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1549211676]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_5g781")
+autoplay = &"hover"

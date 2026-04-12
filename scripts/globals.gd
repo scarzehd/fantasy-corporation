@@ -38,7 +38,7 @@ func reset():
 	volatility = 0.25
 	variability = 10
 	inflation = 1
-	money = 0
+	money = 1000
 	TimeManager.successful_adventures = 0
 	TimeManager.day_number = 0
 	TimeManager.daily_expenses = 0

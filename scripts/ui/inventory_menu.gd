@@ -23,6 +23,9 @@ class_name InventoryMenu
 
 @onready var no_items_label:Label = %NoItemsLabel
 
+@onready var normal:Sprite2D = %Normal
+@onready var hover:Sprite2D = %Hover
+
 var character_select_buttons:Array[Button]
 
 func _ready() -> void:
@@ -118,3 +121,13 @@ func _on_sell_button_pressed(item_view:ItemView):
 	
 	if Globals.owned_items.size() == 0:
 		no_items_label.show()
+
+
+func _on_mouse_entered() -> void:
+	normal.hide()
+	hover.show()
+
+
+func _on_mouse_exited() -> void:
+	normal.show()
+	hover.hide()

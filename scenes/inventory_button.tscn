@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://danxc1wkclacd" path="res://resources/styleboxes/panel_3.tres" id="3_2pfx8"]
 [ext_resource type="PackedScene" uid="uid://bgqh2sjvii77l" path="res://scenes/ui/item_view.tscn" id="3_vpwv6"]
 [ext_resource type="Texture2D" uid="uid://dltlbi06befah" path="res://resources/sprites/portrait_frame.png" id="5_0lwc4"]
+[ext_resource type="Texture2D" uid="uid://djvo68n105p8g" path="res://resources/sprites/office/office_safe_hover.png" id="7_nu470"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cvjyr"]
 font_size = 30
@@ -95,8 +96,7 @@ corner_detail = 6
 [sub_resource type="LabelSettings" id="LabelSettings_vpwv6"]
 font_size = 20
 
-[node name="Inventory" type="Sprite2D" unique_id=1454223164]
-texture = ExtResource("1_x8ex6")
+[node name="Inventory" type="Node2D" unique_id=1101707424]
 
 [node name="InventoryButton" type="TextureButton" parent="." unique_id=1539192965]
 offset_left = 88.0
@@ -523,6 +523,17 @@ layout_mode = 2
 text = "Trait 3"
 horizontal_alignment = 1
 
+[node name="Normal" type="Sprite2D" parent="." unique_id=1454223164]
+unique_name_in_owner = true
+texture = ExtResource("1_x8ex6")
+
+[node name="Hover" type="Sprite2D" parent="." unique_id=366332837]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("7_nu470")
+
+[connection signal="mouse_entered" from="InventoryButton" to="InventoryButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="InventoryButton" to="InventoryButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="InventoryButton" to="InventoryButton" method="_on_pressed"]
 [connection signal="pressed" from="InventoryButton/InventoryMenu/InventoryMenu/ExitButton" to="InventoryButton" method="_on_exit_button_pressed"]
 

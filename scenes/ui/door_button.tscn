@@ -5,6 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="3_q8bib"]
 [ext_resource type="StyleBox" uid="uid://dhcql5manjx6m" path="res://resources/styleboxes/button_1_green_normal.tres" id="4_jfj05"]
 [ext_resource type="StyleBox" uid="uid://cnatep7wec8ng" path="res://resources/styleboxes/button_1_red_normal.tres" id="5_1x1q5"]
+[ext_resource type="Texture2D" uid="uid://dcit02p5mwg7m" path="res://resources/sprites/office/office_bell_hover.png" id="6_qo1k8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxk0l"]
 
@@ -27,8 +28,7 @@ font_color = Color(1, 0, 0, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Bell" type="Sprite2D" unique_id=408366643]
-texture = ExtResource("1_q8bib")
+[node name="Bell" type="Node2D" unique_id=1376010784]
 
 [node name="DoorButton" type="Button" parent="." unique_id=1077095270]
 anchors_preset = 8
@@ -36,10 +36,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -507.0
-offset_top = -448.0
-offset_right = -305.0
-offset_bottom = -300.0
+offset_left = 453.0
+offset_top = 92.0
+offset_right = 655.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_rxk0l")
@@ -127,6 +127,17 @@ size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("4_jfj05")
 text = "See Your Family (Lame)"
 
+[node name="Normal" type="Sprite2D" parent="." unique_id=408366643]
+unique_name_in_owner = true
+texture = ExtResource("1_q8bib")
+
+[node name="Hover" type="Sprite2D" parent="." unique_id=321486840]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("6_qo1k8")
+
+[connection signal="mouse_entered" from="DoorButton" to="DoorButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DoorButton" to="DoorButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="DoorButton" to="DoorButton" method="_on_pressed"]
 [connection signal="pressed" from="DoorButton/ConfirmationPopup/Control/ConfirmationPopup/HBoxContainer/CancelButton" to="DoorButton" method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="DoorButton/ConfirmationPopup/Control/ConfirmationPopup/HBoxContainer/AcceptButton" to="DoorButton" method="_on_accept_button_pressed"]

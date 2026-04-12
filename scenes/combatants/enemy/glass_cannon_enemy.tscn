@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbnik0g3p4u66" path="res://resources/sprites/sword_icon_test.png" id="2_covoa"]
 [ext_resource type="Texture2D" uid="uid://c3phvnl271yu7" path="res://resources/sprites/characters/character_base.png" id="2_snpoo"]
 [ext_resource type="AnimationLibrary" uid="uid://4nx1glwbdfkq" path="res://resources/animation_libraries/global_enemy_animations.res" id="4_ca55g"]
+[ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="5_mdny6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_covoa"]
 size = Vector2(130, 206)
@@ -47,12 +48,13 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_0ac1x"]
 font_size = 25
 
-[node name="GlassCannonEnemy" type="Area2D" unique_id=1995081188 node_paths=PackedStringArray("health_bar", "damage_tween_target")]
+[node name="GlassCannonEnemy" type="Area2D" unique_id=1995081188 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator")]
 script = ExtResource("1_0ac1x")
 combatant_name = "Brung Crungulus"
 portrait = ExtResource("2_covoa")
 health_bar = NodePath("Control/VBoxContainer/HealthBar")
 damage_tween_target = NodePath("Sprite2D")
+targeting_indicator = NodePath("TargetingIndicator")
 base_hp = 50
 base_attack = 120
 base_power = 60
@@ -111,3 +113,5 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 2
 show_percentage = false
+
+[node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("5_mdny6")]

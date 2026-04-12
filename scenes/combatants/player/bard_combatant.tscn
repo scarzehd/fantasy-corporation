@@ -146,7 +146,7 @@ offset_bottom = 0.0
 libraries/bard = SubResource("AnimationLibrary_f1t0f")
 autoplay = &"bard/idle"
 
-[node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(1120545636) index="1" unique_id=904817639]
+[node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(1120545636) index="0" unique_id=904817639]
 texture = ExtResource("2_cmwjb")
 
 [node name="CleanseAbility" type="Node" parent="." index="5" unique_id=854532944]
@@ -157,6 +157,7 @@ icon = ExtResource("6_ryyco")
 select_icon = ExtResource("7_rjje7")
 hover_icon = ExtResource("8_eup5y")
 description = "Remove all status effects from one target."
+target_mode = 2
 metadata/_custom_type_script = "uid://dbk6q71egjpcy"
 
 [node name="DemoralizeAbility" type="Node" parent="." index="6" unique_id=1826448421]
@@ -167,6 +168,7 @@ icon = ExtResource("8_e3apn")
 select_icon = ExtResource("9_c7pkq")
 hover_icon = ExtResource("12_u7gr0")
 description = "Reduce target Attack and Power for 2 turns."
+target_mode = 1
 metadata/_custom_type_script = "uid://dvyc8dfvxjqk5"
 
 [node name="HealingSong" type="Node" parent="." index="7" unique_id=1549955965]

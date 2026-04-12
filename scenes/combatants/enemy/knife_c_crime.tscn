@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://f4fy0v4yg6f" path="res://resources/sprites/enemies/knife_c_crime/knife_c_crime_1.png" id="3_rns3t"]
 [ext_resource type="Texture2D" uid="uid://csd3f7dxdvuy0" path="res://resources/sprites/enemies/knife_c_crime/knife_c_crime_3.png" id="4_rns3t"]
 [ext_resource type="AnimationLibrary" uid="uid://4nx1glwbdfkq" path="res://resources/animation_libraries/global_enemy_animations.res" id="5_cj51i"]
+[ext_resource type="StyleBox" uid="uid://74jbejvamqvb" path="res://resources/styleboxes/health_bar_background.tres" id="6_eaxu1"]
+[ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="7_per5o"]
+[ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="8_8y6af"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
 size = Vector2(276, 327)
@@ -167,12 +170,13 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_cj51i"]
 font_size = 25
 
-[node name="KnifeCCrime" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target")]
+[node name="KnifeCCrime" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator")]
 script = ExtResource("1_3ofkw")
 combatant_name = "Knife C Crime"
 portrait = ExtResource("3_rns3t")
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
 damage_tween_target = NodePath("Sprite2D")
+targeting_indicator = NodePath("TargetingIndicator")
 base_hp = 50
 base_attack = 70
 base_power = 40
@@ -233,4 +237,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 size_flags_vertical = 2
+theme_override_styles/background = ExtResource("6_eaxu1")
+theme_override_styles/fill = ExtResource("7_per5o")
 show_percentage = false
+
+[node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("8_8y6af")]

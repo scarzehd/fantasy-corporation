@@ -16,6 +16,8 @@ signal battle_finished(won:bool)
 signal turn_started(combatant:Combatant)
 signal turn_ended(combatant:Combatant)
 
+@onready var background:Sprite2D = %Background
+
 @warning_ignore("unused_signal")
 signal combatant_clicked(combatant:Combatant)
 
@@ -26,6 +28,8 @@ signal combatant_clicked(combatant:Combatant)
 @export var enemy_slots:Array[Node2D]
 
 @export var enemy_pool:Array[PackedScene]
+
+@export var battle_backgrounds:Array[Texture]
 
 var current_turn_index:int = 0
 
@@ -38,6 +42,8 @@ func _enter_tree() -> void:
 	instance = self
 
 func _ready() -> void:
+	background.texture = battle_backgrounds.pick_random()
+	
 	waves_left = floori((TimeManager.successful_adventures + 1) / 3.0) + 1
 	waves = waves_left
 	
@@ -62,13 +68,14 @@ func start_battle():
 					var index = combatants.find(combatant)
 					if current_turn_index > index:
 						current_turn_index -= 1
-					if current_turn_index >= combatants.size():
-						current_turn_index = 0
 					
 					if combatant is PlayerCombatant:
 						casualties.append(combatant)
 					
 					combatants.erase(combatant)
+					
+					if current_turn_index >= combatants.size():
+						current_turn_index = 0
 		)
 	
 	current_turn_index = 0
@@ -102,8 +109,7 @@ func handle_current_turn():
 func current_turn_finished():
 	turn_ended.emit(combatants[current_turn_index])
 	
-	
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1).timeout
 	
 	current_turn_index += 1
 	if current_turn_index >= combatants.size():

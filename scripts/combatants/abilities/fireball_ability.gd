@@ -25,6 +25,8 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 	
 	combatant.acted = true
 	
+	clicked_combatant.targeting_indicator.select_target()
+	
 	combatant.animation_player.play(combatant.attack_animation)
 	
 	var anim = combatant.animation_player.get_animation(combatant.attack_animation)

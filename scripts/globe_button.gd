@@ -7,6 +7,8 @@ const BATTLE_SCENE:PackedScene = preload("uid://bax6tvgq726xt")
 @onready var adventure_menu:CanvasLayer = %AdventureMenu
 @onready var adventurer_listing_container:VBoxContainer = %AdventurerListingContainer
 @onready var start_button:Button = %StartButton
+@onready var normal:Sprite2D = %Normal
+@onready var hover:Sprite2D = %Hover
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -46,3 +48,12 @@ func _on_start_button_pressed() -> void:
 func _on_exit_button_pressed() -> void:
 	adventure_menu.hide()
 	get_viewport().set_input_as_handled()
+
+
+func _on_mouse_entered() -> void:
+	normal.hide()
+	hover.show()
+
+func _on_mouse_exited() -> void:
+	normal.show()
+	hover.hide()

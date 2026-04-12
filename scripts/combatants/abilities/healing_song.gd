@@ -16,8 +16,6 @@ func _button_pressed():
 	
 	for other_combatant in Battle.instance.combatants:
 		if other_combatant is PlayerCombatant:
-			if other_combatant == combatant:
-				continue
 			var status_effect = StatusEffect.new()
 			status_effect.has_duration = true
 			status_effect.duration = 2

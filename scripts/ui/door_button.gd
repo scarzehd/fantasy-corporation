@@ -5,6 +5,8 @@ const LOSE_SCENE:PackedScene = preload("uid://dakppwtg6h8ey")
 
 @onready var confirmation_popup:CanvasLayer = %ConfirmationPopup
 @onready var bankruptcy_label:Label = %BankruptcyLabel
+@onready var normal:Sprite2D = %Normal
+@onready var hover:Sprite2D = %Hover
 
 func _on_pressed() -> void:
 	confirmation_popup.show()
@@ -26,3 +28,11 @@ func _on_accept_button_pressed() -> void:
 	
 	TimeManager.advance_day()
 	confirmation_popup.hide()
+
+func _on_mouse_entered() -> void:
+	normal.hide()
+	hover.show()
+
+func _on_mouse_exited() -> void:
+	normal.show()
+	hover.hide()
