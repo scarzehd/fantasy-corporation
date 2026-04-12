@@ -12,6 +12,11 @@ var power_label:Label
 var defense_label:Label
 var purchase_button:Button
 
+var attack:HBoxContainer
+var power:HBoxContainer
+var hp:HBoxContainer
+var defense:HBoxContainer
+
 var cost:int : set = _set_cost
 
 var purchased:bool = false
@@ -25,6 +30,10 @@ func _ready() -> void:
 	power_label = find_child("PowerLabel", true, false)
 	defense_label = find_child("DefenseLabel", true, false)
 	purchase_button = find_child("PurchaseButton", true, false)
+	hp = find_child("HP", true, false)
+	attack = find_child("Attack", true, false)
+	power = find_child("Power", true, false)
+	defense = find_child("Defense", true, false)
 	
 	purchase_button.pressed.connect(_on_purchase_button_pressed)
 	
@@ -41,7 +50,7 @@ func _set_item_data(new_data:ItemData):
 	item_type_label.text = "Weapon" if new_data.item_type == ItemData.ItemType.Weapon else "Armor"
 	
 	if new_data.hp != 0:
-		hp_label.show()
+		hp.show()
 		hp_label.label_settings = hp_label.label_settings.duplicate()
 		if new_data.hp > 0:
 			hp_label.text = "+" + str(new_data.hp) + " HP"
@@ -50,7 +59,7 @@ func _set_item_data(new_data:ItemData):
 			hp_label.label_settings.font_color = Color.RED
 	
 	if new_data.attack != 0:
-		attack_label.show()
+		attack.show()
 		attack_label.label_settings = attack_label.label_settings.duplicate()
 		if new_data.attack > 0:
 			attack_label.text = "+" + str(new_data.attack) + " Attack"
@@ -59,7 +68,7 @@ func _set_item_data(new_data:ItemData):
 			attack_label.label_settings.font_color = Color.RED
 	
 	if new_data.power != 0:
-		power_label.show()
+		power.show()
 		power_label.label_settings = power_label.label_settings.duplicate()
 		if new_data.power > 0:
 			power_label.text = "+" + str(new_data.power) + " Power"
@@ -68,7 +77,7 @@ func _set_item_data(new_data:ItemData):
 			power_label.label_settings.font_color = Color.RED
 	
 	if new_data.defense != 0:
-		defense_label.show()
+		defense.show()
 		defense_label.label_settings = defense_label.label_settings.duplicate()
 		if new_data.defense > 0:
 			defense_label.text = "+" + str(new_data.defense) + " Defense"

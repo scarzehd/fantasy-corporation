@@ -4,6 +4,10 @@
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="2_di2yg"]
 [ext_resource type="Script" uid="uid://4317vvwer57w" path="res://scripts/ui/catalogue_item_view.gd" id="3_ducbn"]
 [ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="3_rbluq"]
+[ext_resource type="Texture2D" uid="uid://b02saj38hbj48" path="res://resources/sprites/attack_icon.png" id="5_m3ob7"]
+[ext_resource type="Texture2D" uid="uid://cohxeaegqmh06" path="res://resources/sprites/power_icon.png" id="6_n0ydu"]
+[ext_resource type="Texture2D" uid="uid://b4f1c5ppm7lo3" path="res://resources/sprites/hp_icon.png" id="7_2wbyd"]
+[ext_resource type="Texture2D" uid="uid://bcjqe58m1os5y" path="res://resources/sprites/defense_icon.png" id="8_r2ugu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m3ob7"]
 font_size = 25
@@ -14,16 +18,16 @@ font_size = 20
 [sub_resource type="LabelSettings" id="LabelSettings_7frca"]
 font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_rbluq"]
+[sub_resource type="LabelSettings" id="LabelSettings_fv63q"]
 font_color = Color(0, 1, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ducbn"]
+[sub_resource type="LabelSettings" id="LabelSettings_aljse"]
 font_color = Color(0, 1, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ijemo"]
+[sub_resource type="LabelSettings" id="LabelSettings_jlch2"]
 font_color = Color(0, 1, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_3gg2v"]
+[sub_resource type="LabelSettings" id="LabelSettings_slvmg"]
 font_color = Color(0, 1, 0, 1)
 
 [node name="BasicShopCatalogue" type="Control" unique_id=1808546722]
@@ -126,29 +130,81 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer" unique_id=1612635619]
 layout_mode = 2
 
-[node name="HPLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1236825925]
+[node name="Attack" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1032913348]
 visible = false
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "+0 HP"
-label_settings = SubResource("LabelSettings_rbluq")
 
-[node name="AttackLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2120492579]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Attack" unique_id=71063879]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_m3ob7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AttackLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Attack" unique_id=370787976]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "+0 Attack"
-label_settings = SubResource("LabelSettings_ducbn")
+label_settings = SubResource("LabelSettings_fv63q")
 
-[node name="PowerLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1221493329]
+[node name="Power" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=952540186]
 visible = false
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Power" unique_id=1276467048]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_n0ydu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PowerLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Power" unique_id=1467104157]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "+0 Power"
-label_settings = SubResource("LabelSettings_ijemo")
+label_settings = SubResource("LabelSettings_aljse")
 
-[node name="DefenseLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1622853606]
+[node name="HP" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=200885252]
 visible = false
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=2134426914]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("7_2wbyd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HPLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=1572710449]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+0 HP"
+label_settings = SubResource("LabelSettings_jlch2")
+
+[node name="Defense" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=169129949]
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Defense" unique_id=1270379115]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_r2ugu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DefenseLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Defense" unique_id=1740061695]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "+0 Defense"
-label_settings = SubResource("LabelSettings_3gg2v")
+label_settings = SubResource("LabelSettings_slvmg")
 
 [node name="PurchaseButton" type="Button" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1816369334]
 layout_mode = 2

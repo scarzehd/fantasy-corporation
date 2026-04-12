@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://dtpns7tj0p0kc" path="res://scripts/ui/resume_letter.gd" id="1_sj4sk"]
 [ext_resource type="Texture2D" uid="uid://djhxjdfepydac" path="res://resources/sprites/jane_doe.png" id="2_35nig"]
 [ext_resource type="Texture2D" uid="uid://dltlbi06befah" path="res://resources/sprites/portrait_frame.png" id="3_gb6wp"]
+[ext_resource type="Texture2D" uid="uid://b4f1c5ppm7lo3" path="res://resources/sprites/hp_icon.png" id="4_fpyaq"]
+[ext_resource type="Texture2D" uid="uid://b02saj38hbj48" path="res://resources/sprites/attack_icon.png" id="5_3h5gr"]
 [ext_resource type="Texture2D" uid="uid://ddqmevp5gqxwp" path="res://resources/sprites/ui/button_1_green.png" id="5_bsqcj"]
+[ext_resource type="Texture2D" uid="uid://cohxeaegqmh06" path="res://resources/sprites/power_icon.png" id="6_1mrsq"]
+[ext_resource type="Texture2D" uid="uid://bcjqe58m1os5y" path="res://resources/sprites/defense_icon.png" id="7_infi1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_35nig"]
 font_size = 25
@@ -127,7 +131,14 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2" unique_id=191044889]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer" unique_id=1052295577]
+layout_mode = 2
+texture = ExtResource("4_fpyaq")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer" unique_id=303753353]
 layout_mode = 2
@@ -141,7 +152,14 @@ size_flags_horizontal = 3
 text = "100"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2" unique_id=1878973105]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer4" unique_id=1797533815]
+layout_mode = 2
+texture = ExtResource("5_3h5gr")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer4" unique_id=723013945]
 layout_mode = 2
@@ -155,7 +173,14 @@ size_flags_horizontal = 3
 text = "100"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2" unique_id=1900204304]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer2" unique_id=676924506]
+layout_mode = 2
+texture = ExtResource("6_1mrsq")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer2" unique_id=84814152]
 layout_mode = 2
@@ -169,7 +194,14 @@ size_flags_horizontal = 3
 text = "100"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2" unique_id=1084481447]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer3" unique_id=2091361664]
+layout_mode = 2
+texture = ExtResource("7_infi1")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer3" unique_id=326809988]
 layout_mode = 2
