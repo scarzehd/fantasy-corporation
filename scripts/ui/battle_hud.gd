@@ -167,10 +167,10 @@ func _on_battle_ended(won:bool):
 	battle_won = won
 	mission_end_panel.show()
 	header_label.text = "Great Success!" if won else "Colossal Failure!"
-	var lost_items:Array[ItemData]
-	for combatant in Battle.instance.casualties:
-		for slot in combatant.character_data.items:
-			lost_items.append(combatant.character_data.items[slot])
+	#var lost_items:Array[ItemData]
+	#for combatant in Battle.instance.casualties:
+		#for slot in combatant.character_data.items:
+			#lost_items.append(combatant.character_data.items[slot])
 	
 	#var death_penalties = Battle.instance.casualties.size() * Globals.LIFE_INSURANCE_PRICE
 	#Globals.money -= death_penalties
@@ -191,10 +191,10 @@ func _on_battle_ended(won:bool):
 		money_label.label_settings.font_color = Color.GREEN
 
 	
-	if lost_items.size() > 0:
+	if Battle.instance.lost_items.size() > 0:
 		items_lost_container.show()
 		
-		for item in lost_items:
+		for item in Battle.instance.lost_items:
 			var template = lost_item_template.duplicate()
 			template.show()
 			lost_item_template.add_sibling(template)

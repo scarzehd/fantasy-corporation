@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://cyjaaref2q650"]
+
+[ext_resource type="Script" uid="uid://b2ekee6nkg322" path="res://scripts/combatants/enemy/bringle_cringus_enemy.gd" id="1_ipg3v"]
+[ext_resource type="Texture2D" uid="uid://0ysyjatw8yy0" path="res://resources/sprites/enemies/bringle_cringus/bringle_cringus_1.png" id="2_c3w1g"]
+[ext_resource type="Texture2D" uid="uid://u7e2xtn2hc54" path="res://resources/sprites/enemies/bringle_cringus/bringle_cringus_2.png" id="3_c3w1g"]
+[ext_resource type="StyleBox" uid="uid://74jbejvamqvb" path="res://resources/styleboxes/health_bar_background.tres" id="3_ipg3v"]
+[ext_resource type="Texture2D" uid="uid://blvwr31aavj70" path="res://resources/sprites/enemies/bringle_cringus/bringle_cringus_3.png" id="4_ipg3v"]
+[ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="4_letmc"]
+[ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="5_igomy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
+size = Vector2(183, 275)
+
+[sub_resource type="Animation" id="Animation_c3w1g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-24, -167)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_c3w1g")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.35, 0.35)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ipg3v"]
+resource_name = "attack"
+length = 1.5
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"impact",
+"time": 0.75
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.85, 1.1, 1.3000001),
+"transitions": PackedFloat32Array(2.1435473, 1, 2.0000002, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-24, -167), Vector2(-13.000002, -189), Vector2(-13.000002, -189), Vector2(-63.000004, -141), Vector2(-63.000004, -141), Vector2(-24, -167)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1.2),
+"transitions": PackedFloat32Array(2.1435473, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_c3w1g"), ExtResource("3_c3w1g"), ExtResource("4_ipg3v"), ExtResource("2_c3w1g")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.85, 1.1, 1.3000001),
+"transitions": PackedFloat32Array(2.1435473, 1, 2.0000002, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.35, 0.35), Vector2(0.31875, 0.39166668), Vector2(0.31875, 0.39166668), Vector2(0.3989285, 0.31147915), Vector2(0.3989285, 0.31147915), Vector2(0.35, 0.35)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.85, 1.1, 1.3000001),
+"transitions": PackedFloat32Array(2.1435473, 1, 2.0000002, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646, 0.08726646, -0.17453292, -0.17453292, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_w4eet"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.1, 1.5, 1.6, 1.65, 1.75, 3.1000001, 3.2, 3.25, 3.35, 3.4, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-24, -167), Vector2(-48, -168), Vector2(-24, -167), Vector2(-6.000002, -167), Vector2(-24, -167), Vector2(-6.000002, -167), Vector2(-24, -167), Vector2(-24, -151), Vector2(-24, -167), Vector2(-24, -151), Vector2(-24, -167), Vector2(-24, -151), Vector2(-24, -167)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2emdk"]
+_data = {
+&"RESET": SubResource("Animation_c3w1g"),
+&"attack": SubResource("Animation_ipg3v"),
+&"idle": SubResource("Animation_w4eet")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_jdatg"]
+font_size = 25
+
+[node name="BringleCringusEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator")]
+script = ExtResource("1_ipg3v")
+combatant_name = "Bringle Cringus"
+portrait = ExtResource("2_c3w1g")
+health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
+damage_tween_target = NodePath("Sprite2D")
+targeting_indicator = NodePath("TargetingIndicator")
+base_hp = 100
+base_attack = 80
+base_power = 30
+base_defense = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=957414317]
+position = Vector2(-24, -167)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_c3w1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1545115223]
+position = Vector2(-3.5, -136.5)
+shape = SubResource("RectangleShape2D_7je4q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1643846691]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2emdk")
+autoplay = &"idle"
+next/attack = &"idle"
+
+[node name="Control" type="Control" parent="." unique_id=878374911]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -500.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=914946749]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="Control/VBoxContainer" unique_id=1540922959]
+layout_mode = 2
+text = "Bringle Cringus"
+label_settings = SubResource("LabelSettings_jdatg")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=1441995365]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer" unique_id=1980215573]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control/VBoxContainer/CenterContainer" unique_id=844940163]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/background = ExtResource("3_ipg3v")
+theme_override_styles/fill = ExtResource("4_letmc")
+show_percentage = false
+
+[node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("5_igomy")]

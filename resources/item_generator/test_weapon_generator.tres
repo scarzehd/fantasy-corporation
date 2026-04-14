@@ -16,13 +16,13 @@
 
 [resource]
 script = ExtResource("1_flsav")
-power_range = Vector2i(-5, 15)
+power_range = Vector2i(-5, 10)
 power_deviation = 1.0
-attack_range = Vector2i(-5, 35)
+attack_range = Vector2i(-5, 30)
 attack_deviation = 1.0
-defense_range = Vector2i(-10, 25)
+defense_range = Vector2i(-10, 10)
 defense_deviation = 1.0
-hp_range = Vector2i(-10, 25)
+hp_range = Vector2i(-10, 15)
 hp_deviation = 1.0
 price_range = Vector2i(50, 100)
 price_deviation = 1.0

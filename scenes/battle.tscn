@@ -1,19 +1,22 @@
 [gd_scene format=3 uid="uid://bax6tvgq726xt"]
 
 [ext_resource type="Script" uid="uid://1llg1ecgeeec" path="res://scripts/battle.gd" id="1_dn72j"]
-[ext_resource type="PackedScene" uid="uid://cf5acaerc6hgu" path="res://scenes/combatants/enemy/robe_enemy.tscn" id="2_p1qf1"]
-[ext_resource type="PackedScene" uid="uid://c4b5scabx2lqo" path="res://scenes/combatants/enemy/chomper_enemy.tscn" id="3_a12nh"]
-[ext_resource type="PackedScene" uid="uid://buw2plhxnyhd7" path="res://scenes/combatants/enemy/knife_c_crime.tscn" id="4_lpir7"]
+[ext_resource type="PackedScene" uid="uid://cyjaaref2q650" path="res://scenes/combatants/enemy/bringle_cringus_enemy.tscn" id="2_6vh42"]
+[ext_resource type="PackedScene" uid="uid://bqpi1mo1ic1c8" path="res://scenes/combatants/enemy/goop_enemy.tscn" id="3_v7i3o"]
+[ext_resource type="PackedScene" uid="uid://cf5acaerc6hgu" path="res://scenes/combatants/enemy/robe_enemy.tscn" id="3_yahae"]
+[ext_resource type="PackedScene" uid="uid://c4b5scabx2lqo" path="res://scenes/combatants/enemy/chomper_enemy.tscn" id="4_v7i3o"]
+[ext_resource type="PackedScene" uid="uid://buw2plhxnyhd7" path="res://scenes/combatants/enemy/knife_c_crime.tscn" id="5_66ngm"]
 [ext_resource type="Texture2D" uid="uid://dfd7rr2eqjxw1" path="res://resources/sprites/forest_battle_background.png" id="6_4k1nj"]
 [ext_resource type="Texture2D" uid="uid://b5k6wnrlo5vy" path="res://resources/sprites/cave_battle_background.png" id="6_6vh42"]
 [ext_resource type="PackedScene" uid="uid://3e8drigu5xm1" path="res://scenes/ui/battle_hud.tscn" id="7_4k1nj"]
+[ext_resource type="Texture2D" uid="uid://bnoh1lo8lsasr" path="res://resources/sprites/farm_battle_background.png" id="7_f4pi3"]
 
 [node name="Battle" type="Node2D" unique_id=1135496140 node_paths=PackedStringArray("player_slots", "enemy_slots")]
 script = ExtResource("1_dn72j")
 player_slots = [NodePath("PlayerSlot1"), NodePath("PlayerSlot2"), NodePath("PlayerSlot3"), NodePath("PlayerSlot4")]
 enemy_slots = [NodePath("EnemySlot1"), NodePath("EnemySlot2"), NodePath("EnemySlot3"), NodePath("EnemySlot4")]
-enemy_pool = Array[PackedScene]([ExtResource("2_p1qf1"), ExtResource("3_a12nh"), ExtResource("4_lpir7")])
-battle_backgrounds = Array[Texture]([ExtResource("6_6vh42"), ExtResource("6_4k1nj")])
+enemy_pool = Array[PackedScene]([ExtResource("2_6vh42"), ExtResource("3_v7i3o"), ExtResource("3_yahae"), ExtResource("4_v7i3o"), ExtResource("5_66ngm")])
+battle_backgrounds = Array[Texture]([ExtResource("6_6vh42"), ExtResource("6_4k1nj"), ExtResource("7_f4pi3")])
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1461741069]
 unique_name_in_owner = true

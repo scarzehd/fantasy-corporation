@@ -38,6 +38,8 @@ var waves_left:int = 1
 
 var casualties:Array[PlayerCombatant]
 
+var lost_items:Array[ItemData]
+
 func _enter_tree() -> void:
 	instance = self
 
@@ -71,6 +73,9 @@ func start_battle():
 					
 					if combatant is PlayerCombatant:
 						casualties.append(combatant)
+						for item in combatant.character_data.items.values():
+							combatant.character_data.unequip_item(item)
+							lost_items.append(item)
 					
 					combatants.erase(combatant)
 					

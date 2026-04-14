@@ -18,11 +18,11 @@
 script = ExtResource("4_ptbll")
 power_range = Vector2i(5, 30)
 power_deviation = 1.0
-attack_range = Vector2i(10, 100)
+attack_range = Vector2i(40, 125)
 attack_deviation = 1.0
-defense_range = Vector2i(50, 150)
+defense_range = Vector2i(50, 125)
 defense_deviation = 1.0
-hp_range = Vector2i(50, 150)
+hp_range = Vector2i(70, 170)
 hp_deviation = 1.0
 heads = Array[Texture2D]([ExtResource("1_h71wq"), ExtResource("2_ptbll"), ExtResource("3_qcurf"), ExtResource("4_ifl4a"), ExtResource("5_2861m"), ExtResource("6_wdftw"), ExtResource("7_fefj5"), ExtResource("8_o4t7i"), ExtResource("9_cb8hg"), ExtResource("10_31ra6"), ExtResource("11_80asf"), ExtResource("12_u2qbj")])
 metadata/_custom_type_script = "uid://00fr0sfq2067"

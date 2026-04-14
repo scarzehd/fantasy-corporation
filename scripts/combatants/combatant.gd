@@ -105,6 +105,9 @@ func start_turn():
 func end_turn():
 	for status_effect in status_effects:
 		status_effect.end_turn()
+		if current_hp <= 0:
+			break
+	
 	turn_finished.emit()
 
 func _get_hp() -> int:

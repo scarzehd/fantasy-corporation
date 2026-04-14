@@ -13,6 +13,7 @@
 [ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="9_3qocc"]
 [ext_resource type="StyleBox" uid="uid://74jbejvamqvb" path="res://resources/styleboxes/health_bar_background.tres" id="9_618ne"]
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="10_1dj1o"]
+[ext_resource type="StyleBox" uid="uid://danxc1wkclacd" path="res://resources/styleboxes/panel_3.tres" id="14_248it"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ytn0o"]
 font_size = 25
@@ -52,32 +53,8 @@ font_size = 45
 [sub_resource type="LabelSettings" id="LabelSettings_k1xb2"]
 font_size = 35
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nj5vo"]
-content_margin_left = 15.0
-content_margin_top = 15.0
-content_margin_right = 15.0
-content_margin_bottom = 15.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
 [sub_resource type="LabelSettings" id="LabelSettings_o02nu"]
 font_size = 35
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6qmb"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_1dj1o"]
 
@@ -446,11 +423,11 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 315.0
 offset_top = -269.0
-offset_right = 796.0
+offset_right = 943.0
 offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nj5vo")
+theme_override_styles/panel = ExtResource("4_6uyy6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MissionEndPanel/ItemsLostContainer" unique_id=1529897905]
 layout_mode = 2
@@ -481,14 +458,14 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_t6qmb")
+theme_override_styles/panel = ExtResource("14_248it")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer/ScrollContainer/GridContainer/LostItemTemplate" unique_id=658419447]
 layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer/ScrollContainer/GridContainer/LostItemTemplate/VBoxContainer" unique_id=1938734730]
 layout_mode = 2
-text = "The Boots of Stupidity"
+text = "The Boots of Absurdity"
 label_settings = SubResource("LabelSettings_1dj1o")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -497,6 +474,29 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 texture = ExtResource("5_nj5vo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer/ScrollContainer/GridContainer/LostItemTemplate/VBoxContainer/Portrait" unique_id=1541583439]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_k1xb2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="MissionEndPanel/ItemsLostContainer/VBoxContainer/ScrollContainer/GridContainer/LostItemTemplate/VBoxContainer/Portrait" unique_id=99651011]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_o02nu")
 expand_mode = 1
 stretch_mode = 5
 
