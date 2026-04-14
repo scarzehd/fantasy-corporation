@@ -26,12 +26,17 @@ class_name InventoryMenu
 @onready var normal:Sprite2D = %Normal
 @onready var hover:Sprite2D = %Hover
 
+@export var tutorial_mode:bool = false
+
 var character_select_buttons:Array[Button]
 
 func _ready() -> void:
 	clear_ui()
 
 func _input(event: InputEvent) -> void:
+	if tutorial_mode:
+		return
+	
 	if event.is_action_pressed("ui_cancel"):
 		_on_exit_button_pressed()
 

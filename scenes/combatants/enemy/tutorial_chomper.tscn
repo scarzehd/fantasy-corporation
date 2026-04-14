@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cn7cwyoyoiww4"]
+
+[ext_resource type="PackedScene" uid="uid://c4b5scabx2lqo" path="res://scenes/combatants/enemy/chomper_enemy.tscn" id="1_3e03f"]
+[ext_resource type="Script" uid="uid://tn0lerrhvaya" path="res://scripts/combatants/enemy/tutorial_chomper.gd" id="2_aqo8x"]
+
+[node name="ChomperEnemy" unique_id=1681232158 instance=ExtResource("1_3e03f")]
+script = ExtResource("2_aqo8x")
+base_hp = 125
+base_attack = 1000
+base_power = 50

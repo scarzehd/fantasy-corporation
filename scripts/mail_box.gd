@@ -3,6 +3,7 @@ class_name MailBox
 
 const RESUME_LETTER_SCENE:PackedScene = preload("uid://cfp71tj5xdeqh")
 const NEWSPAPER_LETTER_SCENE:PackedScene = preload("uid://c8wytlhkw0oa4")
+const ITEM_CATALOGUE:PackedScene = preload("res://scenes/ui/letters/basic_shop_catalogue.tscn")
 
 @onready var letters_menu:CanvasLayer = %LettersMenu
 @onready var previous_letter_button:TextureButton = %PreviousLetterButton
@@ -12,6 +13,8 @@ const NEWSPAPER_LETTER_SCENE:PackedScene = preload("uid://c8wytlhkw0oa4")
 
 @onready var normal:Sprite2D = %Normal
 @onready var hover:Sprite2D = %Hover
+
+@export var tutorial_mode:bool = false
 
 var letters:Array[Letter]
 var current_index:int = 0 : set = _set_current_index
@@ -32,13 +35,16 @@ func _on_day_ended():
 	current_index = 0
 
 func _input(event: InputEvent) -> void:
+	if tutorial_mode:
+		return
+	
 	if event.is_action_pressed("ui_cancel"):
 		_on_close_button_pressed()
 	
 	if letters_menu.visible:
-		if event.is_action_pressed("ui_left") and not previous_letter_button.disabled:
+		if event.is_action_pressed("ui_left") and previous_letter_button.visible:
 			_on_previous_letter_button_pressed()
-		if event.is_action_pressed("ui_right") and not next_letter_button.disabled:
+		if event.is_action_pressed("ui_right") and next_letter_button.visible:
 			_on_next_letter_button_pressed()
 
 func _on_pressed() -> void:
@@ -71,6 +77,9 @@ func _set_current_index(new_value:int):
 func _on_day_started():
 	_on_confirm_button_pressed()
 	
+	if tutorial_mode:
+		return
+	
 	var newspaper_letter:NewspaperLetter = NEWSPAPER_LETTER_SCENE.instantiate()
 	letter_container.add_child(newspaper_letter)
 	letters.append(newspaper_letter)
@@ -95,7 +104,7 @@ func _on_day_started():
 	for i in range(3):
 		items.append(armor_generator.generate_armor())
 	
-	var catalogue = load("res://scenes/ui/letters/basic_shop_catalogue.tscn").instantiate()
+	var catalogue = ITEM_CATALOGUE.instantiate()
 	letter_container.add_child(catalogue)
 	letters.append(catalogue)
 	catalogue.populate(items)

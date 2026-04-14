@@ -15,7 +15,7 @@ class_name ResumeLetter
 #@onready var payment_label:Label = %PaymentLabel
 @onready var insufficient_funds_label:Label = %InsufficientFundsLabel
 
-var character_data:CharacterData : set = _set_character_data
+@export var character_data:CharacterData : set = _set_character_data
 
 var cost:int = 100 : set = _set_cost
 

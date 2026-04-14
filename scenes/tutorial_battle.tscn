@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://0o3x7ybwogwf"]
+
+[ext_resource type="PackedScene" uid="uid://bax6tvgq726xt" path="res://scenes/battle.tscn" id="1_qgiro"]
+[ext_resource type="PackedScene" uid="uid://cn7cwyoyoiww4" path="res://scenes/combatants/enemy/tutorial_chomper.tscn" id="2_121lb"]
+[ext_resource type="Texture2D" uid="uid://b5k6wnrlo5vy" path="res://resources/sprites/cave_battle_background.png" id="3_nkt4y"]
+[ext_resource type="Script" uid="uid://cory1oi6wq2fs" path="res://scripts/tutorial.gd" id="4_nkt4y"]
+
+[node name="TutorialBattle" unique_id=1135496140 instance=ExtResource("1_qgiro")]
+enemy_pool = Array[PackedScene]([ExtResource("2_121lb")])
+battle_backgrounds = Array[Texture]([ExtResource("3_nkt4y")])
+
+[node name="Tutorial" type="Node2D" parent="." index="10" unique_id=1928845218 node_paths=PackedStringArray("battle_hud")]
+script = ExtResource("4_nkt4y")
+battle_hud = NodePath("../BattleHUD")
+metadata/_custom_type_script = "uid://cory1oi6wq2fs"

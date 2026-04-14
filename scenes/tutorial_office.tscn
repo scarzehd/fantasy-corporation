@@ -1,0 +1,260 @@
+[gd_scene format=3 uid="uid://c3787dbl2ndi2"]
+
+[ext_resource type="Script" uid="uid://dndg5ftfj007x" path="res://scripts/office.gd" id="1_5j313"]
+[ext_resource type="Texture2D" uid="uid://divpcta85qmsv" path="res://resources/sprites/office/office_background.png" id="2_08uic"]
+[ext_resource type="PackedScene" uid="uid://b5g6o30nuwyk" path="res://scenes/ui/door_button.tscn" id="3_6lvnk"]
+[ext_resource type="PackedScene" uid="uid://b6l6lmnoqeao4" path="res://scenes/inventory_button.tscn" id="4_qm4ak"]
+[ext_resource type="PackedScene" uid="uid://b18ney4nylxda" path="res://scenes/mail_box.tscn" id="5_4atam"]
+[ext_resource type="PackedScene" uid="uid://0kk87cqye7jw" path="res://scenes/globe_button.tscn" id="6_63p7y"]
+[ext_resource type="StyleBox" uid="uid://danxc1wkclacd" path="res://resources/styleboxes/panel_3.tres" id="7_2ksw3"]
+[ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="8_86u0b"]
+[ext_resource type="Script" uid="uid://cory1oi6wq2fs" path="res://scripts/tutorial.gd" id="9_08uic"]
+[ext_resource type="Resource" uid="uid://b6e2ft786j88p" path="res://resources/character_data/john_smith.tres" id="10_6lvnk"]
+[ext_resource type="Script" uid="uid://cdwy6nk2qjj23" path="res://scripts/resources/item_data.gd" id="11_4atam"]
+[ext_resource type="Resource" uid="uid://c4d34l4i7cn5h" path="res://resources/item_data/sonic_hammer.tres" id="12_63p7y"]
+[ext_resource type="Resource" uid="uid://bu61ah7chtris" path="res://resources/character_data/jane_doe.tres" id="13_63p7y"]
+[ext_resource type="Resource" uid="uid://brp1kqslh6sa7" path="res://resources/item_data/pants_of_steve.tres" id="14_86u0b"]
+[ext_resource type="Resource" uid="uid://cm4k4f73i6w8g" path="res://resources/item_data/shirt_of_steve.tres" id="15_yqrh1"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_86u0b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7jj4f"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_hub07"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_2knxt"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_fmddn"]
+font_size = 30
+
+[sub_resource type="Animation" id="Animation_gdafm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fmddn"]
+resource_name = "flash"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0.96862745, 1, 0, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gdafm"]
+_data = {
+&"RESET": SubResource("Animation_gdafm"),
+&"flash": SubResource("Animation_fmddn")
+}
+
+[node name="TutorialOffice" type="Node2D" unique_id=213468181]
+script = ExtResource("1_5j313")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=914552945]
+position = Vector2(960, 540)
+
+[node name="Background" type="Sprite2D" parent="Node2D" unique_id=1208828955]
+texture = ExtResource("2_08uic")
+
+[node name="DoorButton" parent="Node2D" unique_id=2091833698 instance=ExtResource("3_6lvnk")]
+
+[node name="DoorButton" parent="Node2D/DoorButton" index="0" unique_id=1077095270]
+disabled = true
+tutorial_mode = true
+
+[node name="CancelButton" parent="Node2D/DoorButton/DoorButton/ConfirmationPopup/Control/ConfirmationPopup/HBoxContainer" parent_id_path=PackedInt32Array(2091833698, 1621629580) index="0" unique_id=1347699015]
+disabled = true
+
+[node name="InventoryButton" parent="Node2D" unique_id=1539192965 instance=ExtResource("4_qm4ak")]
+
+[node name="InventoryButton" parent="Node2D/InventoryButton" index="0" unique_id=1539192965]
+disabled = true
+tutorial_mode = true
+
+[node name="ExitButton" parent="Node2D/InventoryButton/InventoryButton/InventoryMenu/InventoryMenu" parent_id_path=PackedInt32Array(1539192965, 1947896191) index="0" unique_id=384403970]
+disabled = true
+
+[node name="SellButton" parent="Node2D/InventoryButton/InventoryButton/InventoryMenu/InventoryMenu/Panel/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" parent_id_path=PackedInt32Array(1539192965, 345213539, 2068711857) index="4" unique_id=1442878590]
+disabled = true
+
+[node name="Button" parent="Node2D/InventoryButton/InventoryButton/InventoryMenu/InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer/CharacterSelectTemplate" parent_id_path=PackedInt32Array(1539192965, 1586697291) index="0" unique_id=1176791227]
+button_group = SubResource("ButtonGroup_86u0b")
+
+[node name="MailBox" parent="Node2D" unique_id=603560281 instance=ExtResource("5_4atam")]
+
+[node name="MailBox" parent="Node2D/MailBox" index="0" unique_id=603560281]
+disabled = true
+tutorial_mode = true
+
+[node name="CloseButton" parent="Node2D/MailBox/MailBox/LettersMenu/LettersMenu" parent_id_path=PackedInt32Array(603560281, 1669161610) index="3" unique_id=1307192578]
+disabled = true
+
+[node name="GlobeButton" parent="Node2D" unique_id=2077237782 instance=ExtResource("6_63p7y")]
+
+[node name="GlobeButton" parent="Node2D/GlobeButton" index="0" unique_id=2077237782]
+disabled = true
+tutorial_mode = true
+
+[node name="StartButton" parent="Node2D/GlobeButton/GlobeButton/AdventureMenu/Panel/PanelContainer/MarginContainer/AdventurerListingContainer" parent_id_path=PackedInt32Array(2077237782, 797898856) index="1" unique_id=1895152508]
+disabled = true
+
+[node name="HUDCanvasLayer" type="CanvasLayer" parent="Node2D" unique_id=725098394]
+unique_name_in_owner = true
+
+[node name="Control" type="Control" parent="Node2D/HUDCanvasLayer" unique_id=1022514769]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Node2D/HUDCanvasLayer/Control" unique_id=1677413109]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 19.0
+offset_right = -16.0
+offset_bottom = 121.0
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("7_2ksw3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=12555917]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 49.0
+offset_right = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=1414323691]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=526202190]
+layout_mode = 2
+text = "Money:"
+label_settings = SubResource("LabelSettings_7jj4f")
+
+[node name="MoneyLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=684423270]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "100"
+label_settings = SubResource("LabelSettings_hub07")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Control" type="Control" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=2021186698]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="SuccessfulAdventuresLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=171757301]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Successful Adventures: 0"
+label_settings = SubResource("LabelSettings_2knxt")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DayLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=32132912]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Day 1"
+label_settings = SubResource("LabelSettings_2knxt")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BankruptcyPanel" type="Panel" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=526995004]
+unique_name_in_owner = true
+show_behind_parent = true
+clip_contents = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 9.0
+offset_right = -1354.0
+offset_bottom = 9.0
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("8_86u0b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel" unique_id=1481654228]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 21.0
+offset_right = -21.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=309480188]
+layout_mode = 2
+text = "WARNING"
+label_settings = SubResource("LabelSettings_fmddn")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=772160454]
+layout_mode = 2
+text = "Bankruptcy Imminent!"
+label_settings = SubResource("LabelSettings_fmddn")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel" unique_id=1924930435]
+root_node = NodePath("../../../../../..")
+libraries/ = SubResource("AnimationLibrary_gdafm")
+autoplay = &"flash"
+
+[node name="Tutorial" type="Node2D" parent="." unique_id=2001242088 node_paths=PackedStringArray("mailbox_button", "door_button", "inventory_button", "globe_button")]
+position = Vector2(960, 540)
+script = ExtResource("9_08uic")
+mailbox_button = NodePath("../Node2D/MailBox/MailBox")
+door_button = NodePath("../Node2D/DoorButton/DoorButton")
+inventory_button = NodePath("../Node2D/InventoryButton/InventoryButton")
+globe_button = NodePath("../Node2D/GlobeButton/GlobeButton")
+bad_character_data = ExtResource("10_6lvnk")
+items = Array[ExtResource("11_4atam")]([ExtResource("12_63p7y")])
+good_character_data = ExtResource("13_63p7y")
+second_items = Array[ExtResource("11_4atam")]([ExtResource("14_86u0b"), ExtResource("15_yqrh1")])
+
+[editable path="Node2D/DoorButton"]
+[editable path="Node2D/InventoryButton"]
+[editable path="Node2D/InventoryButton/InventoryButton/InventoryMenu/InventoryMenu/Panel/Items/MarginContainer/ItemContainer/ItemTemplate"]
+[editable path="Node2D/MailBox"]
+[editable path="Node2D/GlobeButton"]

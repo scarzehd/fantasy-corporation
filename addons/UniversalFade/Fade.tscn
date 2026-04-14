@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh8yln8lji7v2"]
+[gd_scene format=3 uid="uid://dh8yln8lji7v2"]
 
-[ext_resource type="Script" path="res://addons/UniversalFade/Fade.gd" id="0"]
+[ext_resource type="Script" uid="uid://gi8qcqyrqh20" path="res://addons/UniversalFade/Fade.gd" id="0"]
 
 [sub_resource type="Shader" id="5"]
 code = "shader_type canvas_item;
@@ -79,16 +79,16 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q3e1t"]
 _data = {
-"FadeIn": SubResource("2"),
-"FadeOut": SubResource("3")
+&"FadeIn": SubResource("2"),
+&"FadeOut": SubResource("3")
 }
 
-[node name="Fade" type="CanvasLayer"]
+[node name="Fade" type="CanvasLayer" unique_id=981400247]
 process_mode = 3
 layer = 100
 script = ExtResource("0")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1020285559]
 material = SubResource("1")
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,9 +97,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_q3e1t")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1254051930]
+libraries/ = SubResource("AnimationLibrary_q3e1t")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_fade_finished"]

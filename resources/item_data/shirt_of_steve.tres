@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cm4k4f73i6w8g"]
+
+[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="1_higyf"]
+[ext_resource type="Script" uid="uid://cdwy6nk2qjj23" path="res://scripts/resources/item_data.gd" id="2_5c6up"]
+
+[resource]
+script = ExtResource("2_5c6up")
+item_name = "Shirt of Steve"
+item_type = 1
+item_portrait = ExtResource("1_higyf")
+attack = 10
+defense = 50
+hp = 50
+purchase_price = 100
+metadata/_custom_type_script = "uid://cdwy6nk2qjj23"

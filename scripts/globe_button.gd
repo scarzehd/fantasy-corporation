@@ -3,6 +3,7 @@ class_name GlobeButton
 
 const ADVENTURER_LISTING_TEMPLATE:PackedScene = preload("uid://c1e1b5ddgj3s8")
 const BATTLE_SCENE:PackedScene = preload("uid://bax6tvgq726xt")
+const TUTORIAL_BATTLE:PackedScene = preload("uid://0o3x7ybwogwf")
 
 @onready var adventure_menu:CanvasLayer = %AdventureMenu
 @onready var adventurer_listing_container:VBoxContainer = %AdventurerListingContainer
@@ -10,7 +11,12 @@ const BATTLE_SCENE:PackedScene = preload("uid://bax6tvgq726xt")
 @onready var normal:Sprite2D = %Normal
 @onready var hover:Sprite2D = %Hover
 
+@export var tutorial_mode:bool = false
+
 func _unhandled_input(event: InputEvent) -> void:
+	if tutorial_mode:
+		return
+	
 	if event.is_action_pressed("ui_cancel"):
 		_on_exit_button_pressed()
 
@@ -32,7 +38,10 @@ func populate_ui():
 	if Globals.hired_characters.size() > 0:
 		start_button.disabled = false
 	
-	for character in Globals.hired_characters:
+	var characters = Globals.hired_characters.duplicate()
+	characters.reverse()
+	
+	for character in characters:
 		var listing = ADVENTURER_LISTING_TEMPLATE.instantiate()
 		listing.show()
 		adventurer_listing_container.add_child(listing)
@@ -42,6 +51,9 @@ func populate_ui():
 
 func _on_start_button_pressed() -> void:
 	await Fade.fade_out(0.5).finished
+	if tutorial_mode:
+		get_tree().change_scene_to_packed(TUTORIAL_BATTLE)
+		return
 	get_tree().change_scene_to_packed(BATTLE_SCENE)
 
 

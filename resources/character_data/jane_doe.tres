@@ -2,12 +2,17 @@
 
 [ext_resource type="Script" uid="uid://iqoryqclt1u8" path="res://scripts/resources/character_data.gd" id="1_4b7yr"]
 [ext_resource type="Script" uid="uid://cdwy6nk2qjj23" path="res://scripts/resources/item_data.gd" id="1_aerqa"]
+[ext_resource type="Texture2D" uid="uid://c4wpayjewfcr0" path="res://resources/sprites/characters/heads/head_5.png" id="1_m5fba"]
+[ext_resource type="Texture2D" uid="uid://cfd0ko8e6nywf" path="res://resources/sprites/characters/jane_doe.png" id="3_tl8il"]
 
 [resource]
 script = ExtResource("1_4b7yr")
 first_name = "Jane"
 last_name = "Doe"
-attack = 50
+attack = 120
 power = 30
+defense = 150
 hp = 200
+portrait = ExtResource("3_tl8il")
+head = ExtResource("1_m5fba")
 metadata/_custom_type_script = "uid://iqoryqclt1u8"
