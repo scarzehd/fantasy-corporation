@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b4f1c5ppm7lo3" path="res://resources/sprites/hp_icon.png" id="4_31q4q"]
 [ext_resource type="Texture2D" uid="uid://b02saj38hbj48" path="res://resources/sprites/attack_icon.png" id="4_b41lg"]
 [ext_resource type="Texture2D" uid="uid://cohxeaegqmh06" path="res://resources/sprites/power_icon.png" id="4_gi5m7"]
+[ext_resource type="Texture2D" uid="uid://djq5u72v8e1ot" path="res://resources/sprites/portrait_background.png" id="4_i8t47"]
 [ext_resource type="Texture2D" uid="uid://bcjqe58m1os5y" path="res://resources/sprites/defense_icon.png" id="5_coxs3"]
+[ext_resource type="Texture2D" uid="uid://clom2u7i5nb8h" path="res://resources/sprites/portrait_frame_small.png" id="5_dhech"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0lwc4"]
 font_size = 20
@@ -52,6 +54,29 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 texture = ExtResource("2_op8na")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Portrait" unique_id=502761495]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_i8t47")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Portrait" unique_id=1230573870]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_dhech")
 expand_mode = 1
 stretch_mode = 5
 

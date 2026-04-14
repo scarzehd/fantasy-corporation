@@ -1,7 +1,18 @@
 [gd_resource type="Resource" script_class="BasicItemGenerator" format=3 uid="uid://mt8kgv48jnej"]
 
-[ext_resource type="Texture2D" uid="uid://db6ksfqrjm5s5" path="res://resources/sprites/shield_icon_test.png" id="1_65272"]
 [ext_resource type="Script" uid="uid://b4ivx5m3ti8ca" path="res://scripts/resources/basic_item_generator.gd" id="1_rlrke"]
+[ext_resource type="Texture2D" uid="uid://deqqwgxntp4c4" path="res://resources/sprites/items/beach_ball.png" id="1_vv1jl"]
+[ext_resource type="Texture2D" uid="uid://d286gmp2ops3w" path="res://resources/sprites/items/duck.png" id="2_3rgcy"]
+[ext_resource type="Texture2D" uid="uid://odvqt40n2s4j" path="res://resources/sprites/items/eggplant.png" id="3_1xlj7"]
+[ext_resource type="Texture2D" uid="uid://c1qnb5av7aacs" path="res://resources/sprites/items/pencil.png" id="4_7avub"]
+[ext_resource type="Texture2D" uid="uid://dqhupb2c5mbw6" path="res://resources/sprites/items/pipe.png" id="5_rj7qg"]
+[ext_resource type="Texture2D" uid="uid://jpiuif1ql4ul" path="res://resources/sprites/items/pot.png" id="6_sq8b0"]
+[ext_resource type="Texture2D" uid="uid://d1eb8jqtj6doi" path="res://resources/sprites/items/rock.png" id="7_jhpsw"]
+[ext_resource type="Texture2D" uid="uid://cj2yut0pd4s1i" path="res://resources/sprites/items/roll.png" id="8_m2inj"]
+[ext_resource type="Texture2D" uid="uid://dgpv50vokhdxb" path="res://resources/sprites/items/sock.png" id="9_wbxg0"]
+[ext_resource type="Texture2D" uid="uid://du4srxueg7umi" path="res://resources/sprites/items/sponge.png" id="10_oymi6"]
+[ext_resource type="Texture2D" uid="uid://ch55odr5mqwdj" path="res://resources/sprites/items/stick.png" id="11_yg0od"]
+[ext_resource type="Texture2D" uid="uid://bjgbqex1yvl0g" path="res://resources/sprites/items/worm.png" id="12_8be82"]
 
 [resource]
 script = ExtResource("1_rlrke")
@@ -15,5 +26,5 @@ hp_range = Vector2i(-10, 60)
 hp_deviation = 1.0
 price_range = Vector2i(25, 75)
 price_deviation = 1.0
-armor_portraits = Array[Texture2D]([ExtResource("1_65272")])
+armor_portraits = Array[Texture2D]([ExtResource("1_vv1jl"), ExtResource("2_3rgcy"), ExtResource("3_1xlj7"), ExtResource("4_7avub"), ExtResource("5_rj7qg"), ExtResource("6_sq8b0"), ExtResource("7_jhpsw"), ExtResource("8_m2inj"), ExtResource("9_wbxg0"), ExtResource("10_oymi6"), ExtResource("11_yg0od"), ExtResource("12_8be82")])
 metadata/_custom_type_script = "uid://b4ivx5m3ti8ca"

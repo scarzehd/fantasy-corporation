@@ -8,6 +8,9 @@ class_name Office
 @onready var hud_canvas_layer:CanvasLayer = %HUDCanvasLayer
 
 func _ready() -> void:
+	if TimeManager.day_number == 0:
+		TimeManager.advance_day(false)
+	
 	Globals.money_changed.connect(_on_money_changed)
 	_on_money_changed(Globals.money, Globals.money)
 	_on_day_ended()

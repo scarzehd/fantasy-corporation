@@ -366,3 +366,5 @@ func phase_1():
 	dialogue = TutorialDialogue.create_dialogue(["Congratulations! You're now ready to embark on your journey as a fully-fledged Manager at Fantasy Corportaion.", "Good luck!"])
 	add_child(dialogue)
 	await dialogue.dialogue_finished
+	
+	Globals.reset()

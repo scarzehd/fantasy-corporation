@@ -3,7 +3,7 @@ extends Node
 signal day_started
 signal day_ended
 
-var day_number:int = 1
+var day_number:int = 0
 
 var successful_adventures:int = 0
 
@@ -26,11 +26,14 @@ func advance_day(fade:bool = true):
 			rounded += 10
 		daily_expenses = rounded
 	
-	update_world_state()
+	if day_number != 1:
+		update_world_state()
 	
 	if fade:
 		await Fade.fade_in().finished
-	Globals.money -= ceili(daily_expenses)
+	
+	if day_number != 1:
+		Globals.money -= ceili(daily_expenses)
 	day_started.emit()
 
 func update_world_state():
