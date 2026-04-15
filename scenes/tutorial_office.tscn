@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0kk87cqye7jw" path="res://scenes/globe_button.tscn" id="6_63p7y"]
 [ext_resource type="StyleBox" uid="uid://danxc1wkclacd" path="res://resources/styleboxes/panel_3.tres" id="7_2ksw3"]
 [ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="8_86u0b"]
+[ext_resource type="Texture2D" uid="uid://d01elj5tblkp5" path="res://resources/sprites/ui/money_icon.png" id="8_yqrh1"]
 [ext_resource type="Script" uid="uid://cory1oi6wq2fs" path="res://scripts/tutorial.gd" id="9_08uic"]
 [ext_resource type="Resource" uid="uid://b6e2ft786j88p" path="res://resources/character_data/john_smith.tres" id="10_6lvnk"]
 [ext_resource type="Script" uid="uid://cdwy6nk2qjj23" path="res://scripts/resources/item_data.gd" id="11_4atam"]
@@ -16,18 +17,15 @@
 [ext_resource type="Resource" uid="uid://brp1kqslh6sa7" path="res://resources/item_data/pants_of_steve.tres" id="14_86u0b"]
 [ext_resource type="Resource" uid="uid://cm4k4f73i6w8g" path="res://resources/item_data/shirt_of_steve.tres" id="15_yqrh1"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_86u0b"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_yqrh1"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_7jj4f"]
+[sub_resource type="LabelSettings" id="LabelSettings_lobfk"]
 font_size = 35
 
-[sub_resource type="LabelSettings" id="LabelSettings_hub07"]
+[sub_resource type="LabelSettings" id="LabelSettings_75a5w"]
 font_size = 35
 
-[sub_resource type="LabelSettings" id="LabelSettings_2knxt"]
-font_size = 35
-
-[sub_resource type="LabelSettings" id="LabelSettings_fmddn"]
+[sub_resource type="LabelSettings" id="LabelSettings_43ssy"]
 font_size = 30
 
 [sub_resource type="Animation" id="Animation_gdafm"]
@@ -35,7 +33,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
+tracks/0/path = NodePath("TutorialOffice/Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -51,7 +49,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
+tracks/0/path = NodePath("TutorialOffice/Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -61,7 +59,7 @@ tracks/0/keys = {
 "values": [Color(1, 0, 0, 1), Color(0.96862745, 1, 0, 1), Color(1, 0, 0, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gdafm"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kk6j7"]
 _data = {
 &"RESET": SubResource("Animation_gdafm"),
 &"flash": SubResource("Animation_fmddn")
@@ -98,7 +96,7 @@ disabled = true
 disabled = true
 
 [node name="Button" parent="Node2D/InventoryButton/InventoryButton/InventoryMenu/InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer/CharacterSelectTemplate" parent_id_path=PackedInt32Array(1539192965, 1586697291) index="0" unique_id=1176791227]
-button_group = SubResource("ButtonGroup_86u0b")
+button_group = SubResource("ButtonGroup_yqrh1")
 
 [node name="MailBox" parent="Node2D" unique_id=603560281 instance=ExtResource("5_4atam")]
 
@@ -118,10 +116,10 @@ tutorial_mode = true
 [node name="StartButton" parent="Node2D/GlobeButton/GlobeButton/AdventureMenu/Panel/PanelContainer/MarginContainer/AdventurerListingContainer" parent_id_path=PackedInt32Array(2077237782, 797898856) index="1" unique_id=1895152508]
 disabled = true
 
-[node name="HUDCanvasLayer" type="CanvasLayer" parent="Node2D" unique_id=725098394]
+[node name="HUDCanvasLayer" type="CanvasLayer" parent="Node2D" unique_id=148916760]
 unique_name_in_owner = true
 
-[node name="Control" type="Control" parent="Node2D/HUDCanvasLayer" unique_id=1022514769]
+[node name="Control" type="Control" parent="Node2D/HUDCanvasLayer" unique_id=1996311049]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 15
@@ -131,7 +129,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Panel" type="Panel" parent="Node2D/HUDCanvasLayer/Control" unique_id=1677413109]
+[node name="Panel" type="Panel" parent="Node2D/HUDCanvasLayer/Control" unique_id=65227194]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -142,61 +140,75 @@ offset_bottom = 121.0
 grow_horizontal = 2
 theme_override_styles/panel = ExtResource("7_2ksw3")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=12555917]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 49.0
-offset_right = -49.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=1414323691]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=526202190]
-layout_mode = 2
-text = "Money:"
-label_settings = SubResource("LabelSettings_7jj4f")
-
-[node name="MoneyLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=684423270]
+[node name="MoneyLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=1996957446]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
+offset_left = 85.0
+offset_top = 22.0
+offset_right = 110.0
+offset_bottom = 79.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "100"
-label_settings = SubResource("LabelSettings_hub07")
-horizontal_alignment = 1
+label_settings = SubResource("LabelSettings_lobfk")
 vertical_alignment = 1
-clip_text = true
-text_overrun_behavior = 3
 
-[node name="Control" type="Control" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=2021186698]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="Node2D/HUDCanvasLayer/Control/Panel/MoneyLabel" unique_id=423941555]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -28.5
+offset_right = 59.0
+offset_bottom = 28.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("8_yqrh1")
+expand_mode = 3
 
-[node name="SuccessfulAdventuresLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=171757301]
+[node name="SuccessfulAdventuresLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=618071924]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -28.5
+offset_right = 206.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
 text = "Successful Adventures: 0"
-label_settings = SubResource("LabelSettings_2knxt")
+label_settings = SubResource("LabelSettings_75a5w")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="DayLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=32132912]
+[node name="DayLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=1081508918]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -28.5
+offset_right = -53.0
+offset_bottom = 28.5
+grow_horizontal = 0
+grow_vertical = 2
 size_flags_horizontal = 10
 text = "Day 1"
-label_settings = SubResource("LabelSettings_2knxt")
+label_settings = SubResource("LabelSettings_75a5w")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="BankruptcyPanel" type="Panel" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=526995004]
+[node name="BankruptcyPanel" type="Panel" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=80472176]
 unique_name_in_owner = true
 show_behind_parent = true
 clip_contents = true
@@ -210,7 +222,7 @@ offset_bottom = 9.0
 grow_horizontal = 2
 theme_override_styles/panel = ExtResource("8_86u0b")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel" unique_id=1481654228]
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel" unique_id=1981766540]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -224,22 +236,17 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
-[node name="Label" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=309480188]
+[node name="Label" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=275593692]
 layout_mode = 2
 text = "WARNING"
-label_settings = SubResource("LabelSettings_fmddn")
+label_settings = SubResource("LabelSettings_43ssy")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=772160454]
+[node name="Label2" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel/VBoxContainer" unique_id=1755737196]
 layout_mode = 2
 text = "Bankruptcy Imminent!"
-label_settings = SubResource("LabelSettings_fmddn")
+label_settings = SubResource("LabelSettings_43ssy")
 horizontal_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/HUDCanvasLayer/Control/Panel/BankruptcyPanel" unique_id=1924930435]
-root_node = NodePath("../../../../../..")
-libraries/ = SubResource("AnimationLibrary_gdafm")
-autoplay = &"flash"
 
 [node name="Tutorial" type="Node2D" parent="." unique_id=2001242088 node_paths=PackedStringArray("mailbox_button", "door_button", "inventory_button", "globe_button")]
 position = Vector2(960, 540)
@@ -252,6 +259,11 @@ bad_character_data = ExtResource("10_6lvnk")
 items = Array[ExtResource("11_4atam")]([ExtResource("12_63p7y")])
 good_character_data = ExtResource("13_63p7y")
 second_items = Array[ExtResource("11_4atam")]([ExtResource("14_86u0b"), ExtResource("15_yqrh1")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=761017839]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_kk6j7")
+autoplay = &"flash"
 
 [editable path="Node2D/DoorButton"]
 [editable path="Node2D/InventoryButton"]

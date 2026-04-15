@@ -13,6 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://cbmsbvyuaiqom" path="res://resources/sprites/characters/heads/head_10.png" id="10_31ra6"]
 [ext_resource type="Texture2D" uid="uid://d1n0v22hp3cex" path="res://resources/sprites/characters/heads/head_11.png" id="11_80asf"]
 [ext_resource type="Texture2D" uid="uid://cdkuq7bcio5ei" path="res://resources/sprites/characters/heads/head_12.png" id="12_u2qbj"]
+[ext_resource type="Texture2D" uid="uid://4q0vr3kof6xc" path="res://resources/sprites/characters/heads/head_13.png" id="13_bwq7j"]
+[ext_resource type="Texture2D" uid="uid://cneljgk5st51c" path="res://resources/sprites/characters/heads/head_14.png" id="14_3ga12"]
+[ext_resource type="Texture2D" uid="uid://bv24ic8k7cu1c" path="res://resources/sprites/characters/heads/head_15.png" id="15_qbb45"]
+[ext_resource type="Texture2D" uid="uid://bhw030ru0m4ib" path="res://resources/sprites/characters/heads/head_16.png" id="16_6dd8t"]
+[ext_resource type="Texture2D" uid="uid://mcg346aavjbh" path="res://resources/sprites/characters/heads/head_17.png" id="17_plsli"]
+[ext_resource type="Texture2D" uid="uid://brsvp7s5lm5dg" path="res://resources/sprites/characters/heads/head_18.png" id="18_qr1ai"]
 
 [resource]
 script = ExtResource("4_ptbll")
@@ -24,5 +30,5 @@ defense_range = Vector2i(40, 100)
 defense_deviation = 0.75
 hp_range = Vector2i(70, 125)
 hp_deviation = 0.75
-heads = Array[Texture2D]([ExtResource("1_h71wq"), ExtResource("2_ptbll"), ExtResource("3_qcurf"), ExtResource("4_ifl4a"), ExtResource("5_2861m"), ExtResource("6_wdftw"), ExtResource("7_fefj5"), ExtResource("8_o4t7i"), ExtResource("9_cb8hg"), ExtResource("10_31ra6"), ExtResource("11_80asf"), ExtResource("12_u2qbj")])
+heads = Array[Texture2D]([ExtResource("1_h71wq"), ExtResource("2_ptbll"), ExtResource("3_qcurf"), ExtResource("4_ifl4a"), ExtResource("5_2861m"), ExtResource("6_wdftw"), ExtResource("7_fefj5"), ExtResource("8_o4t7i"), ExtResource("9_cb8hg"), ExtResource("10_31ra6"), ExtResource("11_80asf"), ExtResource("12_u2qbj"), ExtResource("13_bwq7j"), ExtResource("14_3ga12"), ExtResource("15_qbb45"), ExtResource("16_6dd8t"), ExtResource("17_plsli"), ExtResource("18_qr1ai")])
 metadata/_custom_type_script = "uid://00fr0sfq2067"

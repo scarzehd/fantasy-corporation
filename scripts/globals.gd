@@ -12,7 +12,7 @@ var hired_characters:Array[CharacterData]
 
 var owned_items:Array[ItemData]
 
-var money:int = 1000 :
+var money:int = 1500 :
 	set(new_money):
 		var old_money = money
 		money = new_money

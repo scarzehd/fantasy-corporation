@@ -7,6 +7,7 @@ class_name ItemView
 @onready var attack_label:Label = %AttackLabel
 @onready var power_label:Label = %PowerLabel
 @onready var defense_label:Label = %DefenseLabel
+@onready var item_type_label:Label = %ItemTypeLabel
 @onready var equipped_label:Label = %EquippedLabel
 @onready var attack:HBoxContainer = %Attack
 @onready var power:HBoxContainer = %Power
@@ -24,6 +25,8 @@ func _set_item_data(new_value:ItemData):
 	name_label.text = new_value.item_name
 	
 	portrait.texture = new_value.item_portrait
+	
+	item_type_label.text = "Weapon" if new_value.item_type == ItemData.ItemType.Weapon else "Armor"
 	
 	if new_value.equipped_by:
 		equipped_label.show()

@@ -80,6 +80,13 @@ texture = ExtResource("5_dhech")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="ItemTypeLabel" type="Label" parent="VBoxContainer" unique_id=679908823]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Armor"
+label_settings = SubResource("LabelSettings_op8na")
+horizontal_alignment = 1
+
 [node name="EquippedLabel" type="Label" parent="VBoxContainer" unique_id=349857]
 unique_name_in_owner = true
 visible = false

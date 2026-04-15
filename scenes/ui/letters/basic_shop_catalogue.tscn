@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cs3g66i4w6asg" path="res://scripts/ui/basic_shop_catalogue.gd" id="1_p7ddb"]
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="2_di2yg"]
+[ext_resource type="Texture2D" uid="uid://dsatx15ote5ww" path="res://resources/sprites/ui/scroll.png" id="2_r2ugu"]
 [ext_resource type="Script" uid="uid://4317vvwer57w" path="res://scripts/ui/catalogue_item_view.gd" id="3_ducbn"]
 [ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="3_rbluq"]
 [ext_resource type="Texture2D" uid="uid://djq5u72v8e1ot" path="res://resources/sprites/portrait_background.png" id="5_2wbyd"]
@@ -10,9 +11,18 @@
 [ext_resource type="Texture2D" uid="uid://clom2u7i5nb8h" path="res://resources/sprites/portrait_frame_small.png" id="6_r2ugu"]
 [ext_resource type="Texture2D" uid="uid://b4f1c5ppm7lo3" path="res://resources/sprites/hp_icon.png" id="7_2wbyd"]
 [ext_resource type="Texture2D" uid="uid://bcjqe58m1os5y" path="res://resources/sprites/defense_icon.png" id="8_r2ugu"]
+[ext_resource type="Texture2D" uid="uid://d01elj5tblkp5" path="res://resources/sprites/ui/money_icon.png" id="12_fv63q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fv63q"]
+texture = ExtResource("2_r2ugu")
+texture_margin_left = 50.0
+texture_margin_top = 75.0
+texture_margin_right = 50.0
+texture_margin_bottom = 75.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_m3ob7"]
 font_size = 25
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_di2yg"]
 font_size = 20
@@ -49,12 +59,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -528.0
-offset_top = -335.0
-offset_right = 528.0
-offset_bottom = 335.0
+offset_left = -573.0
+offset_top = -389.0
+offset_right = 573.0
+offset_bottom = 329.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fv63q")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=177027501]
 layout_mode = 2
@@ -74,25 +85,16 @@ layout_mode = 2
 size_flags_vertical = 3
 vertical_scroll_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer/ScrollContainer" unique_id=1522544659]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="ItemContainer" type="GridContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer" unique_id=1502367867]
+[node name="ItemContainer" type="GridContainer" parent="PanelContainer/HBoxContainer/ScrollContainer" unique_id=1502367867]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 size_flags_vertical = 3
 theme_override_constants/h_separation = 18
 theme_override_constants/v_separation = 20
 columns = 3
 
-[node name="ItemTemplate" type="PanelContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer" unique_id=1266427595]
+[node name="ItemTemplate" type="PanelContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer" unique_id=1266427595]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(325, 475)
@@ -100,23 +102,23 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("2_di2yg")
 script = ExtResource("3_ducbn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate" unique_id=53025409]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate" unique_id=53025409]
 layout_mode = 2
 
-[node name="ItemName" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=185102767]
+[node name="ItemName" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=185102767]
 layout_mode = 2
 text = "Item Name"
 label_settings = SubResource("LabelSettings_di2yg")
 horizontal_alignment = 1
 
-[node name="ItemPortrait" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=797280252]
+[node name="ItemPortrait" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=797280252]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 texture = ExtResource("3_rbluq")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/ItemPortrait" unique_id=541437777]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/ItemPortrait" unique_id=541437777]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -128,7 +130,7 @@ texture = ExtResource("5_2wbyd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/ItemPortrait" unique_id=159845089]
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/ItemPortrait" unique_id=159845089]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,28 +141,28 @@ texture = ExtResource("6_r2ugu")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ItemTypeLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1168382575]
+[node name="ItemTypeLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1168382575]
 layout_mode = 2
 text = "Weapon"
 label_settings = SubResource("LabelSettings_7frca")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=585336912]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=585336912]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer" unique_id=412031911]
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer" unique_id=412031911]
 custom_minimum_size = Vector2(61, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer" unique_id=1612635619]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer" unique_id=1612635619]
 layout_mode = 2
 
-[node name="Attack" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1032913348]
+[node name="Attack" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1032913348]
 visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Attack" unique_id=71063879]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Attack" unique_id=71063879]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -168,18 +170,18 @@ texture = ExtResource("5_m3ob7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="AttackLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Attack" unique_id=370787976]
+[node name="AttackLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Attack" unique_id=370787976]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+0 Attack"
 label_settings = SubResource("LabelSettings_fv63q")
 
-[node name="Power" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=952540186]
+[node name="Power" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=952540186]
 visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Power" unique_id=1276467048]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Power" unique_id=1276467048]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -187,18 +189,18 @@ texture = ExtResource("6_n0ydu")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PowerLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Power" unique_id=1467104157]
+[node name="PowerLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Power" unique_id=1467104157]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+0 Power"
 label_settings = SubResource("LabelSettings_aljse")
 
-[node name="HP" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=200885252]
+[node name="HP" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=200885252]
 visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=2134426914]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=2134426914]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -206,18 +208,18 @@ texture = ExtResource("7_2wbyd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HPLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=1572710449]
+[node name="HPLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=1572710449]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+0 HP"
 label_settings = SubResource("LabelSettings_jlch2")
 
-[node name="Defense" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=169129949]
+[node name="Defense" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=169129949]
 visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Defense" unique_id=1270379115]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Defense" unique_id=1270379115]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -225,17 +227,19 @@ texture = ExtResource("8_r2ugu")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DefenseLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Defense" unique_id=1740061695]
+[node name="DefenseLabel" type="Label" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer/HBoxContainer/VBoxContainer/Defense" unique_id=1740061695]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+0 Defense"
 label_settings = SubResource("LabelSettings_slvmg")
 
-[node name="PurchaseButton" type="Button" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1816369334]
+[node name="PurchaseButton" type="Button" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1816369334]
 layout_mode = 2
 size_flags_vertical = 10
-text = "100 Gold"
+text = "100"
+icon = ExtResource("12_fv63q")
+expand_icon = true
 
-[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/ScrollContainer/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1579045664]
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1579045664]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2

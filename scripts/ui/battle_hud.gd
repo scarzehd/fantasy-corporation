@@ -24,6 +24,7 @@ class_name BattleHUD
 @onready var total_label:Label = %TotalLabel
 @onready var lost_item_template:PanelContainer = %LostItemTemplate
 @onready var items_lost_container:PanelContainer = %ItemsLostContainer
+@onready var none_label:Label = %NoneLabel
 
 var battle_won:bool = false
 
@@ -192,8 +193,6 @@ func _on_battle_ended(won:bool):
 
 	
 	if Battle.instance.lost_items.size() > 0:
-		items_lost_container.show()
-		
 		for item in Battle.instance.lost_items:
 			var template = lost_item_template.duplicate()
 			template.show()
@@ -205,6 +204,8 @@ func _on_battle_ended(won:bool):
 			item_portrait.texture = item.item_portrait
 			
 			Globals.owned_items.erase(item)
+	else:
+		none_label.show()
 	
 	for character_data in Globals.hired_characters:
 		for item in character_data.items.values():

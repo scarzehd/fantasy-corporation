@@ -8,9 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0kk87cqye7jw" path="res://scenes/globe_button.tscn" id="6_hub07"]
 [ext_resource type="StyleBox" uid="uid://danxc1wkclacd" path="res://resources/styleboxes/panel_3.tres" id="7_2knxt"]
 [ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="8_fmddn"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7jj4f"]
-font_size = 35
+[ext_resource type="Texture2D" uid="uid://d01elj5tblkp5" path="res://resources/sprites/ui/money_icon.png" id="8_gdafm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hub07"]
 font_size = 35
@@ -99,54 +97,68 @@ offset_bottom = 121.0
 grow_horizontal = 2
 theme_override_styles/panel = ExtResource("7_2knxt")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=12555917]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 49.0
-offset_right = -49.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=1414323691]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=526202190]
-layout_mode = 2
-text = "Money:"
-label_settings = SubResource("LabelSettings_7jj4f")
-
-[node name="MoneyLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=684423270]
+[node name="MoneyLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=684423270]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
+offset_left = 85.0
+offset_top = 22.0
+offset_right = 110.0
+offset_bottom = 79.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "100"
 label_settings = SubResource("LabelSettings_hub07")
-horizontal_alignment = 1
 vertical_alignment = 1
-clip_text = true
-text_overrun_behavior = 3
 
-[node name="Control" type="Control" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2/HBoxContainer" unique_id=2021186698]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="Node2D/HUDCanvasLayer/Control/Panel/MoneyLabel" unique_id=140775539]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -28.5
+offset_right = 59.0
+offset_bottom = 28.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("8_gdafm")
+expand_mode = 3
 
-[node name="SuccessfulAdventuresLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=171757301]
+[node name="SuccessfulAdventuresLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=171757301]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -28.5
+offset_right = 206.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
 text = "Successful Adventures: 0"
 label_settings = SubResource("LabelSettings_2knxt")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="DayLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel/HBoxContainer2" unique_id=32132912]
+[node name="DayLabel" type="Label" parent="Node2D/HUDCanvasLayer/Control/Panel" unique_id=32132912]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -28.5
+offset_right = -53.0
+offset_bottom = 28.5
+grow_horizontal = 0
+grow_vertical = 2
 size_flags_horizontal = 10
 text = "Day 1"
 label_settings = SubResource("LabelSettings_2knxt")

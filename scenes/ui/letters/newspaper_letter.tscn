@@ -1,37 +1,17 @@
 [gd_scene format=3 uid="uid://c8wytlhkw0oa4"]
 
 [ext_resource type="Script" uid="uid://dv7tgvtbopi0i" path="res://scripts/ui/newspaper_letter.gd" id="1_qr2r6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ix0x"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 25.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[ext_resource type="Texture2D" uid="uid://cxst1nqmem64c" path="res://resources/sprites/ui/newspaper.png" id="2_kdjno"]
+[ext_resource type="FontFile" uid="uid://ci6e21wf285le" path="res://resources/fonts/UnifrakturMaguntia-Regular.ttf" id="3_qv27o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5so1n"]
-font_size = 30
+font = ExtResource("3_qv27o")
+font_size = 45
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kdjno"]
-font_size = 25
-font_color = Color(0.5803922, 0.5803922, 0.5803922, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdjno"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+font_size = 35
+font_color = Color(0.33, 0.33, 0.33, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qv27o"]
 resource_local_to_scene = true
@@ -61,76 +41,100 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("1_qr2r6")
-item_price_label = NodePath("Panel/VBoxContainer/PanelContainer/VBoxContainer/ItemPriceLabel")
-item_resale_price_label = NodePath("Panel/VBoxContainer/PanelContainer/VBoxContainer/ItemResalePriceLabel")
-character_price_label = NodePath("Panel/VBoxContainer/PanelContainer/VBoxContainer/CharacterPriceLabel")
-daily_expense_label = NodePath("Panel/VBoxContainer/PanelContainer/VBoxContainer/DailyExpenseLabel")
+item_price_label = NodePath("TextureRect/VBoxContainer/ItemPriceLabel")
+item_resale_price_label = NodePath("TextureRect/VBoxContainer/ItemResalePriceLabel")
+character_price_label = NodePath("TextureRect/VBoxContainer/CharacterPriceLabel")
+daily_expense_label = NodePath("TextureRect/VBoxContainer/DailyExpenseLabel")
 
-[node name="Panel" type="PanelContainer" parent="." unique_id=1856834051]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1545849310]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -227.0
-offset_top = -175.0
-offset_right = 227.0
-offset_bottom = 175.0
+offset_left = -448.057
+offset_top = -333.0
+offset_right = 448.057
+offset_bottom = 249.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_7ix0x")
+texture = ExtResource("2_kdjno")
+expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=837940699]
-layout_mode = 2
-
-[node name="HeadlineLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1043389092]
+[node name="HeadlineLabel" type="Label" parent="TextureRect" unique_id=1043389092]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -227.0
+offset_right = 217.0
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "The Timely Times"
 label_settings = SubResource("LabelSettings_5so1n")
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1674120279]
-layout_mode = 2
+[node name="Label" type="Label" parent="TextureRect" unique_id=1674120279]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -145.0
+offset_right = 217.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Finance Report"
 label_settings = SubResource("LabelSettings_kdjno")
 horizontal_alignment = 1
 
-[node name="Control2" type="Control" parent="Panel/VBoxContainer" unique_id=1058513778]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=610879164]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = 1.0
+offset_right = 208.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Panel/VBoxContainer" unique_id=2127975371]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_kdjno")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/PanelContainer" unique_id=610879164]
-layout_mode = 2
-
-[node name="ItemPriceLabel" type="Label" parent="Panel/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1696234680]
+[node name="ItemPriceLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=1696234680]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Item Price: 100%"
 label_settings = SubResource("LabelSettings_qv27o")
+horizontal_alignment = 1
 
-[node name="ItemResalePriceLabel" type="Label" parent="Panel/VBoxContainer/PanelContainer/VBoxContainer" unique_id=293172746]
+[node name="ItemResalePriceLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=293172746]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Item Resale Price: 75%"
 label_settings = SubResource("LabelSettings_r67pl")
+horizontal_alignment = 1
 
-[node name="CharacterPriceLabel" type="Label" parent="Panel/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1431986368]
+[node name="CharacterPriceLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=1431986368]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Adventurer Cost: 100%"
 label_settings = SubResource("LabelSettings_e7fck")
+horizontal_alignment = 1
 
-[node name="DailyExpenseLabel" type="Label" parent="Panel/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1881526057]
+[node name="DailyExpenseLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=1881526057]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Daily Expenses: 50"
 label_settings = SubResource("LabelSettings_7ix0x")
+horizontal_alignment = 1

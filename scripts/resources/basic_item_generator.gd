@@ -92,7 +92,7 @@ func generate_weapon() -> ItemData:
 	
 	data.item_name = weapon_name
 	
-	data.purchase_price = RandomUtils.generate_in_range(price_range.x, price_range.y, price_deviation)
+	data.purchase_price = RandomUtils.generate_in_range(price_range.x, price_range.y, price_deviation) * Globals.item_price_modifier
 	
 	data.attack = RandomUtils.generate_in_range(attack_range.x, attack_range.y, attack_deviation)
 	data.power = RandomUtils.generate_in_range(power_range.x, power_range.y, power_deviation)
@@ -120,7 +120,7 @@ func generate_armor() -> ItemData:
 	
 	data.item_name = armor_name
 	
-	data.purchase_price = RandomUtils.generate_in_range(price_range.x, price_range.y, price_deviation)
+	data.purchase_price = RandomUtils.generate_in_range(price_range.x, price_range.y, price_deviation) * Globals.item_price_modifier
 	
 	data.defense = RandomUtils.generate_in_range(defense_range.x, defense_range.y, defense_deviation)
 	data.hp = RandomUtils.generate_in_range(hp_range.x, hp_range.y, hp_deviation)

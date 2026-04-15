@@ -10,6 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://dbqtiaebwcsnd" path="res://scenes/character_portrait_generator.tscn" id="8_tlw2h"]
 [ext_resource type="Texture2D" uid="uid://bltehahsln1d3" path="res://resources/sprites/office/office_mailbox_hover.png" id="9_tkk67"]
 [ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="10_l2r7n"]
+[ext_resource type="AudioStream" uid="uid://fkfylnj1vokr" path="res://resources/audio/ui/paper/page1.mp3" id="11_r5601"]
+[ext_resource type="AudioStream" uid="uid://b8qrredi4ebkr" path="res://resources/audio/ui/paper/page2.mp3" id="12_yr8sm"]
+[ext_resource type="AudioStream" uid="uid://de5acq75larmj" path="res://resources/audio/ui/paper/page3.mp3" id="13_beakg"]
+[ext_resource type="AudioStream" uid="uid://i1brh8lhuwyw" path="res://resources/audio/ui/paper/page4.mp3" id="14_h407f"]
+[ext_resource type="AudioStream" uid="uid://cxltmqok2wsl1" path="res://resources/audio/ui/paper/page5.mp3" id="15_cbmhv"]
+[ext_resource type="AudioStream" uid="uid://be10ubx7m3yj" path="res://resources/audio/ui/paper/page6.mp3" id="16_ep27g"]
+[ext_resource type="AudioStream" uid="uid://cjmmr54lik5gu" path="res://resources/audio/ui/paper/paper1.mp3" id="17_ep27g"]
+[ext_resource type="AudioStream" uid="uid://cb4bnpvjjw0bt" path="res://resources/audio/ui/paper/paper2.mp3" id="18_fd1yx"]
+[ext_resource type="AudioStream" uid="uid://7bxggdxnng5n" path="res://resources/audio/ui/paper/paper3.mp3" id="19_dma05"]
+[ext_resource type="AudioStream" uid="uid://box5gum3qcp7t" path="res://resources/audio/ui/paper/paper4.mp3" id="20_fevum"]
+[ext_resource type="AudioStream" uid="uid://bgqb2vxy1oe4w" path="res://resources/audio/ui/paper/paper5.mp3" id="21_fo4ob"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xs0bi"]
 font_size = 30
@@ -20,7 +31,7 @@ shadow_color = Color(0, 0, 0, 1)
 
 [node name="Mailbox" type="Node2D" unique_id=2073972684]
 
-[node name="MailBox" type="TextureButton" parent="." unique_id=603560281]
+[node name="MailBox" type="TextureButton" parent="." unique_id=603560281 groups=["no_press_sound"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -72,7 +83,7 @@ offset_bottom = 540.0
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PreviousLetterButton" type="TextureButton" parent="MailBox/LettersMenu/LettersMenu" unique_id=2098642742]
+[node name="PreviousLetterButton" type="TextureButton" parent="MailBox/LettersMenu/LettersMenu" unique_id=2098642742 groups=["no_press_sound"]]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 4
@@ -88,7 +99,7 @@ texture_hover = ExtResource("3_xs0bi")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="NextLetterButton" type="TextureButton" parent="MailBox/LettersMenu/LettersMenu" unique_id=305845547]
+[node name="NextLetterButton" type="TextureButton" parent="MailBox/LettersMenu/LettersMenu" unique_id=305845547 groups=["no_press_sound"]]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
@@ -107,7 +118,7 @@ texture_hover = ExtResource("4_rx4kg")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="CloseButton" type="Button" parent="MailBox/LettersMenu/LettersMenu" unique_id=1307192578]
+[node name="CloseButton" type="Button" parent="MailBox/LettersMenu/LettersMenu" unique_id=1307192578 groups=["no_press_sound"]]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -156,8 +167,10 @@ visible = false
 texture = ExtResource("9_tkk67")
 
 [node name="PageTurnAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1920265220]
+unique_name_in_owner = true
 script = ExtResource("10_l2r7n")
-sounds = Array[AudioStream]([null])
+sounds = Array[AudioStream]([ExtResource("11_r5601"), ExtResource("12_yr8sm"), ExtResource("13_beakg"), ExtResource("14_h407f"), ExtResource("15_cbmhv"), ExtResource("16_ep27g"), ExtResource("17_ep27g"), ExtResource("18_fd1yx"), ExtResource("19_dma05"), ExtResource("20_fevum"), ExtResource("21_fo4ob")])
+pitch_range = Vector2(0.8, 1.2)
 
 [connection signal="mouse_entered" from="MailBox" to="MailBox" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MailBox" to="MailBox" method="_on_mouse_exited"]

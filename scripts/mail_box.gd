@@ -14,6 +14,8 @@ const ITEM_CATALOGUE:PackedScene = preload("res://scenes/ui/letters/basic_shop_c
 @onready var normal:Sprite2D = %Normal
 @onready var hover:Sprite2D = %Hover
 
+@onready var page_turn_audio_stream_player:RandomAudioStreamPlayer = %PageTurnAudioStreamPlayer
+
 @export var tutorial_mode:bool = false
 
 var letters:Array[Letter]
@@ -51,6 +53,7 @@ func _on_pressed() -> void:
 	if letters.size() > 0:
 		letters_menu.show()
 		_set_current_index(current_index)
+		page_turn_audio_stream_player.play_random()
 
 func _set_current_index(new_value:int):
 	new_value = clamp(new_value, 0, max(letters.size() - 1, 0))
@@ -111,12 +114,16 @@ func _on_day_started():
 
 func _on_previous_letter_button_pressed() -> void:
 	current_index -= 1
+	page_turn_audio_stream_player.play_random()
 
 func _on_next_letter_button_pressed() -> void:
 	current_index += 1
+	page_turn_audio_stream_player.play_random()
 
 func _on_close_button_pressed() -> void:
-	letters_menu.hide()
+	if letters_menu.visible:
+		letters_menu.hide()
+		page_turn_audio_stream_player.play_random()
 
 func _on_confirm_button_pressed() -> void:
 	for letter in letters:

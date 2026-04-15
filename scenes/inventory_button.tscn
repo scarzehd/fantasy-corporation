@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cxk126br6b14e" path="res://scripts/ui/inventory_menu.gd" id="2_j6i4b"]
 [ext_resource type="StyleBox" uid="uid://danxc1wkclacd" path="res://resources/styleboxes/panel_3.tres" id="3_2pfx8"]
 [ext_resource type="PackedScene" uid="uid://bgqh2sjvii77l" path="res://scenes/ui/item_view.tscn" id="3_vpwv6"]
+[ext_resource type="Texture2D" uid="uid://d01elj5tblkp5" path="res://resources/sprites/ui/money_icon.png" id="4_4gce7"]
 [ext_resource type="Texture2D" uid="uid://dltlbi06befah" path="res://resources/sprites/portrait_frame.png" id="5_0lwc4"]
 [ext_resource type="Texture2D" uid="uid://djvo68n105p8g" path="res://resources/sprites/office/office_safe_hover.png" id="7_nu470"]
 
@@ -186,11 +187,13 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="SellButton" type="Button" parent="InventoryButton/InventoryMenu/InventoryMenu/Panel/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" parent_id_path=PackedInt32Array(345213539, 2068711857) index="4" unique_id=1442878590]
+[node name="SellButton" type="Button" parent="InventoryButton/InventoryMenu/InventoryMenu/Panel/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" parent_id_path=PackedInt32Array(345213539, 2068711857) index="5" unique_id=1442878590]
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 20
 text = "Sell for 100"
+icon = ExtResource("4_4gce7")
+expand_icon = true
 
 [node name="Control" type="Control" parent="InventoryButton/InventoryMenu/InventoryMenu/Panel/Items/MarginContainer" unique_id=1726140512]
 layout_mode = 2

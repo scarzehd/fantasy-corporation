@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://djnds25e8uk4h"]
+
+[ext_resource type="Script" uid="uid://bpe1xgronfotr" path="res://scripts/sound_manager.gd" id="1_gbdfy"]
+[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="2_s6peo"]
+[ext_resource type="AudioStream" uid="uid://w0q2mi807gqp" path="res://resources/audio/ui/interact/click2.mp3" id="3_shlr6"]
+[ext_resource type="AudioStream" uid="uid://bvji4w1jtl8oh" path="res://resources/audio/ui/interact/click1.mp3" id="4_5lwbd"]
+
+[node name="SoundManager" type="Node" unique_id=324037352 node_paths=PackedStringArray("button_hover_sound", "button_press_sound")]
+script = ExtResource("1_gbdfy")
+button_hover_sound = NodePath("ButtonHoverSound")
+button_press_sound = NodePath("ButtonPressSound")
+
+[node name="ButtonHoverSound" type="AudioStreamPlayer" parent="." unique_id=324948603]
+script = ExtResource("2_s6peo")
+sounds = Array[AudioStream]([ExtResource("3_shlr6")])
+volume_range = Vector2(0.2, 0.2)
+metadata/_custom_type_script = "uid://dfesb88ascuoc"
+
+[node name="ButtonPressSound" type="AudioStreamPlayer" parent="." unique_id=308207954]
+script = ExtResource("2_s6peo")
+sounds = Array[AudioStream]([ExtResource("4_5lwbd")])
+volume_range = Vector2(0.2, 0.2)
+metadata/_custom_type_script = "uid://dfesb88ascuoc"

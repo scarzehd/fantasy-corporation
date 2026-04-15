@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 Globals="*uid://crma87mhakwkd"
 TimeManager="*uid://0eg7mxdc1nmi"
+SoundManager="*uid://djnds25e8uk4h"
 
 [display]
 
@@ -30,6 +31,11 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://cilpp2k2ogx7f"
+
+[global_group]
+
+no_press_sound=""
 
 [gui]
 

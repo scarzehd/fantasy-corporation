@@ -7,7 +7,7 @@ var day_number:int = 0
 
 var successful_adventures:int = 0
 
-var daily_expenses:float = 50
+var daily_expenses:float = 100
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -19,8 +19,8 @@ func advance_day(fade:bool = true):
 	day_number += 1
 	day_ended.emit()
 	
-	if (day_number) % 4 == 0:
-		var percent_change = daily_expenses * 1.25
+	if (day_number) % 5 == 0:
+		var percent_change = daily_expenses * 1.15
 		var rounded = roundi(percent_change / 10.0) * 10
 		if rounded < daily_expenses + 10:
 			rounded += 10
