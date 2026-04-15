@@ -108,12 +108,15 @@ func start_turn():
 	acted = false
 	for status_effect in status_effects:
 		status_effect.start_turn()
-		if status_effect.damage != 0:
-			await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.2).timeout
+		if current_hp <= 0:
+			break
 
 func end_turn():
+	await get_tree().create_timer(0.3).timeout
 	for status_effect in status_effects:
 		status_effect.end_turn()
+		await get_tree().create_timer(0.2).timeout
 		if current_hp <= 0:
 			break
 	

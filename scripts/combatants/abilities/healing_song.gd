@@ -25,5 +25,7 @@ func _button_pressed():
 			status_effect.id = "healing_song"
 			
 			other_combatant.add_status_effect(status_effect)
+			
+			other_combatant.create_bounce_text("Healing Song", Color.GREEN, 40)
 	
 	combatant.end_turn()

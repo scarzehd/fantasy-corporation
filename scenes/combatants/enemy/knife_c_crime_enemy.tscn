@@ -181,7 +181,7 @@ targeting_indicator = NodePath("TargetingIndicator")
 base_hp = 50
 base_attack = 70
 base_power = 40
-base_defense = 150
+base_defense = 120
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=2145345627]
 position = Vector2(28, -4)

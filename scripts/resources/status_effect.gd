@@ -22,18 +22,22 @@ signal ended
 var combatant:Combatant
 
 func start_turn():
-	pass
-
-func end_turn():
-	if damage > 0:
-		combatant.damage(damage)
-	elif damage < 0:
+	if damage < 0:
 		combatant.heal(-damage)
-	
-	if has_duration:
+		
 		duration -= 1
 		if duration <= 0:
 			end_status_effect()
+
+func end_turn():
+	if damage >= 0:
+		if damage > 0:
+			combatant.damage(damage)
+		
+		if has_duration:
+			duration -= 1
+			if duration <= 0:
+				end_status_effect()
 
 func end_status_effect():
 	ended.emit()
