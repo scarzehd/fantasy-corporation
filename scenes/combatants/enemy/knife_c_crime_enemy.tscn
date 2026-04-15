@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3ixpi5g5um7v" path="res://scripts/combatants/enemy/knife_c_crime.gd" id="1_3ofkw"]
 [ext_resource type="Texture2D" uid="uid://d2ybhk1qrursd" path="res://resources/sprites/enemies/knife_c_crime/knife_c_crime_2.png" id="3_1lu3d"]
+[ext_resource type="Texture2D" uid="uid://c4b8o3fft6k8o" path="res://resources/sprites/drop_shadow.png" id="3_8n0m8"]
 [ext_resource type="Texture2D" uid="uid://f4fy0v4yg6f" path="res://resources/sprites/enemies/knife_c_crime/knife_c_crime_1.png" id="3_rns3t"]
 [ext_resource type="Texture2D" uid="uid://csd3f7dxdvuy0" path="res://resources/sprites/enemies/knife_c_crime/knife_c_crime_3.png" id="4_rns3t"]
 [ext_resource type="AnimationLibrary" uid="uid://4nx1glwbdfkq" path="res://resources/animation_libraries/global_enemy_animations.res" id="5_cj51i"]
@@ -181,6 +182,11 @@ base_hp = 50
 base_attack = 70
 base_power = 40
 base_defense = 150
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=2145345627]
+position = Vector2(28, -4)
+scale = Vector2(0.484375, 0.32291666)
+texture = ExtResource("3_8n0m8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=957414317]
 position = Vector2(0, -214)

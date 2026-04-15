@@ -40,10 +40,15 @@ var casualties:Array[PlayerCombatant]
 
 var lost_items:Array[ItemData]
 
+var targeting_mode:Ability.TargetMode = Ability.TargetMode.None
+
 func _enter_tree() -> void:
 	instance = self
 
 func _ready() -> void:
+	get_viewport().physics_object_picking_sort = true
+	get_viewport().physics_object_picking_first_only = true
+	
 	background.texture = battle_backgrounds.pick_random()
 	
 	waves_left = floori((TimeManager.successful_adventures + 1) / 3.0) + 1

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c47o7aixnb673" path="res://resources/sprites/office/office_mailbox_letters.png" id="7_3lyli"]
 [ext_resource type="PackedScene" uid="uid://dbqtiaebwcsnd" path="res://scenes/character_portrait_generator.tscn" id="8_tlw2h"]
 [ext_resource type="Texture2D" uid="uid://bltehahsln1d3" path="res://resources/sprites/office/office_mailbox_hover.png" id="9_tkk67"]
+[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="10_l2r7n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xs0bi"]
 font_size = 30
@@ -114,9 +115,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -119.0
-offset_top = -220.0
+offset_top = -205.0
 offset_right = 119.0
-offset_bottom = -118.0
+offset_bottom = -95.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
@@ -153,6 +154,10 @@ texture = ExtResource("7_3lyli")
 unique_name_in_owner = true
 visible = false
 texture = ExtResource("9_tkk67")
+
+[node name="PageTurnAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1920265220]
+script = ExtResource("10_l2r7n")
+sounds = Array[AudioStream]([null])
 
 [connection signal="mouse_entered" from="MailBox" to="MailBox" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MailBox" to="MailBox" method="_on_mouse_exited"]

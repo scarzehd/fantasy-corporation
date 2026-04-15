@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d3i1h310ayq5c" path="res://scripts/resources/status_effect.gd" id="2_jdatg"]
 [ext_resource type="Texture2D" uid="uid://brwm74d30by5l" path="res://resources/sprites/enemies/chomper/chomper_2.png" id="3_ahd8l"]
 [ext_resource type="Texture2D" uid="uid://cqaopvrlei3b8" path="res://resources/sprites/enemies/chomper/chomper_3.png" id="4_jdatg"]
+[ext_resource type="Texture2D" uid="uid://c4b8o3fft6k8o" path="res://resources/sprites/drop_shadow.png" id="4_lbgx3"]
 [ext_resource type="Texture2D" uid="uid://c4ldharwhy726" path="res://resources/sprites/enemies/chomper/chomper_1.png" id="4_y6wc8"]
 [ext_resource type="AnimationLibrary" uid="uid://4nx1glwbdfkq" path="res://resources/animation_libraries/global_enemy_animations.res" id="6_5wuxp"]
 [ext_resource type="StyleBox" uid="uid://74jbejvamqvb" path="res://resources/styleboxes/health_bar_background.tres" id="7_a7giv"]
@@ -86,6 +87,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shadow:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_u8vcb"]
 resource_name = "attack"
@@ -141,6 +154,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.04363323, 0.04363323, -0.08726646259971647, -0.08726646259971647, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shadow:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-19.000002, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_jdatg"]
@@ -206,6 +231,10 @@ base_hp = 50
 base_attack = 100
 base_power = 25
 base_defense = 50
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1267911240]
+scale = Vector2(0.39453125, 0.2630208)
+texture = ExtResource("4_lbgx3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=957414317]
 position = Vector2(0, -106)

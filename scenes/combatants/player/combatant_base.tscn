@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cd1bjyq3d6hh3" path="res://scripts/combatants/abilities/defend.gd" id="4_sjeno"]
 [ext_resource type="Texture2D" uid="uid://2e78ua808ri2" path="res://resources/sprites/abilities/defend_hover.png" id="5_qmxaq"]
 [ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="9_4v738"]
+[ext_resource type="Texture2D" uid="uid://c4b8o3fft6k8o" path="res://resources/sprites/drop_shadow.png" id="10_we0ox"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhwg"]
 size = Vector2(168, 350)
@@ -121,6 +122,7 @@ combatant_name = "Bringle Cringus"
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
 damage_tween_target = NodePath("Node2D")
 targeting_indicator = NodePath("TargetingIndicator")
+target_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=238847892]
 position = Vector2(0, 24.5)
@@ -183,6 +185,11 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_jqwdw")
 autoplay = &"idle"
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=41942737]
+position = Vector2(-15, 4)
+scale = Vector2(0.6132813, 0.39630452)
+texture = ExtResource("10_we0ox")
+
 [node name="Node2D" type="Node2D" parent="." unique_id=1120545636]
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=904817639]
@@ -198,3 +205,4 @@ texture = ExtResource("4_jqwdw")
 
 [node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("9_4v738")]
 visible = false
+position = Vector2(-16, 0)

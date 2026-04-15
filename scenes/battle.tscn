@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bqpi1mo1ic1c8" path="res://scenes/combatants/enemy/goop_enemy.tscn" id="3_v7i3o"]
 [ext_resource type="PackedScene" uid="uid://cf5acaerc6hgu" path="res://scenes/combatants/enemy/robe_enemy.tscn" id="3_yahae"]
 [ext_resource type="PackedScene" uid="uid://c4b5scabx2lqo" path="res://scenes/combatants/enemy/chomper_enemy.tscn" id="4_v7i3o"]
-[ext_resource type="PackedScene" uid="uid://buw2plhxnyhd7" path="res://scenes/combatants/enemy/knife_c_crime.tscn" id="5_66ngm"]
+[ext_resource type="PackedScene" uid="uid://buw2plhxnyhd7" path="res://scenes/combatants/enemy/knife_c_crime_enemy.tscn" id="5_66ngm"]
 [ext_resource type="Texture2D" uid="uid://dfd7rr2eqjxw1" path="res://resources/sprites/forest_battle_background.png" id="6_4k1nj"]
 [ext_resource type="Texture2D" uid="uid://b5k6wnrlo5vy" path="res://resources/sprites/cave_battle_background.png" id="6_6vh42"]
 [ext_resource type="PackedScene" uid="uid://3e8drigu5xm1" path="res://scenes/ui/battle_hud.tscn" id="7_4k1nj"]
@@ -20,33 +20,33 @@ battle_backgrounds = Array[Texture]([ExtResource("6_6vh42"), ExtResource("6_4k1n
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1461741069]
 unique_name_in_owner = true
-position = Vector2(0, -91)
-texture = ExtResource("6_6vh42")
+position = Vector2(0, -96)
+texture = ExtResource("7_f4pi3")
 offset = Vector2(960, 540)
 
 [node name="PlayerSlot1" type="Marker2D" parent="." unique_id=900666764]
-position = Vector2(730, 499)
+position = Vector2(730, 531)
 
 [node name="PlayerSlot2" type="Marker2D" parent="." unique_id=1518760855]
-position = Vector2(580, 549)
+position = Vector2(580, 581)
 
 [node name="PlayerSlot3" type="Marker2D" parent="." unique_id=1358067820]
-position = Vector2(430, 599)
+position = Vector2(430, 631)
 
 [node name="PlayerSlot4" type="Marker2D" parent="." unique_id=386123315]
-position = Vector2(280, 649)
+position = Vector2(280, 681)
 
 [node name="EnemySlot1" type="Marker2D" parent="." unique_id=2007528293]
-position = Vector2(1180, 499)
+position = Vector2(1180, 531)
 
 [node name="EnemySlot2" type="Marker2D" parent="." unique_id=895300623]
-position = Vector2(1330, 549)
+position = Vector2(1330, 581)
 
 [node name="EnemySlot3" type="Marker2D" parent="." unique_id=452218435]
-position = Vector2(1480, 599)
+position = Vector2(1480, 631)
 
 [node name="EnemySlot4" type="Marker2D" parent="." unique_id=1308728205]
-position = Vector2(1630, 649)
+position = Vector2(1630, 681)
 
 [node name="BattleHUD" parent="." unique_id=690412004 instance=ExtResource("7_4k1nj")]
 

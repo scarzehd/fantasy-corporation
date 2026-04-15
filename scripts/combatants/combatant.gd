@@ -23,11 +23,17 @@ var defense:int : get = _get_defense
 @export var base_power:int
 @export var base_defense:int
 
+@export var target_mode:Ability.TargetMode = Ability.TargetMode.Enemy
+
 var status_effects:Array[StatusEffect]
 
 var acted:bool = false
 
 var damage_tween:Tween
+
+func _process(_delta: float) -> void:
+	if Battle.instance and Battle.instance.targeting_mode != target_mode and not targeting_indicator.select_animation_playing:
+		targeting_indicator.hide()
 
 func _ready() -> void:
 	input_event.connect(_on_input_event)
@@ -36,6 +42,9 @@ func _ready() -> void:
 		health_bar.max_value = max_hp
 	
 	current_hp = max_hp
+	
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
 
 func damage(amount:int):
 	create_bounce_text(str(amount), Color.DARK_RED, 40)
@@ -172,3 +181,10 @@ func _on_defeat():
 	
 	await damage_tween.finished
 	queue_free()
+
+func _on_mouse_entered():
+	if Battle.instance.targeting_mode == target_mode:
+		targeting_indicator.show()
+
+func _on_mouse_exited():
+	targeting_indicator.hide()

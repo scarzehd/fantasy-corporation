@@ -20,7 +20,7 @@ func advance_day(fade:bool = true):
 	day_ended.emit()
 	
 	if (day_number) % 4 == 0:
-		var percent_change = daily_expenses * 1.2
+		var percent_change = daily_expenses * 1.25
 		var rounded = roundi(percent_change / 10.0) * 10
 		if rounded < daily_expenses + 10:
 			rounded += 10
