@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://bxer6od4tbb5u"]
 
-[ext_resource type="Script" uid="uid://dhqkfgfuqgdye" path="res://scripts/combatants/player_combatant.gd" id="1_8x2sg"]
-[ext_resource type="Texture2D" uid="uid://d0gbjvwmvxety" path="res://resources/sprites/characters/fighter/fighter_idle_1.png" id="2_35ab1"]
-[ext_resource type="StyleBox" uid="uid://74jbejvamqvb" path="res://resources/styleboxes/health_bar_background.tres" id="2_cg46c"]
-[ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="3_8rlhy"]
-[ext_resource type="Texture2D" uid="uid://btmlb33g0v4is" path="res://resources/sprites/characters/heads/head_base.png" id="4_jqwdw"]
-[ext_resource type="Texture2D" uid="uid://o56n0tm1vqe0" path="res://resources/sprites/abilities/defend.png" id="4_qmxaq"]
-[ext_resource type="Script" uid="uid://cd1bjyq3d6hh3" path="res://scripts/combatants/abilities/defend.gd" id="4_sjeno"]
-[ext_resource type="Texture2D" uid="uid://2e78ua808ri2" path="res://resources/sprites/abilities/defend_hover.png" id="5_qmxaq"]
-[ext_resource type="Texture2D" uid="uid://dkweuy2g77c0o" path="res://resources/sprites/status_icons/burn.png" id="7_g2mff"]
-[ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="9_4v738"]
-[ext_resource type="Texture2D" uid="uid://c4b8o3fft6k8o" path="res://resources/sprites/drop_shadow.png" id="10_we0ox"]
-[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="11_3dmf7"]
-[ext_resource type="AudioStream" uid="uid://c3wrb7n8wfmap" path="res://resources/audio/combat/hit1.mp3" id="12_jw5f7"]
-[ext_resource type="AudioStream" uid="uid://c6aa6tfa32ipr" path="res://resources/audio/combat/hit2.mp3" id="13_g2mff"]
-[ext_resource type="AudioStream" uid="uid://bs444vvwu3a0k" path="res://resources/audio/combat/hit3.mp3" id="14_2c2c2"]
-[ext_resource type="AudioStream" uid="uid://c4ufvg0dunvbx" path="res://resources/audio/combat/hit4.mp3" id="15_wndp2"]
+[ext_resource type="Script" uid="uid://dhqkfgfuqgdye" path="res://scripts/combatants/player_combatant.gd" id="1_5dqnl"]
+[ext_resource type="Script" uid="uid://cd1bjyq3d6hh3" path="res://scripts/combatants/abilities/defend.gd" id="2_lenfj"]
+[ext_resource type="Texture2D" uid="uid://o56n0tm1vqe0" path="res://resources/sprites/abilities/defend.png" id="3_rcmsd"]
+[ext_resource type="Texture2D" uid="uid://2e78ua808ri2" path="res://resources/sprites/abilities/defend_hover.png" id="4_4kujs"]
+[ext_resource type="Texture2D" uid="uid://c4b8o3fft6k8o" path="res://resources/sprites/drop_shadow.png" id="5_wnng2"]
+[ext_resource type="Texture2D" uid="uid://d0gbjvwmvxety" path="res://resources/sprites/characters/fighter/fighter_idle_1.png" id="6_2isic"]
+[ext_resource type="Texture2D" uid="uid://btmlb33g0v4is" path="res://resources/sprites/characters/heads/head_base.png" id="7_rmkrq"]
+[ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="8_34233"]
+[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="9_03t4f"]
+[ext_resource type="AudioStream" uid="uid://c3wrb7n8wfmap" path="res://resources/audio/combat/hit1.mp3" id="10_yhvrn"]
+[ext_resource type="AudioStream" uid="uid://c6aa6tfa32ipr" path="res://resources/audio/combat/hit2.mp3" id="11_l5olj"]
+[ext_resource type="AudioStream" uid="uid://bs444vvwu3a0k" path="res://resources/audio/combat/hit3.mp3" id="12_pilc5"]
+[ext_resource type="AudioStream" uid="uid://c4ufvg0dunvbx" path="res://resources/audio/combat/hit4.mp3" id="13_5pi0n"]
+[ext_resource type="StyleBox" uid="uid://74jbejvamqvb" path="res://resources/styleboxes/health_bar_background.tres" id="14_sn3fx"]
+[ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="15_motwc"]
+[ext_resource type="Texture2D" uid="uid://dkweuy2g77c0o" path="res://resources/sprites/status_icons/burn.png" id="16_muy5o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhwg"]
 size = Vector2(168, 350)
@@ -120,8 +120,8 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_jw5f7"]
 font_size = 25
 
-[node name="CombatantBase" type="Area2D" unique_id=209960256 node_paths=PackedStringArray("name_label", "abilities", "health_bar", "damage_tween_target", "targeting_indicator", "hit_sound", "effect_icon_template", "effect_icon_container")]
-script = ExtResource("1_8x2sg")
+[node name="PlayerCombatantBase" type="Area2D" unique_id=209960256 node_paths=PackedStringArray("name_label", "abilities", "health_bar", "damage_tween_target", "targeting_indicator", "hit_sound", "effect_icon_template", "effect_icon_container")]
+script = ExtResource("1_5dqnl")
 name_label = NodePath("Control/VBoxContainer/NameLabel")
 abilities = [NodePath("DefendAbility")]
 combatant_name = "Bringle Cringus"
@@ -138,10 +138,10 @@ position = Vector2(0, 24.5)
 shape = SubResource("RectangleShape2D_rkhwg")
 
 [node name="DefendAbility" type="Node" parent="." unique_id=1175001999]
-script = ExtResource("4_sjeno")
+script = ExtResource("2_lenfj")
 ability_name = "Defend"
-icon = ExtResource("4_qmxaq")
-hover_icon = ExtResource("5_qmxaq")
+icon = ExtResource("3_rcmsd")
+hover_icon = ExtResource("4_4kujs")
 description = "Increases Defense by 50% for two turns."
 metadata/_custom_type_script = "uid://cd1bjyq3d6hh3"
 
@@ -153,29 +153,29 @@ autoplay = &"idle"
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=41942737]
 position = Vector2(-15, 4)
 scale = Vector2(0.6132813, 0.39630452)
-texture = ExtResource("10_we0ox")
+texture = ExtResource("5_wnng2")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1120545636]
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=904817639]
 position = Vector2(0, -221)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_35ab1")
+texture = ExtResource("6_2isic")
 
 [node name="Head" type="Sprite2D" parent="Node2D" unique_id=417519414]
 unique_name_in_owner = true
 position = Vector2(15, -346)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_jqwdw")
+texture = ExtResource("7_rmkrq")
 
-[node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("9_4v738")]
+[node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("8_34233")]
 visible = false
 position = Vector2(-16, 0)
 
 [node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=695289448]
 max_polyphony = 2
-script = ExtResource("11_3dmf7")
-sounds = Array[AudioStream]([ExtResource("12_jw5f7"), ExtResource("13_g2mff"), ExtResource("14_2c2c2"), ExtResource("15_wndp2")])
+script = ExtResource("9_03t4f")
+sounds = Array[AudioStream]([ExtResource("10_yhvrn"), ExtResource("11_l5olj"), ExtResource("12_pilc5"), ExtResource("13_5pi0n")])
 metadata/_custom_type_script = "uid://dfesb88ascuoc"
 
 [node name="Control" type="Control" parent="." unique_id=915617691]
@@ -217,8 +217,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 size_flags_vertical = 2
-theme_override_styles/background = ExtResource("2_cg46c")
-theme_override_styles/fill = ExtResource("3_8rlhy")
+theme_override_styles/background = ExtResource("14_sn3fx")
+theme_override_styles/fill = ExtResource("15_motwc")
 show_percentage = false
 
 [node name="Control2" type="Control" parent="Control/VBoxContainer" unique_id=1367230814]
@@ -233,5 +233,6 @@ size_flags_vertical = 3
 visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("7_g2mff")
+size_flags_horizontal = 10
+texture = ExtResource("16_muy5o")
 expand_mode = 1

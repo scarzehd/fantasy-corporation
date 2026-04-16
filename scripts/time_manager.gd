@@ -37,12 +37,12 @@ func advance_day(fade:bool = true):
 	day_started.emit()
 
 func update_world_state():
-	var random = 0
-	var indices:Array = [0, 1, 2]
+	var random = randf() - 0.5
+	var indices:Array = [0, 1]
 	
-	var modified_variability = floori(Globals.variability / 3.0)
+	var modified_variability = floori(Globals.variability / 2.0)
 	var item_appreciation_change = randi_range(modified_variability, -modified_variability) * 0.05
-	Globals.item_appreciation = clampf(1.05 + item_appreciation_change, 0.8, 1.3)
+	Globals.item_appreciation = clampf(1.05 + item_appreciation_change, 0.9, 1.5)
 	
 	while random <= Globals.volatility and indices.size() > 0:
 		random = randf()
@@ -78,16 +78,16 @@ func set_state_value(value:float, index:int):
 			var min_value = roundf((0.5 / 0.05) * Globals.inflation) * 0.05
 			var max_value = roundf((3.0 / 0.05) * Globals.inflation) * 0.05
 			Globals.item_price_modifier = clampf(value, min_value, max_value)
-		1:
-			Globals.old_resale_modifier = Globals.resale_modifier
+		#1:
+			#Globals.old_resale_modifier = Globals.resale_modifier
 			# Modify min and max values by inflation, rounding to the nearest 0.05
 			#var min_value = roundf((0.5 / 0.05) * Globals.inflation) * 0.05
 			#var max_value = roundf((2.0 / 0.05) * Globals.inflation) * 0.05
-			Globals.resale_modifier = clampf(value, 0.5, 1.0)
-		2:
+			#Globals.resale_modifier = clampf(value, 0.5, 1.0)
+		1:
 			Globals.old_adventurer_price_modifier = Globals.adventurer_price_modifier
 			# Make inflation affect adventurer price less than item price
-			var modified_inflation = ((1.0 - Globals.inflation) * 0.75) + 1
+			var modified_inflation = ((Globals.inflation + 1) * 0.5) + 1
 			# Modify min and max values by inflation, rounding to the nearest 0.05
 			var min_value = roundf((0.5 / 0.05) * modified_inflation) * 0.05
 			var max_value = roundf((2.0 / 0.05) * modified_inflation) * 0.05
@@ -97,9 +97,9 @@ func get_state_value(index:int) -> float:
 	match index:
 		0:
 			return Globals.item_price_modifier
+		#1:
+			#return Globals.resale_modifier
 		1:
-			return Globals.resale_modifier
-		2:
 			return Globals.adventurer_price_modifier
 	
 	return 0

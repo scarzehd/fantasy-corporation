@@ -360,6 +360,10 @@ theme_override_styles/background = ExtResource("7_36fji")
 theme_override_styles/fill = ExtResource("8_7y3ja")
 show_percentage = false
 
+[node name="Control2" type="Control" parent="Control/VBoxContainer" unique_id=1083959398]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
 [node name="GridContainer" type="GridContainer" parent="Control/VBoxContainer" unique_id=361649679]
 layout_mode = 2
 size_flags_vertical = 3

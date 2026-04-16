@@ -18,9 +18,9 @@ var money:int = 1500 :
 		money = new_money
 		money_changed.emit(old_money, new_money)
 
-const DEFAULT_RESALE_MODIFIER:float = 0.75
-var resale_modifier:float = 0.75
-var old_resale_modifier:float = 0.75
+const DEFAULT_RESALE_MODIFIER:float = 0.9
+var resale_modifier:float = 0.9
+var old_resale_modifier:float = 0.9
 
 const DEFAULT_ITEM_PRICE_MODIFIER:float = 1.0
 var item_price_modifier:float = 1.0
@@ -33,7 +33,7 @@ var old_adventurer_price_modifier:float = 1.0
 var item_appreciation:float = 1.05
 
 var volatility:float = 0.25
-var variability:int = 10
+var variability:int = 5
 var inflation:float = 1.0
 
 func reset():

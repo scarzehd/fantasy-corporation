@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cfd1xilmm2jxe"]
 
-[ext_resource type="PackedScene" uid="uid://bxer6od4tbb5u" path="res://scenes/combatants/player/combatant_base.tscn" id="1_oerfn"]
+[ext_resource type="PackedScene" uid="uid://bxer6od4tbb5u" path="res://scenes/combatants/player/player_combatant_base.tscn" id="1_oerfn"]
 [ext_resource type="Script" uid="uid://berxejko273v8" path="res://scripts/combatants/abilities/restore_ability.gd" id="2_b52xw"]
 [ext_resource type="Texture2D" uid="uid://cmdeyo5h24b7q" path="res://resources/sprites/characters/mage/mage_idle_1.png" id="3_a1hn4"]
 [ext_resource type="Texture2D" uid="uid://bnnve2w665gfr" path="res://resources/sprites/characters/mage/mage_attack_1.png" id="4_u5lfp"]

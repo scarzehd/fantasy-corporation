@@ -21,11 +21,11 @@ font_size = 20
 resource_local_to_scene = true
 font_size = 20
 
-[sub_resource type="LabelSettings" id="LabelSettings_aahg5"]
+[sub_resource type="LabelSettings" id="LabelSettings_e7fck"]
 resource_local_to_scene = true
 font_size = 20
 
-[sub_resource type="LabelSettings" id="LabelSettings_e7fck"]
+[sub_resource type="LabelSettings" id="LabelSettings_aahg5"]
 resource_local_to_scene = true
 font_size = 20
 
@@ -124,17 +124,11 @@ label_settings = SubResource("LabelSettings_qv27o")
 horizontal_alignment = 1
 
 [node name="ItemResalePriceLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=293172746]
+visible = false
 layout_mode = 2
 size_flags_vertical = 6
 text = "Item Appreciation: +0%"
 label_settings = SubResource("LabelSettings_r67pl")
-horizontal_alignment = 1
-
-[node name="ItemAppreciationLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=1282001047]
-layout_mode = 2
-size_flags_vertical = 6
-text = "Item Appreciation: +0%"
-label_settings = SubResource("LabelSettings_aahg5")
 horizontal_alignment = 1
 
 [node name="CharacterPriceLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=1431986368]
@@ -142,6 +136,13 @@ layout_mode = 2
 size_flags_vertical = 6
 text = "Adventurer Cost: 100%"
 label_settings = SubResource("LabelSettings_e7fck")
+horizontal_alignment = 1
+
+[node name="ItemAppreciationLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=1282001047]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Item Appreciation: +0%"
+label_settings = SubResource("LabelSettings_aahg5")
 horizontal_alignment = 1
 
 [node name="DailyExpenseLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=1881526057]
