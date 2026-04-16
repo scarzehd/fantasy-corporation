@@ -54,7 +54,7 @@ func _ready() -> void:
 	waves_left = floori((TimeManager.successful_adventures + 1) / 3.0) + 1
 	waves = waves_left
 	
-	for i in range(min(Globals.hired_characters.size(), 4)):
+	for i in range(min(Globals.hired_characters.size(), 3)):
 		var character = Globals.hired_characters[i]
 		var slot = player_slots[i]
 		var combatant:PlayerCombatant = PLAYER_COMBATANT_SCENES[character.character_class].instantiate()
@@ -73,7 +73,7 @@ func start_battle():
 			func():
 				if combatants.has(combatant):
 					var index = combatants.find(combatant)
-					if current_turn_index > index:
+					if current_turn_index >= index:
 						current_turn_index -= 1
 					
 					if combatant is PlayerCombatant:
@@ -141,16 +141,13 @@ func win_battle():
 
 func advance_wave():
 	#var num_enemies = randi_range(max(existing_combatants.size(), 2), enemy_slots.size())
-	var num_enemies = 1
+	var num_enemies = randi_range(1, 2)
 	
 	if TimeManager.successful_adventures >= 1:
-		num_enemies = 2
+		num_enemies = randi_range(2, 3)
 		#num_enemies = randi_range(max(combatants.size(), 2), enemy_slots.size())
 		if TimeManager.successful_adventures >= 3:
-			if randf() < 0.5:
-				num_enemies += 1
-				if randf() < 0.5:
-					num_enemies += 1
+			num_enemies = randi_range(3, 4)
 	
 	
 	for i in range(num_enemies):

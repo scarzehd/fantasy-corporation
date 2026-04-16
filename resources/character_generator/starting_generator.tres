@@ -22,8 +22,8 @@
 
 [resource]
 script = ExtResource("4_ptbll")
-power_range = Vector2i(10, 40)
-power_deviation = 1.0
+power_range = Vector2i(5, 35)
+power_deviation = 0.6
 attack_range = Vector2i(20, 100)
 attack_deviation = 0.75
 defense_range = Vector2i(40, 100)

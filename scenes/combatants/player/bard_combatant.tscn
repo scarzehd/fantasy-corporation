@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://dsrtatorpiiey" path="res://resources/sprites/abilities/healing_song.png" id="10_ggd7i"]
 [ext_resource type="Texture2D" uid="uid://bc1588ycv11dt" path="res://resources/sprites/abilities/demoralize_hover.png" id="12_u7gr0"]
 [ext_resource type="Texture2D" uid="uid://ciutkseriqohb" path="res://resources/sprites/abilities/healing_song_hover.png" id="15_2u641"]
+[ext_resource type="AudioStream" uid="uid://b2orsbxixavva" path="res://resources/audio/combat/healing_song.mp3" id="16_7jc6n"]
+[ext_resource type="AudioStream" uid="uid://b4lbse2h8l8q8" path="res://resources/audio/combat/demoralize.mp3" id="16_w7ewn"]
+[ext_resource type="AudioStream" uid="uid://bidqfj8wp2hf" path="res://resources/audio/combat/cleanse.mp3" id="18_u8c1d"]
 
 [sub_resource type="Animation" id="Animation_cmwjb"]
 resource_name = "attack"
@@ -138,21 +141,17 @@ attack_animation = &"bard/attack"
 [node name="CollisionShape2D" parent="." index="0" unique_id=238847892]
 position = Vector2(0, -196.5)
 
-[node name="Control" parent="." index="1" unique_id=1851136507]
-offset_top = -500.0
-offset_bottom = 0.0
-
-[node name="AnimationPlayer" parent="." index="3" unique_id=1377899510]
+[node name="AnimationPlayer" parent="." index="2" unique_id=1377899510]
 libraries/bard = SubResource("AnimationLibrary_f1t0f")
 autoplay = &"bard/idle"
 
 [node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(1120545636) index="0" unique_id=904817639]
 texture = ExtResource("2_cmwjb")
 
-[node name="CleanseAbility" type="Node" parent="." index="5" unique_id=854532944]
+[node name="CleanseAbility" type="Node" parent="." index="5" unique_id=854532944 node_paths=PackedStringArray("audio_stream_player")]
 script = ExtResource("2_aodbh")
+audio_stream_player = NodePath("../CleanseSound")
 ability_name = "Cleansing Song"
-toggle = true
 icon = ExtResource("6_ryyco")
 select_icon = ExtResource("7_rjje7")
 hover_icon = ExtResource("8_eup5y")
@@ -160,10 +159,10 @@ description = "Remove all status effects from one target."
 target_mode = 2
 metadata/_custom_type_script = "uid://dbk6q71egjpcy"
 
-[node name="DemoralizeAbility" type="Node" parent="." index="6" unique_id=1826448421]
+[node name="DemoralizeAbility" type="Node" parent="." index="6" unique_id=1826448421 node_paths=PackedStringArray("audio_stream_player")]
 script = ExtResource("4_wqw3v")
+audio_stream_player = NodePath("../DemoralizeSound")
 ability_name = "Demoralize"
-toggle = true
 icon = ExtResource("8_e3apn")
 select_icon = ExtResource("9_c7pkq")
 hover_icon = ExtResource("12_u7gr0")
@@ -171,10 +170,20 @@ description = "Reduce target Attack and Power for 2 turns."
 target_mode = 1
 metadata/_custom_type_script = "uid://dvyc8dfvxjqk5"
 
-[node name="HealingSong" type="Node" parent="." index="7" unique_id=1549955965]
+[node name="HealingSong" type="Node" parent="." index="7" unique_id=1549955965 node_paths=PackedStringArray("audio_stream_player")]
 script = ExtResource("4_cmwjb")
+audio_stream_player = NodePath("../HealSound")
 ability_name = "Healing Song"
 icon = ExtResource("10_ggd7i")
 hover_icon = ExtResource("15_2u641")
 description = "Slowly heal all other party members for 2 turns."
 metadata/_custom_type_script = "uid://6hs3kcvwbwo3"
+
+[node name="DemoralizeSound" type="AudioStreamPlayer" parent="." index="11" unique_id=1283992943]
+stream = ExtResource("16_w7ewn")
+
+[node name="HealSound" type="AudioStreamPlayer" parent="." index="12" unique_id=959840822]
+stream = ExtResource("16_7jc6n")
+
+[node name="CleanseSound" type="AudioStreamPlayer" parent="." index="13" unique_id=2047910468]
+stream = ExtResource("18_u8c1d")

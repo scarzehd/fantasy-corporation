@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://dakppwtg6h8ey"]
 
 [ext_resource type="Script" uid="uid://rvsnhrqgti45" path="res://scenes/ui/lose_scene.gd" id="1_68m3b"]
+[ext_resource type="Texture2D" uid="uid://f48qjhskco44" path="res://resources/sprites/ui/game_over_background.png" id="2_6vthu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r7mh8"]
 font_size = 100
 
-[sub_resource type="LabelSettings" id="LabelSettings_68m3b"]
-font_size = 60
-
 [node name="LoseScene" type="Node2D" unique_id=683280131]
 script = ExtResource("1_68m3b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733072502]
+position = Vector2(960, 540)
+texture = ExtResource("2_6vthu")
 
 [node name="Control" type="Control" parent="." unique_id=387525530]
 custom_minimum_size = Vector2(1920, 1080)
@@ -26,51 +28,27 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Control" unique_id=908189708]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -111.0
-offset_top = -266.0
-offset_right = 111.0
-offset_bottom = -213.0
-grow_horizontal = 2
+offset_left = 63.0
+offset_top = -430.0
+offset_right = 651.0
+offset_bottom = -268.0
 grow_vertical = 2
-text = "You lose!"
+text = "You're fired!"
 label_settings = SubResource("LabelSettings_r7mh8")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Control" unique_id=1096235159]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -216.5
-offset_top = -163.0
-offset_right = 216.5
-offset_bottom = -26.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Idiot."
-label_settings = SubResource("LabelSettings_68m3b")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Button" type="Button" parent="Control" unique_id=1256328152]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -177.0
-offset_top = 47.0
-offset_right = 191.0
-offset_bottom = 185.0
-grow_horizontal = 2
+offset_left = 136.0
+offset_top = 261.0
+offset_right = 504.0
+offset_bottom = 399.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
 text = "Try again"

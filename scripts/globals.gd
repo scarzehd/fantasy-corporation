@@ -30,6 +30,8 @@ const DEFAULT_ADVENTURER_PRICE_MODIFIER:float = 1.0
 var adventurer_price_modifier:float = 1.0
 var old_adventurer_price_modifier:float = 1.0
 
+var item_appreciation:float = 1.05
+
 var volatility:float = 0.25
 var variability:int = 10
 var inflation:float = 1.0

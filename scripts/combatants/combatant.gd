@@ -17,6 +17,10 @@ var defense:int : get = _get_defense
 @export var health_bar:ProgressBar
 @export var damage_tween_target:CanvasItem
 @export var targeting_indicator:TargetingIndicator
+@export var hit_sound:RandomAudioStreamPlayer
+
+@export var effect_icon_template:TextureRect
+@export var effect_icon_container:GridContainer
 
 @export var base_hp:int
 @export var base_attack:int
@@ -51,6 +55,9 @@ func damage(amount:int):
 	current_hp -= amount
 	if current_hp > 0:
 		_on_damage(amount)
+	
+	if hit_sound:
+		hit_sound.play_random()
 
 func _on_damage(_amount:int):
 	if damage_tween:
@@ -87,6 +94,13 @@ func add_status_effect(status_effect:StatusEffect):
 	status_effects.append(status_effect)
 	status_effect.combatant = self
 	status_effect.ended.connect(status_effects.erase.bind(status_effect))
+	
+	if status_effect.icon:
+		var icon = effect_icon_template.duplicate()
+		icon.show()
+		icon.texture = status_effect.icon
+		effect_icon_container.add_child(icon)
+		status_effect.ended.connect(icon.queue_free)
 
 func has_status_id(status_id:StringName) -> bool:
 	for effect in status_effects:
@@ -181,6 +195,9 @@ func _on_defeat():
 	damage_tween = create_tween()
 	damage_tween.tween_property(damage_tween_target, "modulate", Color.RED, 0.15)
 	damage_tween.tween_property(damage_tween_target, "modulate", Color(1.0, 0.0, 0.0, 0.0), 0.3)
+	
+	collision_layer = 0
+	collision_mask = 0
 	
 	await damage_tween.finished
 	queue_free()

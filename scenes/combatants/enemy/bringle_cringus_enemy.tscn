@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://blvwr31aavj70" path="res://resources/sprites/enemies/bringle_cringus/bringle_cringus_3.png" id="4_ipg3v"]
 [ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="4_letmc"]
 [ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="5_igomy"]
+[ext_resource type="Texture2D" uid="uid://dkweuy2g77c0o" path="res://resources/sprites/status_icons/burn.png" id="8_dcbrw"]
+[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="9_1a0d7"]
+[ext_resource type="AudioStream" uid="uid://c3wrb7n8wfmap" path="res://resources/audio/combat/hit1.mp3" id="10_dcbrw"]
+[ext_resource type="AudioStream" uid="uid://c6aa6tfa32ipr" path="res://resources/audio/combat/hit2.mp3" id="11_vvy7l"]
+[ext_resource type="AudioStream" uid="uid://bs444vvwu3a0k" path="res://resources/audio/combat/hit3.mp3" id="12_3q2wl"]
+[ext_resource type="AudioStream" uid="uid://c4ufvg0dunvbx" path="res://resources/audio/combat/hit4.mp3" id="13_xci5r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
 size = Vector2(183, 275)
@@ -183,13 +189,16 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_jdatg"]
 font_size = 25
 
-[node name="BringleCringusEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator")]
+[node name="BringleCringusEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator", "hit_sound", "effect_icon_template", "effect_icon_container")]
 script = ExtResource("1_ipg3v")
 combatant_name = "Bringle Cringus"
 portrait = ExtResource("2_c3w1g")
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
 damage_tween_target = NodePath("Sprite2D")
 targeting_indicator = NodePath("TargetingIndicator")
+hit_sound = NodePath("HitSound")
+effect_icon_template = NodePath("Control/VBoxContainer/GridContainer/TextureRect")
+effect_icon_container = NodePath("Control/VBoxContainer/GridContainer")
 base_hp = 75
 base_attack = 80
 base_power = 30
@@ -258,4 +267,21 @@ theme_override_styles/background = ExtResource("3_ipg3v")
 theme_override_styles/fill = ExtResource("4_letmc")
 show_percentage = false
 
+[node name="GridContainer" type="GridContainer" parent="Control/VBoxContainer" unique_id=727794164]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/GridContainer" unique_id=824867152]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("8_dcbrw")
+expand_mode = 1
+
 [node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("5_igomy")]
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1095405858]
+max_polyphony = 2
+script = ExtResource("9_1a0d7")
+sounds = Array[AudioStream]([ExtResource("10_dcbrw"), ExtResource("11_vvy7l"), ExtResource("12_3q2wl"), ExtResource("13_xci5r")])
+metadata/_custom_type_script = "uid://dfesb88ascuoc"

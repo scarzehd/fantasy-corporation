@@ -71,7 +71,7 @@ func update_hireable():
 		accept_button.disabled = true
 		return
 	
-	if Globals.hired_characters.size() >= 4:
+	if Globals.hired_characters.size() >= 3:
 		accept_button.text = "Party Full"
 		accept_button.disabled = true
 		return

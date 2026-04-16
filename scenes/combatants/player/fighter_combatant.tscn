@@ -15,6 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://c2jw4yrlep3co" path="res://resources/sprites/abilities/lacerate_select.png" id="10_iy6ko"]
 [ext_resource type="Texture2D" uid="uid://bpr0pdeeg0uw3" path="res://resources/sprites/abilities/lacerate_hover.png" id="12_4olqn"]
 [ext_resource type="Texture2D" uid="uid://bqfmvd3mrly0m" path="res://resources/sprites/abilities/whirlwind_hover.png" id="15_fnonl"]
+[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="16_au77o"]
+[ext_resource type="AudioStream" uid="uid://ccalsu0bq8evj" path="res://resources/audio/combat/swish1.mp3" id="17_01e3d"]
+[ext_resource type="AudioStream" uid="uid://btayn0nh8551m" path="res://resources/audio/combat/swish2.mp3" id="18_d6kx7"]
+[ext_resource type="AudioStream" uid="uid://crofe18xfia2g" path="res://resources/audio/combat/swish3.mp3" id="19_8eiao"]
+[ext_resource type="AudioStream" uid="uid://0mjwhqxkq746" path="res://resources/audio/combat/woosh1.mp3" id="20_24qig"]
+[ext_resource type="AudioStream" uid="uid://bp8jckfkmipl3" path="res://resources/audio/combat/woosh2.mp3" id="21_fop7c"]
+[ext_resource type="AudioStream" uid="uid://c1rodp5qbgvex" path="res://resources/audio/combat/woosh3.mp3" id="22_hkxuw"]
 
 [sub_resource type="Animation" id="Animation_wek84"]
 resource_name = "attack"
@@ -71,6 +78,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 2.21, 2.21, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(15, -346), Vector2(15, -346), Vector2(16, -358), Vector2(4, -362), Vector2(2, -350), Vector2(2, -350), Vector2(60, -334), Vector2(60, -334), Vector2(15, -346)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AttackSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.38),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play_random"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_awywe"]
@@ -139,18 +160,13 @@ attack_animation = &"fighter/attack"
 [node name="CollisionShape2D" parent="." index="0" unique_id=238847892]
 position = Vector2(-16, -185)
 
-[node name="Control" parent="." index="1" unique_id=1851136507]
-offset_top = -500.0
-offset_bottom = 0.0
-
-[node name="AnimationPlayer" parent="." index="3" unique_id=1377899510]
+[node name="AnimationPlayer" parent="." index="2" unique_id=1377899510]
 libraries/fighter = SubResource("AnimationLibrary_wek84")
 autoplay = &"fighter/idle"
 
 [node name="AttackAbility" type="Node" parent="." index="5" unique_id=1257583784]
 script = ExtResource("2_luh37")
 ability_name = "Strike"
-toggle = true
 icon = ExtResource("6_wgpxe")
 select_icon = ExtResource("7_ttghg")
 hover_icon = ExtResource("8_mie8s")
@@ -161,7 +177,6 @@ metadata/_custom_type_script = "uid://b1ihqjth617s6"
 [node name="LacerateAbility" type="Node" parent="." index="6" unique_id=5844044]
 script = ExtResource("3_hqiq2")
 ability_name = "Lacerate"
-toggle = true
 icon = ExtResource("8_wgpxe")
 select_icon = ExtResource("10_iy6ko")
 hover_icon = ExtResource("12_4olqn")
@@ -176,3 +191,8 @@ icon = ExtResource("10_62n4o")
 hover_icon = ExtResource("15_fnonl")
 description = "Damage equal to Power is split between all enemies."
 metadata/_custom_type_script = "uid://vqfv6ove1g6o"
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="." index="11" unique_id=186588591]
+script = ExtResource("16_au77o")
+sounds = Array[AudioStream]([ExtResource("17_01e3d"), ExtResource("18_d6kx7"), ExtResource("19_8eiao"), ExtResource("20_24qig"), ExtResource("21_fop7c"), ExtResource("22_hkxuw")])
+metadata/_custom_type_script = "uid://dfesb88ascuoc"

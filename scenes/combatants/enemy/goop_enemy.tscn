@@ -7,7 +7,13 @@
 [ext_resource type="StyleBox" uid="uid://74jbejvamqvb" path="res://resources/styleboxes/health_bar_background.tres" id="7_jmutf"]
 [ext_resource type="Texture2D" uid="uid://c4b8o3fft6k8o" path="res://resources/sprites/drop_shadow.png" id="8_5ive2"]
 [ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="8_41lsq"]
+[ext_resource type="Texture2D" uid="uid://dkweuy2g77c0o" path="res://resources/sprites/status_icons/burn.png" id="8_dkr31"]
 [ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="9_2l8sg"]
+[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="9_q6j4j"]
+[ext_resource type="AudioStream" uid="uid://c3wrb7n8wfmap" path="res://resources/audio/combat/hit1.mp3" id="10_dkr31"]
+[ext_resource type="AudioStream" uid="uid://c6aa6tfa32ipr" path="res://resources/audio/combat/hit2.mp3" id="11_jmutf"]
+[ext_resource type="AudioStream" uid="uid://bs444vvwu3a0k" path="res://resources/audio/combat/hit3.mp3" id="12_41lsq"]
+[ext_resource type="AudioStream" uid="uid://c4ufvg0dunvbx" path="res://resources/audio/combat/hit4.mp3" id="13_2l8sg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
 size = Vector2(251, 351)
@@ -219,13 +225,16 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_jdatg"]
 font_size = 25
 
-[node name="GoopEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator")]
+[node name="GoopEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator", "hit_sound", "effect_icon_template", "effect_icon_container")]
 script = ExtResource("1_b6um1")
 combatant_name = "Toxigoop"
 portrait = ExtResource("4_pqjjs")
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
 damage_tween_target = NodePath("Sprite2D")
 targeting_indicator = NodePath("TargetingIndicator")
+hit_sound = NodePath("HitSound")
+effect_icon_template = NodePath("Control/VBoxContainer/GridContainer/TextureRect")
+effect_icon_container = NodePath("Control/VBoxContainer/GridContainer")
 base_hp = 100
 base_attack = 50
 base_power = 20
@@ -293,4 +302,21 @@ theme_override_styles/background = ExtResource("7_jmutf")
 theme_override_styles/fill = ExtResource("8_41lsq")
 show_percentage = false
 
+[node name="GridContainer" type="GridContainer" parent="Control/VBoxContainer" unique_id=1752508670]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/GridContainer" unique_id=1527432120]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("8_dkr31")
+expand_mode = 1
+
 [node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("9_2l8sg")]
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1205505377]
+max_polyphony = 2
+script = ExtResource("9_q6j4j")
+sounds = Array[AudioStream]([ExtResource("10_dkr31"), ExtResource("11_jmutf"), ExtResource("12_41lsq"), ExtResource("13_2l8sg")])
+metadata/_custom_type_script = "uid://dfesb88ascuoc"

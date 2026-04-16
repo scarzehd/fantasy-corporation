@@ -7,7 +7,7 @@ class_name PlayerCombatant
 
 @export var abilities:Array[Ability]
 
-@export var idle_animation:StringName = "idle"
+@export var idle_animation:StringName = "idle"	
 
 @export var attack_animation:StringName
 
@@ -89,9 +89,4 @@ func _set_character_data(new_value:CharacterData):
 	head.texture = new_value.head
 
 func _on_defeat():
-	if damage_tween:
-		damage_tween.stop()
-	
-	damage_tween = create_tween()
-	damage_tween.tween_property(damage_tween_target, "modulate", Color.RED, 0.15)
-	damage_tween.tween_property(damage_tween_target, "modulate", Color(1.0, 0.0, 0.0, 0.0), 0.3)
+	super()

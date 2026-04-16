@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cf5acaerc6hgu"]
 
 [ext_resource type="Script" uid="uid://8st8h3d1v6qf" path="res://scripts/combatants/enemy/robe.gd" id="1_lcruw"]
+[ext_resource type="Texture2D" uid="uid://5mtufj24o0m7" path="res://resources/sprites/status_icons/doomed.png" id="2_1umby"]
 [ext_resource type="Script" uid="uid://d3i1h310ayq5c" path="res://scripts/resources/status_effect.gd" id="2_pwbli"]
 [ext_resource type="Texture2D" uid="uid://dk0h38tq448jk" path="res://resources/sprites/enemies/robe/robe_1.png" id="3_36fji"]
 [ext_resource type="Texture2D" uid="uid://clym8bdfpewuj" path="res://resources/sprites/enemies/robe/robe_2.png" id="4_7y3ja"]
@@ -10,16 +11,26 @@
 [ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="8_7y3ja"]
 [ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="9_iedft"]
 [ext_resource type="Texture2D" uid="uid://c4b8o3fft6k8o" path="res://resources/sprites/drop_shadow.png" id="10_572dg"]
+[ext_resource type="Texture2D" uid="uid://dkweuy2g77c0o" path="res://resources/sprites/status_icons/burn.png" id="10_f4eae"]
+[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="11_1vob3"]
+[ext_resource type="AudioStream" uid="uid://c3wrb7n8wfmap" path="res://resources/audio/combat/hit1.mp3" id="12_f4eae"]
+[ext_resource type="AudioStream" uid="uid://c6aa6tfa32ipr" path="res://resources/audio/combat/hit2.mp3" id="13_1umby"]
+[ext_resource type="AudioStream" uid="uid://bs444vvwu3a0k" path="res://resources/audio/combat/hit3.mp3" id="14_kb4b0"]
+[ext_resource type="AudioStream" uid="uid://c4ufvg0dunvbx" path="res://resources/audio/combat/hit4.mp3" id="15_ayr6l"]
 
 [sub_resource type="Resource" id="Resource_4y868"]
 script = ExtResource("2_pwbli")
 id = &"doom"
 name = "Doomed"
+exclusive_with = null
 has_duration = true
 duration = 3
 refresh_duration = true
+power = null
 defense = -30
 attack = -30
+damage = null
+icon = ExtResource("2_1umby")
 metadata/_custom_type_script = "uid://d3i1h310ayq5c"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
@@ -268,7 +279,7 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_cj51i"]
 font_size = 25
 
-[node name="RobeEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator")]
+[node name="RobeEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator", "hit_sound", "effect_icon_template", "effect_icon_container")]
 script = ExtResource("1_lcruw")
 status_effect = SubResource("Resource_4y868")
 combatant_name = "Doomrobe"
@@ -276,6 +287,9 @@ portrait = ExtResource("3_36fji")
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
 damage_tween_target = NodePath("Sprite2D")
 targeting_indicator = NodePath("TargetingIndicator")
+hit_sound = NodePath("HitSound")
+effect_icon_template = NodePath("Control/VBoxContainer/GridContainer/TextureRect")
+effect_icon_container = NodePath("Control/VBoxContainer/GridContainer")
 base_hp = 80
 base_attack = 40
 base_power = 40
@@ -346,4 +360,21 @@ theme_override_styles/background = ExtResource("7_36fji")
 theme_override_styles/fill = ExtResource("8_7y3ja")
 show_percentage = false
 
+[node name="GridContainer" type="GridContainer" parent="Control/VBoxContainer" unique_id=361649679]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/GridContainer" unique_id=1225512901]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("10_f4eae")
+expand_mode = 1
+
 [node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("9_iedft")]
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=348196607]
+max_polyphony = 2
+script = ExtResource("11_1vob3")
+sounds = Array[AudioStream]([ExtResource("12_f4eae"), ExtResource("13_1umby"), ExtResource("14_kb4b0"), ExtResource("15_ayr6l")])
+metadata/_custom_type_script = "uid://dfesb88ascuoc"

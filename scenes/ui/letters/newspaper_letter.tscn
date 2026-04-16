@@ -21,6 +21,10 @@ font_size = 20
 resource_local_to_scene = true
 font_size = 20
 
+[sub_resource type="LabelSettings" id="LabelSettings_aahg5"]
+resource_local_to_scene = true
+font_size = 20
+
 [sub_resource type="LabelSettings" id="LabelSettings_e7fck"]
 resource_local_to_scene = true
 font_size = 20
@@ -29,7 +33,7 @@ font_size = 20
 resource_local_to_scene = true
 font_size = 20
 
-[node name="Newspaper" type="Control" unique_id=2133484499 node_paths=PackedStringArray("item_price_label", "item_resale_price_label", "character_price_label", "daily_expense_label")]
+[node name="Newspaper" type="Control" unique_id=2133484499 node_paths=PackedStringArray("item_price_label", "item_resale_price_label", "character_price_label", "daily_expense_label", "item_appreciation_label")]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 15
@@ -45,6 +49,7 @@ item_price_label = NodePath("TextureRect/VBoxContainer/ItemPriceLabel")
 item_resale_price_label = NodePath("TextureRect/VBoxContainer/ItemResalePriceLabel")
 character_price_label = NodePath("TextureRect/VBoxContainer/CharacterPriceLabel")
 daily_expense_label = NodePath("TextureRect/VBoxContainer/DailyExpenseLabel")
+item_appreciation_label = NodePath("TextureRect/VBoxContainer/ItemAppreciationLabel")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1545849310]
 layout_mode = 1
@@ -121,8 +126,15 @@ horizontal_alignment = 1
 [node name="ItemResalePriceLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=293172746]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Item Resale Price: 75%"
+text = "Item Appreciation: +0%"
 label_settings = SubResource("LabelSettings_r67pl")
+horizontal_alignment = 1
+
+[node name="ItemAppreciationLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=1282001047]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Item Appreciation: +0%"
+label_settings = SubResource("LabelSettings_aahg5")
 horizontal_alignment = 1
 
 [node name="CharacterPriceLabel" type="Label" parent="TextureRect/VBoxContainer" unique_id=1431986368]

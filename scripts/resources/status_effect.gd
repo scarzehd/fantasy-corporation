@@ -19,6 +19,8 @@ signal ended
 
 @export var damage:int = 0
 
+@export var icon:Texture
+
 var combatant:Combatant
 
 func start_turn():

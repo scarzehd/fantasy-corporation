@@ -38,6 +38,7 @@ const NAME_PART_2:Array[String] = [
 @export var item_resale_price_label:Label
 @export var character_price_label:Label
 @export var daily_expense_label:Label
+@export var item_appreciation_label:Label
 
 func _ready() -> void:
 	headline_label.text = "The " + NAME_PART_1.pick_random() + " " + NAME_PART_2.pick_random()
@@ -54,6 +55,7 @@ func _ready() -> void:
 	
 	item_price_label.text = "Item Price: " + str(roundi(Globals.item_price_modifier * 100)) + "% (" + item_price_string + ")"
 	
+	
 	var item_resale_price_change = Globals.resale_modifier - Globals.old_resale_modifier
 	var item_resale_price_string = "%.0f%%" % (item_resale_price_change * 100)
 	if item_resale_price_change > 0:
@@ -65,6 +67,19 @@ func _ready() -> void:
 		item_resale_price_string = "No change"
 	
 	item_resale_price_label.text = "Item Resale Price: " + str(roundi(Globals.resale_modifier * 100)) + "% (" + item_resale_price_string + ")"
+
+	var item_appreciation = Globals.item_appreciation - 1.0
+	var item_appreciation_string = "%.0f%%" % (item_appreciation * 100)
+	
+	if item_appreciation > 0:
+		item_appreciation_string = "+" + item_appreciation_string
+		item_appreciation_label.label_settings.font_color = Color.GREEN
+	elif item_appreciation < 0:
+		item_appreciation_label.label_settings.font_color = Color.RED
+	else:
+		item_appreciation_string = "No change"
+	
+	item_appreciation_label.text = "Item Appreciation: " + item_appreciation_string
 	
 	var character_price_change = Globals.adventurer_price_modifier - Globals.old_adventurer_price_modifier
 	var character_price_string = "%.0f%%" % (character_price_change * 100)

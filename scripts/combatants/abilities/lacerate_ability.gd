@@ -1,6 +1,8 @@
 extends Ability
 class_name LacerateAbility
 
+const STATUS_ICON:Texture = preload("uid://remqshuqtmhy")
+
 func _ready() -> void:
 	Battle.instance.combatant_clicked.connect(_on_combatant_clicked)
 
@@ -46,6 +48,7 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 		status_effect.has_duration = true
 		status_effect.refresh_duration = true
 		status_effect.duration = 4
+		status_effect.icon = STATUS_ICON
 		
 		clicked_combatant.add_status_effect(status_effect)
 		await get_tree().create_timer(0.05).timeout

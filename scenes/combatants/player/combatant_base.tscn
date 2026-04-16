@@ -8,14 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://o56n0tm1vqe0" path="res://resources/sprites/abilities/defend.png" id="4_qmxaq"]
 [ext_resource type="Script" uid="uid://cd1bjyq3d6hh3" path="res://scripts/combatants/abilities/defend.gd" id="4_sjeno"]
 [ext_resource type="Texture2D" uid="uid://2e78ua808ri2" path="res://resources/sprites/abilities/defend_hover.png" id="5_qmxaq"]
+[ext_resource type="Texture2D" uid="uid://dkweuy2g77c0o" path="res://resources/sprites/status_icons/burn.png" id="7_g2mff"]
 [ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="9_4v738"]
 [ext_resource type="Texture2D" uid="uid://c4b8o3fft6k8o" path="res://resources/sprites/drop_shadow.png" id="10_we0ox"]
+[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="11_3dmf7"]
+[ext_resource type="AudioStream" uid="uid://c3wrb7n8wfmap" path="res://resources/audio/combat/hit1.mp3" id="12_jw5f7"]
+[ext_resource type="AudioStream" uid="uid://c6aa6tfa32ipr" path="res://resources/audio/combat/hit2.mp3" id="13_g2mff"]
+[ext_resource type="AudioStream" uid="uid://bs444vvwu3a0k" path="res://resources/audio/combat/hit3.mp3" id="14_2c2c2"]
+[ext_resource type="AudioStream" uid="uid://c4ufvg0dunvbx" path="res://resources/audio/combat/hit4.mp3" id="15_wndp2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhwg"]
 size = Vector2(168, 350)
-
-[sub_resource type="LabelSettings" id="LabelSettings_nvrs4"]
-font_size = 25
 
 [sub_resource type="Animation" id="Animation_jqwdw"]
 length = 0.001
@@ -114,7 +117,10 @@ _data = {
 &"idle": SubResource("Animation_sjeno")
 }
 
-[node name="CombatantBase" type="Area2D" unique_id=209960256 node_paths=PackedStringArray("name_label", "abilities", "health_bar", "damage_tween_target", "targeting_indicator")]
+[sub_resource type="LabelSettings" id="LabelSettings_jw5f7"]
+font_size = 25
+
+[node name="CombatantBase" type="Area2D" unique_id=209960256 node_paths=PackedStringArray("name_label", "abilities", "health_bar", "damage_tween_target", "targeting_indicator", "hit_sound", "effect_icon_template", "effect_icon_container")]
 script = ExtResource("1_8x2sg")
 name_label = NodePath("Control/VBoxContainer/NameLabel")
 abilities = [NodePath("DefendAbility")]
@@ -122,55 +128,14 @@ combatant_name = "Bringle Cringus"
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
 damage_tween_target = NodePath("Node2D")
 targeting_indicator = NodePath("TargetingIndicator")
+hit_sound = NodePath("HitSound")
+effect_icon_template = NodePath("Control/VBoxContainer/GridContainer/TextureRect")
+effect_icon_container = NodePath("Control/VBoxContainer/GridContainer")
 target_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=238847892]
 position = Vector2(0, 24.5)
 shape = SubResource("RectangleShape2D_rkhwg")
-
-[node name="Control" type="Control" parent="." unique_id=1851136507]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -279.0
-offset_right = 150.0
-offset_bottom = 173.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1659264813]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="NameLabel" type="Label" parent="Control/VBoxContainer" unique_id=1666706847]
-layout_mode = 2
-text = "Bringle Cringus"
-label_settings = SubResource("LabelSettings_nvrs4")
-horizontal_alignment = 1
-
-[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=795095389]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer" unique_id=1718778064]
-layout_mode = 2
-
-[node name="HealthBar" type="ProgressBar" parent="Control/VBoxContainer/CenterContainer" unique_id=1665111007]
-custom_minimum_size = Vector2(200, 20)
-layout_mode = 2
-size_flags_vertical = 2
-theme_override_styles/background = ExtResource("2_cg46c")
-theme_override_styles/fill = ExtResource("3_8rlhy")
-show_percentage = false
 
 [node name="DefendAbility" type="Node" parent="." unique_id=1175001999]
 script = ExtResource("4_sjeno")
@@ -206,3 +171,67 @@ texture = ExtResource("4_jqwdw")
 [node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("9_4v738")]
 visible = false
 position = Vector2(-16, 0)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=695289448]
+max_polyphony = 2
+script = ExtResource("11_3dmf7")
+sounds = Array[AudioStream]([ExtResource("12_jw5f7"), ExtResource("13_g2mff"), ExtResource("14_2c2c2"), ExtResource("15_wndp2")])
+metadata/_custom_type_script = "uid://dfesb88ascuoc"
+
+[node name="Control" type="Control" parent="." unique_id=915617691]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -500.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1814287329]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="Control/VBoxContainer" unique_id=1392797175]
+layout_mode = 2
+text = "Bringle Cringus"
+label_settings = SubResource("LabelSettings_jw5f7")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=964871548]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer" unique_id=1223031263]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control/VBoxContainer/CenterContainer" unique_id=1132234634]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/background = ExtResource("2_cg46c")
+theme_override_styles/fill = ExtResource("3_8rlhy")
+show_percentage = false
+
+[node name="Control2" type="Control" parent="Control/VBoxContainer" unique_id=1367230814]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/VBoxContainer" unique_id=833357024]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/GridContainer" unique_id=1997830407]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("7_g2mff")
+expand_mode = 1

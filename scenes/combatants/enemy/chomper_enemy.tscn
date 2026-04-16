@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4b5scabx2lqo"]
 
 [ext_resource type="Script" uid="uid://bnja5om0f6mf0" path="res://scripts/combatants/enemy/chomper_enemy.gd" id="1_oar01"]
+[ext_resource type="Texture2D" uid="uid://remqshuqtmhy" path="res://resources/sprites/status_icons/bleed.png" id="2_fa6hj"]
 [ext_resource type="Script" uid="uid://d3i1h310ayq5c" path="res://scripts/resources/status_effect.gd" id="2_jdatg"]
 [ext_resource type="Texture2D" uid="uid://brwm74d30by5l" path="res://resources/sprites/enemies/chomper/chomper_2.png" id="3_ahd8l"]
 [ext_resource type="Texture2D" uid="uid://cqaopvrlei3b8" path="res://resources/sprites/enemies/chomper/chomper_3.png" id="4_jdatg"]
@@ -10,16 +11,26 @@
 [ext_resource type="StyleBox" uid="uid://74jbejvamqvb" path="res://resources/styleboxes/health_bar_background.tres" id="7_a7giv"]
 [ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="8_vvk82"]
 [ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="9_awdj3"]
+[ext_resource type="Texture2D" uid="uid://dkweuy2g77c0o" path="res://resources/sprites/status_icons/burn.png" id="10_s7bl4"]
+[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="11_mt2hm"]
+[ext_resource type="AudioStream" uid="uid://c3wrb7n8wfmap" path="res://resources/audio/combat/hit1.mp3" id="12_s7bl4"]
+[ext_resource type="AudioStream" uid="uid://c6aa6tfa32ipr" path="res://resources/audio/combat/hit2.mp3" id="13_fa6hj"]
+[ext_resource type="AudioStream" uid="uid://bs444vvwu3a0k" path="res://resources/audio/combat/hit3.mp3" id="14_bcjil"]
+[ext_resource type="AudioStream" uid="uid://c4ufvg0dunvbx" path="res://resources/audio/combat/hit4.mp3" id="15_r7hs4"]
 
 [sub_resource type="Resource" id="Resource_jdatg"]
 script = ExtResource("2_jdatg")
 id = &"bleed"
 name = "Bleed"
+exclusive_with = null
 has_duration = true
 duration = 2
 refresh_duration = true
+power = null
 defense = -40
+attack = null
 damage = 15
+icon = ExtResource("2_fa6hj")
 metadata/_custom_type_script = "uid://d3i1h310ayq5c"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
@@ -219,7 +230,7 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_jdatg"]
 font_size = 25
 
-[node name="ChomperEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator")]
+[node name="ChomperEnemy" type="Area2D" unique_id=1681232158 node_paths=PackedStringArray("health_bar", "damage_tween_target", "targeting_indicator", "hit_sound", "effect_icon_template", "effect_icon_container")]
 script = ExtResource("1_oar01")
 status_effect = SubResource("Resource_jdatg")
 combatant_name = "Chomper"
@@ -227,6 +238,9 @@ portrait = ExtResource("4_y6wc8")
 health_bar = NodePath("Control/VBoxContainer/CenterContainer/HealthBar")
 damage_tween_target = NodePath("Sprite2D")
 targeting_indicator = NodePath("TargetingIndicator")
+hit_sound = NodePath("HitSound")
+effect_icon_template = NodePath("Control/VBoxContainer/GridContainer/TextureRect")
+effect_icon_container = NodePath("Control/VBoxContainer/GridContainer")
 base_hp = 50
 base_attack = 100
 base_power = 25
@@ -295,4 +309,21 @@ theme_override_styles/background = ExtResource("7_a7giv")
 theme_override_styles/fill = ExtResource("8_vvk82")
 show_percentage = false
 
+[node name="GridContainer" type="GridContainer" parent="Control/VBoxContainer" unique_id=19200619]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/GridContainer" unique_id=921589656]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("10_s7bl4")
+expand_mode = 1
+
 [node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("9_awdj3")]
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=417533426]
+max_polyphony = 2
+script = ExtResource("11_mt2hm")
+sounds = Array[AudioStream]([ExtResource("12_s7bl4"), ExtResource("13_fa6hj"), ExtResource("14_bcjil"), ExtResource("15_r7hs4")])
+metadata/_custom_type_script = "uid://dfesb88ascuoc"

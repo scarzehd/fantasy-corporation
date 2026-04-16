@@ -97,6 +97,11 @@ func generate_weapon() -> ItemData:
 	data.attack = RandomUtils.generate_in_range(attack_range.x, attack_range.y, attack_deviation)
 	data.power = RandomUtils.generate_in_range(power_range.x, power_range.y, power_deviation)
 	
+	if data.attack == 0:
+		data.attack = 1
+	if data.power == 0:
+		data.power = 1
+	
 	if randf() < 0.2:
 		data.defense = RandomUtils.generate_in_range(defense_range.x, defense_range.y, defense_deviation)
 	if randf() < 0.2:
@@ -124,6 +129,11 @@ func generate_armor() -> ItemData:
 	
 	data.defense = RandomUtils.generate_in_range(defense_range.x, defense_range.y, defense_deviation)
 	data.hp = RandomUtils.generate_in_range(hp_range.x, hp_range.y, hp_deviation)
+	
+	if data.defense == 0:
+		data.defense = 1
+	if data.hp == 0:
+		data.hp = 1
 	
 	if randf() < 0.35:
 		data.attack = RandomUtils.generate_in_range(attack_range.x, attack_range.y, attack_deviation)

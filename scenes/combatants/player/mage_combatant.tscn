@@ -138,11 +138,7 @@ attack_animation = &"mage/attack"
 [node name="CollisionShape2D" parent="." index="0" unique_id=238847892]
 position = Vector2(0, -196.5)
 
-[node name="Control" parent="." index="1" unique_id=1851136507]
-offset_top = -500.0
-offset_bottom = 0.0
-
-[node name="AnimationPlayer" parent="." index="3" unique_id=1377899510]
+[node name="AnimationPlayer" parent="." index="2" unique_id=1377899510]
 libraries/mage = SubResource("AnimationLibrary_nfo83")
 autoplay = &"mage/idle"
 
@@ -152,7 +148,6 @@ texture = ExtResource("3_a1hn4")
 [node name="RestoreAbility" type="Node" parent="." index="5" unique_id=1773393164]
 script = ExtResource("2_b52xw")
 ability_name = "Restore"
-toggle = true
 icon = ExtResource("6_jjksu")
 select_icon = ExtResource("7_rkht4")
 hover_icon = ExtResource("8_tptwn")
@@ -171,7 +166,6 @@ metadata/_custom_type_script = "uid://cy50wh1jnkpg7"
 [node name="FireballAbility" type="Node" parent="." index="7" unique_id=924018575]
 script = ExtResource("7_a1hn4")
 ability_name = "Fireball"
-toggle = true
 icon = ExtResource("10_rqeii")
 select_icon = ExtResource("12_6algy")
 hover_icon = ExtResource("15_p440h")

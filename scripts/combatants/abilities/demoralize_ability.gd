@@ -1,6 +1,10 @@
 extends Ability
 class_name DemoralizeAbility
 
+const STATUS_ICON:Texture = preload("uid://sitcyyfq4byy")
+
+@export var audio_stream_player:AudioStreamPlayer
+
 func _ready() -> void:
 	Battle.instance.combatant_clicked.connect(_on_combatant_clicked)
 
@@ -36,6 +40,8 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 	if anim.has_marker("impact"):
 		await get_tree().create_timer(anim.get_marker_time("impact")).timeout
 	
+	audio_stream_player.play()
+	
 	if RandomUtils.roll_attack(clicked_combatant.defense, combatant.attack):
 		clicked_combatant.damage(ceili(combatant.power * 0.5 * randf_range(0.9, 1.1)))
 		
@@ -47,6 +53,7 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 		status_effect.has_duration = true
 		status_effect.refresh_duration = true
 		status_effect.duration = 2
+		status_effect.icon = STATUS_ICON
 		
 		clicked_combatant.add_status_effect(status_effect)
 		await get_tree().create_timer(0.05).timeout

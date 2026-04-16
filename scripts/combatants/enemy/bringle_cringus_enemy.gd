@@ -1,5 +1,7 @@
 extends Combatant
 
+const STATUS_ICON:Texture = preload("uid://cbb5ndqjdt5u6")
+
 @onready var animation_player:AnimationPlayer = %AnimationPlayer
 
 func start_turn():
@@ -32,6 +34,7 @@ func start_turn():
 		status.defense = RandomUtils.generate_in_range(roundi(-power), roundi(power))
 		status.power = RandomUtils.generate_in_range(roundi(-0.5 * power), roundi(0.5 * power))
 		status.damage = RandomUtils.generate_in_range(roundi(-power), roundi(power))
+		status.icon = STATUS_ICON
 		
 		await get_tree().create_timer(0.15).timeout
 		target.add_status_effect(status.duplicate())
