@@ -14,6 +14,12 @@
 [ext_resource type="AudioStream" uid="uid://c6aa6tfa32ipr" path="res://resources/audio/combat/hit2.mp3" id="11_vvy7l"]
 [ext_resource type="AudioStream" uid="uid://bs444vvwu3a0k" path="res://resources/audio/combat/hit3.mp3" id="12_3q2wl"]
 [ext_resource type="AudioStream" uid="uid://c4ufvg0dunvbx" path="res://resources/audio/combat/hit4.mp3" id="13_xci5r"]
+[ext_resource type="AudioStream" uid="uid://ccalsu0bq8evj" path="res://resources/audio/combat/swish1.mp3" id="15_mvacm"]
+[ext_resource type="AudioStream" uid="uid://btayn0nh8551m" path="res://resources/audio/combat/swish2.mp3" id="16_2yxdt"]
+[ext_resource type="AudioStream" uid="uid://crofe18xfia2g" path="res://resources/audio/combat/swish3.mp3" id="17_b7k4m"]
+[ext_resource type="AudioStream" uid="uid://0mjwhqxkq746" path="res://resources/audio/combat/woosh1.mp3" id="18_pu7gr"]
+[ext_resource type="AudioStream" uid="uid://bp8jckfkmipl3" path="res://resources/audio/combat/woosh2.mp3" id="19_0xva3"]
+[ext_resource type="AudioStream" uid="uid://c1rodp5qbgvex" path="res://resources/audio/combat/woosh3.mp3" id="20_uoe3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7je4q"]
 size = Vector2(183, 275)
@@ -148,6 +154,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(18, 3)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AttackSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.65),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play_random"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_w4eet"]
@@ -285,7 +305,12 @@ expand_mode = 1
 [node name="TargetingIndicator" parent="." unique_id=1253139910 instance=ExtResource("5_igomy")]
 
 [node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1095405858]
-max_polyphony = 2
+max_polyphony = 3
 script = ExtResource("9_1a0d7")
 sounds = Array[AudioStream]([ExtResource("10_dcbrw"), ExtResource("11_vvy7l"), ExtResource("12_3q2wl"), ExtResource("13_xci5r")])
+metadata/_custom_type_script = "uid://dfesb88ascuoc"
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="." unique_id=186010703]
+script = ExtResource("9_1a0d7")
+sounds = Array[AudioStream]([ExtResource("15_mvacm"), ExtResource("16_2yxdt"), ExtResource("17_b7k4m"), ExtResource("18_pu7gr"), ExtResource("19_0xva3"), ExtResource("20_uoe3c")])
 metadata/_custom_type_script = "uid://dfesb88ascuoc"

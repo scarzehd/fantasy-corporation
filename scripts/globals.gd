@@ -43,7 +43,7 @@ func reset():
 	money = 1000
 	TimeManager.successful_adventures = 0
 	TimeManager.day_number = 0
-	TimeManager.daily_expenses = 0
+	TimeManager.daily_expenses = 100
 	
 	for character in hired_characters:
 		for item in character.items:

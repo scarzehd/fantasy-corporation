@@ -1,12 +1,28 @@
 [gd_scene format=3 uid="uid://cyfybftq3otv3"]
 
 [ext_resource type="Script" uid="uid://bctm227gdibp3" path="res://scripts/ui/menu_screen.gd" id="1_py1kr"]
+[ext_resource type="Texture2D" uid="uid://bkmb7oywgw1qs" path="res://resources/sprites/ui/menu_background.png" id="2_anq1i"]
+[ext_resource type="FontFile" uid="uid://ci6e21wf285le" path="res://resources/fonts/UnifrakturMaguntia-Regular.ttf" id="3_mkhoe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r7mh8"]
-font_size = 100
+font = ExtResource("3_mkhoe")
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_anq1i"]
 
 [node name="MenuScreen" type="Node2D" unique_id=683280131]
 script = ExtResource("1_py1kr")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=263764498]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_anq1i")
 
 [node name="Control" type="Control" parent="." unique_id=387525530]
 custom_minimum_size = Vector2(1920, 1080)
@@ -16,10 +32,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = 230.99997
+offset_top = -273.0
+offset_right = 2151.0
+offset_bottom = 807.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.2617994
 
 [node name="Label" type="Label" parent="Control" unique_id=908189708]
 layout_mode = 1
@@ -28,10 +47,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -111.0
-offset_top = -266.0
-offset_right = 111.0
-offset_bottom = -213.0
+offset_left = -460.35486
+offset_top = -240.09875
+offset_right = 483.64514
+offset_bottom = -78.098755
 grow_horizontal = 2
 grow_vertical = 2
 text = "Fantasy Corporation"
@@ -51,21 +70,46 @@ offset_right = 208.0
 offset_bottom = 290.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 18
 
 [node name="PlayButton" type="Button" parent="Control/VBoxContainer" unique_id=1256328152]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+theme_override_colors/font_hover_color = Color(0.5686275, 0.5686275, 0.5686275, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_anq1i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_anq1i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_anq1i")
 text = "Play"
 
 [node name="TutorialButton" type="Button" parent="Control/VBoxContainer" unique_id=1377445203]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+theme_override_colors/font_hover_color = Color(0.5686275, 0.5686275, 0.5686275, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_anq1i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_anq1i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_anq1i")
 text = "Tutorial"
 
 [node name="ExitButton" type="Button" parent="Control/VBoxContainer" unique_id=1899315994]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+theme_override_colors/font_hover_color = Color(0.5686275, 0.5686275, 0.5686275, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 35
-text = "Play"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_anq1i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_anq1i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_anq1i")
+text = "Exit"
 
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
