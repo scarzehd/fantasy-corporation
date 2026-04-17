@@ -31,6 +31,8 @@ signal combatant_clicked(combatant:Combatant)
 
 @export var battle_backgrounds:Array[Texture]
 
+@export var music_player:AudioStreamPlayer
+
 var current_turn_index:int = 0
 
 var waves:int = waves_left
@@ -46,6 +48,8 @@ func _enter_tree() -> void:
 	instance = self
 
 func _ready() -> void:
+	music_player.play()
+	
 	get_viewport().physics_object_picking_sort = true
 	get_viewport().physics_object_picking_first_only = true
 	
@@ -104,10 +108,16 @@ func handle_current_turn():
 			has_enemy = true
 	
 	if not has_player:
+		var tween = create_tween()
+		tween.tween_property(music_player, "volume_linear", 0, 1)
+		await tween.finished
 		lose_battle()
 		return
 	
 	if not has_enemy:
+		var tween = create_tween()
+		tween.tween_property(music_player, "volume_linear", 0, 1)
+		await tween.finished
 		win_battle()
 		return
 	
