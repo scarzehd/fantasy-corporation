@@ -11,11 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="8_8y6af"]
 [ext_resource type="Texture2D" uid="uid://dkweuy2g77c0o" path="res://resources/sprites/status_icons/burn.png" id="9_apdqn"]
 [ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="10_781ke"]
-[ext_resource type="AudioStream" uid="uid://c3wrb7n8wfmap" path="res://resources/audio/combat/hit1.mp3" id="11_apdqn"]
-[ext_resource type="AudioStream" uid="uid://c6aa6tfa32ipr" path="res://resources/audio/combat/hit2.mp3" id="12_n4ytv"]
-[ext_resource type="AudioStream" uid="uid://bs444vvwu3a0k" path="res://resources/audio/combat/hit3.mp3" id="13_jdvv8"]
-[ext_resource type="AudioStream" uid="uid://c4ufvg0dunvbx" path="res://resources/audio/combat/hit4.mp3" id="14_2rtog"]
+[ext_resource type="AudioStream" uid="uid://8rt7uk2sh3pg" path="res://resources/audio/combat/hitraw1.mp3" id="12_wo4fp"]
+[ext_resource type="AudioStream" uid="uid://btn2865lwy2a6" path="res://resources/audio/combat/hitraw2.mp3" id="13_k0o1g"]
+[ext_resource type="AudioStream" uid="uid://bc4ajssj5on0f" path="res://resources/audio/combat/hitraw3.mp3" id="14_6wx5n"]
+[ext_resource type="AudioStream" uid="uid://dnd7eer1bq2f4" path="res://resources/audio/combat/hitraw4.mp3" id="15_pwvxn"]
 [ext_resource type="AudioStream" uid="uid://ccalsu0bq8evj" path="res://resources/audio/combat/swish1.mp3" id="16_1q6nh"]
+[ext_resource type="AudioStream" uid="uid://63mindf257wi" path="res://resources/audio/combat/hitraw5.mp3" id="16_74alw"]
+[ext_resource type="AudioStream" uid="uid://c2qunsq8woyef" path="res://resources/audio/combat/hitraw6.mp3" id="17_agql5"]
 [ext_resource type="AudioStream" uid="uid://btayn0nh8551m" path="res://resources/audio/combat/swish2.mp3" id="17_sk7mv"]
 [ext_resource type="AudioStream" uid="uid://crofe18xfia2g" path="res://resources/audio/combat/swish3.mp3" id="18_wo4fp"]
 [ext_resource type="AudioStream" uid="uid://0mjwhqxkq746" path="res://resources/audio/combat/woosh1.mp3" id="19_k0o1g"]
@@ -296,7 +298,7 @@ expand_mode = 1
 [node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=901023604]
 max_polyphony = 2
 script = ExtResource("10_781ke")
-sounds = Array[AudioStream]([ExtResource("11_apdqn"), ExtResource("12_n4ytv"), ExtResource("13_jdvv8"), ExtResource("14_2rtog")])
+sounds = Array[AudioStream]([ExtResource("12_wo4fp"), ExtResource("13_k0o1g"), ExtResource("14_6wx5n"), ExtResource("15_pwvxn"), ExtResource("16_74alw"), ExtResource("17_agql5")])
 metadata/_custom_type_script = "uid://dfesb88ascuoc"
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="." unique_id=365394326]

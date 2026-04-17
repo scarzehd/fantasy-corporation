@@ -9,11 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://btmlb33g0v4is" path="res://resources/sprites/characters/heads/head_base.png" id="7_rmkrq"]
 [ext_resource type="PackedScene" uid="uid://bkueotktps0pg" path="res://scenes/targeting_indicator.tscn" id="8_34233"]
 [ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="9_03t4f"]
-[ext_resource type="AudioStream" uid="uid://c3wrb7n8wfmap" path="res://resources/audio/combat/hit1.mp3" id="10_yhvrn"]
-[ext_resource type="AudioStream" uid="uid://c6aa6tfa32ipr" path="res://resources/audio/combat/hit2.mp3" id="11_l5olj"]
-[ext_resource type="AudioStream" uid="uid://bs444vvwu3a0k" path="res://resources/audio/combat/hit3.mp3" id="12_pilc5"]
-[ext_resource type="AudioStream" uid="uid://c4ufvg0dunvbx" path="res://resources/audio/combat/hit4.mp3" id="13_5pi0n"]
+[ext_resource type="AudioStream" uid="uid://8rt7uk2sh3pg" path="res://resources/audio/combat/hitraw1.mp3" id="10_rcmsd"]
+[ext_resource type="AudioStream" uid="uid://btn2865lwy2a6" path="res://resources/audio/combat/hitraw2.mp3" id="11_4kujs"]
+[ext_resource type="AudioStream" uid="uid://bc4ajssj5on0f" path="res://resources/audio/combat/hitraw3.mp3" id="12_wnng2"]
+[ext_resource type="AudioStream" uid="uid://dnd7eer1bq2f4" path="res://resources/audio/combat/hitraw4.mp3" id="13_2isic"]
+[ext_resource type="AudioStream" uid="uid://63mindf257wi" path="res://resources/audio/combat/hitraw5.mp3" id="14_rmkrq"]
 [ext_resource type="StyleBox" uid="uid://74jbejvamqvb" path="res://resources/styleboxes/health_bar_background.tres" id="14_sn3fx"]
+[ext_resource type="AudioStream" uid="uid://c2qunsq8woyef" path="res://resources/audio/combat/hitraw6.mp3" id="15_34233"]
 [ext_resource type="StyleBox" uid="uid://dn8i14rn2oh2l" path="res://resources/styleboxes/health_bar_fill.tres" id="15_motwc"]
 [ext_resource type="Texture2D" uid="uid://dkweuy2g77c0o" path="res://resources/sprites/status_icons/burn.png" id="16_muy5o"]
 
@@ -175,7 +177,7 @@ position = Vector2(-16, 0)
 [node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=695289448]
 max_polyphony = 2
 script = ExtResource("9_03t4f")
-sounds = Array[AudioStream]([ExtResource("10_yhvrn"), ExtResource("11_l5olj"), ExtResource("12_pilc5"), ExtResource("13_5pi0n")])
+sounds = Array[AudioStream]([ExtResource("10_rcmsd"), ExtResource("11_4kujs"), ExtResource("12_wnng2"), ExtResource("13_2isic"), ExtResource("14_rmkrq"), ExtResource("15_34233")])
 metadata/_custom_type_script = "uid://dfesb88ascuoc"
 
 [node name="Control" type="Control" parent="." unique_id=915617691]

@@ -1,7 +1,7 @@
 extends Ability
 class_name DemoralizeAbility
 
-const STATUS_ICON:Texture = preload("uid://sitcyyfq4byy")
+const STATUS_ICON:Texture = preload("uid://dptb7bo3sgfyj")
 
 @export var audio_stream_player:AudioStreamPlayer
 
@@ -11,7 +11,7 @@ func _ready() -> void:
 #func _button_toggled(toggled_on:bool):
 	#if toggled_on:
 		#button.text = "Select Target"
-	#else:
+	#else:s
 		#button.text = ability_name
 
 func _on_combatant_clicked(clicked_combatant:Combatant):
