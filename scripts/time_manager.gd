@@ -34,6 +34,7 @@ func advance_day(fade:bool = true):
 	
 	if day_number != 1:
 		Globals.money -= ceili(daily_expenses)
+		SoundManager.money_press_sound.play_random()
 	day_started.emit()
 
 func update_world_state():

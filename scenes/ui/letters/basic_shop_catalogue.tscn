@@ -233,7 +233,7 @@ size_flags_horizontal = 3
 text = "+0 Defense"
 label_settings = SubResource("LabelSettings_slvmg")
 
-[node name="PurchaseButton" type="Button" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1816369334]
+[node name="PurchaseButton" type="Button" parent="PanelContainer/HBoxContainer/ScrollContainer/ItemContainer/ItemTemplate/VBoxContainer" unique_id=1816369334 groups=["money_press_sound"]]
 layout_mode = 2
 size_flags_vertical = 10
 text = "100"

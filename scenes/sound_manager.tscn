@@ -4,11 +4,15 @@
 [ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="2_s6peo"]
 [ext_resource type="AudioStream" uid="uid://w0q2mi807gqp" path="res://resources/audio/ui/interact/click2.mp3" id="3_shlr6"]
 [ext_resource type="AudioStream" uid="uid://bvji4w1jtl8oh" path="res://resources/audio/ui/interact/click1.mp3" id="4_5lwbd"]
+[ext_resource type="AudioStream" uid="uid://doo1ywepmwml7" path="res://resources/audio/ui/buy7.mp3" id="5_mpi5b"]
+[ext_resource type="AudioStream" uid="uid://ctjupkts45d1g" path="res://resources/audio/ui/buy8.mp3" id="6_aa63w"]
+[ext_resource type="AudioStream" uid="uid://b7xtmvnxrsyff" path="res://resources/audio/ui/buy9.mp3" id="7_k1d7a"]
 
-[node name="SoundManager" type="Node" unique_id=324037352 node_paths=PackedStringArray("button_hover_sound", "button_press_sound")]
+[node name="SoundManager" type="Node" unique_id=324037352 node_paths=PackedStringArray("button_hover_sound", "button_press_sound", "money_press_sound")]
 script = ExtResource("1_gbdfy")
 button_hover_sound = NodePath("ButtonHoverSound")
 button_press_sound = NodePath("ButtonPressSound")
+money_press_sound = NodePath("MoneyPressSound")
 
 [node name="ButtonHoverSound" type="AudioStreamPlayer" parent="." unique_id=324948603]
 script = ExtResource("2_s6peo")
@@ -22,4 +26,10 @@ script = ExtResource("2_s6peo")
 sounds = Array[AudioStream]([ExtResource("4_5lwbd")])
 pitch_range = Vector2(0.8, 1.2)
 volume_range = Vector2(0.15, 0.15)
+metadata/_custom_type_script = "uid://dfesb88ascuoc"
+
+[node name="MoneyPressSound" type="AudioStreamPlayer" parent="." unique_id=1579904213]
+script = ExtResource("2_s6peo")
+sounds = Array[AudioStream]([ExtResource("5_mpi5b"), ExtResource("6_aa63w"), ExtResource("7_k1d7a")])
+volume_range = Vector2(0.5, 0.5)
 metadata/_custom_type_script = "uid://dfesb88ascuoc"

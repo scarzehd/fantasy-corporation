@@ -232,7 +232,7 @@ text = "Insufficient Funds"
 label_settings = SubResource("LabelSettings_2ul7h")
 horizontal_alignment = 1
 
-[node name="AcceptButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=329065059]
+[node name="AcceptButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer2" unique_id=329065059 groups=["money_press_sound"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 2

@@ -9,8 +9,6 @@ font = ExtResource("3_mkhoe")
 font_size = 60
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_anq1i"]
-
 [node name="MenuScreen" type="Node2D" unique_id=683280131]
 script = ExtResource("1_py1kr")
 
@@ -74,41 +72,20 @@ theme_override_constants/separation = 18
 
 [node name="PlayButton" type="Button" parent="Control/VBoxContainer" unique_id=1256328152]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
-theme_override_colors/font_hover_color = Color(0.5686275, 0.5686275, 0.5686275, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_anq1i")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_anq1i")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_anq1i")
 text = "Play"
 
 [node name="TutorialButton" type="Button" parent="Control/VBoxContainer" unique_id=1377445203]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
-theme_override_colors/font_hover_color = Color(0.5686275, 0.5686275, 0.5686275, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_anq1i")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_anq1i")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_anq1i")
 text = "Tutorial"
 
 [node name="ExitButton" type="Button" parent="Control/VBoxContainer" unique_id=1899315994]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
-theme_override_colors/font_hover_color = Color(0.5686275, 0.5686275, 0.5686275, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_anq1i")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_anq1i")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_anq1i")
 text = "Exit"
 
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

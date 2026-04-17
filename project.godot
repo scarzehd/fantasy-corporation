@@ -36,6 +36,7 @@ mouse_cursor/custom_image="uid://cilpp2k2ogx7f"
 [global_group]
 
 no_press_sound=""
+money_press_sound=""
 
 [gui]
 

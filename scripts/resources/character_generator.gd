@@ -61,7 +61,7 @@ class_name CharacterGenerator
 	"Walker","Walter","Werner","William","Willis","Wolfgang","Woodrow",
 	"Xander","Xanthus","Xavier","Xerxes",
 	"Yannis","Young","Yuri",
-	"Zachary","Zane","Zebadiah","Uncle","Ballas","Galdur"
+	"Zachary","Zane","Zebadiah","Uncle","Ballas","Galdur","CJ"
 ]
 
 @export var last_names:Array[String] = [

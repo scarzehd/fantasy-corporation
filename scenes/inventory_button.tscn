@@ -187,7 +187,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="SellButton" type="Button" parent="InventoryButton/InventoryMenu/InventoryMenu/Panel/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" parent_id_path=PackedInt32Array(345213539, 2068711857) index="5" unique_id=1442878590]
+[node name="SellButton" type="Button" parent="InventoryButton/InventoryMenu/InventoryMenu/Panel/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" parent_id_path=PackedInt32Array(345213539, 2068711857) index="5" unique_id=1442878590 groups=["money_press_sound"]]
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 20
