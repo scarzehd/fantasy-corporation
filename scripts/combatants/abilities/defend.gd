@@ -17,5 +17,6 @@ func _button_pressed():
 	defend_effect.duration = 2
 	defend_effect.refresh_duration = true
 	defend_effect.icon = STATUS_ICON
+	defend_effect.negative = false
 	combatant.add_status_effect(defend_effect)
 	combatant.end_turn()

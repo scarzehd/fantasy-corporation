@@ -21,6 +21,8 @@ signal ended
 
 @export var icon:Texture
 
+@export var negative:bool = true
+
 var combatant:Combatant
 
 func start_turn():

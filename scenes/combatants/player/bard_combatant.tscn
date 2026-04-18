@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://h2bpf1qsol31" path="res://resources/sprites/characters/bard/bard_attack_2.png" id="4_thqen"]
 [ext_resource type="Script" uid="uid://dvyc8dfvxjqk5" path="res://scripts/combatants/abilities/demoralize_ability.gd" id="4_wqw3v"]
 [ext_resource type="Texture2D" uid="uid://cjgr0hb1m8pl5" path="res://resources/sprites/abilities/cleanse.png" id="6_ryyco"]
-[ext_resource type="Texture2D" uid="uid://c68pp3s1c2m4x" path="res://resources/sprites/abilities/cleanse_select.png" id="7_rjje7"]
 [ext_resource type="Texture2D" uid="uid://sitcyyfq4byy" path="res://resources/sprites/abilities/demoralize.png" id="8_e3apn"]
 [ext_resource type="Texture2D" uid="uid://cmyw3syrfs3tl" path="res://resources/sprites/abilities/cleanse_hover.png" id="8_eup5y"]
 [ext_resource type="Texture2D" uid="uid://2g7poenj1kw2" path="res://resources/sprites/abilities/demoralize_select.png" id="9_c7pkq"]
@@ -151,12 +150,10 @@ texture = ExtResource("2_cmwjb")
 [node name="CleanseAbility" type="Node" parent="." index="5" unique_id=854532944 node_paths=PackedStringArray("audio_stream_player")]
 script = ExtResource("2_aodbh")
 audio_stream_player = NodePath("../CleanseSound")
-ability_name = "Cleansing Song"
+ability_name = "Cleanse"
 icon = ExtResource("6_ryyco")
-select_icon = ExtResource("7_rjje7")
 hover_icon = ExtResource("8_eup5y")
-description = "Remove all status effects from one target."
-target_mode = 2
+description = "Removes negative status effects from all allies."
 metadata/_custom_type_script = "uid://dbk6q71egjpcy"
 
 [node name="DemoralizeAbility" type="Node" parent="." index="6" unique_id=1826448421 node_paths=PackedStringArray("audio_stream_player")]

@@ -30,6 +30,7 @@ func _button_pressed():
 			status_effect.name = "Healing Song"
 			status_effect.id = "healing_song"
 			status_effect.icon = STATUS_ICON
+			status_effect.negative = false
 			
 			other_combatant.add_status_effect(status_effect)
 			

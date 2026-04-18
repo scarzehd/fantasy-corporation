@@ -36,6 +36,6 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 	if anim.has_marker("impact"):
 		await get_tree().create_timer(anim.get_marker_time("impact")).timeout
 	
-	clicked_combatant.heal(ceili(combatant.power * randf_range(1.9, 2.1)))
+	clicked_combatant.heal(ceili(combatant.power * randf_range(2.9, 3.1)))
 	
 	combatant.end_turn()

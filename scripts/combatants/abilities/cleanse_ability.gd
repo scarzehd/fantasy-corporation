@@ -3,33 +3,22 @@ class_name CleanseAbility
 
 @export var audio_stream_player:AudioStreamPlayer
 
-func _ready() -> void:
-	Battle.instance.combatant_clicked.connect(_on_combatant_clicked)
-
 #func _button_toggled(toggled_on:bool):
 	#if toggled_on:
 		#button.text = "Select Target"
 	#else:
 		#button.text = ability_name
 
-func _on_combatant_clicked(clicked_combatant:Combatant):
-	if not button:
-		return
-	
-	if not button.button_pressed:
-		return
-	
+func _button_pressed():
 	if combatant.acted:
 		return
 	
 	combatant.acted = true
 	
-	clicked_combatant.targeting_indicator.select_target()
-	
-	button.button_pressed = false
-	
-	for status_effect in clicked_combatant.status_effects:
-		status_effect.end_status_effect()
+	for other_combatant in Battle.instance.combatants:
+		for status_effect in other_combatant.status_effects.duplicate():
+			if (status_effect.negative and other_combatant is PlayerCombatant) or (not status_effect.negative and other_combatant is not PlayerCombatant):
+				status_effect.end_status_effect()
 	
 	combatant.animation_player.play(combatant.attack_animation)
 	
@@ -40,6 +29,7 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 	
 	audio_stream_player.play()
 	
-	clicked_combatant.create_bounce_text("CLEANSED", Color.WHITE, 40)
+	for other_combatant in Battle.instance.combatants:
+		other_combatant.create_bounce_text("Cleanse", Color.WHITE, 40)
 	
 	combatant.end_turn()
