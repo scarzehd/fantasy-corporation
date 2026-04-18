@@ -13,7 +13,7 @@ content_margin_bottom = 25.0
 font_size = 25
 
 [node name="ItemButton" type="Button" unique_id=1113074261]
-custom_minimum_size = Vector2(350, 400)
+custom_minimum_size = Vector2(350, 435)
 offset_right = 350.0
 offset_bottom = 397.0
 script = ExtResource("1_srjjs")

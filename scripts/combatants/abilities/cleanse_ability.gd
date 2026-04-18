@@ -16,8 +16,11 @@ func _button_pressed():
 	combatant.acted = true
 	
 	for other_combatant in Battle.instance.combatants:
+		if other_combatant is not PlayerCombatant:
+			continue
+		
 		for status_effect in other_combatant.status_effects.duplicate():
-			if (status_effect.negative and other_combatant is PlayerCombatant) or (not status_effect.negative and other_combatant is not PlayerCombatant):
+			if status_effect.negative:
 				status_effect.end_status_effect()
 	
 	combatant.animation_player.play(combatant.attack_animation)
@@ -30,6 +33,8 @@ func _button_pressed():
 	audio_stream_player.play()
 	
 	for other_combatant in Battle.instance.combatants:
+		if other_combatant is not PlayerCombatant:
+			continue
 		other_combatant.create_bounce_text("Cleanse", Color.WHITE, 40)
 	
 	combatant.end_turn()
