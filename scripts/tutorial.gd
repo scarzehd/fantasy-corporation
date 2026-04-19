@@ -256,6 +256,7 @@ func phase_0():
 	
 	globe_button.disabled = false
 	await globe_button.pressed
+	globe_button.start_button.disabled = true
 	globe_button.disabled = true
 	
 	var listing:AdventurerListing
@@ -285,12 +286,12 @@ func phase_0():
 	dialogue.close_dialogue()
 	await dialogue.dialogue_closed
 	
+	
 	dialogue = TutorialDialogue.create_dialogue(["Click on Begin Adventure whenever you're ready."], true)
 	add_child(dialogue)
 	await dialogue.dialogue_finished
 	
 	globe_button.start_button.disabled = false
-	
 	Tutorial.phase = 1
 
 func phase_1():

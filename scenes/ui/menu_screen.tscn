@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bkmb7oywgw1qs" path="res://resources/sprites/ui/menu_background.png" id="2_anq1i"]
 [ext_resource type="Texture2D" uid="uid://bhera4bi65ncc" path="res://resources/sprites/ui/logo.png" id="3_u5qb7"]
 [ext_resource type="PackedScene" uid="uid://v6g1fvuq17sa" path="res://scenes/ui/settings_button.tscn" id="4_u5qb7"]
+[ext_resource type="AudioStream" uid="uid://dtpu2mqmhd18b" path="res://resources/audio/music/main_menu.mp3" id="5_c4iww"]
 
 [node name="MenuScreen" type="Node2D" unique_id=683280131]
 script = ExtResource("1_py1kr")
@@ -82,6 +83,12 @@ offset_left = 1751.0
 offset_top = 913.0
 offset_right = 1880.0
 offset_bottom = 1046.4869
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=413387116]
+unique_name_in_owner = true
+stream = ExtResource("5_c4iww")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
