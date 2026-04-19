@@ -40,8 +40,13 @@ func reset():
 	Tutorial.phase = 0
 	
 	volatility = 0.25
-	variability = 10
+	variability = 5
 	inflation = 1
+	
+	adventurer_price_modifier = DEFAULT_ADVENTURER_PRICE_MODIFIER
+	old_adventurer_price_modifier = DEFAULT_ADVENTURER_PRICE_MODIFIER
+	item_appreciation = 1.05
+	
 	money = 1500
 	TimeManager.successful_adventures = 0
 	TimeManager.day_number = 0
