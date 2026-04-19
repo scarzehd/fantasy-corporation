@@ -92,7 +92,8 @@ func skip_dialogue():
 
 func close_dialogue():
 	_on_dialogue_finished()
-	tween.stop()
+	if tween:
+		tween.stop()
 	var close_tween:Tween = create_tween()
 	close_tween.set_ease(Tween.EASE_IN)
 	close_tween.set_trans(Tween.TRANS_CUBIC)

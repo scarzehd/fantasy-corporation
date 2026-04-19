@@ -37,6 +37,8 @@ var variability:int = 5
 var inflation:float = 1.0
 
 func reset():
+	Tutorial.phase = 0
+	
 	volatility = 0.25
 	variability = 10
 	inflation = 1

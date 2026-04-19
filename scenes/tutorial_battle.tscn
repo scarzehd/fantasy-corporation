@@ -8,6 +8,7 @@
 [node name="TutorialBattle" unique_id=1135496140 instance=ExtResource("1_qgiro")]
 enemy_pool = Array[PackedScene]([ExtResource("2_121lb")])
 battle_backgrounds = Array[Texture]([ExtResource("3_nkt4y")])
+tutorial_mode = true
 
 [node name="Tutorial" type="Node2D" parent="." index="10" unique_id=1928845218 node_paths=PackedStringArray("battle_hud")]
 script = ExtResource("4_nkt4y")

@@ -109,6 +109,8 @@ func phase_0():
 	mailbox_exit_button.disabled = false
 	await mailbox_exit_button.pressed
 	
+	mailbox_exit_button.disabled = true
+	
 	dialogue.close_dialogue()
 	await dialogue.dialogue_closed
 	
@@ -125,11 +127,11 @@ func phase_0():
 	dialogue.close_dialogue()
 	await dialogue.dialogue_closed
 	
-	dialogue = TutorialDialogue.create_dialogue(["There's that Sonic Hammer. Shiny as the day we bought it.", "Naturally, items are worth less used than new, but if you find yourself in a sticky situation, you can sell them for some fast cash."], false, true)
+	dialogue = TutorialDialogue.create_dialogue(["There's that Sonic Hammer. Shiny as the day we bought it.", "Items are worth less used than new, but if you leave them long enough, their value will appreciate over time."], false, true)
 	add_child(dialogue)
 	await dialogue.dialogue_closed
 	
-	dialogue = TutorialDialogue.create_dialogue(["And who knows. Maybe the used market will spike some time.", "Click the exit button and we'll wrap things up."], true, false)
+	dialogue = TutorialDialogue.create_dialogue(["Click the exit button and we'll wrap things up."], true, false)
 	add_child(dialogue)
 	await dialogue.dialogue_finished
 	

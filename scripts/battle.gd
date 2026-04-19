@@ -31,6 +31,8 @@ signal combatant_clicked(combatant:Combatant)
 
 @export var battle_backgrounds:Array[Texture]
 
+@export var tutorial_mode:bool = false
+
 @onready var lose_battle_audio:AudioStreamPlayer = %LoseBattleAudio
 @onready var win_battle_audio:AudioStreamPlayer = %WinBattleAudio
 
@@ -167,6 +169,8 @@ func advance_wave():
 		if TimeManager.successful_adventures >= 3:
 			num_enemies = randi_range(3, 4)
 	
+	if tutorial_mode:
+		num_enemies = 1
 	
 	for i in range(num_enemies):
 		var slot = enemy_slots[i]
