@@ -417,7 +417,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=523953937]
+[node name="ContinueButton" type="Button" parent="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=523953937]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -537,4 +537,4 @@ offset_bottom = 154.48694
 grow_horizontal = 1
 grow_vertical = 1
 
-[connection signal="pressed" from="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_button_pressed"]

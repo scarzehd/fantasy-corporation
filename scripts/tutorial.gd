@@ -363,6 +363,9 @@ func phase_1():
 	
 	await Battle.instance.battle_finished
 	
+	var continue_button:Button = battle_hud.find_child("ContinueButton")
+	continue_button.disabled = true
+	
 	Globals.owned_items.clear()
 	
 	dialogue.close_dialogue()
@@ -371,5 +374,7 @@ func phase_1():
 	dialogue = TutorialDialogue.create_dialogue(["Congratulations on your success!", "Normally, any surviving adventurers would return their equipped items to you after the adventure. Unfortunately, Sean's Weapon Shop has issued a recall on those items. Something about 'potential copyright issues.'", "As with all adventurers, Jane was only signed with us for the duration of this adventure. Next time, you'll need to construct a whole new party.", "Jane's off to bigger and better things and so are you! You are now a fully fledged Manager here at Fantasy Corp.", "Good luck. You'll need it."])
 	add_child(dialogue)
 	await dialogue.dialogue_finished
+	
+	continue_button.disabled = false
 	
 	Globals.reset()
