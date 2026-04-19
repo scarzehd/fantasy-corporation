@@ -7,14 +7,19 @@
 [ext_resource type="AudioStream" uid="uid://doo1ywepmwml7" path="res://resources/audio/ui/buy7.mp3" id="5_mpi5b"]
 [ext_resource type="AudioStream" uid="uid://ctjupkts45d1g" path="res://resources/audio/ui/buy8.mp3" id="6_aa63w"]
 [ext_resource type="AudioStream" uid="uid://b7xtmvnxrsyff" path="res://resources/audio/ui/buy9.mp3" id="7_k1d7a"]
+[ext_resource type="AudioStream" uid="uid://8tp5kr3jyi7h" path="res://resources/audio/corpo_theme.mp3" id="8_aa63w"]
+[ext_resource type="AudioStream" uid="uid://f3cbt7uj4cpj" path="res://resources/audio/music/office.mp3" id="9_k1d7a"]
 
-[node name="SoundManager" type="Node" unique_id=324037352 node_paths=PackedStringArray("button_hover_sound", "button_press_sound", "money_press_sound")]
+[node name="SoundManager" type="Node" unique_id=324037352 node_paths=PackedStringArray("button_hover_sound", "button_press_sound", "money_press_sound", "battle_music", "office_music")]
 script = ExtResource("1_gbdfy")
 button_hover_sound = NodePath("ButtonHoverSound")
 button_press_sound = NodePath("ButtonPressSound")
 money_press_sound = NodePath("MoneyPressSound")
+battle_music = NodePath("BattleMusic")
+office_music = NodePath("OfficeMusic")
 
 [node name="ButtonHoverSound" type="AudioStreamPlayer" parent="." unique_id=324948603]
+bus = &"UISounds"
 script = ExtResource("2_s6peo")
 sounds = Array[AudioStream]([ExtResource("3_shlr6")])
 pitch_range = Vector2(0.8, 1.2)
@@ -22,6 +27,7 @@ volume_range = Vector2(0.15, 0.15)
 metadata/_custom_type_script = "uid://dfesb88ascuoc"
 
 [node name="ButtonPressSound" type="AudioStreamPlayer" parent="." unique_id=308207954]
+bus = &"UISounds"
 script = ExtResource("2_s6peo")
 sounds = Array[AudioStream]([ExtResource("4_5lwbd")])
 pitch_range = Vector2(0.8, 1.2)
@@ -29,7 +35,16 @@ volume_range = Vector2(0.15, 0.15)
 metadata/_custom_type_script = "uid://dfesb88ascuoc"
 
 [node name="MoneyPressSound" type="AudioStreamPlayer" parent="." unique_id=1579904213]
+bus = &"UISounds"
 script = ExtResource("2_s6peo")
 sounds = Array[AudioStream]([ExtResource("5_mpi5b"), ExtResource("6_aa63w"), ExtResource("7_k1d7a")])
 volume_range = Vector2(0.5, 0.5)
 metadata/_custom_type_script = "uid://dfesb88ascuoc"
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="." unique_id=197043076]
+stream = ExtResource("8_aa63w")
+bus = &"Music"
+
+[node name="OfficeMusic" type="AudioStreamPlayer" parent="." unique_id=1307964401]
+stream = ExtResource("9_k1d7a")
+bus = &"Music"

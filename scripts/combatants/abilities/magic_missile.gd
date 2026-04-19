@@ -28,7 +28,7 @@ func _button_pressed():
 		
 		var target = enemies.pick_random()
 
-		target.damage(ceili(combatant.power * randf_range(0.2, 0.3)))
+		target.damage(ceili(combatant.power * randf_range(0.1, 0.3)))
 		
 		if target.current_hp <= 0:
 			enemies.erase(target)

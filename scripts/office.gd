@@ -15,6 +15,10 @@ func _ready() -> void:
 	_on_money_changed(Globals.money, Globals.money)
 	_on_day_ended()
 	TimeManager.day_ended.connect(_on_day_ended)
+	
+	if not SoundManager.office_music.playing:
+		SoundManager.office_music.volume_linear = SoundManager.OFFICE_MUSIC_VOLUME
+		SoundManager.office_music.play()
 
 func _on_money_changed(old_money:int, new_money:int):
 	money_label.text = str(new_money)

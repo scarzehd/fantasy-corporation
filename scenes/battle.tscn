@@ -10,15 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://b5k6wnrlo5vy" path="res://resources/sprites/cave_battle_background.png" id="6_6vh42"]
 [ext_resource type="PackedScene" uid="uid://3e8drigu5xm1" path="res://scenes/ui/battle_hud.tscn" id="7_4k1nj"]
 [ext_resource type="Texture2D" uid="uid://bnoh1lo8lsasr" path="res://resources/sprites/farm_battle_background.png" id="7_f4pi3"]
-[ext_resource type="AudioStream" uid="uid://8tp5kr3jyi7h" path="res://resources/audio/corpo_theme.mp3" id="11_66ngm"]
 
-[node name="Battle" type="Node2D" unique_id=1135496140 node_paths=PackedStringArray("player_slots", "enemy_slots", "music_player")]
+[node name="Battle" type="Node2D" unique_id=1135496140 node_paths=PackedStringArray("player_slots", "enemy_slots")]
 script = ExtResource("1_dn72j")
 player_slots = [NodePath("PlayerSlot1"), NodePath("PlayerSlot2"), NodePath("PlayerSlot3"), NodePath("PlayerSlot4")]
 enemy_slots = [NodePath("EnemySlot1"), NodePath("EnemySlot2"), NodePath("EnemySlot3"), NodePath("EnemySlot4")]
 enemy_pool = Array[PackedScene]([ExtResource("2_6vh42"), ExtResource("3_v7i3o"), ExtResource("3_yahae"), ExtResource("4_v7i3o"), ExtResource("5_66ngm")])
 battle_backgrounds = Array[Texture]([ExtResource("6_6vh42"), ExtResource("6_4k1nj"), ExtResource("7_f4pi3")])
-music_player = NodePath("Music")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1461741069]
 unique_name_in_owner = true
@@ -51,9 +49,6 @@ position = Vector2(1480, 631)
 position = Vector2(1630, 681)
 
 [node name="BattleHUD" parent="." unique_id=690412004 instance=ExtResource("7_4k1nj")]
-
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=2025182409]
-stream = ExtResource("11_66ngm")
 
 [connection signal="battle_finished" from="." to="BattleHUD" method="_on_battle_ended"]
 [connection signal="turn_ended" from="." to="BattleHUD" method="_on_turn_ended"]

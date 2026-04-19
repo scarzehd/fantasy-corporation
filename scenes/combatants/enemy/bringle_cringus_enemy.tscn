@@ -308,11 +308,13 @@ expand_mode = 1
 
 [node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1095405858]
 max_polyphony = 3
+bus = &"OtherSounds"
 script = ExtResource("9_1a0d7")
 sounds = Array[AudioStream]([ExtResource("11_b7k4m"), ExtResource("12_pu7gr"), ExtResource("13_0xva3"), ExtResource("14_uoe3c"), ExtResource("15_rr6f5"), ExtResource("16_lcp51")])
 metadata/_custom_type_script = "uid://dfesb88ascuoc"
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="." unique_id=186010703]
+bus = &"OtherSounds"
 script = ExtResource("9_1a0d7")
 sounds = Array[AudioStream]([ExtResource("15_mvacm"), ExtResource("16_2yxdt"), ExtResource("17_b7k4m"), ExtResource("18_pu7gr"), ExtResource("19_0xva3"), ExtResource("20_uoe3c")])
 metadata/_custom_type_script = "uid://dfesb88ascuoc"

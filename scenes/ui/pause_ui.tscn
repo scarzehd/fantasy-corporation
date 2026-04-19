@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://o2kaxcx1anry"]
+
+[ext_resource type="Script" uid="uid://cl8wvnksegbyp" path="res://scripts/ui/pause_ui.gd" id="1_lauhp"]
+[ext_resource type="StyleBox" uid="uid://danxc1wkclacd" path="res://resources/styleboxes/panel_3.tres" id="1_xt3ok"]
+[ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="2_ghgjp"]
+[ext_resource type="StyleBox" uid="uid://cnatep7wec8ng" path="res://resources/styleboxes/button_1_red_normal.tres" id="3_yrwkb"]
+[ext_resource type="StyleBox" uid="uid://dhcql5manjx6m" path="res://resources/styleboxes/button_1_green_normal.tres" id="4_8dn2d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xt3ok"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_ghgjp"]
+font_size = 25
+font_color = Color(0.6784314, 0.6784314, 0.6784314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yrwkb"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_8dn2d"]
+font_size = 30
+font_color = Color(1, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1290577106]
+layer = 100
+
+[node name="Control" type="Control" parent="." unique_id=116287000]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lauhp")
+
+[node name="PauseMenu" type="Panel" parent="Control" unique_id=81965798]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/PauseMenu" unique_id=428347181]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.0
+offset_top = -284.0
+offset_right = 353.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_xt3ok")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PauseMenu/PanelContainer" unique_id=150022550]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/PauseMenu/PanelContainer/VBoxContainer" unique_id=208411976]
+layout_mode = 2
+text = "On Break"
+label_settings = SubResource("LabelSettings_xt3ok")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/PauseMenu/PanelContainer/VBoxContainer" unique_id=336661906]
+visible = false
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_ghgjp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Control/PauseMenu/PanelContainer/VBoxContainer" unique_id=1807993238]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/PauseMenu/PanelContainer/VBoxContainer" unique_id=978791471]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="Label" type="Label" parent="Control/PauseMenu/PanelContainer/VBoxContainer/GridContainer" unique_id=214479107]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Control/PauseMenu/PanelContainer/VBoxContainer/GridContainer" unique_id=1561967074]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+max_value = 2.0
+step = 0.1
+value = 1.0
+tick_count = 9
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="Label2" type="Label" parent="Control/PauseMenu/PanelContainer/VBoxContainer/GridContainer" unique_id=1738929927]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Control/PauseMenu/PanelContainer/VBoxContainer/GridContainer" unique_id=820166144]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+max_value = 2.0
+step = 0.1
+value = 1.0
+tick_count = 9
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="Label3" type="Label" parent="Control/PauseMenu/PanelContainer/VBoxContainer/GridContainer" unique_id=752509858]
+layout_mode = 2
+text = "UI Sounds"
+
+[node name="UISoundsSlider" type="HSlider" parent="Control/PauseMenu/PanelContainer/VBoxContainer/GridContainer" unique_id=137946798]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+max_value = 2.0
+step = 0.1
+value = 1.0
+tick_count = 9
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="Label4" type="Label" parent="Control/PauseMenu/PanelContainer/VBoxContainer/GridContainer" unique_id=312272769]
+layout_mode = 2
+text = "Other Sounds"
+
+[node name="OtherSoundsSlider" type="HSlider" parent="Control/PauseMenu/PanelContainer/VBoxContainer/GridContainer" unique_id=478130765]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+max_value = 2.0
+step = 0.1
+value = 1.0
+tick_count = 9
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="Control2" type="Control" parent="Control/PauseMenu/PanelContainer/VBoxContainer" unique_id=1397165495]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="QuitMenuButton" type="Button" parent="Control/PauseMenu/PanelContainer/VBoxContainer" unique_id=1606473925]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 25
+text = "Quit your job"
+
+[node name="QuitMenu" type="Panel" parent="Control" unique_id=1161427179]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/QuitMenu" unique_id=745585649]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.0
+offset_top = -176.0
+offset_right = 317.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_ghgjp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/QuitMenu/PanelContainer" unique_id=1224319615]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="Control/QuitMenu/PanelContainer/VBoxContainer" unique_id=1772407734]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/QuitMenu/PanelContainer/VBoxContainer" unique_id=342830867]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Are you sure you want to quit?"
+label_settings = SubResource("LabelSettings_yrwkb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/QuitMenu/PanelContainer/VBoxContainer" unique_id=202095164]
+layout_mode = 2
+size_flags_vertical = 6
+text = "You will lose all your progress."
+label_settings = SubResource("LabelSettings_8dn2d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/QuitMenu/PanelContainer/VBoxContainer" unique_id=1128066248]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="QuitButton" type="Button" parent="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer" unique_id=750824489]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_yrwkb")
+text = "Quit"
+
+[node name="Control" type="Control" parent="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1545011960]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1292515724]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_8dn2d")
+text = "Nevermind"
+
+[node name="Control2" type="Control" parent="Control/QuitMenu/PanelContainer/VBoxContainer" unique_id=712570353]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[connection signal="pressed" from="Control/PauseMenu/PanelContainer/VBoxContainer/QuitMenuButton" to="Control" method="_on_quit_menu_button_pressed"]
+[connection signal="pressed" from="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer/QuitButton" to="Control" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="Control" method="_on_cancel_button_pressed"]

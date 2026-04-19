@@ -31,8 +31,6 @@ signal combatant_clicked(combatant:Combatant)
 
 @export var battle_backgrounds:Array[Texture]
 
-@export var music_player:AudioStreamPlayer
-
 var current_turn_index:int = 0
 
 var waves:int = waves_left
@@ -48,7 +46,9 @@ func _enter_tree() -> void:
 	instance = self
 
 func _ready() -> void:
-	music_player.play()
+	if not SoundManager.battle_music.playing:
+		SoundManager.battle_music.volume_linear = SoundManager.BATTLE_MUSIC_VOLUME
+		SoundManager.battle_music.play()
 	
 	get_viewport().physics_object_picking_sort = true
 	get_viewport().physics_object_picking_first_only = true
@@ -109,14 +109,16 @@ func handle_current_turn():
 	
 	if not has_player:
 		var tween = create_tween()
-		tween.tween_property(music_player, "volume_linear", 0, 1)
+		tween.tween_property(SoundManager.battle_music, "volume_linear", 0, 1)
+		tween.tween_callback(SoundManager.battle_music.stop)
 		await tween.finished
 		lose_battle()
 		return
 	
 	if not has_enemy:
 		var tween = create_tween()
-		tween.tween_property(music_player, "volume_linear", 0, 1)
+		tween.tween_property(SoundManager.battle_music, "volume_linear", 0, 1)
+		tween.tween_callback(SoundManager.battle_music.stop)
 		await tween.finished
 		win_battle()
 		return
@@ -127,7 +129,8 @@ func handle_current_turn():
 	turn_started.emit(current_combatant)
 
 func current_turn_finished():
-	turn_ended.emit(combatants[current_turn_index])
+	if current_turn_index < combatants.size():
+		turn_ended.emit(combatants[current_turn_index])
 	
 	await get_tree().create_timer(1).timeout
 	

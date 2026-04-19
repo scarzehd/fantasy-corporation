@@ -15,6 +15,7 @@
 [ext_resource type="StyleBox" uid="uid://d43tbnhnssgx" path="res://resources/styleboxes/panel_2.tres" id="10_1dj1o"]
 [ext_resource type="StyleBox" uid="uid://danxc1wkclacd" path="res://resources/styleboxes/panel_3.tres" id="14_248it"]
 [ext_resource type="Texture2D" uid="uid://d01elj5tblkp5" path="res://resources/sprites/ui/money_icon.png" id="14_q8pi4"]
+[ext_resource type="PackedScene" uid="uid://v6g1fvuq17sa" path="res://scenes/ui/settings_button.tscn" id="16_ojtv6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ytn0o"]
 font_size = 25
@@ -521,5 +522,19 @@ text = "
 None"
 label_settings = SubResource("LabelSettings_q8pi4")
 horizontal_alignment = 1
+
+[node name="SettingsButton" parent="." unique_id=592852346 instance=ExtResource("16_ojtv6")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 29.0
+offset_top = 21.0
+offset_right = 158.0
+offset_bottom = 154.48694
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="pressed" from="MissionEndPanel/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

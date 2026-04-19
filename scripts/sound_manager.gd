@@ -3,6 +3,11 @@ extends Node
 @export var button_hover_sound:RandomAudioStreamPlayer
 @export var button_press_sound:RandomAudioStreamPlayer
 @export var money_press_sound:RandomAudioStreamPlayer
+@export var battle_music:AudioStreamPlayer
+@export var office_music:AudioStreamPlayer
+
+const OFFICE_MUSIC_VOLUME:float = 0.5
+const BATTLE_MUSIC_VOLUME:float = 0.2
 
 func _enter_tree() -> void:
 	get_tree().node_added.connect(_on_node_added)

@@ -161,8 +161,7 @@ libraries/mage = SubResource("AnimationLibrary_nfo83")
 autoplay = &"mage/idle"
 
 [node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(1120545636) index="0" unique_id=904817639]
-skew = 0.04363323
-texture = ExtResource("5_u5lfp")
+texture = ExtResource("3_a1hn4")
 
 [node name="RestoreAbility" type="Node" parent="." index="5" unique_id=1773393164]
 script = ExtResource("2_b52xw")
@@ -188,11 +187,12 @@ ability_name = "Fireball"
 icon = ExtResource("10_rqeii")
 select_icon = ExtResource("12_6algy")
 hover_icon = ExtResource("15_p440h")
-description = "Deal heavy damage over time for 2 turns."
+description = "Deal heavy damage over time for 3 turns."
 target_mode = 1
 metadata/_custom_type_script = "uid://br04jtfec7bnj"
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="." index="11" unique_id=34934585]
+bus = &"OtherSounds"
 script = ExtResource("16_ydvuy")
 sounds = Array[AudioStream]([ExtResource("17_ro3n2"), ExtResource("18_lf1ta"), ExtResource("19_5ojqg")])
 metadata/_custom_type_script = "uid://dfesb88ascuoc"

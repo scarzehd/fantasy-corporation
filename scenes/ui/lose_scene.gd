@@ -9,5 +9,4 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	await Fade.fade_out(2).finished
 	get_tree().change_scene_to_file(MAIN_SCENE)
-	TimeManager.advance_day(false)
 	Fade.fade_in()

@@ -50,6 +50,10 @@ func populate_ui():
 
 
 func _on_start_button_pressed() -> void:
+	if SoundManager.office_music.playing:
+		var tween = get_tree().create_tween()
+		tween.tween_property(SoundManager.office_music, "volume_linear", 0, 0.5)
+		tween.tween_callback(SoundManager.office_music.stop)
 	await Fade.fade_out(0.5).finished
 	if tutorial_mode:
 		get_tree().change_scene_to_packed(TUTORIAL_BATTLE)

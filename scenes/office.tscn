@@ -9,6 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://danxc1wkclacd" path="res://resources/styleboxes/panel_3.tres" id="7_2knxt"]
 [ext_resource type="StyleBox" uid="uid://dmjuh1jk5nqrf" path="res://resources/styleboxes/panel_4.tres" id="8_fmddn"]
 [ext_resource type="Texture2D" uid="uid://d01elj5tblkp5" path="res://resources/sprites/ui/money_icon.png" id="8_gdafm"]
+[ext_resource type="PackedScene" uid="uid://v6g1fvuq17sa" path="res://scenes/ui/settings_button.tscn" id="10_in4ui"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hub07"]
 font_size = 35
@@ -209,3 +210,10 @@ horizontal_alignment = 1
 root_node = NodePath("../../../../../..")
 libraries/ = SubResource("AnimationLibrary_gdafm")
 autoplay = &"flash"
+
+[node name="SettingsButton" parent="Node2D/HUDCanvasLayer/Control" unique_id=592852346 instance=ExtResource("10_in4ui")]
+layout_mode = 1
+offset_left = -176.0
+offset_top = -177.0
+offset_right = -47.0
+offset_bottom = -48.0

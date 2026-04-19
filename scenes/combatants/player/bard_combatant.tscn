@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://h2bpf1qsol31" path="res://resources/sprites/characters/bard/bard_attack_2.png" id="4_thqen"]
 [ext_resource type="Script" uid="uid://dvyc8dfvxjqk5" path="res://scripts/combatants/abilities/demoralize_ability.gd" id="4_wqw3v"]
 [ext_resource type="Texture2D" uid="uid://cjgr0hb1m8pl5" path="res://resources/sprites/abilities/cleanse.png" id="6_ryyco"]
+[ext_resource type="Texture2D" uid="uid://c68pp3s1c2m4x" path="res://resources/sprites/abilities/cleanse_select.png" id="7_u8c1d"]
 [ext_resource type="Texture2D" uid="uid://sitcyyfq4byy" path="res://resources/sprites/abilities/demoralize.png" id="8_e3apn"]
 [ext_resource type="Texture2D" uid="uid://cmyw3syrfs3tl" path="res://resources/sprites/abilities/cleanse_hover.png" id="8_eup5y"]
 [ext_resource type="Texture2D" uid="uid://2g7poenj1kw2" path="res://resources/sprites/abilities/demoralize_select.png" id="9_c7pkq"]
@@ -152,8 +153,10 @@ script = ExtResource("2_aodbh")
 audio_stream_player = NodePath("../CleanseSound")
 ability_name = "Cleanse"
 icon = ExtResource("6_ryyco")
+select_icon = ExtResource("7_u8c1d")
 hover_icon = ExtResource("8_eup5y")
-description = "Removes negative status effects from all allies."
+description = "Removes all negative status effects from an ally."
+target_mode = 2
 metadata/_custom_type_script = "uid://dbk6q71egjpcy"
 
 [node name="DemoralizeAbility" type="Node" parent="." index="6" unique_id=1826448421 node_paths=PackedStringArray("audio_stream_player")]
@@ -178,9 +181,12 @@ metadata/_custom_type_script = "uid://6hs3kcvwbwo3"
 
 [node name="DemoralizeSound" type="AudioStreamPlayer" parent="." index="11" unique_id=1283992943]
 stream = ExtResource("16_w7ewn")
+bus = &"OtherSounds"
 
 [node name="HealSound" type="AudioStreamPlayer" parent="." index="12" unique_id=959840822]
 stream = ExtResource("16_7jc6n")
+bus = &"OtherSounds"
 
 [node name="CleanseSound" type="AudioStreamPlayer" parent="." index="13" unique_id=2047910468]
 stream = ExtResource("18_u8c1d")
+bus = &"OtherSounds"

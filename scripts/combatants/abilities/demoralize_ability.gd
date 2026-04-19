@@ -11,7 +11,7 @@ func _ready() -> void:
 #func _button_toggled(toggled_on:bool):
 	#if toggled_on:
 		#button.text = "Select Target"
-	#else:s
+	#else:
 		#button.text = ability_name
 
 func _on_combatant_clicked(clicked_combatant:Combatant):
@@ -43,7 +43,7 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 	audio_stream_player.play()
 	
 	if RandomUtils.roll_attack(clicked_combatant.defense, combatant.attack):
-		clicked_combatant.damage(ceili(combatant.power * 0.5 * randf_range(0.9, 1.1)))
+		clicked_combatant.damage(ceili(combatant.power * 0.3 * randf_range(0.9, 1.1)))
 		
 		var status_effect = StatusEffect.new()
 		status_effect.id = "demoralize"

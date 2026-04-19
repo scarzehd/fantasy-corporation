@@ -76,7 +76,7 @@ func phase_0():
 	dialogue.close_dialogue()
 	await dialogue.dialogue_closed
 	
-	dialogue = TutorialDialogue.create_dialogue(["Hmm... Low stats across the board. We'll pass on you, John.", "Let's take a look at the item shop."], true, false)
+	dialogue = TutorialDialogue.create_dialogue(["Hmm... Low stats across the board.", "Let's take a look at the item shop."], true, false)
 	add_child(dialogue)
 	await dialogue.dialogue_finished
 	
@@ -140,7 +140,7 @@ func phase_0():
 	dialogue.close_dialogue()
 	await dialogue.dialogue_closed
 	
-	dialogue = TutorialDialogue.create_dialogue(["Well, it's quitting time. I know, time sure does fly here at Fantasy Corporation.", "Click on the bell to clock out and I'll see you at 9am tomorrow."], true, false)
+	dialogue = TutorialDialogue.create_dialogue(["Well, it's quitting time. I know, time sure does fly here at Fantasy Corp.", "Click on the bell to clock out and I'll see you at 9am tomorrow."], true, false)
 	add_child(dialogue)
 	await dialogue.dialogue_finished
 	
@@ -248,7 +248,7 @@ func phase_0():
 	dialogue.close_dialogue()
 	await dialogue.dialogue_closed
 	
-	dialogue = TutorialDialogue.create_dialogue(["Alright, that's enough sitting around. It's time you get your hands dirty.", "And by that I mean watch your employees get their hands dirty on your behalf.", "Click on the globe to start planning your adventure."])
+	dialogue = TutorialDialogue.create_dialogue(["You can have up to three adventurers in your party at a time. Since you're still in training, one is fine for now.", "It's time you get your hands dirty. And by that I mean watch your employees get their hands dirty on your behalf.", "Click on the globe to start planning your adventure."])
 	add_child(dialogue)
 	await dialogue.dialogue_finished
 	
@@ -363,7 +363,7 @@ func phase_1():
 	dialogue.close_dialogue()
 	await dialogue.dialogue_closed
 	
-	dialogue = TutorialDialogue.create_dialogue(["Congratulations! You're now ready to embark on your journey as a fully-fledged Manager at Fantasy Corportaion.", "Good luck!"])
+	dialogue = TutorialDialogue.create_dialogue(["Congratulations on your success!", "Normally, any surviving adventurers would return their equipped items to you after the adventure. Unfortunately, Sean's Weapon Shop has issued a recall on the Sonic Hammer. Something about 'potential copyright issues.'", "As with all adventurers, Jane was only signed with us for the duration of this adventure. Next time, you'll need to construct a whole new party.", "Jane's off to bigger and better things and so are you! You are now a fully fledged Manager here at Fantasy Corp.", "Good luck. You'll need it."])
 	add_child(dialogue)
 	await dialogue.dialogue_finished
 	

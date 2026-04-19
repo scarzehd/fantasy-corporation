@@ -39,12 +39,12 @@ func _on_combatant_clicked(clicked_combatant:Combatant):
 		await get_tree().create_timer(anim.get_marker_time("impact")).timeout
 	
 	if RandomUtils.roll_attack(clicked_combatant.defense, combatant.attack):
-		clicked_combatant.damage(roundi(combatant.power * randf_range(0.4, 0.6)))
+		clicked_combatant.damage(roundi(combatant.power * 0.5 * randf_range(0.9, 1.1)))
 		var status_effect = StatusEffect.new()
 		status_effect.id = "lacerate"
 		status_effect.name = "Bleed"
 		status_effect.defense = -ceili(combatant.power * 2)
-		status_effect.damage = ceili(combatant.power * 0.35)
+		status_effect.damage = ceili(combatant.power * 0.25)
 		status_effect.has_duration = true
 		status_effect.refresh_duration = true
 		status_effect.duration = 4

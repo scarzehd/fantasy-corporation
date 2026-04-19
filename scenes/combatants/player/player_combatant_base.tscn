@@ -176,6 +176,7 @@ position = Vector2(-16, 0)
 
 [node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=695289448]
 max_polyphony = 2
+bus = &"OtherSounds"
 script = ExtResource("9_03t4f")
 sounds = Array[AudioStream]([ExtResource("10_rcmsd"), ExtResource("11_4kujs"), ExtResource("12_wnng2"), ExtResource("13_2isic"), ExtResource("14_rmkrq"), ExtResource("15_34233")])
 metadata/_custom_type_script = "uid://dfesb88ascuoc"

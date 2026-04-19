@@ -168,6 +168,7 @@ texture = ExtResource("9_tkk67")
 
 [node name="PageTurnAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1920265220]
 unique_name_in_owner = true
+bus = &"UISounds"
 script = ExtResource("10_l2r7n")
 sounds = Array[AudioStream]([ExtResource("11_r5601"), ExtResource("12_yr8sm"), ExtResource("13_beakg"), ExtResource("14_h407f"), ExtResource("15_cbmhv"), ExtResource("16_ep27g"), ExtResource("17_ep27g"), ExtResource("18_fd1yx"), ExtResource("19_dma05"), ExtResource("20_fevum"), ExtResource("21_fo4ob")])
 pitch_range = Vector2(0.8, 1.2)

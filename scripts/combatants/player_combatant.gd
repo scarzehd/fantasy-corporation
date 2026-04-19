@@ -27,13 +27,6 @@ func end_turn():
 	super()
 	animation_player.queue(idle_animation)
 
-func damage(amount:int):
-	# Any time a character would be killed with 1 more than 1 HP remaining, instead leave them at 1 HP.
-	if current_hp > 1:
-		amount = min(current_hp - 1, amount)
-	
-	super(amount)
-
 func _get_hp() -> int:
 	return character_data.get_modified_hp()
 

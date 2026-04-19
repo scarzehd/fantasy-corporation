@@ -7,6 +7,7 @@ const LOSE_SCENE:PackedScene = preload("uid://dakppwtg6h8ey")
 @onready var bankruptcy_label:Label = %BankruptcyLabel
 @onready var normal:Sprite2D = %Normal
 @onready var hover:Sprite2D = %Hover
+@onready var bell_audio_stream:RandomAudioStreamPlayer = %BellAudioStream
 
 @export var tutorial_mode:bool = false
 
@@ -15,6 +16,8 @@ func _on_pressed() -> void:
 	bankruptcy_label.hide()
 	if Globals.money < 0:
 		bankruptcy_label.show()
+	
+	bell_audio_stream.play_random()
 
 func _input(event: InputEvent) -> void:
 	if tutorial_mode:

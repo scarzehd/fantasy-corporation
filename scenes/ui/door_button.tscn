@@ -6,6 +6,8 @@
 [ext_resource type="StyleBox" uid="uid://dhcql5manjx6m" path="res://resources/styleboxes/button_1_green_normal.tres" id="4_jfj05"]
 [ext_resource type="StyleBox" uid="uid://cnatep7wec8ng" path="res://resources/styleboxes/button_1_red_normal.tres" id="5_1x1q5"]
 [ext_resource type="Texture2D" uid="uid://dcit02p5mwg7m" path="res://resources/sprites/office/office_bell_hover.png" id="6_qo1k8"]
+[ext_resource type="AudioStream" uid="uid://ckre4buxjohga" path="res://resources/audio/ui/bell.mp3" id="7_i22h7"]
+[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="7_xc6he"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxk0l"]
 
@@ -135,6 +137,14 @@ texture = ExtResource("1_q8bib")
 unique_name_in_owner = true
 visible = false
 texture = ExtResource("6_qo1k8")
+
+[node name="BellAudioStream" type="AudioStreamPlayer" parent="." unique_id=1459164440]
+unique_name_in_owner = true
+bus = &"UISounds"
+script = ExtResource("7_xc6he")
+sounds = Array[AudioStream]([ExtResource("7_i22h7")])
+pitch_range = Vector2(0.99, 1.01)
+metadata/_custom_type_script = "uid://dfesb88ascuoc"
 
 [connection signal="mouse_entered" from="DoorButton" to="DoorButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="DoorButton" to="DoorButton" method="_on_mouse_exited"]

@@ -193,6 +193,7 @@ description = "Damage equal to Power is split between all enemies."
 metadata/_custom_type_script = "uid://vqfv6ove1g6o"
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="." index="11" unique_id=186588591]
+bus = &"OtherSounds"
 script = ExtResource("16_au77o")
 sounds = Array[AudioStream]([ExtResource("17_01e3d"), ExtResource("18_d6kx7"), ExtResource("19_8eiao"), ExtResource("20_24qig"), ExtResource("21_fop7c"), ExtResource("22_hkxuw")])
 metadata/_custom_type_script = "uid://dfesb88ascuoc"
