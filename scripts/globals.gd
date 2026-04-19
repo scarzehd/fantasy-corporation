@@ -6,7 +6,7 @@ signal money_changed(old_money:int, new_money:int)
 @warning_ignore("unused_signal")
 signal character_hired(character:CharacterData)
 
-var character_generator:CharacterGenerator = preload("res://resources/character_generator/starting_generator.tres")
+var character_generator:CharacterGenerator = load("uid://qbn7iru5xo40")
 
 var hired_characters:Array[CharacterData]
 

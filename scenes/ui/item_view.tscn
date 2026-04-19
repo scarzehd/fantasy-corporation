@@ -16,6 +16,12 @@ font_size = 20
 [sub_resource type="LabelSettings" id="LabelSettings_op8na"]
 font_size = 17
 
+[sub_resource type="LabelSettings" id="LabelSettings_dhech"]
+font_size = 17
+font_color = Color(1, 1, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_nu470"]
 font_color = Color(0, 1, 0, 1)
 
@@ -92,7 +98,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Equipped by Bringle"
-label_settings = SubResource("LabelSettings_op8na")
+label_settings = SubResource("LabelSettings_dhech")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1229132382]

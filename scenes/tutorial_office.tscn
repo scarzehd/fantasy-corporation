@@ -92,7 +92,7 @@ tutorial_mode = true
 [node name="ExitButton" parent="Node2D/InventoryButton/InventoryButton/InventoryMenu/InventoryMenu" parent_id_path=PackedInt32Array(1539192965, 1947896191) index="0" unique_id=384403970]
 disabled = true
 
-[node name="SellButton" parent="Node2D/InventoryButton/InventoryButton/InventoryMenu/InventoryMenu/Panel/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" parent_id_path=PackedInt32Array(1539192965, 345213539, 2068711857) index="4" unique_id=1442878590]
+[node name="SellButton" parent="Node2D/InventoryButton/InventoryButton/InventoryMenu/InventoryMenu/Panel/Items/MarginContainer/ItemContainer/ItemTemplate/VBoxContainer" parent_id_path=PackedInt32Array(1539192965, 345213539, 2068711857) index="5" unique_id=1442878590]
 disabled = true
 
 [node name="Button" parent="Node2D/InventoryButton/InventoryButton/InventoryMenu/InventoryMenu/Panel/TabContainer/Adventurers/VBoxContainer/ScrollContainer/MarginContainer/CharacterSelectContainer/CharacterSelectTemplate" parent_id_path=PackedInt32Array(1539192965, 1586697291) index="0" unique_id=1176791227]

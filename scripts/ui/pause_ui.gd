@@ -45,6 +45,7 @@ func _on_cancel_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
+	Globals.reset()
 	await Fade.fade_out().finished
 	get_tree().change_scene_to_file("uid://cyfybftq3otv3")
 	Fade.fade_in()
