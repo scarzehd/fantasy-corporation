@@ -50,9 +50,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -353.0
-offset_top = -284.0
+offset_top = -192.0
 offset_right = 353.0
-offset_bottom = 284.0
+offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_xt3ok")
@@ -150,11 +150,16 @@ custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
 [node name="QuitMenuButton" type="Button" parent="Control/PauseMenu/PanelContainer/VBoxContainer" unique_id=1606473925]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 25
 text = "Quit your job"
+
+[node name="Control3" type="Control" parent="Control/PauseMenu/PanelContainer/VBoxContainer" unique_id=1077429604]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
 
 [node name="QuitMenu" type="Panel" parent="Control" unique_id=1161427179]
 unique_name_in_owner = true
@@ -210,20 +215,6 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="QuitButton" type="Button" parent="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer" unique_id=750824489]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(175, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = ExtResource("3_yrwkb")
-text = "Quit"
-
-[node name="Control" type="Control" parent="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1545011960]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-
 [node name="CancelButton" type="Button" parent="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1292515724]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(175, 0)
@@ -231,13 +222,27 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = ExtResource("4_8dn2d")
+theme_override_styles/normal = ExtResource("3_yrwkb")
 text = "Nevermind"
+
+[node name="Control" type="Control" parent="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1545011960]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer" unique_id=750824489]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_8dn2d")
+text = "Quit"
 
 [node name="Control2" type="Control" parent="Control/QuitMenu/PanelContainer/VBoxContainer" unique_id=712570353]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
 [connection signal="pressed" from="Control/PauseMenu/PanelContainer/VBoxContainer/QuitMenuButton" to="Control" method="_on_quit_menu_button_pressed"]
-[connection signal="pressed" from="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer/QuitButton" to="Control" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="Control" method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="Control/QuitMenu/PanelContainer/VBoxContainer/HBoxContainer/QuitButton" to="Control" method="_on_quit_button_pressed"]

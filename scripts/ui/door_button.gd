@@ -37,7 +37,10 @@ func _on_accept_button_pressed() -> void:
 		return
 	
 	if Globals.money < 0:
-		await Fade.fade_out().finished
+		var tween = create_tween()
+		tween.tween_property(SoundManager.office_music, "volume_linear", 0.0, 1)
+		tween.tween_callback(SoundManager.office_music.stop)
+		await Fade.fade_out(2).finished
 		get_tree().change_scene_to_packed(LOSE_SCENE)
 	
 	TimeManager.advance_day()

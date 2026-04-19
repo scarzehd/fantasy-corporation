@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://rvsnhrqgti45" path="res://scenes/ui/lose_scene.gd" id="1_68m3b"]
 [ext_resource type="Texture2D" uid="uid://f48qjhskco44" path="res://resources/sprites/ui/game_over_background.png" id="2_6vthu"]
+[ext_resource type="AudioStream" uid="uid://fgxb0caft5xr" path="res://resources/audio/ui/game_over.mp3" id="3_m2sg5"]
+[ext_resource type="Script" uid="uid://dfesb88ascuoc" path="res://scripts/random_audio_stream_player.gd" id="4_lw2vd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r7mh8"]
 font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_lw2vd"]
+font_size = 45
 
 [node name="LoseScene" type="Node2D" unique_id=683280131]
 script = ExtResource("1_68m3b")
@@ -51,6 +56,35 @@ offset_right = 504.0
 offset_bottom = 399.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
-text = "Try again"
+text = "Look for a new job"
+
+[node name="DayLabel" type="Label" parent="Control" unique_id=1453782503]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 127.0
+offset_top = 301.0
+offset_right = 456.0
+offset_bottom = 375.0
+text = "Made it to day"
+label_settings = SubResource("LabelSettings_lw2vd")
+
+[node name="AdventureLabel" type="Label" parent="Control" unique_id=1789631189]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 127.0
+offset_top = 381.0
+offset_right = 607.0
+offset_bottom = 455.0
+text = "X Successful advenures"
+label_settings = SubResource("LabelSettings_lw2vd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1680933381]
+unique_name_in_owner = true
+stream = ExtResource("3_m2sg5")
+autoplay = true
+script = ExtResource("4_lw2vd")
+pitch_range = Vector2(1, 1)
+volume_range = Vector2(0.7, 0.7)
+metadata/_custom_type_script = "uid://dfesb88ascuoc"
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

@@ -9,6 +9,7 @@ class_name PauseUI
 @onready var quit_menu:Panel = %QuitMenu
 @onready var quit_button:Button = %QuitButton
 @onready var cancel_button:Button = %CancelButton
+@onready var quit_menu_button:Button = %QuitMenuButton
 
 func _ready() -> void:
 	master_volume_slider.value = AudioServer.get_bus_volume_linear(0)
@@ -20,6 +21,9 @@ func _ready() -> void:
 	music_slider.value_changed.connect(func(value): AudioServer.set_bus_volume_linear(1, value))
 	ui_sounds_slider.value_changed.connect(func(value): AudioServer.set_bus_volume_linear(2, value))
 	other_sounds_slider.value_changed.connect(func(value): AudioServer.set_bus_volume_linear(3, value))
+	
+	if get_tree().current_scene.name == "MenuScreen":
+		quit_menu_button.hide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -41,4 +45,6 @@ func _on_cancel_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
-	get_tree().quit()
+	await Fade.fade_out().finished
+	get_tree().change_scene_to_file("uid://cyfybftq3otv3")
+	Fade.fade_in()

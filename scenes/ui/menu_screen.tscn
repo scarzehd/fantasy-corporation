@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bctm227gdibp3" path="res://scripts/ui/menu_screen.gd" id="1_py1kr"]
 [ext_resource type="Texture2D" uid="uid://bkmb7oywgw1qs" path="res://resources/sprites/ui/menu_background.png" id="2_anq1i"]
 [ext_resource type="FontFile" uid="uid://ci6e21wf285le" path="res://resources/fonts/UnifrakturMaguntia-Regular.ttf" id="3_mkhoe"]
+[ext_resource type="PackedScene" uid="uid://v6g1fvuq17sa" path="res://scenes/ui/settings_button.tscn" id="4_u5qb7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r7mh8"]
 font = ExtResource("3_mkhoe")
@@ -87,6 +88,12 @@ layout_mode = 2
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 35
 text = "Exit"
+
+[node name="SettingsButton" parent="." unique_id=592852346 instance=ExtResource("4_u5qb7")]
+offset_left = 1751.0
+offset_top = 913.0
+offset_right = 1880.0
+offset_bottom = 1046.4869
 
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
