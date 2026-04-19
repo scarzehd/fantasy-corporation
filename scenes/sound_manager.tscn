@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://doo1ywepmwml7" path="res://resources/audio/ui/buy7.mp3" id="5_mpi5b"]
 [ext_resource type="AudioStream" uid="uid://ctjupkts45d1g" path="res://resources/audio/ui/buy8.mp3" id="6_aa63w"]
 [ext_resource type="AudioStream" uid="uid://b7xtmvnxrsyff" path="res://resources/audio/ui/buy9.mp3" id="7_k1d7a"]
-[ext_resource type="AudioStream" uid="uid://8tp5kr3jyi7h" path="res://resources/audio/corpo_theme.mp3" id="8_aa63w"]
+[ext_resource type="AudioStream" uid="uid://8tp5kr3jyi7h" path="res://resources/audio/music/corpo_theme.mp3" id="8_aa63w"]
 [ext_resource type="AudioStream" uid="uid://f3cbt7uj4cpj" path="res://resources/audio/music/office.mp3" id="9_k1d7a"]
 
 [node name="SoundManager" type="Node" unique_id=324037352 node_paths=PackedStringArray("button_hover_sound", "button_press_sound", "money_press_sound", "battle_music", "office_music")]

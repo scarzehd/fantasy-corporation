@@ -31,6 +31,9 @@ signal combatant_clicked(combatant:Combatant)
 
 @export var battle_backgrounds:Array[Texture]
 
+@onready var lose_battle_audio:AudioStreamPlayer = %LoseBattleAudio
+@onready var win_battle_audio:AudioStreamPlayer = %WinBattleAudio
+
 var current_turn_index:int = 0
 
 var waves:int = waves_left
@@ -108,18 +111,10 @@ func handle_current_turn():
 			has_enemy = true
 	
 	if not has_player:
-		var tween = create_tween()
-		tween.tween_property(SoundManager.battle_music, "volume_linear", 0, 1)
-		tween.tween_callback(SoundManager.battle_music.stop)
-		await tween.finished
 		lose_battle()
 		return
 	
 	if not has_enemy:
-		var tween = create_tween()
-		tween.tween_property(SoundManager.battle_music, "volume_linear", 0, 1)
-		tween.tween_callback(SoundManager.battle_music.stop)
-		await tween.finished
 		win_battle()
 		return
 	
@@ -141,12 +136,22 @@ func current_turn_finished():
 	handle_current_turn()
 
 func lose_battle():
+	var tween = create_tween()
+	tween.tween_property(SoundManager.battle_music, "volume_linear", 0, 0.5)
+	tween.tween_callback(SoundManager.battle_music.stop)
+	await tween.finished
+	lose_battle_audio.play()
 	battle_finished.emit(false)
 
 func win_battle():
 	waves_left -= 1
 	
 	if waves_left <= 0:
+		var tween = create_tween()
+		tween.tween_property(SoundManager.battle_music, "volume_linear", 0, 0.5)
+		tween.tween_callback(SoundManager.battle_music.stop)
+		await tween.finished
+		win_battle_audio.play()
 		battle_finished.emit(true)
 	else:
 		await Fade.fade_out(0.5).finished

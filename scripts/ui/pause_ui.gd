@@ -46,6 +46,13 @@ func _on_cancel_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	Globals.reset()
+	var tween = get_tree().create_tween()
+	tween.tween_property(SoundManager.battle_music, "volume_linear", 0, 1)
+	tween.tween_callback(SoundManager.battle_music.stop)
+	
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property(SoundManager.office_music, "volume_linear", 0, 1)
+	tween2.tween_callback(SoundManager.office_music.stop)
 	await Fade.fade_out().finished
 	get_tree().change_scene_to_file("uid://cyfybftq3otv3")
 	Fade.fade_in()

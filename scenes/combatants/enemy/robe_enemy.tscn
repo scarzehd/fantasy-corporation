@@ -313,7 +313,7 @@ hit_sound = NodePath("HitSound")
 effect_icon_template = NodePath("Control/VBoxContainer/GridContainer/TextureRect")
 effect_icon_container = NodePath("Control/VBoxContainer/GridContainer")
 base_hp = 80
-base_attack = 40
+base_attack = 50
 base_power = 40
 base_defense = 100
 

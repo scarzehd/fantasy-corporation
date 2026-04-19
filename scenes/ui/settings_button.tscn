@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://v6g1fvuq17sa"]
 
 [ext_resource type="Script" uid="uid://drnpep0duys7b" path="res://scripts/ui/settings_button.gd" id="1_ab84w"]
-[ext_resource type="Texture2D" uid="uid://bgccuxv0famla" path="res://icon.svg" id="1_oubv5"]
+[ext_resource type="Texture2D" uid="uid://cmhuv2b624sxt" path="res://resources/sprites/ui/gear.png" id="2_ab84w"]
 
 [node name="SettingsButton" type="Button" unique_id=592852346]
 anchors_preset = 3
@@ -30,7 +30,7 @@ offset_right = 33.5
 offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_oubv5")
+texture = ExtResource("2_ab84w")
 expand_mode = 1
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

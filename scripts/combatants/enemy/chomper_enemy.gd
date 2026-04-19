@@ -24,7 +24,7 @@ func start_turn():
 	if RandomUtils.roll_attack(target.defense, attack):
 		target.damage(roundi(power * randf_range(0.9, 1.1)))
 		
-		if randf() < 0.35:
+		if randf() < 0.5:
 			target.add_status_effect(status_effect.duplicate())
 			await get_tree().create_timer(0.15).timeout
 			var bounce_text = target.create_bounce_text("Bleeding", Color.RED, 40)

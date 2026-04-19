@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b5k6wnrlo5vy" path="res://resources/sprites/cave_battle_background.png" id="6_6vh42"]
 [ext_resource type="PackedScene" uid="uid://3e8drigu5xm1" path="res://scenes/ui/battle_hud.tscn" id="7_4k1nj"]
 [ext_resource type="Texture2D" uid="uid://bnoh1lo8lsasr" path="res://resources/sprites/farm_battle_background.png" id="7_f4pi3"]
+[ext_resource type="AudioStream" uid="uid://cn43b8grfohqy" path="res://resources/audio/combat/lose_battle.mp3" id="11_66ngm"]
+[ext_resource type="AudioStream" uid="uid://celleei4legts" path="res://resources/audio/combat/win_battle.mp3" id="12_03edq"]
 
 [node name="Battle" type="Node2D" unique_id=1135496140 node_paths=PackedStringArray("player_slots", "enemy_slots")]
 script = ExtResource("1_dn72j")
@@ -49,6 +51,16 @@ position = Vector2(1480, 631)
 position = Vector2(1630, 681)
 
 [node name="BattleHUD" parent="." unique_id=690412004 instance=ExtResource("7_4k1nj")]
+
+[node name="LoseBattleAudio" type="AudioStreamPlayer" parent="." unique_id=1826893242]
+unique_name_in_owner = true
+stream = ExtResource("11_66ngm")
+bus = &"Music"
+
+[node name="WinBattleAudio" type="AudioStreamPlayer" parent="." unique_id=1201709828]
+unique_name_in_owner = true
+stream = ExtResource("12_03edq")
+bus = &"Music"
 
 [connection signal="battle_finished" from="." to="BattleHUD" method="_on_battle_ended"]
 [connection signal="turn_ended" from="." to="BattleHUD" method="_on_turn_ended"]
