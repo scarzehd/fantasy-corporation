@@ -26,7 +26,7 @@ func _button_pressed():
 			status_effect.has_duration = true
 			status_effect.duration = 2
 			status_effect.refresh_duration = true
-			status_effect.damage = floori(-combatant.power * 0.5)
+			status_effect.damage = floori(-combatant.power * 0.75)
 			status_effect.name = "Healing Song"
 			status_effect.id = "healing_song"
 			status_effect.icon = STATUS_ICON
